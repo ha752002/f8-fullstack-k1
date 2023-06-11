@@ -1,0 +1,13 @@
+/* ex1 */
+.main__letter-icon {
+    font-size: 22px;
+}
+
+.main__input-email {
+    padding: 3px 0 3px 2px;
+    border: 1px solid #b6abab;
+    display: block;
+    margin: 0 0 14px 0;
+}
+
+/* end ex1  */
