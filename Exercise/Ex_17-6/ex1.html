@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Roboto', 'Lato', sans-serif;
+        }
+
+        .form__wrap {
+            width: 715px;
+            margin: 0 auto;
+            display: table;
+            margin-top: 200px;
+            border: 1px solid black;
+            padding: 14px;
+        }
+
+        .form__wrap-text {
+            width: calc(100% / 1.4);
+        }
+
+        .form__order table {
+            width: 100%;
+        }
+
+        td th {
+            width: 91%;
+            height: 30px;
+            display: block;
+        }
+
+        .form__order-tr {
+            width: 100%;
+        }
+
+        .form__order-input::placeholder {
+            padding-left: 5px;
+            font-size: 15px
+        }
+
+        .form__order-label {
+            text-align: left;
+            padding-top: 16px;
+        }
+
+        .form_btn-submit {
+            margin-top: 16px;
+        }
+
+        .form__order-input {
+            width: 89%;
+            height: 29px;
+        }
+
+        .form__order-option {
+            width: 92%;
+            height: 35px;
+        }
+
+        .form__order-option {
+            padding-left: 5px;
+        }
+
+        .form_btn-submit {
+            padding: 12px 30px;
+            background-color: #08768d;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header Content -->
+    </header>
+
+    <main>
+        <section class="form__wrap">
+            <h1>Try a free sample</h1>
+            <p class="form__wrap-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius dolorem deserunt
+                blanditiis animi,
+                expedita incidunt aperiam, voluptates vitae quod nemo voluptatum molestiae, dolore numquam. Nesciunt
+                quibusdam dolorum expedita cupiditate a.
+            </p>
+            <!-- form oder -->
+            <form class="form__order">
+                <table width="100%">
+                    <tr>
+                        <th width="50%" class="form__order-label">First name</th>
+                        <th class="form__order-label">Last name</th>
+                    </tr>
+                    <tr>
+                        <td><input class="form__order-input" type="text" placeholder="Join"></td>
+                        <td><input class="form__order-input" type="text" placeholder="Smith"></td>
+                    </tr>
+
+                    <tr>
+                        <th class="form__order-label">Email address</th>
+                        <th class="form__order-label">Address</th>
+                    </tr>
+                    <tr>
+                        <td><input class="form__order-input" type="email" placeholder="John@example.com"></td>
+                        <td><input class="form__order-input" type="address" placeholder="Silk St"></td>
+                    </tr>
+
+                    <tr>
+                        <th class="form__order-label">City</th>
+                        <th class="form__order-label">State</th>
+                    </tr>
+                    <tr>
+                        <td><input class="form__order-input" type="text" placeholder="London"></td>
+                        <td><input class="form__order-input" type="text"></td>
+                    </tr>
+
+                    <tr>
+                        <th class="form__order-label">ZIP code</th>
+                        <th class="form__order-label">Country</th>
+                    </tr>
+                    <tr>
+                        <td><input class="form__order-input" type="text" placeholder="EC2Y 8DS"></td>
+                        <td>
+                            <select class="form__order-input form__order-option">
+                                <option value="1">VietNam</option>
+                                <option value="2">France</option>
+                                <option value="3">America</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" class="form_btn-submit">SEND ME FREE COFFEE</button></td>
+                    </tr>
+                </table>
+            </form>
+            <!-- end form oder -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+
+</html>
