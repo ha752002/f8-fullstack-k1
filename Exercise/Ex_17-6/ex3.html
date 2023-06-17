@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        * {
+            font-family: 'Roboto', 'Lato', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .Contact-form {
+            width: 62%;
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 14px;
+        }
+
+        .grid {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .grid__row {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: -8px;
+            padding-right: -8px;
+        }
+
+        .grid__column-6 {
+            padding-left: 8px;
+            padding-right: 8px;
+            width: 50%;
+        }
+
+        .grid__column-12 {
+            padding-left: 8px;
+            padding-right: 8px;
+            width: 100%;
+        }
+
+
+        .grid__column-3 {
+            padding-left: 8px;
+            padding-right: 8px;
+            width: 25%;
+        }
+
+        .site-input {
+            width: 100%;
+            height: 35px;
+            border: 0;
+            color: #000;
+            border: solid 1px #868282;
+            font-size: 13px;
+            padding-left: 10px;
+            margin-bottom: 15px;
+            outline: 0;
+        }
+
+        .site-area {
+            width: 100%;
+            border: 0;
+            border: solid 1px #868282;
+            font-size: 13px;
+            padding: 20px 0 0 10px;
+            min-height: 200px;
+            margin-bottom: 23px;
+        }
+
+        .site-btn {
+            width: 100%;
+            height: 35px;
+        }
+
+        .site-btn:hover {
+            background-color: #ffb100 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header Content -->
+    </header>
+    <main>
+        <!-- Form Contact -->
+        <div class="grid">
+            <h1>Get in tounch with us by filling contact form below</h1>
+            <form action="" class="Contact-form">
+                <div class="grid__row">
+                    <div class="grid__column-6">
+                        <input class="site-input" placeholder="* Enter your full name">
+                    </div>
+                    <div class="grid__column-6">
+                        <input class="site-input" placeholder="* Enter your full email">
+                    </div>
+                    <div class="grid__column-6">
+                        <input class="site-input" placeholder="* Enter your full subject">
+                    </div>
+                    <div class="grid__column-12">
+                        <textarea class="site-area" placeholder="* Your message here"></textarea>
+                    </div>
+                    <div class="grid__column-3">
+                        <button class="site-btn" type="submit">Send message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--end Form Contact -->
+    </main>
+    <footer>
+        <!-- Footer Content -->
+    </footer>
+</body>
+
+</html>
