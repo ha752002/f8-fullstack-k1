@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2 : Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Roboto', 'Lato', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .grid {
+            width: 1100px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .grid__row {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: -15px;
+            padding-right: -15px;
+        }
+
+
+        .grid__column-12 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+        }
+
+        .grid__column-4 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 33.3333%;
+        }
+
+        main .grid {
+            margin-top: 207px;
+            border: 1px solid black;
+
+        }
+
+        .feedBack__title {
+            text-align: center;
+        }
+
+        .feedBack__title {
+            margin-bottom: 78px;
+            margin-top: 41px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .feedBack__title::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: calc(100% / 12);
+            transform: translateX(515%);
+            bottom: 1px;
+            top: 47px;
+            border-bottom: 4px solid rgb(60, 32, 218);
+        }
+
+        .grid__column-9 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 75%;
+        }
+
+        .grid__column-4 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 33.3333%;
+        }
+
+        .grid__column-3 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 25%;
+        }
+
+        .feedBack__info {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .user-img {
+            width: 100%;
+        }
+
+        .feeback-content {
+            padding-bottom: 12px;
+            font-style: italic;
+            font-weight: 400;
+            color: #acacac;
+            font-size: 15px;
+        }
+
+        .name-user {
+            font-weight: 600;
+            color: #878787;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header Content -->
+    </header>
+    <main>
+        <!-- Main Content  -->
+        <div class="grid">
+            <div class="grid__row">
+                <!-- FeedBack Title -->
+                <h1 class="feedBack__title grid__column-12">WHAT OUR CLIENTS SAY</h1>
+                <!--End FeedBack Title -->
+
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+                <div class="grid__column-4">
+                    <!-- feedBack info -->
+                    <div class="feedBack__info">
+                        <div class="grid__row">
+                            <!-- Img user  -->
+                            <div class="grid__column-3">
+                                <img class="user-img" src="./img/user.png" alt="">
+                            </div>
+                            <!-- End img user  -->
+
+                            <!-- Content Feedback -->
+                            <div class="grid__column-9">
+                                <p class="feeback-content">"Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Incidunt, quaerat sint
+                                    ipsam quibusdam laborum perferendis. Ducimus molestias, fugiat maxime est,
+                                    architecto deserunt quas nemo ut sapiente vero quos nesciunt ab."</p>
+                                <p class="name-user"> John Doe</p>
+                            </div>
+                            <!-- End Content Feedback -->
+                        </div>
+                    </div>
+                    <!--End feedBack info -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End Content  -->
+    </main>
+    <footer>
+        <!-- Footer Content -->
+    </footer>
+</body>
+
+</html>
