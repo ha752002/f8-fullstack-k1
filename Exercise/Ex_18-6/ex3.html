@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Roboto', 'Lato', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            padding: 30px;
+            width: 400px;
+            max-width: 100%;
+            margin: auto;
+            margin-top: 50px;
+            border: 1px solid black;
+
+        }
+
+        .form__input-item {
+            align-items: center;
+            display: flex;
+            margin-bottom: 11px;
+
+        }
+
+        .item__input {
+            padding: 4px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .item__label {
+            flex: 0 0 130px;
+        }
+
+        .item__input input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .item__input input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .btn {
+            margin-left: calc(100% / 3);
+        }
+
+        button {
+            padding: 4px 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header content -->
+    </header>
+    <main class="container">
+        <!-- Form Access Manager -->
+        <form method="post">
+            <!-- Input name -->
+            <div class="form__input-item">
+                <label class="item__label" for="fullname">Fullname : </label>
+                <input class="item__input" type="text" name="fullname" id="fullname" required>
+            </div>
+            <!-- Input Password -->
+            <div class="form__input-item">
+                <label class="item__label" for="psw">Password :</label>
+                <input class="item__input" type="password" name="psw" id="psw" required>
+            </div>
+            <!-- Input City -->
+            <div class="form__input-item">
+                <label class="item__label" for="city">City of : </label>
+                <input class="item__input" type="text" name="city" id="city" required>
+            </div>
+            <!-- Input Employment -->
+            <div class="form__input-item">
+                <label class="item__label" for="employment">Employment : </label>
+                <input class="item__input" type="text" name="employment" id="employment" required>
+            </div>
+            <!-- Option Serve -->
+            <div class="form__input-item">
+                <label class="item__label " for="server">Web Server : </label>
+                <select name="server" class="item__input" id="server">
+                    <option hidden> -- Choose a serve --</option>
+                    <option value="1">Microsoft IIS</option>
+                    <option value="2">Nginx</option>
+                    <option value="3">Apache HTTP Server</option>
+                    <option value="4">LiteSpeed Web Server</option>
+                </select>
+            </div>
+            <!-- Input role -->
+            <div class="form__input-item">
+                <label class="item__label input-title">Please specify your role :</label>
+                <div>
+                    <label class="item__input"> <input type="radio" name="role">Admin </label>
+                    <label class="item__input"> <input type="radio" name="role">Engineer</label>
+                    <label class="item__input"> <input type="radio" name="role">Manager</label>
+                    <label class="item__input"> <input type="radio" name="role">Guest</label>
+                </div>
+            </div>
+            <!-- Input Sign on -->
+            <div class="form__input-item">
+                <label class="item__label">Single Sign-on to the following :</label>
+                <div>
+                    <label class="item__input"> <input type="checkbox" name="gender">Mail</label>
+                    <label class="item__input"> <input type="checkbox" name="gender">Payroll</label>
+                    <label class="item__input"> <input type="checkbox" name="gender">Self</label>
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit">Login</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <!-- End Form Access Manager -->
+
+    </main>
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+
+</html>
