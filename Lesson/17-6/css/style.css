@@ -1,0 +1,23 @@
+h1 {
+    color: red;
+}
+
+#title {
+    color: aqua;
+}
+
+.title {
+    color: rgb(45, 54, 54);
+}
+
+.content h1 {
+    color: blue;
+}
+
+.element h1 {
+    color: rgb(106, 106, 112);
+}
+
+h1.title.first {
+    color: rgb(71, 171, 103);
+}

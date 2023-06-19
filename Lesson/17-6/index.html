@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        label:first-child {
+            margin-top: 20px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        div,
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="get">
+        <div>
+            <label for="">FullName</label>
+            <input type="text" name="name" placeholder="Name..." />
+        </div>
+        <div>
+            <label for="">FullName</label>
+            <input type= "password" name="password" placeholder="Password..." />
+        </div>
+        <button>Log in</button>
+    </form> -->
+    <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="get">
+        <div>
+            <label for="fullname">Fullname : </label>
+            <input type="text" name="fullname" id="fullname" value="Hồng Hà" placeholder="Họ và tên ..." required>
+        </div>
+        <!-- <div>
+            <label for="email">Email : </label>
+            <input type="email" name="email" id="email" value="" placeholder="Email..." required>
+        </div>
+        <div>
+            <label for="psw">Password :</label>
+            <input type="password" name="psw" id="psw" placeholder="Password ..." required>
+        </div>
+        <div>
+            <label for="age">Age :</label>
+            <input type="number" name="age" id="age" placeholder="Age ..." min="8" max="30" step="0.1" required>
+        </div> -->
+        <div>
+            <label>Giới tính</label>
+            <label> <input type="radio" name="gender">Khong xác định</label>
+            <label> <input type="radio" name="gender">Nam</label>
+            <label> <input type="radio" name="gender">Nữ</label>
+        </div>
+        <div>
+            <label>Nguồn nào</label>
+            <label> <input type="checkbox" name="gender">gg</label>
+            <label> <input type="checkbox" name="gender">friend</label>
+            <label> <input type="checkbox" name="gender">fb</label>
+        </div>
+        <div>
+            <label for="file">Avarta </label>
+            <input type="file" name="file" id="file">
+        </div>
+        <div>
+            <label for="birth">Date </label>
+            <input type="date" name="birth" id="birth">
+        </div>
+        <div>
+            <label for="price">Date </label>
+            <input type="range" name="price" id="price">
+        </div>
+        <div>
+            <label for="message">message </label>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="message..."></textarea>
+        </div>
+        <div>
+            <label for="provinces">Tỉnh/thành phố </label>
+            <select name="provinces" id="provinces">
+                <option hidden>Tỉnh/thành phố </option>
+                <optgroup label="Mien Bac">
+                    <option value="1">Ha Noi</option>
+                    <option value="2">Hue</option>
+                </optgroup>
+                <optgroup label="Mien Nam">
+                    <option value="3">Da Nang</option>
+                    <option value="4">Ha Nam</option>
+                </optgroup>
+
+
+            </select>
+        </div>
+        <button type="submit">Đăng Kí</button>
+        <button type="reset">Nhập lại</button>
+
+    </form>
+</body>
+
+</html>
