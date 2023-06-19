@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: 'Roboto', 'Lato', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .grid {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .grid__row {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: -15px;
+            padding-right: -15px;
+        }
+
+        .grid__column-12 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+        }
+
+        .grid__column-8 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 66.6666%;
+        }
+
+        .grid__column-4 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 33.3333%;
+        }
+
+        .grid__column-3 {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 25%;
+        }
+
+        .contact_us {
+            border: 1px solid black;
+            padding: 20px;
+
+        }
+
+        .contact-title,
+        h3 {
+            font-weight: 400;
+            margin-bottom: 44px;
+        }
+
+        .contact__wrap {
+            width: 100%;
+        }
+
+        .contact__info-list {
+            display: flex;
+        }
+
+        .contact__info-item {
+            margin-bottom: 25px;
+            color: #a8a8a8;
+            font-size: 16px;
+            min-width: 26px;
+        }
+
+        .contact__form h3 {
+            padding-left: 15px;
+        }
+
+        .contact_us {
+            margin-top: 207px;
+        }
+
+        .site-input {
+            width: 100%;
+            height: 35px;
+            border: 0;
+            color: #000;
+            border: solid 1px #868282;
+            font-size: 13px;
+            padding-left: 10px;
+            margin-bottom: 15px;
+            outline: 0;
+        }
+
+        .site-area {
+            width: 100%;
+            border: 0;
+            border: solid 1px #868282;
+            font-size: 13px;
+            padding: 20px 0 0 10px;
+            min-height: 200px;
+            margin-bottom: 23px;
+        }
+
+        .site-btn {
+            width: 100%;
+            height: 35px;
+            background-color: rgb(53, 157, 152);
+            border: none;
+            font-size: 15px;
+            color: white;
+        }
+
+        .site-btn:hover {
+            background-color: #ffb100;
+        }
+
+        .contact-title {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        .contact-title::after {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: calc(100% / 3);
+            bottom: 1px;
+            top: 38px;
+            border-bottom: 4px solid goldenrod;
+        }
+
+        .contact-title {
+            padding-left: 15px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header Content -->
+    </header>
+
+    <main>
+        <!-- Contact Us -->
+        <div class="grid">
+            <div class="contact_us">
+                <!-- Contact title -->
+                <h2 class="contact-title">CONTACT US</h2>
+                <!-- End contact title -->
+                <div class="grid__row">
+                    <div class="grid__column-4">
+                        <!-- contact infor -->
+                        <div class="contact__info">
+                            <h3>Contact Infor</h3>
+                            <ul>
+                                <li class="contact__info-list">
+                                    <div class="contact__info-item">
+                                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="contact__info-item">
+                                        <p>19 Le Thanh Nghi , Hai Ba Trung , Ha Noi</p>
+                                    </div>
+                                </li>
+                                <li class="contact__info-list">
+                                    <div class="contact__info-item">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </div>
+                                    <div class="contact__info-item">
+                                        <p>infor@gmail.com</p>
+                                    </div>
+                                </li>
+                                <li class="contact__info-list">
+                                    <div class="contact__info-item">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div class="contact__info-item">
+                                        <p>0123456789</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End contact infor -->
+
+                    </div>
+                    <!-- Contact form -->
+                    <div class="grid__column-8">
+                        <div class="contact__form">
+                            <h3>Having Any Query! Or Book an appointment</h3>
+                        </div>
+                        <form method="post">
+                            <div class="grid__column-12">
+                                <input class="site-input" placeholder="Your name">
+                            </div>
+                            <div class="grid__column-12">
+                                <input class="site-input" placeholder="Your email">
+                            </div>
+                            <div class="grid__column-12">
+                                <input class="site-input" placeholder="Your subject">
+                            </div>
+                            <div class="grid__column-12">
+                                <textarea class="site-area" placeholder="Your message here"></textarea>
+                            </div>
+                            <div class="grid__column-4">
+                                <button class="site-btn" type="submit">Send message</button>
+                            </div>
+                        </form>
+                        <!--End contact form -->
+                    </div>
+                </div>
+            </div>
+            <!--End Contact Us -->
+
+    </main>
+
+    <footer>
+        <!-- Footer Content -->
+    </footer>
+</body>
+
+</html>
