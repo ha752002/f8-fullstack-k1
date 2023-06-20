@@ -38,6 +38,11 @@ a {
 }
 
 /*  ===============Content============= */
+.info_item .info_link {
+    text-decoration: none;
+    color: black;
+}
+
 .cta__btn {
     min-width: 200px;
     background: #8498cb;
