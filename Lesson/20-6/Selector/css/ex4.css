@@ -1,0 +1,10 @@
+.todos input:checked~span {
+    color: aqua;
+    text-decoration: line-through;
+}
+
+
+.todos {
+    color: aqua;
+    text-decoration: line-through;
+}

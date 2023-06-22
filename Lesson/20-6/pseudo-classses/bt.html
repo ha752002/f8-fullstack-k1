@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #choose1:checked~.content-blue {
+            background-color: blue;
+            color: white;
+        }
+
+        #choose2:checked~.content-green {
+            background-color: green;
+            color: white;
+        }
+
+        #choose3:checked~.content-red {
+            background-color: red;
+            color: white;
+        } */
+
+        input:nth-of-type(3):checked~div {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <label for="choose1"><span>Blue</span></label>
+        <label for="choose2"><span>Green</span></label>
+        <label for="choose3"><span>Blue</span></label>
+    </div>
+    <hr>
+    <input type="radio" name="choose" id="choose1">
+    <input type="radio" name="choose" id="choose2">
+    <input type="radio" name="choose" id="choose3">
+    <div class="content content-blue content-green content-red">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius sequi provident beatae neque dolor similique,
+        odit aut repellendus, sit alias earum, asperiores consequuntur? Rem itaque eaque, obcaecati veniam totam id!
+    </div>
+</body>
+
+</html>

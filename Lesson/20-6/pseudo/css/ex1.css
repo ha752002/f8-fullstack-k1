@@ -1,0 +1,26 @@
+.title::after {
+    content: 'A';
+}
+
+.title::before {
+    content: 'B';
+}
+
+p::first-line {
+    color: red;
+}
+
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+p::selection {
+    color: yellow;
+    background-color: black;
+}
+
+.email::placeholder {
+    color: aqua;
+    font-size: initial;
+}

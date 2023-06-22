@@ -1,0 +1,47 @@
+.btn:hover {
+    background: green;
+}
+
+/* active click vào nhả chuột mới mất */
+.btn1:active {
+    background: rgb(184, 41, 65);
+}
+
+.btn2:focus {
+    background: yellow;
+}
+
+
+/* ex 2 */
+.products h2:not(.active) {
+    color: red;
+}
+
+.products2 h2:first-child {
+    color: green;
+}
+
+.products2 h2:last-child {
+    color: rgb(13, 27, 13);
+}
+
+/* products3 */
+.products3 h2:first-child {
+    color: green;
+}
+
+.products3 h2:last-child {
+    color: rgb(13, 27, 13);
+}
+
+.products3 h2:first-of-type {
+    color: red;
+}
+
+.products3 h2:last-of-type {
+    color: rgb(26, 57, 161);
+}
+
+.products4 h2:nth-child(3) {
+    color: red;
+}

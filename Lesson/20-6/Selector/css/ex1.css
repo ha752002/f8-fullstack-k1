@@ -1,0 +1,15 @@
+p~ul,
+p~.children ul {
+    color: red;
+}
+
+
+/* ex2 */
+
+.first h2~h3 {
+    color: red;
+}
+
+.last h2~h3 {
+    color: blue;
+}
