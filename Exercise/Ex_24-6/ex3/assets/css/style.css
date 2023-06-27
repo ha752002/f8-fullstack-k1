@@ -1,0 +1,103 @@
+/* reset css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  padding: 40px;
+  width: 1300px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+
+.grid__column-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 33.3333%;
+}
+
+.grid {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
+.section-content {
+  margin-top: 70px;
+}
+
+.title,
+.desc {
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.column-item {
+  padding: 10px;
+  box-shadow: 5px 4px 21px #ccc;
+  text-align: center;
+}
+
+.column-item span {
+  display: inline-block;
+  border: 2px solid #f2a83a;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  margin: 20px 0;
+}
+
+.column-item span i {
+  font-size: 36px;
+  color: #f2a83a;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.column-item .item-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.item-desc {
+  width: 80%;
+  color: #ccc;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 46px;
+}
+
+.btn-read {
+  margin-bottom: 32px;
+  padding: 12px 24px;
+  border: none;
+  background-color: #f2a83a;
+  color: #fff;
+}
