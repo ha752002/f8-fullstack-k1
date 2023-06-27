@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex1</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Font Awesome Icon-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Header Content-->
+    </header>
+
+    <main>
+      <section class="form__infor">
+        <h1 class="form__infor-title">Hey there</h1>
+        <p class="form__infor-desc">
+          <span>We'd like to hear from you.</span> Send us your message or just
+          say hy with our contact form or directly via phone, we love to chat
+        </p>
+
+        <!-- form infor -->
+        <form action="#" class="form">
+          <!-- item 1 -->
+          <div class="contact-item">
+            <span class="contact-icon"
+              ><i class="fa-solid fa-user fa-color"></i
+            ></span>
+            <input type="text" placeholder="Your name" class="user item" />
+            <span class="popup">Enter Your name</span>
+          </div>
+
+          <!-- item 2 -->
+          <div class="contact-item">
+            <span class="contact-icon"
+              ><i class="fa-solid fa-envelope fa-color"></i
+            ></span>
+            <input
+              type="email"
+              placeholder="Your@email.com"
+              class="email item"
+            />
+            <span class="popup">Enter Your domain</span>
+          </div>
+
+          <!-- item 3 -->
+          <div class="contact-item contact-item-phone">
+            <span class="contact-icon"
+              ><i class="fa-solid fa-mobile-screen-button fa-color"></i
+            ></span>
+            <input type="number" placeholder="+0123445" class="phone item" />
+            <span class="popup">Enter Your phone</span>
+          </div>
+
+          <!-- item 4 -->
+          <div class="contact-item contact-item-subject">
+            <span class="contact-icon"
+              ><i class="fa-solid fa-book fa-color"></i
+            ></span>
+            <select class="subject item">
+              <option value="0">Subject</option>
+              <option value="1">Subject 1</option>
+              <option value="2">Subject 2</option>
+            </select>
+            <span class="popup">Choose Your subject</span>
+          </div>
+
+          <!-- item 5-->
+          <div class="contact-item contact-item-message">
+            <span class="contact-icon message"
+              ><i class="fa-solid fa-message fa-color"></i
+            ></span>
+            <input type="text" placeholder="Message" class="message item" />
+            <span class="popup">Enter Your message</span>
+          </div>
+
+          <div class="footer">
+            <label for="check"
+              ><input type="checkbox" id="check" class="check" />Send me a copy
+              of this message</label
+            >
+            <button class="btn-submit" type="submit">SEND</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Footer Content-->
+    </footer>
+  </body>
+</html>
