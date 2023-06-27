@@ -1,0 +1,33 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.content {
+  font-size: 30px;
+  line-height: 1.5;
+  font-family: "Lato", "Roboto", sans-serif;
+  font-weight: 700;
+  text-align-last: center;
+}
+
+.title a {
+  text-transform: none;
+}
+
+.text {
+  word-wrap: break-word;
+}
+
+.box p {
+  text-indent: 20px;
+}
+
+.box1 {
+  text-align: center;
+}
+
+/* .btn {
+  justify-content: center;
+} */

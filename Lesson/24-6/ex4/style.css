@@ -1,0 +1,23 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.box {
+  border: 8px solid red;
+  padding: 10px;
+
+  border-left-style: solid;
+  border-right-style: dashed;
+
+  border-top-color: aqua;
+}
+
+.content {
+  width: 0;
+  height: 0;
+  border-left: 50px solid red;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+}

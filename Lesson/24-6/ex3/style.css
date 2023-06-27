@@ -1,0 +1,33 @@
+body {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/*
+Cac thuoc tinh lien quan den background
+--background-color
+--background-image
+--background-position
+--background-repeat
+--background-size
+--background-acttachment
+
+
+*/
+
+body {
+  /* height: 300px;
+  background-color: rgb(132, 172, 172);
+  background: url(https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; */
+  background: aqua
+    url(https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=2000)
+    no-repeat 0 0 / 500px fixed;
+}
+
+.box {
+  background-color: rgb(209, 194, 223);
+}
