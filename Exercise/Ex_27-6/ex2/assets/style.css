@@ -1,0 +1,117 @@
+/* reset css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.service__layout {
+  background-color: #ebf5fe;
+  padding: 100px;
+  width: 1300px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid #000;
+}
+
+.grid {
+  width: 1139px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.grid__column-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 33.3333%;
+}
+
+.service__item {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  padding: 29px;
+  border-radius: 9px;
+  border: 2px solid transparent;
+}
+.service__item:hover {
+  border: 2px solid red;
+}
+
+.service__header {
+  display: flex;
+  align-items: center;
+}
+
+.service__header i {
+  padding: 15px;
+  border-radius: 99px;
+  background: #ff0000e3;
+  background: linear-gradient(241deg, #ff9a3b 0%, #ff2525 74%);
+  color: white;
+  font-size: 29px;
+}
+
+.service__header h2 {
+  margin-left: 22px;
+  line-height: 29px;
+}
+
+p.service-item__desc {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #666666;
+  line-height: 27px;
+}
+
+.service-item__more {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.grid__row .grid__column-4 {
+  margin-top: 30px;
+}
+
+.service__item i.theme-dev {
+  background-color: #20a824;
+  background-image: linear-gradient(90deg, #20a824 0%, #80bad0 100%);
+}
+
+.service__item i.digital-marketing {
+  background-color: #da7232;
+  background-image: linear-gradient(62deg, #da7232 0%, #f7e068 100%);
+}
+
+.service__item i.web-design {
+  background-color: #b7bcff;
+  background-image: linear-gradient(295deg, #b7bcff 0%, #372bff 100%);
+}
+
+.service__item i.responsive-design {
+  background-color: #a420ff;
+  background-image: linear-gradient(43deg, #a420ff 0%, #977bff 100%);
+}
+
+.service__item i.support {
+  background-color: #20a824;
+  background-image: linear-gradient(90deg, #20a824 0%, #69ff83 100%);
+}
