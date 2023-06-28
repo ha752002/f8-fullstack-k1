@@ -110,6 +110,10 @@ p.form__left-desc {
   color: var(--text-color);
 }
 
+.forgot_pwd:hover {
+  color: var(--primary-color);
+}
+
 .input-check input {
   max-width: 20px;
   margin: 0 8px 0 0;
