@@ -1,0 +1,64 @@
+:root {
+  --white-color: #ffffff;
+  --heading-color: #171719;
+  --text-color: #717171;
+  --primary-color: #ff574d;
+}
+
+body {
+  background-image: url(http://uiwebsoft.com/justlog/login-one/images/login-bg2.jpg);
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.42857143;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 730px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.grid__column-8 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 66.6666%;
+}
+
+.grid__column-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 33.3333%;
+}
+
+.grid__column-12 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.grid__column-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 50%;
+}
