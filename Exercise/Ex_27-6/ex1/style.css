@@ -23,14 +23,14 @@ body {
   max-width: 100%;
   margin: auto;
   margin-top: 50px;
-  border: 1px solid #706666;
+  border: 1px solid #666;
 }
 
 /* header__nav */
 .header__nav {
   display: flex;
   width: 100%;
-  border: 1px solid #706e6e3d;
+  border: 1px solid#666;
   justify-content: space-between;
 }
 
@@ -46,18 +46,18 @@ body {
 }
 
 .nav-item {
-  border-right: 1px solid #706e6e3d;
+  border-right: 1px solid #666;
   min-height: 60px;
   padding: 5px;
 }
 
 .nav-item__link {
   margin: 0 20px;
-  color: #706666;
+  color: #666;
 }
 
 .nav__right .nav-item {
-  border-left: 1px solid #706e6e3d;
+  border-left: 1px solid #666;
   border-right: none;
 }
 
@@ -70,7 +70,7 @@ p.nav-item__text {
 }
 
 .nav-item__wrap:hover {
-  background: rgb(72, 166, 206);
+  background: #2da5da;
 }
 
 .nav-item__wrap:hover .nav-item__link {
@@ -92,31 +92,31 @@ p.nav-item__text {
   position: absolute;
   right: 0;
   width: 247px;
-  box-shadow: 0px 0px 21px 0px rgba(4, 4, 6, 0.2);
+  box-shadow: 0px 0px 21px 0px #666;
   top: 129%;
   display: none;
 }
 
 li.nav-opition-item {
   padding: 10px;
-  border-bottom: 1px solid #44403c4f;
+  border-bottom: 1px solid #666;
 }
 
 .nav-opition-item a i ~ span {
   line-height: 43px;
-  color: #44403cc2;
+  color: #666;
   font-size: 14px;
 }
 
 .nav-opition-item > a > i {
   margin: 0px 8px;
   font-weight: bold;
-  color: #000;
+  color: #666;
   font-size: 15px;
 }
 
 .nav-opition-item:hover {
-  background: rgb(72, 166, 206);
+  background: #2da5da;
 }
 
 .nav-opition-item:hover a > i,
