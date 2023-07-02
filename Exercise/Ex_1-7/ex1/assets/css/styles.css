@@ -1,0 +1,110 @@
+@font-face {
+  font-family: SFU;
+  src: url(../font/SFUHelveticaCondensedBold.TTF);
+}
+
+body {
+  font-family: "Asap", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.42857143;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+}
+
+.banner__img img {
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.banner__content {
+  transform: translate(40%, -50%);
+  position: absolute;
+  background: #ffffffc4;
+  width: 36%;
+  height: auto;
+  top: 50%;
+  padding: 30px 30px 40px 20px;
+  border-radius: 7px;
+}
+
+h2.banner-title {
+  font-size: 3.5rem;
+  color: #bf4240;
+}
+
+.banner-desc {
+  font-size: 1.7rem;
+  color: #3f3424;
+  margin: 7px 0;
+}
+
+.banner-location {
+  font-size: 1.7rem;
+  color: #3f3424;
+}
+
+.banner__content::after {
+  content: "3,2 TỶ/CĂN";
+  display: block;
+  background: #bf4240;
+  padding: 11px;
+  width: 147px;
+  text-align: center;
+  font-family: SFU;
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  transform: translate(-16%, 50%);
+  color: #fff;
+  font-size: 2.8rem;
+  bottom: 4px;
+}
+
+@media screen and (max-width: 1300px) {
+  .banner__content {
+    padding: 25px 25px 36px 25px;
+  }
+
+  h2.banner-title {
+    font-size: 2.5rem;
+  }
+
+  .banner-desc {
+    font-size: 1.2rem;
+  }
+
+  .banner-location {
+    font-size: 1.2rem;
+  }
+
+  .banner__content::after {
+    width: 97px;
+    font-size: 1.8rem;
+    padding: 8px;
+  }
+}
