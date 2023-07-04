@@ -1,0 +1,33 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.image {
+  border: 1px solid red;
+  padding: 9px;
+  width: 500px;
+  margin: 30px auto;
+}
+
+.image img {
+  float: left;
+  shape-outside: circle(50%);
+  border-radius: 50%;
+  padding: 10px;
+  shape-outside: border-box;
+  margin: 59px 12px 10px 0;
+}
+
+.image::after {
+  content: "";
+  display: block;
+  clear: both;
+}

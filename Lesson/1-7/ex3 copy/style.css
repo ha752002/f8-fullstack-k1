@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+
+.product {
+  width: 200px;
+  margin: 30px auto;
+  border: 1px solid black;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.product .info {
+  padding: 10px;
+}
+
+.product .info h3 {
+  font-size: 1.2rem;
+}
+
+.product .info h3 a {
+  color: #333;
+}
+
+.product .sale {
+  background: red;
+  color: #fff;
+  right: 5px;
+  bottom: 0;
+  position: absolute;
+  padding: 2px 5px;
+}
+
+.test {
+  position: relative;
+}

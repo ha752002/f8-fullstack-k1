@@ -1,0 +1,16 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.box img:hover {
+  opacity: 0.5;
+  /* filter: blur(2px); */
+  filter: grayscale(0.5);
+}

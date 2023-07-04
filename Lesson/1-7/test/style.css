@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 800px;
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 50px;
+  display: flex;
+  background: rgb(130, 194, 130);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.box-item {
+  width: 30%;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  margin: 20px 0;
+  background: rgb(255, 161, 161);
+}

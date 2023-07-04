@@ -1,0 +1,15 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.container {
+  width: 50%;
+  border: 1px solid red;
+}
+.box {
+  background: green;
+  width: 100px;
+  height: 100px;
+}
