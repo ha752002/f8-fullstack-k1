@@ -10,12 +10,13 @@ body {
   margin-top: 50px;
 }
 
-.box {
-  border: 1px solid red;
+.songs {
+  border: 1px solid green;
   width: 300px;
   margin: 30px auto;
 }
 
-.box ul {
-  list-style: none;
+.songs h2 {
+  display: list-item;
+  list-style: inside decimal-leading-zero;
 }

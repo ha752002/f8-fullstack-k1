@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  width: 800px;
+  margin: 100px auto;
+}
+
+.social ul {
+  width: 300px;
+  list-style: none;
+}
+
+.social li {
+  margin-top: 20px;
+}
+.social li a {
+  text-decoration: none;
+  color: #333;
+}
+.social li a::before {
+  content: "\f105";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 5px;
+  background: rgb(19, 15, 15);
+  border-radius: 99px;
+  color: aliceblue;
+  padding: 5px;
+}
