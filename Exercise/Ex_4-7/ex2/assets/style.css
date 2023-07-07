@@ -112,7 +112,7 @@ a {
 .product-detail {
   position: relative;
   flex-grow: 1;
-  padding: 6px 12px 6px 16px;
+  padding: 6px 9px 6px 28px;
 }
 
 .product__item {
@@ -135,7 +135,8 @@ a {
   width: 65px;
   height: 65px;
   padding: 6px;
-  background: #ffff0017;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .quantity-detail {
