@@ -1,0 +1,299 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.grid__column-2 {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 12.5%;
+}
+
+.grid__column-4 {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 33.33333%;
+}
+
+.container {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  height: 549px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background: #7e7e7e;
+  position: relative;
+  box-shadow: 0px 7px 15px 0 rgba(0, 0, 0, 0.108);
+}
+
+.shopping__cart {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  right: 0;
+}
+
+/* header__cart */
+.header__cart {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 19px;
+  font-size: 1.5rem;
+  align-items: center;
+  background: #dddddd66;
+}
+.cart__header--title {
+  position: relative;
+  display: inline-block;
+}
+.cart__header--title::after {
+  position: absolute;
+  content: "4";
+  background-color: blue;
+  color: #fff;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border-radius: 99px;
+  font-size: 1.1rem;
+  line-height: 18px;
+  top: -8px;
+}
+
+.header__cart > a > i {
+  font-size: 2.1rem;
+  color: #ff1500c7;
+}
+/* product-list*/
+.list-product {
+  height: 246px;
+  /* background: aliceblue; */
+}
+
+.product-img img {
+  width: 100%;
+}
+
+.product-detail {
+  position: relative;
+  flex-grow: 1;
+  padding: 6px 12px 6px 16px;
+}
+
+.product__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.quantity {
+  width: 100%;
+  align-items: baseline;
+  display: inline-flex;
+}
+
+.product-img {
+  width: 65px;
+  height: 65px;
+  padding: 6px;
+  background: #ffff0017;
+}
+
+.quantity-detail {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 20px;
+  width: 81px;
+  height: 28px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  color: #8e8c8c;
+  font-weight: 400;
+  padding: 0 8px;
+}
+
+.total-price {
+  margin-left: 45px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(0 0 0 / 81%);
+}
+
+.description > p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #808080bd;
+  line-height: 2;
+}
+
+.description:hover p {
+  cursor: pointer;
+}
+
+.product__item::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  bottom: 0;
+  border-bottom: 1px solid #8080802e;
+}
+
+.product__item:hover::before {
+  cursor: pointer;
+}
+
+.list-product::-webkit-scrollbar {
+  width: 6px;
+}
+.list-product::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.714);
+  border-radius: 10px;
+}
+
+.list-product {
+  overflow: auto;
+}
+
+.quantity-detail > a > i {
+  color: #8e8c8c;
+}
+
+.product__item::before {
+  content: "\f00d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.5;
+  color: #8e8c8c;
+}
+
+.product__item:hover {
+  background: #80808014;
+}
+.subtotal {
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.subtotal-text > p {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
+.subtotal-text > span {
+  color: #8e8c8c;
+  font-size: 1.1rem;
+  line-height: 2.3rem;
+}
+
+.subtotal-price {
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: #ff1500c7;
+}
+
+/* btn */
+.cart__btn {
+  padding: 0px 20px;
+}
+
+.btn {
+  background: #fff;
+  margin: 7px 0px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #80808057;
+  border-radius: 6px;
+  color: #545050ad;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.add-to-cart {
+  background: #405ff2;
+  color: #fff;
+  border: 1px solid #405ff2;
+}
+
+/* .cart footer */
+
+.footer {
+  display: flex;
+  padding: 17px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer i {
+  font-size: 1.7rem;
+  color: #405ff2;
+  border-radius: 50%;
+  border: 1px solid #405ff2;
+  padding: 7px;
+}
+
+p.footer-desc {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.view-cart:hover {
+  background: #405ff2;
+  color: #fff;
+}
+
+.add-to-cart:hover {
+  background: #fff;
+  color: #405ff2;
+}
