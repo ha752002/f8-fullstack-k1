@@ -208,7 +208,7 @@ main {
 }
 
 .sub__menu-item .grid__column-6 a,
-.sub__menu-item .grid__column-4 {
+.sub__menu-item .grid__column-4 a {
   color: black;
 }
 .navbar__menu-has-mega-menu:hover .mega__menu {
