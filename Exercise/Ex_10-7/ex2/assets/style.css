@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+/* =======COMMON======= */
+.container {
+  width: 1140px;
+  max-width: calc(100% - 48px);
+  height: 549px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Question*/
+
+.list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px 25px;
+}
+
+.item {
+  position: relative;
+  flex-basis: calc(100% / 3 - 30px);
+  padding: 40px 35px;
+  border: 2px solid #eaeaeeae;
+  background-color: #fff;
+  transition: 0.2s ease;
+  transition-delay: 0.15s;
+}
+
+.item::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../css/img/bgr-img.jpg") center / cover;
+  transition: 0.5s linear;
+  transition-property: bottom right left;
+  z-index: -1;
+}
+
+.item::after {
+  opacity: 0;
+  position: absolute;
+  display: inline-block;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+  transition: 0.3s linear;
+  z-index: -1;
+}
+
+.item__image i {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #a77763;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+.item__heading {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  transition: 0.3s linear;
+}
+
+.item__desc {
+  font-size: 1.4rem;
+  transition: 0.3s linear;
+  transition-delay: 0.15s;
+}
+
+.item__btn {
+  opacity: 0;
+  bottom: -30px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  transition: 0.3s linear;
+  font-size: 1.4rem;
+}
+
+.item__btn span:last-of-type {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 30px;
+  border: 1px solid #fff;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  transition: 0.2s ease;
+}
+
+/* hover */
+
+.item:hover::after {
+  border-color: #ffffff;
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.item:hover .item__image i {
+  transform: scale(0);
+}
+
+.item:hover .item__heading {
+  transform: translateY(-75px);
+  color: aliceblue;
+}
+
+.item:hover .item__desc {
+  transform: translateY(-65px);
+  color: aliceblue;
+}
+
+.item:hover {
+  background-color: #a67462b6;
+  border-color: #a67462bb;
+}
+
+.item:hover .item__btn {
+  opacity: 1;
+  bottom: 30px;
+}
+
+.item__btn:hover span:last-of-type {
+  background: #fff;
+  color: #aca8a8;
+}
