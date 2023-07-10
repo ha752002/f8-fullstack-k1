@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: #fdfdfd;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+}
+input,
+textarea,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+a {
+  text-decoration: none;
+}
+.contact {
+  margin-top: 32px;
+}
+.container {
+  width: 1170px;
+  max-width: calc(100% - 480px);
+  margin: 0 auto;
+}
+.contact__body {
+  text-align: center;
+}
+.contact__heading {
+  font-size: 4.2rem;
+  font-weight: 700;
+}
+.contact__desc {
+  margin-top: 30px;
+  color: #5c5b5b;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.contact-form {
+  margin-top: 60px;
+}
+.form-row {
+  display: flex;
+  gap: 26px;
+  margin-bottom: 26px;
+  align-items: center;
+}
+.form-group {
+  position: relative;
+  flex: 1;
+  border-radius: 8px;
+}
+.form-input {
+  display: block;
+}
+.form-label {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  color: #959ca9;
+  transition: all 0.2s ease;
+}
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  height: 58px;
+  border-radius: 8px;
+  border: 2px solid #e6e6e6;
+  padding-left: 24px;
+  transition: all 0.2s ease;
+  padding-top: 25px;
+}
+.form-textarea {
+  height: 168px;
+}
+.form-textarea ~ .form-label {
+  top: 29px;
+}
+.form-select {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 1.8rem;
+  color: #959ca9;
+  padding-top: 0;
+}
+.form-icon {
+  position: absolute;
+  right: 22px;
+  font-size: 1.2rem;
+  color: #333;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form-btn {
+  margin: 0 auto;
+  color: #fff;
+  background-color: #4d76d8;
+  padding: 20px 30px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  margin-top: 26px;
+}
+.form-input:focus ~ .form-label,
+.form-input:valid ~ .form-label,
+.form-textarea:focus ~ .form-label,
+.form-textarea:valid ~ .form-label {
+  top: 15px;
+  font-size: 1.2rem;
+}
+.form-input:focus,
+.form-textarea:focus,
+.form-input:valid {
+  border-color: #4d76d8;
+}
+.form-input:valid {
+  background: #edf0ff;
+}
