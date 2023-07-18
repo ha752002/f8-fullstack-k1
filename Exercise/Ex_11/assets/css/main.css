@@ -932,6 +932,47 @@ button:not(:disabled) {
   }
 }
 
+@media screen and (max-width: 575px) {
+  .header__container {
+    padding: 6px 0px 2px 0px;
+  }
+
+  .section-item-first .grid,
+  .section-item-service .grid,
+  .section-item-delivery .grid,
+  .section-item-favorites .grid,
+  .section-item-app .grid {
+    padding: 0px;
+  }
+
+  .grocery__content-text .grocery__content-text_des {
+    letter-spacing: 0em;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 12px;
+    padding: 20px 12px;
+  }
+
+  .header_process_btn {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .btn-play-img {
+    width: 60px;
+  }
+
+  .section-item-first-wrap > .grid__column-6,
+  .section__service-wrap > .grid__row > .grid__column-4,
+  .section-item-favorites-wrap > .grid__column-7,
+  .section-item-delivery-wrap > .grid__column-6,
+  .section-item-app-wrap-inner {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
 /* @media screen and (min-width: 576px) {
   .navbar-collapse {
     display: none;
