@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- icon -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+      integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="grid">
+        <div class="header__container">
+          <div class="header__logo-wrap">
+            <div class="header__logo">
+              <a class="header__logo-link" href="#0">
+                <img
+                  src="https://hoanganf8.github.io/htmlcss_project01/assets/images/logo.svg"
+                  alt="logo"
+                  class="grover_grocery_logo"
+                />
+              </a>
+            </div>
+            <label for="menu" class="bar">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+          </div>
+          <nav class="navbar-collapse">
+            <div class="grid__row navbar-collapse-wrap">
+              <!-- menu -->
+              <ul class="navbar-nav grid__column-8">
+                <li class="nav-item">
+                  <a class="nav-link nav-link-active">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0">Menu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0">Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0">Shop</a>
+                </li>
+              </ul>
+
+              <!-- search_cart -->
+              <ul class="search_btn_list grid__column-4">
+                <li class="search_btn_list_item">
+                  <form class="nav_search_form">
+                    <span class="search_ic">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill="#8B8B8B"
+                          d="M15.212 14.573l-3.808-3.96A6.44 6.44 0 0012.92 6.46 6.467 6.467 0 006.46 0 6.467 6.467 0 000 6.46a6.467 6.467 0 006.46 6.46 6.39 6.39 0 003.701-1.169l3.837 3.99a.838.838 0 001.191.023.844.844 0 00.023-1.19zM6.46 1.685a4.78 4.78 0 014.775 4.775 4.78 4.78 0 01-4.775 4.775A4.78 4.78 0 011.685 6.46 4.78 4.78 0 016.46 1.685z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <input
+                      class="nav_search_input"
+                      type="text"
+                      placeholder="Search"
+                    />
+                    <span class="cart_ic">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="#3C3737"
+                          fill-rule="evenodd"
+                          d="M1.014 10.084a.464.464 0 01.45-.576h21.072c.302 0 .523.283.45.576L20.059 21.79a.927.927 0 01-.9.703H4.84a.927.927 0 01-.9-.703L1.015 10.084zm11.736 3.541a.75.75 0 00-1.5 0v4.75a.75.75 0 001.5 0v-4.75zm4.319-.561a.75.75 0 01.448.961l-1.624 4.464a.75.75 0 11-1.41-.513l1.625-4.464a.75.75 0 01.96-.448zm-9.177.448a.75.75 0 10-1.41.513l1.625 4.464a.75.75 0 101.41-.513l-1.625-4.464z"
+                          clip-rule="evenodd"
+                        ></path>
+                        <path
+                          stroke="#3C3737"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M18.5 10.5l-4.911-6.422a2 2 0 00-3.178 0L5.5 10.5"
+                        ></path>
+                      </svg>
+                    </span>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <!-- section item 1-->
+      <section class="section__item section-item-first">
+        <div class="grid">
+          <div class="grid__row section-item-first-wrap">
+            <div class="grid__column-6">
+              <div class="grocery__content">
+                <!-- grocery top -->
+                <div class="grocery__content-top">
+                  <h3 class="grocery_content-top-title">More than Faster</h3>
+                  <span class="header_top_txt_img">
+                    <img
+                      src="./assets/img/grocery-title.svg"
+                      alt="Image"
+                      class="grocery-img"
+                    />
+                  </span>
+                </div>
+                <!-- grocery text  -->
+                <div class="grocery__content-text">
+                  <h1 class="grocery__content-text_title">
+                    Groceries delivered in as little as
+                    <span class="grocery__content-text_title-hour">
+                      2 hours</span
+                    >
+                  </h1>
+                  <p class="grocery__content-text_des">
+                    Grocen atssures fresh grocery every morning to your family
+                    without getting out in this pandemic.
+                  </p>
+                </div>
+                <!-- btn -->
+                <div class="grocery__content-btn">
+                  <div class="grid__row grocery__content-btn-inner-wrap">
+                    <div class="grid__column-4">
+                      <div class="grocery__content-btn-wrap">
+                        <a href="#0" class="btn">Order Now</a>
+                      </div>
+                    </div>
+
+                    <div class="grid__column-5">
+                      <div class="grocery__content-btn-wrap">
+                        <button class="header_process_btn">
+                          <span class="btn-play">
+                            <img
+                              src="assets/img/btn-play.svg"
+                              alt=""
+                              class="btn-play-img"
+                            />
+                          </span>
+                          order process
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid__column-6">
+              <img src="./assets/img/header-img.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section item 2-->
+      <section class="section__item section-item-service">
+        <div class="grid">
+          <!--service-heading -->
+          <div class="grid__row">
+            <div class="grid__column-12">
+              <div class="section__service-heading">
+                <h5 class="section__item-content_title">What we Serve</h5>
+                <h2 class="section__item-content_title2">
+                  fruit and vegetable delivered to your home
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- section service content -->
+          <div class="section__service-wrap">
+            <div class="grid__row">
+              <!-- item 1 -->
+              <div class="grid__column-4">
+                <div class="section__service-inner">
+                  <!-- section__service-inner_bg -->
+                  <div class="section__service-inner_bg"></div>
+
+                  <!-- section__service-inner-content -->
+                  <div class="section__service-inner-content">
+                    <div class="service-inner-img">
+                      <img src="assets/img/service-ic1.svg" alt="Image" />
+                    </div>
+                    <div class="service-inner-main">
+                      <h3>Free shipping</h3>
+                      <p>
+                        Enjoy Order in a hand using the fresness of groceries
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- item 2 -->
+              <div class="grid__column-4">
+                <div class="section__service-inner">
+                  <!-- section__service-inner_bg -->
+                  <div class="section__service-inner_bg"></div>
+
+                  <!-- section__service-inner-content -->
+                  <div class="section__service-inner-content">
+                    <div class="service-inner-img">
+                      <img src="assets/img/service-ic2.svg" alt="Image" />
+                    </div>
+                    <div class="service-inner-main">
+                      <h3>15 days returns</h3>
+                      <p>
+                        Order in a handy way using the freshness of the
+                        groceries.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- item 3-->
+              <div class="grid__column-4">
+                <div class="section__service-inner">
+                  <!-- section__service-inner_bg -->
+                  <div class="section__service-inner_bg"></div>
+
+                  <!-- section__service-inner-content -->
+                  <div class="section__service-inner-content">
+                    <div class="service-inner-img">
+                      <img src="assets/img/service-ic3.svg" alt="Image" />
+                    </div>
+                    <div class="service-inner-main">
+                      <h3>Secure checkout</h3>
+                      <p>If you get rotten items - return immediately to us.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section item 3-->
+      <section class="section__item section-item-favorites">
+        <div class="grid">
+          <div class="grid__row section-item-favorites-wrap">
+            <div class="grid__column-7">
+              <div class="section-item-favorites-img">
+                <img src="./assets/img/feat.png" alt="feat" />
+              </div>
+            </div>
+            <div class="grid__column-5">
+              <div class="section__favorites-content">
+                <div class="section__favorites-main">
+                  <h5 class="section__item-content_title">WHY CHOOSE US</h5>
+                  <h2 class="section__item-content_title2">
+                    Find Favorites and Discover New Ones
+                  </h2>
+                  <p class="section__item-content-des">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus
+                    blanditiis praesen voluptatum deleniti.
+                  </p>
+                </div>
+                <div class="section__favorites-btn">
+                  <a href="#0" class="btn">Explore Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section item -->
+      <section class="section__item section-item-delivery">
+        <div class="grid">
+          <div class="grid__row section-item-delivery-wrap">
+            <div class="grid__column-6">
+              <div class="section__delivery-content">
+                <h5 class="section__item-content_title">HOME DELIVERY</h5>
+                <h2 class="section__item-content_title2">
+                  Sit at Home We Will Take Care Your Order
+                </h2>
+                <p class="section__item-content-des">
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos
+                </p>
+              </div>
+              <div class="section-item-delivery_btn">
+                <a href="#0" class="btn">Explore Now</a>
+              </div>
+            </div>
+            <div class="grid__column-6">
+              <div class="section-item-delivery_img">
+                <img src="./assets/img/feat2.png" alt="Image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section item -->
+      <section class="section__item section-item-app">
+        <div class="grid">
+          <div class="grid__row section-item-app-wrap">
+            <div class="grid__column-6">
+              <div class="section-item-app_img">
+                <img src="./assets/img/mobile.svg" alt="Image" />
+              </div>
+            </div>
+            <div class="grid__column-6">
+              <div class="section__item-content">
+                <h5 class="section__item-content_title">Download our app</h5>
+                <h2 class="section__item-content_title2">
+                  Get the Groceries app order more easily.
+                </h2>
+                <p class="section__item-content-des">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut.
+                </p>
+              </div>
+              <div class="grid__row">
+                <div class="grid__column-8 section-item-app-wrap-inner">
+                  <div class="section-item-app-btn">
+                    <!-- app store -->
+                    <a href="#0" class="app_btn">
+                      <span class="app_btn-img">
+                        <img src="./assets/img/apple.svg" alt="Apple Logo" />
+                      </span>
+                      App Store
+                    </a>
+                    <!-- play store -->
+                    <a href="#0" class="app_btn">
+                      <span class="app_btn-img">
+                        <img
+                          src="./assets/img/playstore.svg"
+                          alt="Apple Logo"
+                        />
+                      </span>
+                      Play Store
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="grid">
+        <div class="grid__row">
+          <div class="footer-wrap">
+            <!-- footer__top -->
+            <div class="footer__top">
+              <div class="grid__row footer__top-wrap">
+                <div class="grid__column-4">
+                  <div class="footer__top-right">
+                    <div class="footer__top-right-logo">
+                      <img src="./assets/img/logo.svg" alt="logo" />
+                    </div>
+                    <div class="footer__top-right-des">
+                      <p class="footer__top-right-txt">
+                        Fast delivery, which is active all over the world,
+                        serves with many transportation vehicles.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid__column-8">
+                  <div class="grid__row footer-left-wrap">
+                    <div class="grid__column-4">
+                      <div class="footer-left">
+                        <h4 class="footer-left_title">Company</h4>
+                        <div class="footer-left_list">
+                          <ul class="footer-left_list-inner">
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >About Us</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >Blog</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >All Products</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >Locations Map</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid__column-4">
+                      <div class="footer-left">
+                        <h4 class="footer-left_title">Services</h4>
+                        <div class="footer-left_list">
+                          <ul class="footer-left_list-inner">
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >Order tracking</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >Wish List</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >My account</a
+                              >
+                            </li>
+                            <li class="footer-left_-inner_item">
+                              <a href="#0" class="footer-left_-inner_link"
+                                >Terms & Conditions</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid__column-4">
+                      <div class="footer-left">
+                        <h4 class="footer-left_title">Get in Touch</h4>
+                        <div class="footer-left_list">
+                          <p class="footer-left_list-txt">
+                            Subscribe to our weekly Newsletter and receive
+                            updates via email.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- footer__top -->
+            <div class="footer__bottom">
+              <div class="grid__row footer__bottom-wrap">
+                <div class="grid__column-6">
+                  <div class="footer__bottom-right">
+                    <p class="footer__bottom-right_txt">
+                      All Rights Reserved @ BESNIK 2021
+                    </p>
+                  </div>
+                </div>
+                <div class="grid__column-6">
+                  <div class="footer__bottom-left">
+                    <p class="footer__bottom-left_txt">
+                      <a href="" class="footer__bottom-left_link">
+                        Terms &amp; Conditions
+                      </a>
+                    </p>
+                    <p class="footer__bottom-left_txt">
+                      <a href="" class="footer__bottom-left_link">
+                        Privacy &amp; Policy
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

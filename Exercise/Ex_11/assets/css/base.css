@@ -1,0 +1,156 @@
+:root {
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --text-color: #676767;
+  --primary-color: #f86061;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.42857143;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 1320px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.grid__column-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 25%;
+}
+
+.grid__column-4 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 33.3333%;
+}
+
+.grid__column-5 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 41.66667%;
+}
+
+.grid__column-7 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 58.3333333333%;
+}
+
+.grid__column-8 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 66.6666667%;
+}
+
+.grid__column-9 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 75%;
+}
+.grid__column-12 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 100%;
+}
+
+.grid__column-6 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 50%;
+}
+
+.grid__column-5 {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 41.666667%;
+}
+
+.btn {
+  background: var(--primary-color);
+  border-radius: 12px;
+  width: 186px;
+  padding: 25px 20px;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fffafa;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.section__item-content {
+  margin: 80px 0 20px 0;
+}
+
+.section__item-content_title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.01em;
+  color: #f54748;
+  margin: 0 0 8px 0;
+}
+
+.section__item-content_title2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 5.4rem;
+  text-transform: capitalize;
+  color: #2e2e2e;
+  max-width: 80%;
+  margin: 0 0 22px 0;
+}
+
+.section__item-content-des {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 3rem;
+  max-width: 80%;
+  color: #676767;
+}
+
+.section__favorites-main .section__item-content_title {
+  color: #03a66b;
+}
+.section__delivery-content .section__item-content_title {
+  color: #f9ba45;
+}
