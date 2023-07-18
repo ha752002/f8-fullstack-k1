@@ -933,6 +933,11 @@ button:not(:disabled) {
 }
 
 @media screen and (max-width: 575px) {
+  .header .grid,
+  .section__item .grid,
+  .footer .grid {
+    width: calc(100% - 4%);
+  }
   .header__container {
     padding: 6px 0px 2px 0px;
   }
@@ -964,14 +969,69 @@ button:not(:disabled) {
     width: 60px;
   }
 
-  .section-item-first-wrap > .grid__column-6,
+  @media screen and (max-width: 575px) {
+    .grocery__content-top .grocery_content-top-title,
+    .grocery__content-text_des,
+    .section__item-content_title {
+      font-size: 14px;
+    }
+
+    .section__service-heading .section__item-content_title2 {
+      font-size: 24px;
+      text-align: center;
+    }
+    .grocery__content-top {
+      padding: 12px 16px;
+    }
+
+    .grocery__content-text .grocery__content-text_title,
+    .grocery__content-text
+      > .grocery__content-text_title
+      > .grocery__content-text_title-hour {
+      font-size: 30px;
+    }
+
+    .btn {
+      padding: 14px 10px;
+    }
+
+    .btn-play-img {
+      width: 50px;
+    }
+
+    .footer-wrap {
+      padding: 0px;
+    }
+
+    .footer__top-right-txt {
+      max-width: 100%;
+    }
+
+    .footer__top-right-txt {
+      width: 100%;
+    }
+
+    .section-item-app-wrap-inner {
+      width: 100%;
+    }
+
+    .app_btn {
+      width: 160px;
+    }
+
+    .section-item-app-btn {
+      justify-content: space-evenly;
+    }
+  }
+
+  /* .section-item-first-wrap > .grid__column-6,
   .section__service-wrap > .grid__row > .grid__column-4,
   .section-item-favorites-wrap > .grid__column-7,
   .section-item-delivery-wrap > .grid__column-6,
   .section-item-app-wrap-inner {
     padding-left: 7px;
     padding-right: 7px;
-  }
+  } */
 }
 /* @media screen and (min-width: 576px) {
   .navbar-collapse {
