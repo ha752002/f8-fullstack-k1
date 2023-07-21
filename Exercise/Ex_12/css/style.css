@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Titillium+Web:wght@300;400;600;700;900&display=swap");
-input#btn-login:checked ~ .page-form-wrapper .page-form-login {
+input#btn-login:checked ~ .lading-form-wrapper .page-form-login {
   display: block;
 }
 
-input#btn-register:checked ~ .page-form-wrapper .page-form-register {
+input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
   display: block;
 }
 
@@ -250,28 +250,28 @@ input#btn-register:checked ~ .page-form-wrapper .page-form-register {
     top: -50px;
     left: -70px;
   }
-  #btn-login:checked ~ .page-form-wrapper .page-form-login {
+  #btn-login:checked ~ .lading-form-wrapper .page-form-login {
     transform: translate(0);
     opacity: 1;
     visibility: visible;
     z-index: 2;
     display: block;
   }
-  #btn-login:checked ~ .page-form-wrapper .page-form-register {
+  #btn-login:checked ~ .lading-form-wrapper .page-form-register {
     transform: translate(50%, 0);
     opacity: 0;
     visibility: hidden;
     z-index: 1;
     display: block;
   }
-  #btn-register:checked ~ .page-form-wrapper .page-form-login {
+  #btn-register:checked ~ .lading-form-wrapper .page-form-login {
     transform: translate(50%, 0);
     opacity: 0;
     visibility: hidden;
     z-index: 1;
     display: block;
   }
-  #btn-register:checked ~ .page-form-wrapper .page-form-register {
+  #btn-register:checked ~ .lading-form-wrapper .page-form-register {
     transform: translate(0);
     opacity: 1;
     visibility: visible;

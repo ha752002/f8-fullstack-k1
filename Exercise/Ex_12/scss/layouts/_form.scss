@@ -1,10 +1,10 @@
 @import '../mixins';
 
-input#btn-login:checked ~ .page-form-wrapper .page-form-login {
+input#btn-login:checked ~ .lading-form-wrapper .page-form-login {
     display: block;
 }
 
-input#btn-register:checked ~ .page-form-wrapper .page-form-register {
+input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
     display: block;
 }
 
@@ -283,7 +283,7 @@ input#btn-register:checked ~ .page-form-wrapper .page-form-register {
 
 
     #btn-login{
-        &:checked ~ .page-form-wrapper .page-form-login {
+        &:checked ~ .lading-form-wrapper .page-form-login {
             transform: translate(0);
             opacity: 1;
             visibility: visible;
@@ -291,7 +291,7 @@ input#btn-register:checked ~ .page-form-wrapper .page-form-register {
             display: block;
         }
 
-        &:checked ~ .page-form-wrapper .page-form-register {
+        &:checked ~ .lading-form-wrapper .page-form-register {
             transform: translate(50%, 0);
             opacity: 0;
             visibility: hidden;
@@ -302,7 +302,7 @@ input#btn-register:checked ~ .page-form-wrapper .page-form-register {
 
 
     #btn-register {
-        &:checked ~ .page-form-wrapper .page-form-login {
+        &:checked ~ .lading-form-wrapper .page-form-login {
             transform: translate(50%, 0);
             opacity: 0;
             visibility: hidden;
@@ -310,7 +310,7 @@ input#btn-register:checked ~ .page-form-wrapper .page-form-register {
             display: block;
         }
 
-        &:checked ~ .page-form-wrapper .page-form-register {
+        &:checked ~ .lading-form-wrapper .page-form-register {
             transform: translate(0);
             opacity: 1;
             visibility: visible;
