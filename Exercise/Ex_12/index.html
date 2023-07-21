@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikinger</title>
+    <!-- Link Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/grid.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="landing">
+      <div class="row">
+        <input type="radio" name="switch" id="btn-login" checked hidden />
+        <input type="radio" name="switch" id="btn-register" hidden />
+        <div class="col-12 col-xl-7 landing-info-wrapper">
+          <div class="landing-container">
+            <div class="row">
+              <div class="col-12 landing-info">
+                <div class="logo">
+                  <i class="fa-brands fa-slack"></i>
+                </div>
+                <span class="landing-info__welcome">WELCOME TO</span>
+                <h1 class="landing-info__name">VIKINGER</h1>
+                <p class="landing-info__desc">
+                  The next generation social network & community! Connect with
+                  your friends and play with our quests and badges gamification
+                  system!
+                </p>
+              </div>
+              <div class="col-12 tab-switch">
+                <div class="tab-switch-button button-switch-login">
+                  <label for="btn-login">
+                    <span>Login</span>
+                  </label>
+                </div>
+                <div class="tab-switch-button button-switch-register">
+                  <label for="btn-register">
+                    <span>Register</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-5 page-form-wrapper">
+          <div class="landing-container">
+            <div class="row">
+              <div class="page-form page-form-login">
+                <img
+                  src="https://odindesignthemes.com/vikinger/img/landing/rocket.png"
+                  alt="plane"
+                  class="form-decor"
+                />
+                <h2 class="form-title">Account Login</h2>
+                <form action="" class="form-register" autocomplete="off">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-input-text"
+                      placeholder=" "
+                      autofocus
+                    />
+                    <label class="label-input-text"> Username or Email </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-input-text"
+                      placeholder=" "
+                    />
+                    <label class="label-input-text"> Password </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="checkbox"
+                      name="save-password"
+                      id="save-password"
+                      hidden
+                    />
+                    <div class="row">
+                      <label for="save-password" class="label-save-password">
+                        Remember Me
+                      </label>
+                      <a href="#!" class="forgot-password-link"
+                        >Forgot Password?</a
+                      >
+                    </div>
+                  </div>
+                  <button class="btn btn-login">Login to your Account!</button>
+                </form>
+                <p class="login-text">Login with your Social Account</p>
+                <div class="social-icon-wrapper">
+                  <a href="#!" class="social-link facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="#!" class="social-link twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="#!" class="social-link twitch">
+                    <i class="fa-brands fa-twitch"></i>
+                  </a>
+                  <a href="#!" class="social-link youtube">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="page-form page-form-register">
+                <img
+                  src="https://odindesignthemes.com/vikinger/img/landing/rocket.png"
+                  alt="plane"
+                  class="form-decor"
+                />
+                <h2 class="form-title">Create your Account!</h2>
+                <form action="" class="form-register" autocomplete="off">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-input-text"
+                      placeholder=" "
+                      autofocus
+                    />
+                    <label class="label-input-text"> Your Email </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-input-text"
+                      placeholder=" "
+                    />
+                    <label class="label-input-text"> Username </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-input-text"
+                      placeholder=" "
+                    />
+                    <label class="label-input-text"> Password </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-input-text"
+                      placeholder=" "
+                    />
+                    <label class="label-input-text"> Repeat Password </label>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="checkbox"
+                      name="send-email"
+                      id="send-email"
+                      hidden
+                    />
+                    <div class="row">
+                      <label for="send-email" class="label-send-email">
+                        Send me news and updates via email
+                      </label>
+                    </div>
+                  </div>
+                  <button class="btn btn-register">Register Now</button>
+                </form>
+                <p class="send-email">
+                  You'll receive a confirmation email in your inbox with a link
+                  to activate your account. If you have any problems,
+                  <a href="#!">contact us</a>!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
