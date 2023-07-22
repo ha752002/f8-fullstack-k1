@@ -1,0 +1,16 @@
+.box-1 {
+  width: 100px;
+  height: 200px;
+}
+
+.box-2 {
+  width: 150px;
+  height: 150px;
+  background: green;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+/*# sourceMappingURL=style02.css.map */

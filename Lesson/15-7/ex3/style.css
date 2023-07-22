@@ -1,0 +1,35 @@
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+/*  css */
+.box {
+  width: 300px;
+  height: 200px;
+  background: rgb(169, 169, 169);
+  color: #fff;
+  font-size: 2rem;
+  margin: 30px auto;
+  box-shadow: -15px 9px black;
+  text-shadow: 6px 2px 11px rgb(46 33 220);
+}

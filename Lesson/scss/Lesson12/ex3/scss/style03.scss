@@ -1,0 +1,37 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@mixin grid ($columns, $spacing){  
+    
+        display: flex;
+        row-gap: $spacing;
+        flex-wrap: wrap;
+        margin-left: calc(-1 * $spacing);
+        // background-color: green;
+        > * {
+            width: calc( 100% / $columns - $spacing);
+            margin-left: $spacing ;
+            // background-color: red;
+            // padding: 20px;
+        }
+}
+
+
+
+.container {
+    @include grid(3,15px);
+    background-color: green;
+
+    .item {
+         background-color: red;
+            padding: 50px;
+    }
+
+    
+
+}
+

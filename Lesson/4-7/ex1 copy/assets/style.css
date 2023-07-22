@@ -1,0 +1,351 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.grid__column-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 33.33333%;
+}
+.grid__column-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 50%;
+}
+.grid__column-12 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+.grid__column-8 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 66.6666%;
+}
+
+nav {
+  width: 100%;
+}
+
+.header__container {
+  width: 1300px;
+  max-width: calc(100% - 48px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* brand__logo */
+.brand__logo {
+  width: 100%;
+}
+.brand__logo img {
+  width: 250px;
+  height: 80px;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+/* navbar__menu */
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.navbar__other .nav__menu-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li {
+  display: list-item;
+}
+
+.nav__menu-list {
+  display: flex;
+}
+
+.nav__menu-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__menu-item > a {
+  padding: 60px 20px;
+  color: black;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.navbar__menu-link::after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f078";
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-left: 7px;
+}
+/* mega__menu */
+
+.mega__menu {
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  left: 0;
+  top: 111%;
+  display: none;
+  box-shadow: 1px 1px 11px 3px rgb(236 236 236 / 79%);
+}
+
+.mega__menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 162px;
+  height: 43px;
+  right: 81px;
+  /* background: black; */
+  top: -39px;
+}
+
+p.title-submenu-item {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sub__menu-item .grid__column-4,
+.sub__menu-item .grid__column-6 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.margin-top-50px {
+  margin-top: 50px;
+}
+
+.sub__menu-left {
+  position: relative;
+}
+
+.sub__menu-left::after {
+  border-right: 1px solid #eeeeee;
+  height: 100%;
+  right: 0px;
+  top: 0;
+  position: absolute;
+  content: "";
+  display: block;
+}
+
+/* navbar__other */
+.nav__other-icon a {
+  padding: 15px 28px;
+  color: white;
+  font-size: 1.7rem;
+  border-radius: 99px;
+  background: #63b2e5e3;
+}
+
+main {
+  background: url(https://toigingiuvedep.vn/wp-content/uploads/2021/08/anh-bau-troi-tam-trang-buon.jpg)
+    no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+.navbar__menu > ul > li:hover > a {
+  color: #808080e0;
+}
+
+.sub__menu-item .grid__column-6:hover a,
+.sub__menu-item .grid__column-4:hover a {
+  color: #808080e0;
+}
+
+.sub__menu-item .grid__column-6 a,
+.sub__menu-item .grid__column-4 a {
+  color: black;
+}
+.navbar__menu-has-mega-menu:hover .mega__menu {
+  display: block;
+}
+
+.header__bars-btn {
+  width: 58px;
+  margin: 0px 0px 0px 18px;
+  height: 28px;
+  color: white;
+  display: none;
+}
+
+.header__input {
+  display: none;
+}
+
+.header__input:checked ~ .header__overlay {
+  display: block;
+}
+
+.header__input:checked ~ .navbar__menu {
+  transform: translateX(0%);
+  display: block;
+}
+
+.header__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  animation: fadeIn linear 0.2s;
+}
+
+.header-bottom__mobile {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 320px;
+  max-width: 100%;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: transform linear 0.2s;
+}
+
+.header-bottom__mobile-list {
+  list-style: none;
+  margin-top: 75px;
+  padding-left: 0px;
+}
+
+.header-bottom-mobile__notify-item {
+  list-style: none;
+}
+
+.header-bottom__mobile-link {
+  text-decoration: none;
+  list-style: none;
+  color: rgb(160 153 153 / 85%);
+  display: block;
+  padding: 18px 0 18px 22px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.header-bottom__mobile-close {
+  font-size: 1.4rem;
+  color: #666;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.header-bottom-mobile__notify {
+  position: absolute;
+  background-color: #ccc;
+  width: 100%;
+  display: none;
+}
+
+.header-bottom__mobile-text {
+  margin: 0px;
+}
+
+.header-bottom-has__notify:hover .header-bottom-mobile__notify {
+  display: block;
+}
+
+.header-bottom-mobile__notify::after {
+  display: block;
+  content: "";
+  position: absolute;
+  /* background-color: red; */
+  height: 18px;
+  width: 100%;
+  top: -14px;
+}
+
+.header-bottom-mobile__notify::before {
+  display: block;
+  content: "";
+  position: absolute;
+}
+
+.header__input {
+  display: none;
+}
+
+.header__input:checked ~ .header__overlay {
+  display: block;
+}
+
+.header__input:checked ~ .header-bottom__mobile {
+  transform: translateX(0%);
+}
+
+.header-bottom__mobile__item::after {
+  content: "";
+  border-bottom: 2px #ececec solid;
+  display: block;
+}
+
+@media screen and (max-width: 1210px) {
+  .header__bars-btn {
+    display: block;
+  }
+  .navbar__menu {
+    display: none;
+  }
+  .header__bars-btn {
+    display: block;
+  }
+}

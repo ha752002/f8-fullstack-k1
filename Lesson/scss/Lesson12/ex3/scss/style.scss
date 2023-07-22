@@ -1,0 +1,40 @@
+@import 'variables';
+
+.news {
+
+    &-list {
+        display: flex;
+    }
+    
+
+    &-item {
+        margin: 10px;
+
+        &:hover {
+            background-color: #c32222;
+        }
+        
+        &__thumb {
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 60px;
+            font-weight: 600;
+            background: $back-color;
+            
+            &::before {
+                border-left: 2px solid red;
+            }
+        }
+
+        &__desc {
+            font-size: 16px;
+            font-style: italic;
+        } 
+        
+    }
+
+    
+
+}

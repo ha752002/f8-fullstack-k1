@@ -1,0 +1,26 @@
+.news-list {
+  display: flex;
+}
+.news-item {
+  margin: 10px;
+}
+.news-item:hover {
+  background-color: #c32222;
+}
+.news-item__thumb {
+  width: 100%;
+}
+.news-item__title {
+  font-size: 60px;
+  font-weight: 600;
+  background: #000;
+}
+.news-item__title::before {
+  border-left: 2px solid red;
+}
+.news-item__desc {
+  font-size: 16px;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=style.css.map */

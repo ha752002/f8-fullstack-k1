@@ -1,0 +1,82 @@
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+/* section css */
+main {
+  width: 1100px;
+  max-width: 100%;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding: 35px;
+}
+
+.btn {
+  padding: 10px 30px;
+  display: block;
+  margin: 30px auto;
+  background: green;
+  color: aliceblue;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  /* transition: background 0.4s ease; */
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: blue;
+  /* border-radius: 99px; */
+  transition: right 0.4s linear;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background: red;
+  /* border-radius: 99px; */
+  transition: left 0.4s linear;
+}
+.btn:hover::after {
+  left: 50%;
+}
+
+.btn:hover::before {
+  right: 50%;
+}

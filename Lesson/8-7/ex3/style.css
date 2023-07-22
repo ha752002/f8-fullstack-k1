@@ -1,0 +1,63 @@
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+/* section css */
+main {
+  width: 1100px;
+  max-width: 100%;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding: 35px;
+
+  /* background: #14368b12; */
+}
+.songs {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  counter-reset: song-item;
+}
+
+.songs .song-item {
+  padding: 10px 0;
+  align-items: center;
+  display: flex;
+  counter-increment: song-item;
+}
+
+.songs .song-item::before {
+  content: "#" counter(song-item);
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 5px;
+}

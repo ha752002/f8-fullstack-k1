@@ -1,0 +1,12 @@
+@import 'mixins';
+
+.box-1 {
+    width: 100px;
+    height: 200px;
+}
+
+.box-2 {
+      @include size(150px,150px);
+      background: green;
+      @include rounder(30px);
+}

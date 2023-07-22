@@ -1,0 +1,54 @@
+
+@import 'mixins';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+@mixin grid ($columns, $spacing){  
+    
+    display: flex;
+    row-gap: $spacing;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * $spacing);
+    // background-color: green;
+    > * {
+        width: calc( 100% / $columns - $spacing);
+        margin-left: $spacing ;
+        // background-color: red;
+        // padding: 20px;
+    }
+}
+
+
+
+.container {
+    @include grid(3,16px );
+    background-color: #ccc;
+    padding: 10px;
+    
+    .item {
+        padding: 10px;
+        background: orange;
+    }
+
+    @include screen(table) {
+        @include grid(2,16px );
+    }
+    
+    @include screen(mobile) {
+        @include grid(1,16px );
+
+    }
+
+    @include center (display) ;
+
+    // @include center (text) ;
+    // @include center (margin);
+   
+
+
+}

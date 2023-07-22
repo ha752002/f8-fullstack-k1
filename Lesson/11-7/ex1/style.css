@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+    rotate: 0;
+    top: 0;
+    /* bottom: 0; */
+  }
+  25% {
+    left: calc(100% - 40px);
+    top: 0;
+    rotate: 180deg;
+  }
+
+  50% {
+    top: calc(100% - 40px);
+    left: calc(100% - 40px);
+    rotate: 230deg;
+  }
+
+  75% {
+    top: calc(100% - 40px);
+    rotate: 290deg;
+    left: 0;
+  }
+
+  to {
+    left: 0;
+    rotate: 360deg;
+    top: 0;
+
+    /* top: 0; */
+  }
+}
+
+.box {
+  border: 1px solid red;
+  width: 300px;
+  height: 300px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.box span {
+  width: 40px;
+  height: 40px;
+  display: block;
+  background: green;
+  position: absolute;
+  top: 0;
+  animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite;
+  animation-timing-function: linear; */
+  /* animation-delay: 1s; */
+}
+
+/*
+  Animation CSS
+  1. @keyframes
+  Kịch bản chuyển động của hiệu ứng
+  2.animation (Thuộc tính)
+  - animation-name: tenkeyframe
+  - animation-duration: thoigian (s, ms)
+  - animation-iteration-count: solan  | infinite
+  */

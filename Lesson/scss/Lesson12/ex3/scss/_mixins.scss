@@ -1,0 +1,65 @@
+//No params mixin k tham số
+// @mixin size {
+//     width: 200px;
+//     height: 200px;
+// }
+
+@mixin size($width, $height) {
+    width: $width;
+    height:  $height;
+}
+
+
+
+@mixin rounder($top-left: 20px, $top-right: $top-left, $bottom-left: $top-left, $bottom-right: $top-left,) {
+    border-top-left-radius:$top-left ;
+    border-top-right-radius:$top-left ;
+    border-bottom-left-radius:$top-left ;
+    border-bottom-right-radius:$top-left ;
+   
+}
+
+
+@mixin screen ($device) {
+    @if $device == mobile {
+        @media screen  and (max-width : 575px){
+            @content;
+        }
+    }
+
+    @if $device == table {
+        @media screen  and (min-width : 576px) and (max-width:991px){
+            @content;
+        }
+    }
+
+    @if $device == table {
+        @media screen  and (min-width : 992px) {
+            @content;
+        }
+    }
+}
+
+@mixin center ($type) {
+    @if $type == display {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @if $type == text {
+        text-align: center;
+    }
+
+    @if $type == position {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    @if $type == margin  {
+        margin: 0 auto ;
+        }
+}
+

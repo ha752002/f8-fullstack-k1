@@ -1,0 +1,71 @@
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.42857143;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+/*  css */
+/* main {
+  width: 1100px;
+  max-width: 100%;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding: 35px;
+} */
+
+body {
+  background: aqua;
+}
+
+/* @media screen and (max-width: 1200px) {
+  body {
+    background: green;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background: gray;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    background: white;
+  }
+} */
+@media screen and (min-width: 576px) {
+  body {
+    background: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background: gray;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    background: green;
+  }
+}
