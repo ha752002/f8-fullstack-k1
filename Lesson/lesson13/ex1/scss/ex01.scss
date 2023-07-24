@@ -1,0 +1,41 @@
+// Comment scss
+
+$primaryColor: red;
+body {
+  font-size: 1.6rem;
+  color: $primaryColor;
+}
+
+$footerCopyright: ".copyright";
+$size: 10;
+
+.footer {
+  padding: 10px 0;
+  #{$footerCopyright} {
+    text-align: center;
+    // font-size: #;
+    // width: $size + 0%;
+    width: #{$size + 0%};
+  }
+}
+
+$prefix: ".col";
+$breakpoint: "md";
+$number: 1;
+
+#{$prefix + $breakpoint + "-" + $number} {
+  width: 50%;
+}
+
+$selector: "";
+@if $breakpoint != "" and $number>0 {
+  $selector: $prefix + "-" $breakpoint + "-" + $number;
+} @else if $number > 0 {
+  $selector: $prefix + "-" + $number;
+} @else {
+  $selector: $prefix;
+}
+
+#{$selector} {
+  width: 50%;
+}

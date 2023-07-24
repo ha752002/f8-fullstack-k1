@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  min-width: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 0;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  color: #056aa4;
+}
+
+.user-name,
+.title-header {
+  font-weight: 600;
+}
+
+.main {
+  background-color: #afcdff;
+  margin-top: 46px;
+}
+
+.container {
+  /* width: 600px; */
+  margin: 0 auto;
+  padding: 16px 0;
+}
+
+.homework-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.title {
+  width: 600px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 12px;
+  color: #000000;
+  padding: 4px 0;
+  margin: 0 auto;
+}
+
+.day-homework {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.day-title {
+  font-size: 20px;
+  color: blue;
+  word-spacing: 8px;
+}
+
+.day-homework a {
+  display: block;
+  margin: 8px 0;
+  color: #4942e4;
+  font-weight: 500;
+}
+
+.day-homework a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  height: 46px;
+}
+
+.desc {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}

@@ -1,0 +1,22 @@
+body {
+  font-size: 1.6rem;
+  color: red;
+}
+
+.footer {
+  padding: 10px 0;
+}
+.footer .copyright {
+  text-align: center;
+  width: 10%;
+}
+
+.colmd-1 {
+  width: 50%;
+}
+
+.col- md-1 {
+  width: 50%;
+}
+
+/*# sourceMappingURL=ex01.css.map */

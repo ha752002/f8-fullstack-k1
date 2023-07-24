@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+/* body {
+  font-family     : Roboto, sans-serif;
+  overflow-x      : hidden;
+  line-height     : 1.42857143;
+  box-sizing      : border-box;
+  color           : #333333;
+} */
+
+ul,
+ol,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Roboto, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+main {
+  background: url(https://toigingiuvedep.vn/wp-content/uploads/2021/08/anh-bau-troi-tam-trang-buon.jpg)
+    no-repeat;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 15px;
+}
+
+.header .header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .header-row .menu {
+  margin-left: auto;
+}
+
+.header .header-row .menu ul {
+  display: flex;
+}
+
+.header .header-row .menu ul li a {
+  display: block;
+  padding: 0 20px;
+  font-weight: 500;
+}
+
+.header .header-row .menu-toggle {
+  display: none;
+}
+
+.logo {
+  max-width: 120px;
+}
+
+.header .header-row .contact .btn {
+  display: block;
+  background-color: #75b7eb;
+  padding: 10px 30px;
+  font-weight: 500;
+  margin-left: 20px;
+  color: #fff;
+  border-radius: 99px;
+  -webkit-border-radius: 99px;
+  -moz-border-radius: 99px;
+  -ms-border-radius: 99px;
+  -o-border-radius: 99px;
+}
+
+.header .header-row .overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #00000022;
+}
+@media screen and (max-width: 991px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header .header-row .menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 250px;
+    background: #000;
+    z-index: 1;
+    translate: -100%;
+    transition: translate 0.4s ease;
+    -webkit-transition: translate 0.4s ease;
+    -moz-transition: translate 0.4s ease;
+    -ms-transition: translate 0.4s ease;
+    -o-transition: translate 0.4s ease;
+  }
+
+  .header .header-row .menu ul {
+    display: block;
+    padding: 20px 0;
+  }
+
+  .header .header-row .menu ul li a {
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .header .header-row .menu-toggle {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .header .header-row .contact {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .header .header-row input[type="checkbox"]:checked + .menu {
+    translate: 0;
+  }
+
+  .header .header-row input[type="checkbox"]:checked ~ .overlay {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header .header-row .contact {
+    display: none;
+  }
+}

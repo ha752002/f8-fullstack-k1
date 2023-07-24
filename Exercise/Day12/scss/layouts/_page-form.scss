@@ -1,53 +1,34 @@
-@import '../mixins';
+.page-form-login,
+.page-form-register {
+    display: none;
+}
 
-input#btn-login:checked ~ .lading-form-wrapper .page-form-login {
+input#login:checked ~ .page-form-wrapper .page-form-login {
     display: block;
 }
 
-input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
+input#register:checked ~ .page-form-wrapper .page-form-register {
     display: block;
 }
 
-.btn {
-    @include btn-size;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #fff;
+.page-form {
+    width: 100%;
+    padding: 40px 32px;
+    background-color: #fff;
     border-radius: 12px;
-    border: none;
-    outline: none;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-        scale: 0.95;
-    }
-
-    &-login {
-        background-color: #615dfa;
-        box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
-    }
-
-    &-register {
-        background-color: #23d2e2;
-        box-shadow: 4px 7px 12px 0 rgba(35, 210, 226, 0.2);
-    }
-}
-
-.form {
-    &-decor {
+    .form-decor {
         display: none;
     }
 
-    &-title {
+    .form-title {
         font-size: 2.6rem;
-        color: $primary_text_color;
+        color: $primaryColorText;
         text-align: center;
         font-weight: 700;
         margin-bottom: 75px;
     }
 
-    &-group {
+    .form-group {
         position: relative;
         margin-bottom: 30px;
 
@@ -55,7 +36,7 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
             position: absolute;
             left: 18px;
             font-size: 1.6rem;
-            color: $text_form_color;
+            color: $textFormColor;
             font-weight: 600;
             top: 50%;
             transform: translateY(-50%);
@@ -70,7 +51,7 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
         input[type="password"] {
             width: 100%;
             height: 54px;
-            border: 1px solid $border_input_color;
+            border: 1px solid $borderInputColor;
             border-radius: 12px;
             padding: 18px;
             transition: 0.3s ease-in-out;
@@ -82,10 +63,6 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
                 left: 14px;
                 transform: scale(0.7);
                 transform-origin: left;
-                -webkit-transform: scale(0.7);
-                -moz-transform: scale(0.7);
-                -ms-transform: scale(0.7);
-                -o-transform: scale(0.7);
             }
 
             &:not(:placeholder-shown),
@@ -95,8 +72,8 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
         }
 
         #save-password:checked + .row .label-save-password::before {
-            border: 1px solid $checkbox_background_color;
-            background-color: $checkbox_background_color;
+            border: 1px solid $checkboxBackground;
+            background-color: $checkboxBackground;
         }
         #save-password:checked + .row .label-save-password::after {
             opacity: 1;
@@ -104,8 +81,8 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
         }
 
         #send-email:checked + .row .label-send-email::before {
-            border: 1px solid $checkbox_background_color;
-            background-color: $checkbox_background_color;
+            border: 1px solid $checkboxBackground;
+            background-color: $checkboxBackground;
         }
         #send-email:checked + .row .label-send-email::after {
             opacity: 1;
@@ -116,7 +93,7 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
         .label-save-password {
             font-size: 1.4rem;
             font-weight: 700;
-            color: $primary_text_color;
+            color: $primaryColorText;
             display: flex;
             align-items: center;
             position: relative;
@@ -126,7 +103,7 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
                 width: 22px;
                 height: 22px;
                 border-radius: 5px;
-                border: 1px solid $border_input_color;
+                border: 1px solid $borderInputColor;
                 margin-right: 12px;
                 transition: 0.3s ease-in-out;
             }
@@ -145,7 +122,7 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
                 font-size: 22px;
                 text-align: center;
                 line-height: 22px;
-                background-color: $checkbox_background_color;
+                background-color: $checkboxBackground;
                 opacity: 0;
                 visibility: hidden;
                 transition: 0.3s ease-in-out;
@@ -158,65 +135,41 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
             .forgot-password-link {
                 font-size: 1.4rem;
                 font-weight: 700;
-                color: $text_form_color;
+                color: $textFormColor;
             }
         }
     }
-}
 
-.social {
-    &-icon-wrapper {
-        display: flex;
-        gap: 13px;
-        margin-top: 38px;
-        justify-content: center;
-    }
-
-    &-link {
+    .btn {
+        height: 54px;
+        width: 100%;
+        font-size: 1.4rem;
+        font-weight: 700;
         color: #fff;
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
 
-        &.twitter {
-            background-color: #1abcff;
-        }
-
-        &.facebook {
-            background-color: #3763d2;
-        }
-
-        &.twitch {
-            background-color: #7b5dfa;
-        }
-
-        &.youtube {
-            background-color: #fd434f;
+        &:hover {
+            scale: 0.95;
         }
     }
 
-}
-
-.page-form {
-
-    &-login,
-    &-register {
-        display: none;
+    .btn-login {
+        background-color: #615dfa;
+        box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
     }
 
-    width: 100%;
-    padding: 40px 32px;
-    background-color: #fff;
-    border-radius: 12px;
+    .btn-register {
+        background-color: #23d2e2;
+        box-shadow: 4px 7px 12px 0 rgba(35, 210, 226, 0.2);
+    }
 
     .login-text {
         font-size: 1.4rem;
-        color: $primary_text_color;
+        color: $primaryColorText;
         font-weight: 700;
         text-align: center;
         margin-top: 38px;
@@ -239,11 +192,44 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
             background-color: #eaeaf5;
         }
     }
+    .social-icon-wrapper {
+        display: flex;
+        gap: 13px;
+        margin-top: 38px;
+        justify-content: center;
+    }
+    .social-link {
+        color: #fff;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .social-link.twitter {
+        background-color: #1abcff;
+    }
+
+    .social-link.facebook {
+        background-color: #3763d2;
+    }
+
+    .social-link.twitch {
+        background-color: #7b5dfa;
+    }
+
+    .social-link.youtube {
+        background-color: #fd434f;
+    }
 
     .send-email {
         font-size: 1.4rem;
         font-weight: 500;
-        color: $primary_text_color;
+        color: $primaryColorText;
         line-height: 1.7;
         margin-top: 38px;
         a {
@@ -253,86 +239,72 @@ input#btn-register:checked ~ .lading-form-wrapper .page-form-register {
     }
 }
 
-@include screen(large_mobile) {
+@media screen and (min-width: 501px) {
     .page-form {
         padding: 64px;
     }
 }
 
-@include screen(desktop){
+@media screen and (min-width: 1366px) {
     body {
         padding: 100px 0;
     }
-
     .page-form {
         .form-decor {
             display: block;
         }
-
-        &-login,
-        &-register {
-            max-width: 484px;
-            position: fixed;
-            transition: 0.5s ease-in-out;
-            right: 5%;
-    
-            .form-decor {
-                position: absolute;
-                top: -50px;
-                left: -70px;
-            }
-        }
-
     }
 
+    .page-form-login,
+    .page-form-register {
+        max-width: 484px;
+        position: fixed;
+        transition: 0.5s ease-in-out;
+        right: 5%;
 
-    #btn-login{
-        &:checked ~ .lading-form-wrapper .page-form-login {
-            transform: translate(0);
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-            display: block;
-        }
-
-        &:checked ~ .lading-form-wrapper .page-form-register {
-            transform: translate(50%, 0);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 1;
-            display: block;
+        .form-decor {
+            position: absolute;
+            top: -50px;
+            left: -70px;
         }
     }
 
-
-    #btn-register {
-        &:checked ~ .lading-form-wrapper .page-form-login {
-            transform: translate(50%, 0);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 1;
-            display: block;
-        }
-
-        &:checked ~ .lading-form-wrapper .page-form-register {
-            transform: translate(0);
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-            display: block;
-        }
+    #login:checked ~ .page-form-wrapper .page-form-login {
+        transform: translate(0);
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+        display: block;
     }
 
+    #login:checked ~ .page-form-wrapper .page-form-register {
+        transform: translate(50%, 0);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1;
+        display: block;
+    }
 
+    #register:checked ~ .page-form-wrapper .page-form-login {
+        transform: translate(50%, 0);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1;
+        display: block;
+    }
+
+    #register:checked ~ .page-form-wrapper .page-form-register {
+        transform: translate(0);
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+        display: block;
+    }
 }
 
-
-@include screen(large_desktop){
-    .page-form{
-        &-login,
-        &-register {
-            right: 11%;
-        }
+@media screen and (min-width: 1501px) {
+    .page-form-login,
+    .page-form-register {
+        right: 11%;
     }
-  
 }

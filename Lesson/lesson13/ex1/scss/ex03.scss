@@ -1,0 +1,58 @@
+// @for $i from 1 through 12 {
+//   .col-#{$i} {
+//     width: $i * 10%;
+//   }
+// }
+
+// @for $i from 1 through 12 {
+//   .col-#{$i} {
+//     @if $i % 2 == 0 {
+//       width: $i * 15%;
+//     } @else {
+//       width: $i * 10%;
+//     }
+//   }
+// }
+
+// @for $i from 1 through 12 {
+//   $rate: 10%;
+//   @if $i % 2 == 0 {
+//     $rate: 15%;
+//   }
+//   .col-#{$i} {
+//     width: $i * $rate;
+//   }
+// }
+
+// $sizes: 20, 40, 60, 80;
+
+// @each $size in $sizes {
+//   col-#{$size} {
+//     width: #{$size * 2%};
+//   }
+// }
+// $sizes: (small, 20, normal), (medium, 40, italic), (large, 60, bold);
+
+// @each $name, $size, $style in $sizes {
+//   col-#{$name} {
+//     width: #{$size * 2%};
+//     @if ($style != bold) {
+//       font-size: $style;
+//     } @else {
+//       font-size: bold;
+//     }
+//   }
+// }
+
+//@each vs giá trị map
+// $sizes: (
+//   small: 20,
+//   medium: 40,
+//   large: 60,
+// );
+
+// @each $name, $size in $sizes {
+//   col-#{$size} {
+//     width: #{$size * 2%};
+//   }
+// }
