@@ -395,18 +395,7 @@ a {
   }
   .sidebar {
     padding: 54px 0 0 0px;
-  }
-  .wrapper-inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto repeat(2, 1fr);
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas: "header header header header header" "sidebar sidebar sidebar sidebar sidebar" "main main main main main" "main main main main main" "main main main main main";
-  }
-  .sidebar {
     grid-area: sidebar;
-    padding: 0 0 0 0px;
   }
   .sidebar .logo-link {
     display: none;
@@ -432,6 +421,14 @@ a {
   }
   .sidebar .chat-btn .chat-text {
     display: none;
+  }
+  .wrapper-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "header header header header header" "sidebar sidebar sidebar sidebar sidebar" "main main main main main" "main main main main main" "main main main main main";
   }
   .main {
     grid-area: main;
