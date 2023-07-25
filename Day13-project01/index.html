@@ -20,6 +20,10 @@
       href="./favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="wrapper">
@@ -72,12 +76,19 @@
 
         <!--Header-->
         <header class="header">
+          <a href="" class="logo-link">
+            <img src="./img/logo.svg" alt="" />
+          </a>
+
           <form action="" class="search-form">
             <img src="./icon/search.svg" alt="search" class="icon" />
             <input type="text" class="search" placeholder="Search store" />
           </form>
           <!--End .search-form-->
 
+          <input type="checkbox" id="menu-toggle" hidden />
+          <label class="overlay" for="menu-toggle"></label>
+          <!--End .overlay-->
           <nav class="nav">
             <a href="" class="nav-link active">Products</a>
             <a href="" class="nav-link">Story</a>
@@ -94,32 +105,40 @@
               <img src="./icon/user.svg" alt="user" class="action-icon" />
             </a>
           </div>
+          <!--End .actions-->
+
+          <div class="menu-toggle">
+            <label for="menu-toggle">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+          </div>
+          <!--End .menu-toggle-->
         </header>
 
         <!-- Main -->
         <main class="main">
-          <div class="wide">
+          <div class="main-wrapper wide">
             <img src="./img/W1.png" alt="" />
           </div>
-          <div class="tall">
+          <div class="main-wrapper tall">
             <img src="./img/W3.png" alt="" />
           </div>
-          <div class="wide">
+          <div class="main-wrapper wide">
             <img src="./img/W2.png" alt="" />
           </div>
-          <div class="tall">
+          <div class="main-wrapper tall">
             <img src="./img/W4.png" alt="" />
           </div>
-          <div class="tall">
+          <div class="main-wrapper tall">
             <img src="./img/W5.png" alt="" />
           </div>
-          <div class="tall">
+          <div class="main-wrapper tall">
             <img src="./img/W6.png" alt="" />
           </div>
-          <div class="wide">
+          <div class="main-wrapper wide">
             <img src="./img/W7.png" alt="" />
           </div>
-          <div class="wide">
+          <div class="main-wrapper wide">
             <img src="./img/W8.png" alt="" />
           </div>
         </main>
