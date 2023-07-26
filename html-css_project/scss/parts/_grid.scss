@@ -1,0 +1,145 @@
+:root {
+  --container-width: 1200px;
+  --container-padding: 15px;
+  --max-column: 12;
+  --column-space: 20px;
+  --spacer: 1rem;
+}
+// Mixins
+
+// Mixin tạo ra các thuộc tính flexbox
+// Nhận vào 2 tham số: thuộc tính và giá trị
+
+@mixin flex($property, $map) {
+  @each $key, $value in $map {
+    .#{$property}-#{$key} {
+      #{$property}: $value;
+    }
+  }
+}
+
+// Mixin tạo ra các thuộc tính margin và padding cho row và col
+// Nhận vào 2 tham số: key và value
+
+@mixin gutter($key, $value) {
+  &.g-#{$key} {
+    margin: 0 calc(-1 * var(--column-space) / 2);
+    --column-space: #{$value};
+    > [class^="col-"] {
+      padding: 0 calc(var(--column-space) / 2);
+      margin-bottom: var(--column-space);
+      --column-space-gutter: #{$value};
+    }
+  }
+}
+
+// Mixin tạo ra các thuộc tính d-none
+// Nhận vào 2 tham số: key và breakpoint(nếu có)
+
+@mixin d-none($key: null, $breakpoint: null) {
+  @if $breakpoint == null {
+    .d-none {
+      display: none;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      .d-#{$key}-none {
+        display: none;
+      }
+    }
+  }
+}
+
+// Mixin tạo ra các thuộc tính cho col
+// Nhận vào 2 tham số: cột và breakpoint(nếu có)
+
+@mixin column($i, $media: null) {
+  @if $media == null {
+    .col-#{$i} {
+      --column-number: #{$i};
+    }
+  } @else {
+    --column-number: #{$i};
+  }
+}
+
+// Mixin tạo ra các thuộc tính cho col theo breakpoint
+// Nhận vào 2 tham số: cột và breakpoint
+
+@mixin column-breakpoint($key, $value) {
+  @media screen and (min-width: $value) {
+    @for $i from 1 through $columns {
+      .col-#{$key}-#{$i} {
+        @include column($i, $key);
+      }
+    }
+  }
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+$flex-value: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+);
+$flex-attribute: (justify-content, align-items);
+
+// Khởi tạo các thuộc tính flexbox cho row và col
+
+@each $attribute in $flex-attribute {
+  @include flex(#{$attribute}, $flex-value);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--column-space) / 2);
+  $gutters: (
+    0: 0,
+    1: calc(0.25 * var(--spacer)),
+    2: calc(0.5 * var(--spacer)),
+    3: calc(1 * var(--spacer)),
+    4: calc(1.5 * var(--spacer)),
+    5: calc(3 * var(--spacer)),
+  );
+
+  // Tạo ra các thuộc tính margin và padding cho row và col
+
+  @each $key, $value in $gutters {
+    @include gutter($key, $value);
+  }
+  [class^="col-"] {
+    --column-width: calc(100% / (var(--max-column) / var(--column-number)));
+    flex-basis: var(--column-width);
+    max-width: var(--column-width);
+    padding: 0 calc(var(--column-space) / 2);
+    margin-bottom: var(--column-space);
+  }
+}
+$columns: 12;
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Khởi tạo các thuộc tính cho col theo breakpoint
+
+@mixin media-breakpoints($map) {
+  @include d-none();
+  @for $i from 1 through $columns {
+    // Tạo ra các thuộc tính cho col chưa có breakpoint
+    @include column($i);
+  }
+  @each $key, $value in $map {
+    // Tạo ra các thuộc tính cho col, d-none theo breakpoint
+    @include d-none($key, $value);
+    @include column-breakpoint($key, $value);
+  }
+}
+@include media-breakpoints($breakpoints);

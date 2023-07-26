@@ -1,0 +1,97 @@
+.header {
+  padding: 2px 0 0 0;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+
+  &-logo {
+    > a > img {
+      max-width: 80%;
+      vertical-align: bottom;
+    }
+  }
+  .row {
+    align-items: center;
+    margin: 0 -15px;
+  }
+
+  .nav {
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+
+    &-link {
+      position: relative;
+      color: $textColor;
+      display: flex;
+      font-size: 1.8rem;
+      font-weight: 600;
+      padding: 35px 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: width 0.5s;
+        background: $primaryColor;
+        -webkit-transition: width 0.5s;
+        -moz-transition: width 0.5s;
+        -ms-transition: width 0.5s;
+        -o-transition: width 0.5s;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%;
+      }
+
+      &:hover,
+      &.active {
+        color: $primaryColor;
+      }
+    }
+
+    // display: flex;
+    // column-gap: 50px;
+    // align-items: center;
+
+    // &-link {
+    //   font-size: 1.7rem;
+    //   font-weight: 600;
+    //   position: static;
+    //   color: $textColor;
+    //   padding: 35px 0;
+    //   display: block;
+
+    //   &.active {
+    //     color: $primaryColor;
+    //     border-bottom: 2px solid $primaryColor;
+    //   }
+    //   &:hover {
+    //     @extend .active;
+    //   }
+    // }
+  }
+
+  &-right {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+  }
+
+  &-icon {
+    column-gap: 50px;
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+  }
+
+  &-cart__img {
+    position: relative;
+
+    &::after {
+      position: absolute;
+    }
+  }
+}
