@@ -1,0 +1,52 @@
+@import "mixin";
+
+.section-title {
+  text-align: center;
+  @include title(3.1667rem, $textColor, 800, 4.1649rem);
+}
+
+.section-product__title {
+  text-align: center;
+  font-size: 2.3333rem;
+  font-weight: 700;
+  line-height: normal;
+  margin: 6px 0px 0px 0;
+  position: relative;
+  height: 56.667px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 41px;
+    height: 2px;
+    background-color: var(--grey-500-main);
+    transform: translateX(-20px);
+  }
+}
+
+.btn {
+  border-radius: 6.667px;
+  background: var(--green-800-main, #46b20f);
+  padding: 14px;
+  justify-content: center;
+  display: flex;
+  color: var(--white, #fff);
+  text-align: center;
+  font-size: 1.66667rem;
+  font-weight: 700;
+  margin: 12px auto 0 auto;
+}
+
+.section__desc {
+  margin: 0 auto;
+  color: #2c2c2c;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.0417rem;
+  max-width: 643.333px;
+  margin-top: 4px;
+}

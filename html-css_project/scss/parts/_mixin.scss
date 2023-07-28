@@ -2,3 +2,22 @@
   transition: $duration $timmingFunc;
   transition-property: $property;
 }
+
+@mixin circle($w, $h, $bg, $b-radius, $z-index) {
+  width: $w;
+  height: $h;
+  background: $bg;
+  z-index: $z-index;
+  border-radius: $b-radius;
+  -webkit-border-radius: $b-radius;
+  -moz-border-radius: $b-radius;
+  -ms-border-radius: $b-radius;
+  -o-border-radius: $b-radius;
+}
+
+@mixin title($f-size, $color, $f-weight, $line-h) {
+  font-size: $f-size;
+  color: $color;
+  font-weight: $f-weight;
+  line-height: $line-h;
+}
