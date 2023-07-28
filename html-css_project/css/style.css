@@ -478,6 +478,12 @@ p {
   padding: 2px 0 0 0;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
+.header .menu-toggle {
+  font-size: 2.5rem;
+}
+.header .container {
+  width: calc(100% - 30px);
+}
 .header-logo > a > img {
   max-width: 80%;
   vertical-align: bottom;
@@ -485,56 +491,146 @@ p {
 .header .row {
   align-items: center;
   margin: 0 -15px;
+  justify-content: space-between;
 }
 .header .nav {
-  display: flex;
   column-gap: 50px;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #46b20f;
+  translate: -100%;
+  transition: 0.4s ease;
+  transition-property: translate;
 }
 .header .nav-link {
+  display: block;
+  color: var(--white);
+  padding: 30px 20px 15px 20px;
   position: relative;
-  color: #2c2c2c;
-  display: flex;
+  min-width: 250px;
   font-size: 1.8rem;
   font-weight: 600;
-  padding: 35px 0;
 }
 .header .nav-link::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 20px;
   width: 0;
   height: 3px;
   transition: width 0.5s;
-  background: #46b20f;
+  background: #2c2c2c;
   -webkit-transition: width 0.5s;
   -moz-transition: width 0.5s;
   -ms-transition: width 0.5s;
   -o-transition: width 0.5s;
 }
 .header .nav-link:hover::after, .header .nav-link.active::after {
-  width: 100%;
+  width: 80%;
 }
 .header .nav-link:hover, .header .nav-link.active {
-  color: #46b20f;
+  color: #2c2c2c;
 }
 .header-right {
   display: flex;
-  margin-left: auto;
   align-items: center;
+}
+.header-right input[type=checkbox]:checked ~ .nav {
+  translate: 0;
+  z-index: 1;
+}
+.header-right input[type=checkbox]:checked ~ .overlay {
+  opacity: 1;
+  z-index: 1;
+  visibility: visible;
+}
+.header-right .overlay {
+  background: rgba(0, 0, 0, 0.4745098039);
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+  transition-property: opacity;
 }
 .header-icon {
-  column-gap: 50px;
+  column-gap: 30px;
   display: flex;
-  margin-left: 50px;
   align-items: center;
 }
-.header-cart__img {
+.header-cart {
   position: relative;
 }
-.header-cart__img::after {
+.header-cart__count {
   position: absolute;
+  color: var(--white);
+  background-color: #e05000;
+  right: -4px;
+  display: block;
+  font-size: 1rem;
+  top: -5px;
+  width: 13px;
+  height: 13px;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+@media screen and (min-width: 992px) {
+  .header .nav {
+    position: static;
+    background: none;
+    display: flex;
+    translate: 0%;
+  }
+  .header .nav-link {
+    position: relative;
+    color: #2c2c2c;
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 35px 0;
+    min-width: auto;
+  }
+  .header .nav-link:nth-child(1) {
+    margin: 0px;
+  }
+  .header .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: width 0.5s;
+    background: #46b20f;
+    -webkit-transition: width 0.5s;
+    -moz-transition: width 0.5s;
+    -ms-transition: width 0.5s;
+    -o-transition: width 0.5s;
+  }
+  .header .nav-link:hover::after, .header .nav-link.active::after {
+    width: 100%;
+  }
+  .header .nav-link:hover, .header .nav-link.active {
+    color: #46b20f;
+  }
+  .header-right {
+    margin-left: auto;
+  }
+  .header-right .overlay {
+    display: none;
+  }
+  .header-icon {
+    margin-left: 50px;
+    column-gap: 50px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
