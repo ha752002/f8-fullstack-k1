@@ -37,6 +37,10 @@
   }
 
   &-top {
+    .row {
+      padding-bottom: 38px;
+    }
+
     &__title {
       color: var(--green-800-main, #46b20f);
       font-size: 1.6667rem;
@@ -62,6 +66,12 @@
         line-height: 2.0417rem;
       }
     }
+
+    &::after {
+      content: "";
+      display: block;
+      border: 1px solid var(--grey-500-main, #a3a3a3);
+    }
   }
 
   &-top-inner-2,
@@ -73,6 +83,29 @@
 
       &__item {
         padding: 0px 0px 7px 0px;
+      }
+    }
+  }
+
+  &-bottom {
+    padding: 22px 0px 10px 51px;
+
+    &-social {
+      display: flex;
+      align-items: center;
+      column-gap: 7px;
+      justify-content: flex-end;
+
+      .social-link {
+        &:nth-child(4) {
+          margin-right: 50px;
+        }
+
+        img {
+          padding: 10px;
+          border-radius: 99px;
+          background: var(--green-200, #dcffca);
+        }
       }
     }
   }
