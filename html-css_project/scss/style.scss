@@ -57,7 +57,7 @@
     width: 755px;
     background-color: var(--green-200);
     border-top-left-radius: 9px;
-    margin-left: -149px;
+    margin-left: auto;
 
     .text-under {
       position: absolute;
@@ -81,6 +81,7 @@
 }
 
 .section {
+  display: none;
   .container {
     padding-top: 62px;
   }

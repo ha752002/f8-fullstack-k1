@@ -699,6 +699,7 @@ p {
   }
 }
 .footer {
+  display: none;
   background: var(--green-100, #f2ffec);
 }
 .footer .container {
@@ -822,7 +823,7 @@ p {
   width: 755px;
   background-color: var(--green-200);
   border-top-left-radius: 9px;
-  margin-left: -149px;
+  margin-left: auto;
 }
 .hero-img .text-under {
   position: absolute;
@@ -842,6 +843,9 @@ p {
   margin-top: -3px;
 }
 
+.section {
+  display: none;
+}
 .section .container {
   padding-top: 62px;
 }
