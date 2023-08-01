@@ -1,0 +1,196 @@
+// Hero
+.hero {
+    margin: 108px 0 100px 0;
+
+    .hero-content {
+        .hero-sub-heading {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .hero-heading {
+            font-size: 4.3rem;
+            font-weight: 800;
+            width: 382px;
+            margin-bottom: 26.67px;
+        }
+
+        .hero-desc {
+            width: 450px;
+        }
+    }
+
+    .hero-background {
+        position: relative;
+        width: 49vw;
+        max-width: 49vw;
+        height: 85vh;
+        background-color: $primaryColorLight;
+        border-radius: 17px 0 0 17px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -80px;
+        }
+
+        .hero-background__text {
+            position: absolute;
+            font-size: 16.6rem;
+            font-weight: 800;
+            line-height: 100%;
+            color: #216000;
+            opacity: 0.15000000596046448;
+            top: 50%;
+            right: -75px;
+            transform: translateY(-50%) rotate(90deg);
+            width: 555px;
+        }
+    }
+}
+
+// End Hero
+
+// --------------------------------------------------------------------------------
+// Responsive
+// --------------------------------------------------------------------------------
+
+@media screen and (max-width: 1399.98px) {
+    .hero {
+        .hero-content {
+            .hero-sub-heading {
+                font-size: 3.2rem;
+            }
+
+            .hero-heading {
+                font-size: 3.8rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .hero-background {
+            img {
+                width: 350px;
+            }
+
+            .hero-background__text {
+                font-size: 12rem;
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199.98px) {
+
+    // Hero
+    .hero {
+
+        .hero-background {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 80px;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 17px;
+
+            .hero-background__text,
+            img {
+                position: static;
+                transform: none;
+            }
+
+            .hero-background__text {
+                font-size: 10rem;
+                width: max-content;
+            }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 0px;
+
+            .hero-heading {
+                width: auto;
+            }
+
+            .hero-desc {
+                width: 1000px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+
+    // Hero
+    .hero {
+        .hero-background {
+            justify-content: center;
+
+            .hero-background__text {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+
+    // Hero
+    .hero {
+        .hero-background {
+            .hero-background__text {
+                font-size: 6rem;
+            }
+        }
+
+        .hero-content {
+            .hero-sub-heading {
+                font-size: 2.6rem;
+            }
+
+            .hero-heading {
+                font-size: 3rem;
+            }
+
+            .hero-desc {
+                text-align: justify;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+    // Hero
+    .hero {
+        .hero-background {
+            .hero-background__text {
+                font-size: 4rem;
+            }
+        }
+
+        .hero-content {
+            .hero-sub-heading {
+                font-size: 2.2rem;
+            }
+
+            .hero-heading {
+                font-size: 2.6rem;
+            }
+        }
+    }
+}

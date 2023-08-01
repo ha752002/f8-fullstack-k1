@@ -1,0 +1,126 @@
+// News
+
+.news {
+    text-align: center;
+    margin-bottom: 100px;
+
+    .news-heading {
+        @extend %headingSection;
+        margin-bottom: 23px;
+    }
+
+    .news-desc {
+        display: inline-block;
+        margin-bottom: 28.83px;
+        width: 657.5px;
+        max-width: 100%;
+    }
+
+    .news-list {
+        margin-bottom: 30px;
+
+        .news-col {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .news-block {
+            width: 385px;
+            max-width: 100%;
+            text-align: left;
+
+            .news-img,
+            .date,
+            .news-block-heading {
+                margin-bottom: 16.27px;
+            }
+
+            .news-img {
+                width: 385px;
+                height: 273.3px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 6.667px;
+            }
+
+            .date {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .text-lorem {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: $primaryColor;
+                }
+
+                .calenter {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    span {
+                        display: inline-block;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        margin-left: 10px;
+                        color: #A3A3A3;
+                    }
+                }
+            }
+
+            .news-block-heading {
+                font-size: 2rem;
+                font-weight: 600;
+                line-height: 1.33;
+            }
+        }
+    }
+
+    .news-btn {
+        font-size: 2rem;
+        font-weight: 700;
+        background-color: transparent;
+        padding: 11.67px 21.67px;
+        border-radius: 6.667px;
+        border: 1px solid $primaryColor;
+        cursor: pointer;
+    }
+}
+
+// End News
+
+@media screen and (max-width: 991.98px) {
+    .news {
+        .news-list {
+            .news-block {
+                .news-img {
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .news {
+        .news-heading {
+            font-size: 2.8rem;
+        }
+
+        .news-desc {
+            text-align: justify;
+        }
+
+        .news-btn {
+            font-size: 1.7rem;
+            font-weight: 700;
+            padding: 9px 19px;
+        }
+    }
+}

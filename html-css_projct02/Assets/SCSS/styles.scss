@@ -1,0 +1,19 @@
+// Import Parts
+@import 'parts/variables';
+@import 'parts/fonts';
+@import 'parts/resets';
+@import 'parts/base';
+@import 'parts/mixin';
+
+// Import Layouts
+@import 'layouts/header';
+@import 'layouts/footer';
+
+// Import Pages
+@import 'pages/home/hero';
+@import 'pages/home/achievement';
+@import 'pages/home/products';
+@import 'pages/home/news';
+@import 'pages/home/function';
+@import 'pages/home/quality';
+@import 'pages/home/contact';

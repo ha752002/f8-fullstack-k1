@@ -1,0 +1,194 @@
+// Achievement
+
+.achievement {
+    text-align: center;
+    margin-bottom: 100px;
+
+    .achievement-heading {
+        display: inline-block;
+        width: 558px;
+        max-width: 100%;
+        @extend %headingSection;
+        margin-bottom: 24.33px;
+    }
+
+    .achievement-desc {
+        display: inline-block;
+        width: 644px;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .achievement-list {
+        height: 597px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        .space {
+            width: 1200px;
+            max-width: 1200px;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 235px;
+            height: 235px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        &::before {
+            top: 0px;
+            left: 0px;
+            background-color: $primaryColorLight;
+        }
+
+        &::after {
+            background-color: $thirdColor;
+            bottom: 0;
+            right: 0;
+        }
+
+        .achievement-block {
+            padding: 33.33px;
+            border-radius: 3.333px;
+            background: #fff;
+            box-shadow: -5.8333330154418945px 8.333333015441895px 72.5px 0px rgba(54, 54, 54, 0.12);
+            text-align: left;
+            width: 294px;
+
+            .certificate-img {
+                width: 83.3px;
+                margin-bottom: 23.33px;
+            }
+
+            .achievement-quantity {
+                font-size: 4.3rem;
+                font-weight: 800;
+                margin-bottom: 23.33px;
+            }
+
+            .achievement-customer {
+                font-size: 2rem;
+                font-weight: 400;
+                line-height: 1.5;
+                padding-bottom: 25.5px;
+            }
+        }
+
+        .spc-col {
+            .achievement-block {
+                width: 343px;
+                padding: 60px 33.33px;
+            }
+        }
+    }
+}
+
+// End Achievement
+
+// --------------------------------------------------------------------------------
+// Responsive
+// --------------------------------------------------------------------------------
+
+@media screen and (max-width: 1399.98px) {}
+
+@media screen and (max-width: 1199.98px) {
+
+    // Achievement
+    .achievement {
+        .achievement-list {
+            .achievement-block {
+                width: 231px;
+                padding: 23px;
+
+                .achievement-quantity {
+                    font-size: 3.7rem;
+                }
+
+                .achievement-customer {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .spc-col {
+                .achievement-block {
+                    padding: 50px 23px;
+                    width: 280.05px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+
+    // Achievement
+    .achievement {
+        .achievement-desc {
+            margin-bottom: 120px;
+        }
+
+        .achievement-list {
+            display: block;
+            height: auto;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+
+            .space {
+                width: auto;
+            }
+
+            .achievement-block {
+                text-align: center;
+                width: 100%;
+                padding: 30px;
+                margin-bottom: 25px;
+
+                .achievement-customer {
+                    padding-bottom: 0;
+                }
+            }
+
+            .spc-col {
+                .achievement-block {
+                    width: 100%;
+                    padding: 30px
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+
+    // Achievement
+    .achievement {
+        .achievement-heading {
+            font-size: 2.8rem;
+        }
+
+        .achievement-desc {
+            text-align: justify;
+        }
+
+        .achievement-list {
+            .achievement-block {
+                .achievement-quantity {
+                    font-size: 3rem;
+                }
+
+                .achievement-customer {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}

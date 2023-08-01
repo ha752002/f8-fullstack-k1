@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: $font;
+    color: $textColor;
+    line-height: 1.25;
+    font-size: $fontSize;
+}
+
+a {
+    text-decoration: none;
+    color: $linkColor;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
