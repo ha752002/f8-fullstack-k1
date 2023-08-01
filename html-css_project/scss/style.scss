@@ -10,75 +10,7 @@
 //Import Layout
 @import "./layouts/header";
 @import "./layouts/footer";
-
-.hero {
-  .container {
-    min-width: 100vw;
-    padding-top: 108px;
-    .row {
-      flex-wrap: nowrap;
-      margin: 0 -25px;
-    }
-  }
-
-  &-infor {
-    display: flex;
-    flex-direction: column;
-    margin-left: calc((100vw - 1200px) / 2);
-  }
-
-  &__heading {
-    margin-top: 235px;
-    font-size: 3.7rem;
-    line-height: 1.3rem;
-    font-weight: 800;
-  }
-
-  &__title {
-    font-size: 4.3rem;
-    margin: 10px 0px 28px 0px;
-    font-weight: 800;
-    line-height: normal;
-    max-width: 385px;
-    text-align: initial;
-  }
-
-  &__desc {
-    font-size: 1.6rem;
-    font-weight: 400;
-    max-width: 449.167px;
-    line-height: 2rem;
-  }
-
-  &-img {
-    position: relative;
-    flex-grow: 1;
-    height: 708.333px;
-    width: 755px;
-    background-color: var(--green-200);
-    border-top-left-radius: 9px;
-    margin-left: auto;
-
-    .text-under {
-      position: absolute;
-      color: var(--green-1000);
-      font-weight: 800;
-      font-size: 16.7rem;
-      top: 55px;
-      right: 44px;
-      line-height: 16.667rem;
-      opacity: 0.15;
-      writing-mode: vertical-rl;
-    }
-
-    .img {
-      position: absolute;
-      right: 232px;
-      max-width: 830px;
-      margin-top: -3px;
-    }
-  }
-}
+@import "./layouts/hero";
 
 .section {
   display: none;
@@ -557,3 +489,13 @@
     }
   }
 }
+
+@media screen and (min-width: 992px) {
+}
+
+// position: fixed;
+// right: 0;
+// bottom: 0;
+// transform: translate(41px, -67px);
+// max-width: 351px;
+// margin-top: -3px;
