@@ -1,0 +1,164 @@
+.about-greenchop {
+  .container {
+    max-width: 1440px;
+
+    .container-inner {
+      max-width: 1170px;
+      margin: 0 auto;
+
+      .title {
+        margin-top: 120px;
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.31;
+        text-align: center;
+        margin-bottom: 30px;
+        transform: translateX(-14px) translateY(3px);
+      }
+
+      .about-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 142px;
+        margin-bottom: 60px;
+
+        .text {
+          width: 452px;
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 1.53;
+        }
+
+        .text-row-1 {
+          transform: translateY(-7px) translateX(9px);
+        }
+
+        .image-row-1 {
+          transform: translateX(9px) translateY(2px);
+        }
+
+        .text-row-2 {
+          transform: translateY(-6px) translateX(-16px);
+        }
+
+        .image-row-2 {
+          transform: translateX(-14px) translateY(-2px);
+        }
+
+        .text-row-3 {
+          transform: translateY(-25px) translateX(-42px);
+        }
+
+        .image-row-3 {
+          transform: translateX(60px) translateY(-10px);
+        }
+
+        .text-middle-width {
+          width: 528px;
+        }
+
+        .order-2 {
+          order: 2;
+        }
+
+        .order-1 {
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1499px) {
+  .about-greenchop {
+    * {
+      transform: translate(0) !important;
+    }
+    .container {
+      max-width: 1320px;
+
+      .container-inner {
+        .about-item {
+          .text {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  .about-greenchop {
+    .container {
+      max-width: 1140px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .about-greenchop {
+    .container {
+      max-width: 960px;
+
+      .container-inner {
+        .about-item {
+          column-gap: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .about-greenchop {
+    .container {
+      max-width: 720px;
+
+      .container-inner {
+        .about-item {
+          column-gap: 60px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .about-greenchop {
+    .container {
+      max-width: 540px;
+
+      .container-inner {
+        .about-item {
+          flex-direction: column;
+
+          .order-2 {
+            order: 1;
+          }
+
+          .order-1 {
+            order: 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .about-greenchop {
+    .container {
+      max-width: 320px;
+
+      .container-inner {
+        .about-item {
+          .text {
+            width: 290px;
+          }
+        }
+      }
+    }
+  }
+}

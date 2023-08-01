@@ -1,0 +1,11 @@
+// Import Parts
+@import "parts/variables";
+@import "parts/reset";
+@import "parts/base";
+@import "parts/mixin";
+
+// Import part of news page
+@import "layouts_news/header";
+@import "layouts_news/title-large";
+@import "layouts_news/hot-news";
+@import "layouts_news/post";

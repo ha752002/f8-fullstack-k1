@@ -1,0 +1,253 @@
+.mission-section {
+  transform: translateX(-68px) translateY(44px);
+  .container {
+    max-width: 1440px;
+
+    .container-inner {
+      max-width: 1305px;
+      height: 598px;
+      margin-top: 120px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 91px;
+        bottom: 27px;
+        width: 480px;
+        height: 480px;
+        background-color: #dcffca;
+        border-radius: 50%;
+        z-index: -2;
+        transform: translateX(9px);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 289px;
+        top: 334px;
+        bottom: 0;
+        width: 264px;
+        height: 264px;
+        background-color: #ffd5bd;
+        border-radius: 50%;
+        z-index: -1;
+        transform: translateX(9px);
+      }
+
+      .image {
+        border-radius: 8px;
+        img {
+          width: 480px;
+          height: 438px;
+          border-radius: 8px;
+          box-shadow: -11px 31px 56px 0px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      .content {
+        max-width: 492px;
+        margin-left: 100px;
+        margin-top: 100px;
+        transform: translateY(-18px) translateX(9px);
+
+        .title {
+          font-size: 3.8rem;
+          font-weight: 800;
+          line-height: 1.31;
+          margin-bottom: 32px;
+        }
+
+        .desc {
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 1.53;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1499px) {
+  .mission-section {
+    text-align: center;
+    .container {
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .container-inner {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  .mission-section {
+    .container {
+      max-width: 1140px;
+
+      .container-inner {
+        max-width: 1033px;
+        height: fit-content;
+
+        &::before {
+          width: 400px;
+          height: 400px;
+        }
+
+        &::after {
+          width: 200px;
+          height: 200px;
+        }
+
+        .image {
+          img {
+            width: 400px;
+            height: auto;
+          }
+        }
+
+        .content {
+          margin-left: 50px;
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .mission-section {
+    .container {
+      max-width: 960px;
+
+      .container-inner {
+        max-width: 960px;
+        height: fit-content;
+
+        &::before {
+          width: 350px;
+          height: 350px;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        .image {
+          img {
+            width: 350px;
+            height: auto;
+          }
+        }
+
+        .content {
+          max-width: 468px;
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .mission-section {
+    .container {
+      max-width: 720px;
+
+      .container-inner {
+        max-width: 720px;
+
+        &::before {
+          width: 200px;
+          height: 200px;
+          top: 0;
+        }
+
+        .image {
+          display: flex;
+          align-items: center;
+          img {
+            width: 300px;
+          }
+        }
+
+        .content {
+          max-width: 300px;
+
+          .title {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mission-section {
+    .container {
+      max-width: 540px;
+
+      .container-inner {
+        max-width: 540px;
+        justify-content: center;
+
+        &::before {
+          width: 200px;
+          height: 200px;
+          top: 0;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        .image {
+          display: none;
+        }
+
+        .content {
+          max-width: 500px;
+
+          .title {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .mission-section {
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-28px);
+    .container {
+      max-width: 320px;
+
+      .container-inner {
+        max-width: 320px;
+
+        &::before {
+          display: none;
+        }
+
+        .content {
+          max-width: 320px;
+        }
+      }
+    }
+  }
+}

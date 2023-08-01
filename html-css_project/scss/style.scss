@@ -13,7 +13,7 @@
 @import "./layouts/hero";
 
 .section {
-  display: none;
+  // display: none;
   .container {
     padding-top: 62px;
   }
@@ -124,6 +124,8 @@
 
   //   section-product
   &-product {
+    display: none;
+
     .container {
       padding-top: 71px;
     }
@@ -196,6 +198,8 @@
 
   //   section-news
   &-news {
+    display: none;
+
     .container {
       padding-top: 92px;
     }
@@ -274,6 +278,8 @@
 
   // section-benefit
   &-benefit {
+    display: none;
+
     .benefit-item__inner {
       height: 100%;
       background-color: var(--white);
@@ -371,6 +377,8 @@
 
   // section service
   &-service {
+    display: none;
+
     .container {
       width: 63%;
       padding-top: 215px;
@@ -415,6 +423,8 @@
 
   // section-form
   &-form {
+    display: none;
+
     .container {
       padding-top: 98px;
       padding-bottom: 89px;

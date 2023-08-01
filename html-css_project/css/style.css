@@ -532,6 +532,7 @@ p {
   background: #fff;
   position: fixed;
   z-index: 1;
+  display: none;
   width: 100%;
 }
 .header .menu-toggle {
@@ -791,6 +792,7 @@ p {
 
 .hero .container {
   padding: 0;
+  display: none;
 }
 .hero .hero-info {
   padding: 0 var(--container-padding);
@@ -998,9 +1000,6 @@ p {
     left: 20px;
   }
 }
-.section {
-  display: none;
-}
 .section .container {
   padding-top: 62px;
 }
@@ -1105,6 +1104,9 @@ p {
   line-height: 3.0833rem;
   margin-top: 23px;
 }
+.section-product {
+  display: none;
+}
 .section-product .container {
   padding-top: 71px;
 }
@@ -1169,6 +1171,9 @@ p {
   line-height: 2.6667px;
   margin-right: 2px;
 }
+.section-news {
+  display: none;
+}
 .section-news .container {
   padding-top: 92px;
 }
@@ -1232,6 +1237,7 @@ p {
   line-height: normal;
 }
 .section-benefit {
+  display: none;
   position: relative;
 }
 .section-benefit .benefit-item__inner {
@@ -1307,6 +1313,9 @@ p {
 .section-benefit-item:nth-child(2) .benefit__content-desc {
   max-width: 295px;
 }
+.section-service {
+  display: none;
+}
 .section-service .container {
   width: 63%;
   padding-top: 215px;
@@ -1340,6 +1349,9 @@ p {
   line-height: normal;
   margin-top: -16px;
   max-width: 200px;
+}
+.section-form {
+  display: none;
 }
 .section-form .container {
   padding-top: 98px;
