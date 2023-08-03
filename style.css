@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+  width: 0.3rem;
+}
+html::-webkit-scrollbar-track {
+  background: #fefefe;
+  /* Đây là màu nền */
+}
+html::-webkit-scrollbar-thumb {
+  background: #056aa4;
+  /* Đây là màu của cái tròn tròn */
+  border-radius: 5rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -28,7 +41,7 @@ body {
 .header-container {
   display: flex;
   justify-content: space-between;
-  max-width: 850px;
+  max-width: 90%;
   width: 100%;
   margin: 0 auto;
   padding: 0 10px;
@@ -41,7 +54,7 @@ body {
 }
 
 .main {
-  background-color: #afcdff;
+  background-color: #a9c9ff;
   margin-top: 46px;
 }
 
@@ -60,20 +73,40 @@ body {
 }
 
 .title {
-  width: 600px;
+  width: 800px;
   text-align: center;
   font-size: 30px;
+  background-color: #f86f03;
   border-radius: 12px;
-  color: #000000;
+  color: #fff6f4;
   padding: 4px 0;
   margin: 0 auto;
+  cursor: pointer;
+  /* background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(237, 3, 32, 0.87) 20.8%,
+    rgba(242, 121, 1, 0.84) 74.4%
+  ); */
+  background: #ffa0d1f0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.title:hover {
+  opacity: 0.8;
+}
+
+.title i {
+  padding-left: 16px;
+}
+
+.title-js {
+  background: #ffa0d1f0;
+  /* background: linear-gradient(270deg, #fe3b0e, #ff8119); */
 }
 
 .day-homework {
   background-color: #fff;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
   border-radius: 12px;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
@@ -81,7 +114,7 @@ body {
 .day-title {
   font-size: 20px;
   color: blue;
-  word-spacing: 8px;
+  word-spacing: 4px;
 }
 
 .day-homework a {
@@ -104,4 +137,17 @@ body {
   font-size: 18px;
   font-weight: 500;
   margin-top: 20px;
+}
+
+.homework-wrapper {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+}
+
+input[id="title-wrap-js"]:checked ~ .homework-wrapper,
+input[id="title-wrap"]:checked ~ .homework-wrapper {
+  opacity: 1;
+  display: block;
 }
