@@ -4,10 +4,15 @@
 // không dùng biến trung gian
 
 function permutation(a, b) {
-    a = a + b;
-    b = a - b;
-    a = a - b;
-    console.log(a, b);
+    if (Number.isInteger(a) && Number.isInteger(b)) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        console.log(a, b);
+    } else {
+        console.log(`Đầu vào  kp là số ! Vui lòng nhập lại `);
+    }
+
 }
 
 permutation(2, 3);
