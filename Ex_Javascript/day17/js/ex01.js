@@ -5,28 +5,26 @@
 // Số km > 5 giá 11000đ
 // Nếu số km > 120 km sẽ được giảm 10% trên tổng số tiền
 
-var km = 121,
+var km = 5,
     moneyTaxi;
 
-if (km > 0) {
+if (km > 0 && !isNaN(kWh)) {
     if (km > 1) {
-        if (km >= 5) {
+        if (km > 5) {
             if (km > 120) {
                 moneyTaxi = 11000;
                 moneyTaxi = (moneyTaxi * km) - (moneyTaxi * km) / 10;
-                console.log(`money Taxi = ${moneyTaxi}`);
+            } else {
+                moneyTaxi = 11000 * km;
             }
         } else {
-            moneyTaxi = 11000 * km;
-            console.log(`money Taxi = ${moneyTaxi}`);
+            moneyTaxi = 13500 * km;
         }
     } else {
-        moneyTaxi = 13500 * km;
-        console.log(`money Taxi = ${moneyTaxi}`);
+        moneyTaxi = 15000 * km;
     }
 } else {
-    moneyTaxi = 15000 * km;
-    console.log(`money Taxi = ${moneyTaxi}`);
+    moneyTaxi = "đầu vào phải là số nguyên dương ! Nhập lại";
 }
 
 console.log(`money Taxi = ${moneyTaxi}`);
