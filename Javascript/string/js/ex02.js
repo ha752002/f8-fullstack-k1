@@ -12,26 +12,26 @@
 
 // }
 
-// var fullname = 'tạ hoàng an';
-// fullname = fullname.charAt(0).toLocaleUpperCase() + fullname.slice(1);
+var fullname = 'tạ hoàng an';
+fullname = fullname.charAt(0).toLocaleUpperCase() + fullname.slice(1);
 
-// var result = "";
-// var index;
+var result = "";
+var index;
 
-// for (var i = 0; i < fullname.length; i++) {
-//     var char = fullname.charAt(i);
-//     var charNext = fullname.charAt(i + 1);
+for (var i = 0; i < fullname.length; i++) {
+    var char = fullname.charAt(i);
+    var charNext = fullname.charAt(i + 1);
 
-//     if (char === " " && charNext !== " ") {
-//         index = i + 1;
-//     }
+    if (char === " " && charNext !== " ") {
+        index = i + 1;
+    }
 
-//     if (i === index) {
-//         result += char.toUpperCase();
-//     } else {
-//         result += char;
-//     }
-// }
+    if (i === index) {
+        result += char.toUpperCase();
+    } else {
+        result += char;
+    }
+}
 
-// console.log(result);
+console.log(result);
 

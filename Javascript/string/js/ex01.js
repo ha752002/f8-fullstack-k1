@@ -1,65 +1,35 @@
-//Khai bao chuoi
-var fullname = "ha";
+var keyword = "Hong Ha";
+var title = `<p>Từ khóa tìm kiếm : <b>${keyword}</b> </p>`;
 
-// console.log(fullname, typeof fullname);
-
-// var fullname2 = String("Ha f8");
-
-var str = "Hong Ha  F8";
-
-//1.length => lấy độ dài cuả chuỗi
-
-// console.log(str.length);
+var content = `Lorem Hong ha ipsum dolor sit amet consectetur adipisicing elit. Sed esse laudantium error vero nobis molestias aspernatur aliquam deleniti ad, praesentium iusto ea accusamus alias doloribus quod hong Ha ratione repellat repudiandae quas soluta corrupti sunt! Adipisci voluptatibus hic, itaque illum et pariatur!`;
 
 
-// 2. charAt(index) => trả về kí thự theo index
+var count = 0;
 
-// console.log(str.charAt(5))
+var result = "";
 
-// 3. charCodeAt(index) => mã AsCII của ký tự theo index// console.log(str.charAt(5))
-// console.log(str.charCodeAt(2));
+var position = content.toLowerCase().indexOf(keyword.toLowerCase());
 
-//4. concat(str2, str3,...);=> Nối chuỗi
-// console.log(str.concat(" ", "A"));
+while (position !== -1) {
+    //Lưu lại nội dung từ đầu cho đến hết keyword và bổ sung thẻ span
+    result +=
+        content.slice(0, position) +
+        `<span>${content.slice(position, position + keyword.length)}</span>`;
 
+    //Xóa bỏ nội dung đã được lưu vào biến result
+    content = content.slice(position + keyword.length);
 
-//.5 indexOf(subStr) => Tìm vị trí đầu tiên chuỗi subStr trong chuỗi cha
-// Nếu tìm thấy trả về index k tìm thấy tra về -1
-//
+    //Thực hiện tìm lại với content mới
+    position = content.toLowerCase().indexOf(keyword.toLowerCase());
 
-// 6. lastIndex0f(subStr) => Tìm vị trú cuối
+    count++;
+}
 
-// console.log(str.lastIndexOf("F8"));
+console.log(result);
+// console.log(content);
+result += content;
+//Trong trường không tìm thấy => Bị thiếu đoạn content cuối
 
-// 7. includes(subStr) tìm chuỗi nhưng trả về True False
-// console.log(str.includes("F8"));
+var countHtml = `<p>Đã tìm thấy <b>${count}</b> lần với từ khóa <b>${keyword}</b></p>`;
 
-// 8 .slice(start, end) => Cắt chuỗi start => end;
-// console.log(str.slice(0, 2))
-// console.log(str.slice(-5))
-
-// 9. replace(search, with) => tìm và thay thế
-// và chỉ thay thế vị trí đầu tiên
-//Việc tìm kiếm trong hàm này sẽ có
-// hộ trợ cả biểu thức chính quy(regex)
-// console.log(str.replace("F8", "F88"));
-// console.log(str.replace(/F8/g, "F88"));
-
-
-// 10.replaceAll(search, with) => tìm và thay thế
-// và thay thế tất cả
-
-// console.log(str.replaceAll("F8", "F9"))
-
-// 11.split(char) => Tách chuỗi thành mảng
-// console.log(str.split(" "));
-
-
-// 12. match(pattern) => cắt chuỗi dựa vào biểu thức chính quy
-
-
-// 13. tolowerCase() => Chuyển thành hcuwx thường
-// 14. toUpperCase() => chuyển thành chữ hoa
-// 15. trim() => Loại bỏ khoảng trắng đầu và cuối chuỗi
-// 16. trimStart() => loại bỏ khoảng trắng đầu chuỗi
-// 17. trimEnd() => loại bỏ khoảng trắng cuõi chuỗi 
+document.write(title + result + countHtml);
