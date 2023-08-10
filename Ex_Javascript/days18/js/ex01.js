@@ -1,4 +1,4 @@
-var content = "Lorem Ipsum is simply";
+var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nesciunt suscipit assumenda dolor quam. Perspiciatis enim delectus nostrum accusamus, voluptatem rem voluptates autem fuga nesciunt ad explicabo, eaque, in non!";
 
 var contentArray = content.split(" ");
 
