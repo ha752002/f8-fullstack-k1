@@ -1,4 +1,4 @@
-var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nesciunt suscipit assumenda dolor quam. Perspiciatis enim delectus nostrum accusamus, voluptatem rem voluptates autem fuga nesciunt ad explicabo, eaque, in non!";
+var content = "Lorem ipsum dolor";
 
 var contentArray = content.split(" ");
 
@@ -9,8 +9,9 @@ function changeTextColor() {
     if (currentIndex < contentArray.length) {
         textColor = 'red';
         var newText = '';
-
         for (var i = 0; i < contentArray.length; i++) {
+            console.log(newText);
+
             if (i === currentIndex) {
                 newText += `<span style="color: ${textColor};">${contentArray[i]}</span>`;
             } else {

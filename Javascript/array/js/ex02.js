@@ -123,11 +123,22 @@ console.log(users);
  * thỏa mãn điều kiện phần tử đầu tiên return true
  */
 
-var result = users.find(function (user) {
-    if (user === "Hi") {
-        return true;
-    }
-});
+// var result = users.find(function (user) {
+//     if (user === "Hi") {
+//         return true;
+//     }
+// });
 
 
-console.log(result);
+// console.log(result);
+
+// 21.findLast() trả về 1 phần của mảng
+// thỏa mãn đk phần tử cuối return true
+
+
+// 22.findIndex() Tìm vị trí index đầu tiên thỏa mãn đk return
+
+
+// 23. findLastIndex() Tìm vị trí index cuối cùng thỏa mãn đk return true
+
+// var resuilt = users.findLastIndex
