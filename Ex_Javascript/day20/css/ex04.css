@@ -1,0 +1,24 @@
+body {
+  width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid black;
+}
+
+.section-item {
+  display: flex;
+}
+
+.section-item-content {
+  margin-left: 20px;
+}
+
+.section-item-content h3 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.section-item-content p {
+  margin-top: 20px;
+  font-size: 1rem;
+}
