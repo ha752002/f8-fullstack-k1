@@ -7,6 +7,7 @@ body {
 
 .section-item {
   display: flex;
+  margin: 10px 0;
 }
 
 .section-item-content {
@@ -21,4 +22,8 @@ body {
 .section-item-content p {
   margin-top: 20px;
   font-size: 1rem;
+}
+
+.section-item:nth-child(2) {
+  flex-direction: row-reverse;
 }
