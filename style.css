@@ -137,6 +137,7 @@ body {
   justify-content: center;
   gap: 24px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -152,7 +153,7 @@ body {
 }
 
 .title:hover {
-  opacity: 0.8;
+  background: #9494be;
 }
 
 .title i {
@@ -162,6 +163,10 @@ body {
 .title-js {
   background: #9aa9fff0;
   /* background: linear-gradient(270deg, #fe3b0e, #ff8119); */
+}
+
+.day-homework:hover {
+  background-color: #fff4f470;
 }
 
 .day-homework {
@@ -208,7 +213,7 @@ body {
 }
 
 input[id="title-wrap-js"]:checked ~ .homework-wrapper,
-input[id="title-wrap"]:checked ~ .homework-wrapper {
+input[id="title-wrap"]:checked ~ .title-js {
   opacity: 1;
   display: block;
 }
