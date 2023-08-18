@@ -15,19 +15,15 @@ function flatArr(arr) {
         }
     }, []);
 }
-
 var flattenedArr = flatArr(arr);
-console.log(flattenedArr);
 
-
-var result = [];
+var result = {};
 for (var i in flattenedArr) {
     var value = flattenedArr[i];
     var type = typeof value;
     if (!result[type]) {
         result[type] = [];
     }
-
     result[type].push(value);
 }
 console.log(result);

@@ -225,3 +225,9 @@ body {
 #title-wrap:checked ~ .menu-left .container .title-wrap .title {
   background-color: #9494be;
 }
+
+@media screen and (min-width: 1600px) {
+  .day-homework {
+    width: 100%;
+  }
+}
