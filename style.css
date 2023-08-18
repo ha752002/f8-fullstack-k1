@@ -83,7 +83,7 @@ body {
   border-radius: 5px;
 }
 .menu-right-content::-webkit-scrollbar {
-  width: 3px; /* Độ rộng của thanh cuộn */
+  width: 9px; /* Độ rộng của thanh cuộn */
 }
 
 .menu-right-content::-webkit-scrollbar-thumb {
@@ -109,7 +109,7 @@ body {
   margin: 0 26px;
 }
 
-.meunu-right-content {
+.menu-right-content {
   max-height: 424px;
   overflow: auto;
   width: 100%;
@@ -121,7 +121,7 @@ body {
   max-width: 594px;
 }
 
-.meu-right::after {
+.menu-right::after {
   content: "";
   border-left: 1px solid #eaedfff0;
   display: block;
@@ -140,7 +140,8 @@ body {
   margin-bottom: 20px;
 }
 
-.title {
+.title,
+.title-js {
   width: 207px;
   text-align: center;
   font-size: 20px;
@@ -168,7 +169,6 @@ body {
 .day-homework:hover {
   background-color: #fff4f470;
 }
-
 .day-homework {
   background-color: #fff;
   padding: 20px;
@@ -205,15 +205,23 @@ body {
   margin-top: 20px;
 }
 
-.homework-wrapper {
+.homework-wrapper__js,
+.homework-wrapper__html {
   opacity: 0;
   display: none;
   transition: opacity 0.4s ease-in-out;
   transition: transform 0.4s ease-in-out;
 }
 
-input[id="title-wrap-js"]:checked ~ .homework-wrapper,
-input[id="title-wrap"]:checked ~ .title-js {
+#title-wrap-js:checked ~ .menu-right .menu-right-content .homework-wrapper__js,
+#title-wrap:checked ~ .menu-right .menu-right-content .homework-wrapper__html {
   opacity: 1;
   display: block;
+}
+
+#title-wrap-js:checked ~ .menu-left .container .title-wrap .title-js {
+  background: #9494be;
+}
+#title-wrap:checked ~ .menu-left .container .title-wrap .title {
+  background-color: #9494be;
 }
