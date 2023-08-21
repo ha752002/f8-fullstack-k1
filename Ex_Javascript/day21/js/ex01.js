@@ -18,10 +18,13 @@ var errors = {
     }
 }
 
+
 var getError = function (field) {
-    for (var key in errors.field[key]) {
-        console.log(errors.field[key]);
-    }
+    return errors[field] ?
+        Object.values(errors[field])[0]
+        : "Lỗi không tồn tại";
+
 }
 
-console.log(getError(errors));
+
+console.log(getError('password'));
