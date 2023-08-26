@@ -3,6 +3,7 @@ var todoForm = document.querySelector('.form-wrapper');
 var input = todoForm.querySelector('.input');
 var formElement = document.querySelector(".todo-form")
 var todoContainer = document.querySelector('#todoContainer');
+var formEdit = document.querySelector('#form-edit');
 var listData = [];
 
 formElement.addEventListener('submit', function (e) {
@@ -14,7 +15,6 @@ formElement.addEventListener('submit', function (e) {
     }
     renderTodo();
     input.value = '';
-    renderFormEditTodo();
 
 });
 
@@ -54,9 +54,15 @@ function renderTodo() {
         todoContainer.appendChild(todoInner);
         todoListContainer.appendChild(todoContainer);
 
-
         editButton.addEventListener('click', function () {
-            showEditForm(index);
+            renderFormEditTodo(index);
+            todoContainer.style.display = 'none';
+        });
+
+        removeButton.addEventListener('click', function () {
+            listData.splice(index, 1);
+            localStorage.todos = JSON.stringify(listData);
+            renderTodo();
         });
 
     });
@@ -64,9 +70,13 @@ function renderTodo() {
 
 renderTodo();
 
-function renderFormEditTodo() {
+function renderFormEditTodo(index) {
     var formEditContainer = document.getElementById("form-edit");
     formEditContainer.innerHTML = '';
+
+    var form = document.createElement("form");
+    form.classList.add("todo-form");
+    form.classList.add("todo-form" + index);
 
     listData.forEach(function (todo, index) {
         var form = document.createElement("form");
@@ -90,17 +100,17 @@ function renderFormEditTodo() {
 
         saveButton.dataset.index = index;
 
-        formWrapper.appendChild(input);
-        formWrapper.appendChild(saveButton);
-        form.appendChild(formWrapper);
-        formEditContainer.appendChild(form);
-
-
         saveButton.addEventListener('click', function () {
             listData[index] = input.value;
             localStorage.todos = JSON.stringify(listData);
             renderTodo();
+            formEdit.style.display = 'none';
         });
+
+        formWrapper.appendChild(input);
+        formWrapper.appendChild(saveButton);
+        form.appendChild(formWrapper);
+        formEditContainer.appendChild(form);
 
     });
 }
