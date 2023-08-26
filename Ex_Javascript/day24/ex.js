@@ -1,4 +1,3 @@
-
 var todoForm = document.querySelector('.form-wrapper');
 var input = todoForm.querySelector('.input');
 var formElement = document.querySelector(".todo-form")
@@ -114,5 +113,3 @@ function renderFormEditTodo(index) {
 
     });
 }
-
-
