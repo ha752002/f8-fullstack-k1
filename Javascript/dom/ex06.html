@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        outline: 0;
+      }
+
+      .modal-box {
+        display: none;
+      }
+
+      .modal-box.show {
+        display: block;
+      }
+
+      .modal-box .modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 30px;
+        width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #ccc;
+        z-index: 1;
+        padding: 20px;
+      }
+
+      .modal-box .modal .modal-header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+
+      .modal-box .modal .modal-header .close {
+        font-weight: bold;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .modal-box .modal .modal-body {
+        padding: 20px 0;
+      }
+
+      .modal-box .overlay {
+        position: fixed;
+        inset: 0;
+        background: #00000098;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn" data-toggle="modal" data-target="#modal01">
+      Open Modal
+    </button>
+    <!-- <button data-toggle="modal" data-target="#modal02">Open Modal</button> -->
+    <div class="modal-box" id="modal01" data-duration="2s">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Modal Title</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae illum
+          maiores corrupti, qui rem accusantium eos quo iure et adipisci
+          deleniti nemo officia odio, fugit quae cupiditate praesentium esse
+          quis.
+        </div>
+      </div>
+      <!--End .modal-->
+      <div class="overlay"></div>
+    </div>
+    <!--End .modal-box-->
+
+    <script src="./js/ex06.js"></script>
+  </body>
+</html>

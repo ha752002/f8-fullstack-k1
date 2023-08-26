@@ -27,4 +27,4 @@ var getError = function (field) {
 }
 
 
-console.log(getError('password'));
+console.log(getError('email'));
