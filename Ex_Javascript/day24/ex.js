@@ -105,18 +105,17 @@ function renderFormEditTodo(indexEdit, todoInner, todoText) {
             formWrapper.appendChild(saveButton);
             form.appendChild(formWrapper);
 
-
-            saveButton.addEventListener('click', function () {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
                 listData[index] = input.value;
                 localStorage.todos = JSON.stringify(listData);
                 todoInner.style.display = 'flex';
                 todoInner.style.flexDirection = 'row-reverse';
                 formWrapper.style.display = 'none';
-
                 todoText.textContent = input.value;
                 todoInner.appendChild(todoText);
-                // renderTodo();
             });
+
 
             // console.log('form', form);
             // formEditContainer.appendChild(form);
