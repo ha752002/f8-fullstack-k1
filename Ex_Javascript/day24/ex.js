@@ -4,7 +4,7 @@ var formElement = document.querySelector(".todo-form")
 var todoContainer = document.querySelector('#todoContainer');
 var formEdit = document.querySelector('#form-edit');
 var form = formEdit.querySelector('#form-edit');
-var listData = ['sss', 'aaa'];
+var listData = [];
 
 formElement.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -103,6 +103,8 @@ function renderFormEditTodo(indexEdit, todoInner, todoText) {
 
             formWrapper.appendChild(input);
             formWrapper.appendChild(saveButton);
+            form.appendChild(formWrapper);
+
 
             saveButton.addEventListener('click', function () {
                 listData[index] = input.value;
@@ -116,7 +118,6 @@ function renderFormEditTodo(indexEdit, todoInner, todoText) {
                 // renderTodo();
             });
 
-            form.appendChild(formWrapper);
             // console.log('form', form);
             // formEditContainer.appendChild(form);
         }
