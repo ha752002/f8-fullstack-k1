@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.modal-auth {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3 ease;
+  transition-property: opacity, visibility;
+}
+
+.modal-auth.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-auth .modal-dialog {
+  width: 400px;
+  background: #fff;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40px;
+  z-index: 1;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.modal-auth .overlay {
+  background: #00000036;
+  position: fixed;
+  inset: 0;
+}
+
+.modal-auth .tab-nav ul {
+  display: flex;
+}
+
+.modal-auth .tab-nav ul li {
+  flex: 1 1 auto;
+}
+
+.modal-auth .tab-nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  background: #eeeeee;
+}
+
+.modal-auth .tab-nav ul li:first-child a {
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+  -ms-border-radius: 5px 0 0 0;
+  -o-border-radius: 5px 0 0 0;
+}
+
+.modal-auth .tab-nav ul li:first-child a {
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+  -ms-border-radius: 0 5px 0 0;
+  -o-border-radius: 0 5px 0 0;
+}
+
+.modal-auth .tab-nav ul li a.active {
+  background: #ffff;
+}
+
+.modal-auth .tab-content {
+  padding: 20px;
+}

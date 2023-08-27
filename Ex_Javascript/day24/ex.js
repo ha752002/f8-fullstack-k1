@@ -54,8 +54,11 @@ function renderTodo() {
         todoListContainer.appendChild(todoContainer);
 
         editButton.addEventListener('click', function () {
-            renderFormEditTodo(index);
             todoContainer.style.display = 'none';
+            renderFormEditTodo(index);
+            todoListContainer.innerHTML = renderFormEditTodo(index);
+            renderTodo();
+
         });
 
         removeButton.addEventListener('click', function () {
@@ -69,47 +72,50 @@ function renderTodo() {
 
 renderTodo();
 
-function renderFormEditTodo(index) {
+function renderFormEditTodo(indexEdit) {
     var formEditContainer = document.getElementById("form-edit");
     formEditContainer.innerHTML = '';
 
     var form = document.createElement("form");
     form.classList.add("todo-form");
-    form.classList.add("todo-form" + index);
+    form.classList.add("todo-form" + indexEdit);
 
     listData.forEach(function (todo, index) {
-        var form = document.createElement("form");
-        form.classList.add("todo-form");
-        form.classList.add("todo-form" + index);
+        if (indexEdit == index) {
+            formEdit.style.display = 'block';
+
+            var form = document.createElement("form");
+            form.classList.add("todo-form");
+            form.classList.add("todo-form" + index);
 
 
-        var formWrapper = document.createElement("div");
-        formWrapper.classList.add("form-wrapper");
+            var formWrapper = document.createElement("div");
+            formWrapper.classList.add("form-wrapper");
 
-        var input = document.createElement("input");
-        input.setAttribute("type", "text");
-        input.classList.add("input");
-        input.setAttribute("placeholder", "Edit task here");
-        input.value = todo;
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.classList.add("input");
+            input.setAttribute("placeholder", "Edit task here");
+            input.value = todo;
 
-        var saveButton = document.createElement("button");
-        saveButton.setAttribute("type", "button");
-        saveButton.classList.add("btn");
-        saveButton.textContent = "Add Task";
+            var saveButton = document.createElement("button");
+            saveButton.setAttribute("type", "button");
+            saveButton.classList.add("btn");
+            saveButton.textContent = "Add Task";
 
-        saveButton.dataset.index = index;
+            saveButton.dataset.index = index;
 
-        saveButton.addEventListener('click', function () {
-            listData[index] = input.value;
-            localStorage.todos = JSON.stringify(listData);
-            renderTodo();
-            formEdit.style.display = 'none';
-        });
+            saveButton.addEventListener('click', function () {
+                listData[index] = input.value;
+                localStorage.todos = JSON.stringify(listData);
+                renderTodo();
+                formEdit.style.display = 'none';
+            });
 
-        formWrapper.appendChild(input);
-        formWrapper.appendChild(saveButton);
-        form.appendChild(formWrapper);
-        formEditContainer.appendChild(form);
-
+            formWrapper.appendChild(input);
+            formWrapper.appendChild(saveButton);
+            form.appendChild(formWrapper);
+            formEditContainer.appendChild(form);
+        }
     });
 }
