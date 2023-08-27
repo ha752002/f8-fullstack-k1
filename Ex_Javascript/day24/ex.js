@@ -3,7 +3,8 @@ var input = todoForm.querySelector('.input');
 var formElement = document.querySelector(".todo-form")
 var todoContainer = document.querySelector('#todoContainer');
 var formEdit = document.querySelector('#form-edit');
-var listData = [];
+var form = formEdit.querySelector('#form-edit');
+var listData = ['sss', 'aaa'];
 
 formElement.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -24,10 +25,12 @@ function renderTodo() {
 
     listData.forEach(function (todo, index) {
         var todoContainer = document.createElement("div");
-        todoContainer.classList.add("todo");
+        todoContainer.classList.add("todo-" + index);
 
         var todoInner = document.createElement("div");
         todoInner.classList.add("todo-inner");
+        todoInner.setAttribute("id", "todoInner-" + index);
+
 
         var todoText = document.createElement("p");
         todoText.classList.add("todo-text");
@@ -54,11 +57,13 @@ function renderTodo() {
         todoListContainer.appendChild(todoContainer);
 
         editButton.addEventListener('click', function () {
-            todoContainer.style.display = 'none';
-            renderFormEditTodo(index);
-            todoListContainer.innerHTML = renderFormEditTodo(index);
-            renderTodo();
+            // renderFormEditTodo(index);
+            // renderTodo();
+            todoInner.style.display = 'none';
+            var formEditTodoHtml = renderFormEditTodo(index, todoInner, todoText)
+            todoContainer.appendChild(formEditTodoHtml);
 
+            // renderFormEditTodo(index);
         });
 
         removeButton.addEventListener('click', function () {
@@ -72,23 +77,13 @@ function renderTodo() {
 
 renderTodo();
 
-function renderFormEditTodo(indexEdit) {
-    var formEditContainer = document.getElementById("form-edit");
-    formEditContainer.innerHTML = '';
-
+function renderFormEditTodo(indexEdit, todoInner, todoText) {
     var form = document.createElement("form");
     form.classList.add("todo-form");
     form.classList.add("todo-form" + indexEdit);
 
     listData.forEach(function (todo, index) {
         if (indexEdit == index) {
-            formEdit.style.display = 'block';
-
-            var form = document.createElement("form");
-            form.classList.add("todo-form");
-            form.classList.add("todo-form" + index);
-
-
             var formWrapper = document.createElement("div");
             formWrapper.classList.add("form-wrapper");
 
@@ -105,17 +100,27 @@ function renderFormEditTodo(indexEdit) {
 
             saveButton.dataset.index = index;
 
-            saveButton.addEventListener('click', function () {
-                listData[index] = input.value;
-                localStorage.todos = JSON.stringify(listData);
-                renderTodo();
-                formEdit.style.display = 'none';
-            });
 
             formWrapper.appendChild(input);
             formWrapper.appendChild(saveButton);
+
+            saveButton.addEventListener('click', function () {
+                listData[index] = input.value;
+                localStorage.todos = JSON.stringify(listData);
+                todoInner.style.display = 'flex';
+                todoInner.style.flexDirection = 'row-reverse';
+                formWrapper.style.display = 'none';
+
+                todoText.textContent = input.value;
+                todoInner.appendChild(todoText);
+                // renderTodo();
+            });
+
             form.appendChild(formWrapper);
-            formEditContainer.appendChild(form);
+            // console.log('form', form);
+            // formEditContainer.appendChild(form);
         }
     });
+
+    return form
 }
