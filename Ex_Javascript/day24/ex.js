@@ -94,7 +94,7 @@ function renderFormEditTodo(indexEdit, todoInner, todoText) {
             input.value = todo;
 
             var saveButton = document.createElement("button");
-            saveButton.setAttribute("type", "button");
+            saveButton.setAttribute("type", "submit");
             saveButton.classList.add("btn");
             saveButton.textContent = "Add Task";
 
