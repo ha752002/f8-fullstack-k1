@@ -1,0 +1,141 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+img {
+  width: 100vw;
+  height: auto;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel .carousel-inner {
+  display: flex;
+  /*width: 4320px;
+  */
+  transition: translate 0.4s ease;
+  -webkit-transition: translate 0.4s ease;
+  -moz-transition: translate 0.4s ease;
+  -ms-transition: translate 0.4s ease;
+  -o-transition: translate 0.4s ease;
+}
+
+/* .carousel .carousel-inner .item {
+  width: 1440px;
+} */
+
+/* .carousel .carousel-inner .item:not(.active) {
+  display: none;
+} */
+
+.carousel .carousel-nav span {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(128, 128, 128, 0.613);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.carousel .carousel-nav span.prev {
+  left: 10px;
+}
+
+.carousel .carousel-nav span.next {
+  right: 10px;
+}
+
+.carousel-inner input {
+  display: none;
+}
+
+.carousel-navigation-manual {
+  position: absolute;
+  display: flex;
+  bottom: 14px;
+  left: 50%;
+  gap: 5px;
+  justify-content: center;
+}
+
+.manual-btn {
+  border: 2px solid black;
+  padding: 6px;
+  cursor: pointer;
+  /* transition: 1s; */
+  transition: translate 0.4s ease;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+.manual-btn:hover {
+  background: #fff;
+}
+
+#radio1:checked ~ .active {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .active {
+  margin-left: -33.3333333%;
+}
+
+#radio3:checked ~ .active {
+  margin-left: -66.6666666%;
+}
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  bottom: 14px;
+  left: 50%;
+  gap: 5px;
+  justify-content: center;
+}
+
+.navigation-auto div {
+  border: 2px solid black;
+  padding: 6px;
+  transition: 1s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: #fff;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: #fff;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: #fff;
+}

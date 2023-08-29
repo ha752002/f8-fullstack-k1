@@ -16,35 +16,33 @@ btn.addEventListener("click", function (e) {
     }
 });
 
-// var isDown = false;
-// btn.addEventListener('mousedown', function (e) {
-//     if (e.which === 1) {
-//         isDown = true;
-//         offsetX = e.offsetX;
-//         offsetY = e.offsetY;
-//     }
+var isDown = false;
+btn.addEventListener('mousedown', function (e) {
+    if (e.which === 1) {
+        isDown = true;
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+    }
+});
 
 
-// });
+document.addEventListener('mousemove', function (e) {
+    if (isDown) {
+        // console.log("đang kéo");
+        // console.log(e.clientX, e.clientY);
+        var css = {
+            top: `${e.clientY - offsetY}px`,
+            left: `${e.clientX - offsetX}px`,
+        }
 
+        Object.assign(btn.style, css);
+    }
+});
 
-// document.addEventListener('mousemove', function (e) {
-//     if (isDown) {
-//         // console.log("đang kéo");
-//         // console.log(e.clientX, e.clientY);
-//         var css = {
-//             top: `${e.clientY - offsetY}px`,
-//             left: `${e.clientX - offsetX}px`,
-//         }
+document.addEventListener('mouseup', function () {
+    isDown = false;
 
-//         Object.assign(btn.style, css);
-//     }
-// });
-
-// document.addEventListener('mouseup', function () {
-//     isDown = false;
-
-// });
+});
 
 
 // nameEl.addEventListener('input', function (e) {
