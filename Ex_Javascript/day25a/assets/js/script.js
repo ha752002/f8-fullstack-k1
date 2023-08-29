@@ -55,3 +55,31 @@ function updateActiveIndex() {
         }
     });
 }
+
+var pressed = false;
+var startX = 0;
+var startScrollLeft = 0;
+
+listImages.addEventListener('mousedown', function (e) {
+    pressed = true;
+    startX = e.clientX;
+    console.log(`startX = ${startX}`);
+    startScrollLeft = listImages.scrollLeft;
+    this.style.cursor = 'grabbing';
+});
+
+listImages.addEventListener('mouseup', function (e) {
+    if (pressed) {
+        pressed = false;
+        listImages.style.cursor = 'grab';
+    }
+});
+
+listImages.addEventListener('mousemove', function (e) {
+    if (pressed) {
+        var diffX = startX - e.clientX;
+        console.log(`diffX = ${diffX}`);
+        startX = e.clientX;
+        listImages.scrollLeft = startScrollLeft + diffX;
+    }
+});
