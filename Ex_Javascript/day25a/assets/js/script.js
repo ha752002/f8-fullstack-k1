@@ -83,3 +83,5 @@ listImages.addEventListener('mousemove', function (e) {
         listImages.scrollLeft = startScrollLeft + diffX;
     }
 });
+
+
