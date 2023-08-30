@@ -6,12 +6,11 @@
 }
 
 img {
-  width: 100%;
-  /* height: auto; */
+  width: 100vw;
+  height: 500px;
 }
 
 body {
-  width: 1400px;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -20,13 +19,13 @@ body {
 }
 
 .slide-show {
-  width: 1400px;
   overflow: hidden;
   position: relative;
 }
 
 .list-images {
   display: flex;
+  width: 100vw;
   transition: 0.5s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;

@@ -6,6 +6,12 @@ var show = document.querySelector(".index-image");
 var length = imgs.length;
 var current = 0;
 
+// if (imgs.length) {
+//     var itemWidth = imgs[0].clientWidth;
+//     var totalWidth = itemWidth * imgs.length;
+//     listImages.style.width = `${totalWidth}px`;
+// }
+
 for (var i = 0; i < imgs.length; i++) {
     var indexItem = document.createElement("div");
     indexItem.className = `index-item index-item-${i} ${i === 0 ? 'active' : ''}`;
@@ -20,7 +26,7 @@ btnRight.addEventListener('click', function () {
         current = length - 1;
     }
 
-    var width = imgs[0].offsetWidth;
+    var width = imgs[0].clientWidth;
     listImages.style.transform = `translateX(${-1 * width * current}px)`;
 
     updateActiveIndex();
@@ -31,7 +37,7 @@ btnLeft.addEventListener('click', function () {
     if (current < 0) {
         current = 0;
     }
-    var width = imgs[0].offsetWidth;
+    var width = imgs[0].clientWidth;
     listImages.style.transform = `translateX(${-1 * width * current}px)`;
 
     updateActiveIndex();
@@ -40,7 +46,7 @@ btnLeft.addEventListener('click', function () {
 function handlerNavigation(index) {
     return function () {
         current = index;
-        var width = imgs[0].offsetWidth;
+        var width = imgs[0].clientWidth;
         listImages.style.transform = `translateX(${-1 * width * current}px)`;
 
         updateActiveIndex();
@@ -66,12 +72,11 @@ var startScrollLeft = 0;
 listImages.addEventListener('mousedown', function (e) {
     pressed = true;
     startX = e.clientX;
-    console.log(`startX = ${startX}`);
     startScrollLeft = listImages.scrollLeft;
     this.style.cursor = 'grabbing';
 });
 
-listImages.addEventListener('mouseup', function (e) {
+listImages.addEventListener('mouseup', function () {
     if (pressed) {
         pressed = false;
         listImages.style.cursor = 'grab';
@@ -81,8 +86,8 @@ listImages.addEventListener('mouseup', function (e) {
 listImages.addEventListener('mousemove', function (e) {
     if (pressed) {
         var diffX = startX - e.clientX;
-        console.log(`diffX = ${diffX}`);
         startX = e.clientX;
-        listImages.scrollLeft = startScrollLeft + diffX;
+        var newTranslateX = startScrollLeft + diffX;
+        listImages.style.transform = `translateX(${newTranslateX}px)`;
     }
 });
