@@ -116,7 +116,7 @@ var timer_span = document.querySelector('.timer');
 
 seek_slider.addEventListener('mousemove', function (e) {
     var rect = seek_slider.getBoundingClientRect();
-    var offsetX = e.clientX;
+    var offsetX = e.clientX - rect.left;
     // console.log(offsetX);
     var percentage = (offsetX / rect.width) * 100;
 
