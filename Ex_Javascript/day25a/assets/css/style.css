@@ -6,87 +6,50 @@
 }
 
 img {
-  width: 100%;
-  /* height: auto; */
+  max-width: 100%;
+  height: auto;
 }
 
-body {
-  height: 600px;
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel .carousel-inner {
+  display: flex;
+  /* width: 3150px; */
+  transition: translate 0.4s ease;
+}
+
+/* .carousel .carousel-inner .item {
+  width: 1050px;
+} */
+
+/* .carousel .carousel-inner .item:not(.active) {
+  display: none;
+} */
+
+.carousel .carousel-nav span {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-color: gray;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.slide-show {
-  width: 900px;
-  overflow: hidden;
-  position: relative;
-}
-
-.list-images {
-  display: flex;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-}
-
-.btn {
-  font-size: 30px;
-  font-weight: 900;
-  color: #999;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-}
-
-.btn {
-  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.btn-left {
-  left: 10px;
+.carousel .carousel-nav span.prev {
+  left: 5px;
 }
 
-.btn-right {
-  right: 10px;
-}
-
-.index-image {
-  position: absolute;
-  bottom: 10px;
-  display: flex;
-  left: 50%;
-}
-
-.index-item {
-  border: 2px solid #fcfcfc;
-  padding: 5px;
-  margin: 3px;
-  cursor: pointer;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-}
-
-.active {
-  background-color: #beccee;
-}
-
-.index-item:hover {
-  background-color: #beccee;
+.carousel .carousel-nav span.next {
+  right: 5px;
 }

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music player</title>
+    <link
+      rel="icon"
+      href="./assets/img/600px-Simple_Music.svg.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/ex13.css" />
+  </head>
+  <body>
+    <div class="player">
+      <!-- Dash board -->
+      <div class="dashboard">
+        <video
+          autoplay
+          loop
+          muted
+          class="music_card__background"
+          src="./assets/img/pexels-rostislav-uzunov-10613972-1920x1080-24fps.mp4"
+        ></video>
+        <header>
+          <h4>Now playing</h4>
+          <div class="scrolling-text-container">
+            <h2 class="scrolling-text">Name music</h2>
+          </div>
+        </header>
+        <!-- CD -->
+        <div class="cd">
+          <div class="circle">
+            <div class="mask full">
+              <div class="fill"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div
+            class="cd-thumb"
+            style="
+              background-image: url('https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/c/a/6/b/ca6bf956d060738f31f36bde743f6d07.jpg');
+            "
+          ></div>
+        </div>
+        <!-- Control -->
+        <div class="control">
+          <div class="control-center">
+            <div class="btn btn-repeat tooltip-container">
+              <i class="fa-solid fa-rotate-right">
+                <span class="tooltip">Phát lại</span>
+              </i>
+            </div>
+            <div class="btn btn-prev tooltip-container">
+              <i class="fa-solid fa-backward-step">
+                <span class="tooltip">Bài trước đó</span>
+              </i>
+            </div>
+            <div class="btn btn-toggle-play tooltip-container">
+              <i class="fa-solid fa-play icon-play">
+                <span class="tooltip">Phát nhạc</span>
+              </i>
+              <i class="fa-solid fa-pause icon-pause">
+                <span class="tooltip">Tạm dừng</span>
+              </i>
+            </div>
+            <div class="btn btn-next tooltip-container">
+              <i class="fa-solid fa-forward-step">
+                <span class="tooltip">Bài tiếp theo</span>
+              </i>
+            </div>
+            <div class="btn btn-random tooltip-container">
+              <i class="fa-solid fa-shuffle">
+                <span class="tooltip">Phát ngẫu nhiên</span>
+              </i>
+            </div>
+            <div class="control-right">
+              <div class="btn btn-toggle-volume" title="Âm lượng">
+                <i
+                  class="fa-solid fa-volume-xmark icon-mute"
+                  title="Bật âm"
+                ></i>
+                <i
+                  class="fa-solid fa-volume-high icon-unmute"
+                  title="Tắt âm"
+                ></i>
+                <input
+                  type="range"
+                  class="volume-bar"
+                  value="1"
+                  step="0.1"
+                  min="0"
+                  max="1"
+                  title="Âm lượng"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="duration-bar">
+          <span class="time-left"></span>
+          <input
+            id="progress"
+            class="progress"
+            type="range"
+            value="0"
+            step="1"
+            min="0"
+            max="100"
+          />
+          <span class="time-right"></span>
+          <span class="timer" style="display: none">00:00</span>
+          <audio id="audio" src=""></audio>
+        </div>
+      </div>
+
+      <!-- Play list -->
+      <div class="playlist">
+        <div class="song">
+          <div
+            class="thumb"
+            style="
+              background-image: url('https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_webp/cover/c/a/6/b/ca6bf956d060738f31f36bde743f6d07.jpg');
+            "
+          ></div>
+          <div class="body">
+            <h3 class="title">Tên bài hát</h3>
+            <p class="author">Ca sĩ/nhóm nhạc</p>
+          </div>
+          <div class="option">
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <code>© Made by Quân - August, 2023</code>
+    </footer>
+
+    <script src="./js/ex13.js"></script>
+  </body>
+</html>

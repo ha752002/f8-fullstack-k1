@@ -66,28 +66,26 @@ function updateActiveIndex() {
 }
 
 var pressed = false;
-var startX = 0;
-var startScrollLeft = 0;
+var transitionInProgress = false;
+var pullThreshold = (clientWidth * 10) / 100;
 
 listImages.addEventListener('mousedown', function (e) {
     pressed = true;
-    startX = e.clientX;
-    startScrollLeft = listImages.scrollLeft;
-    this.style.cursor = 'grabbing';
+    console.log(e);
 });
 
-listImages.addEventListener('mouseup', function () {
-    if (pressed) {
-        pressed = false;
-        listImages.style.cursor = 'grab';
-    }
-});
+// listImages.addEventListener('mouseup', function () {
+//     if (pressed) {
+//         pressed = false;
+//         listImages.style.cursor = 'grab';
+//     }
+// });
 
-listImages.addEventListener('mousemove', function (e) {
-    if (pressed) {
-        var diffX = startX - e.clientX;
-        startX = e.clientX;
-        var newTranslateX = startScrollLeft + diffX;
-        listImages.style.transform = `translateX(${newTranslateX}px)`;
-    }
-});
+// listImages.addEventListener('mousemove', function (e) {
+//     if (pressed) {
+//         var diffX = startX - e.clientX;
+//         startX = e.clientX;
+//         var newTranslateX = startScrollLeft + diffX;
+//         listImages.style.transform = `translateX(${newTranslateX}px)`;
+//     }
+// });
