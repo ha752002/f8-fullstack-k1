@@ -114,22 +114,24 @@ function setUpdate() {
 
 var timer_span = document.querySelector('.timer');
 
-seek_slider.addEventListener('mousemove', function (event) {
+seek_slider.addEventListener('mousemove', function (e) {
     var rect = seek_slider.getBoundingClientRect();
-    var offsetX = event.clientX - rect.left;
+    var offsetX = e.clientX;
+    // console.log(offsetX);
     var percentage = (offsetX / rect.width) * 100;
 
-    var duration = curr_track.duration || 0;
+    var duration = curr_track.duration ? curr_track.duration : 0;
     var currentTime = (duration * percentage) / 100;
 
     var currentMinutes = Math.floor(currentTime / 60);
     var currentSeconds = Math.floor(currentTime - currentMinutes * 60);
 
-    var formattedTime = ('0' + currentMinutes).slice(-2) + ':' + ('0' + currentSeconds).slice(-2);
+    var formattedTime = currentMinutes.toString().padStart(2, '0') + ':' + currentSeconds.toString().padStart(2, '0');
 
     timer_span.textContent = formattedTime;
     timer_span.style.display = 'block';
     timer_span.style.left = offsetX + 'px';
+    // console.log(`timer_span.style.left: ${timer_span.style.left}`);
 });
 
 seek_slider.addEventListener('mouseleave', function () {
