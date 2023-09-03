@@ -189,7 +189,7 @@ p {
   display: none;
   position: absolute;
   left: 0;
-  /* bottom: 0; */
+  bottom: 29%;
   background-color: #333;
   color: #fff;
   padding: 5px;
