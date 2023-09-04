@@ -116,8 +116,8 @@ var timer_span = document.querySelector('.timer');
 
 seek_slider.addEventListener('mousemove', function (e) {
     var rect = seek_slider.getBoundingClientRect();
+    // console.log(rect);
     var offsetX = e.clientX - rect.left;
-    // console.log(offsetX);
     var percentage = (offsetX / rect.width) * 100;
 
     var duration = curr_track.duration ? curr_track.duration : 0;
@@ -130,8 +130,7 @@ seek_slider.addEventListener('mousemove', function (e) {
 
     timer_span.textContent = formattedTime;
     timer_span.style.display = 'block';
-    timer_span.style.left = offsetX + 'px';
-    // console.log(`timer_span.style.left: ${timer_span.style.left}`);
+    timer_span.style.left = rect.left + offsetX + "px";
 });
 
 seek_slider.addEventListener('mouseleave', function () {
