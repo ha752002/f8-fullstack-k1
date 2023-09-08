@@ -1,0 +1,55 @@
+.sidebar {
+  &__logo {
+    width: 240px;
+    height: 70px;
+    background-image: url(../img/sidebar-icon/logo/logo-dark.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: 28px;
+    background-position-y: 46%;
+  }
+
+  &__item {
+    &-link {
+      color: var(--white-color);
+      line-height: 20px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      display: flex;
+      column-gap: 12px;
+      align-items: center;
+      padding: 12px 25px;
+      cursor: pointer;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    &-text {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.main {
+  background: #170f23;
+  background-size: 1920px auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  &-sidebar {
+    position: fixed;
+    top: 0;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    bottom: calc(var(--music-control-height) + 54px);
+    left: 0;
+  }
+}

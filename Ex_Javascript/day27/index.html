@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day27</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      main {
+        width: 70%;
+        margin: 60px auto;
+      }
+      input {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .cart-wrapp {
+        padding: 6px 4px;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      table {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h3>Danh sách sản phẩm</h3>
+      <table border="1" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="5%">STT</th>
+            <th>Tên sản phẩm</th>
+            <th width="10%">Giá</th>
+            <th width="12%">Thêm vào giỏ</th>
+          </tr>
+        </thead>
+        <tbody class="list-product"></tbody>
+      </table>
+
+      <table
+        id=""
+        border="1"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+      ></table>
+
+      <!-- table show cart-->
+      <table
+        class="cart-table"
+        border="1"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+      >
+        <thead>
+          <tr>
+            <th width="5%">STT</th>
+            <th>Tên sản phẩm</th>
+            <th width="10%">Số lượng</th>
+            <th width="10%">Giá</th>
+            <th width="10%">Tổng</th>
+            <th width="12%">Xóa</th>
+          </tr>
+        </thead>
+        <tbody class="list-cart"></tbody>
+      </table>
+    </main>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+:root {
+  --white-color: #fff;
+  --sidebar-bg: hsla(0, 0%, 100%, 0.05);
+  --sidebar-width: 240px;
+  --music-control-height: 90px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sidebar__logo {
+  width: 240px;
+  height: 70px;
+  background-image: url(../img/sidebar-icon/logo/logo-dark.svg);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position-x: 28px;
+  background-position-y: 46%;
+}
+.sidebar__item-link {
+  color: var(--white-color);
+  line-height: 20px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+  padding: 12px 25px;
+  cursor: pointer;
+}
+.sidebar__item-icon {
+  display: flex;
+  align-items: center;
+}
+.sidebar__item-text {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  background: #170f23;
+  background-size: 1920px auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.main-sidebar {
+  position: fixed;
+  top: 0;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  bottom: calc(var(--music-control-height) + 54px);
+  left: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

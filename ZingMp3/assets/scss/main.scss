@@ -1,0 +1,9 @@
+@import "./parts/variable";
+@import "./parts/font";
+@import "./parts/base";
+@import "./parts/mixin";
+
+// Import Layouts
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./layouts/mainSiderbar";
