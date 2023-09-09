@@ -72,8 +72,9 @@ table th {
   padding: 12px 0px;
 }
 
+.list-product button:hover,
 button#update-cart-button:hover,
-button#clear-cart-button :hover {
+button#clear-cart-button:hover {
   background-color: #103d6f;
 }
 
