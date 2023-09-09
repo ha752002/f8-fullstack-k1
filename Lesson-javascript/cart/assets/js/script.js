@@ -1,87 +1,74 @@
-var productsData = {
-    "products": [
-        {
-            "id": 1,
-            "name": "sản phẩm 1",
-            "price": 1000,
-            "quantity": 1
-        },
-        {
-            "id": 2,
-            "name": "sản phẩm 2",
-            "price": 2000,
-            "quantity": 1
-        },
-        {
-            "id": 3,
-            "name": "sản phẩm 3",
-            "price": 3000,
-            "quantity": 1
-        },
-        {
-            "id": 4,
-            "name": "sản phẩm 4",
-            "price": 4000,
-            "quantity": 1
-        }
-    ]
-};
-
-var cart = JSON.parse(localStorage.getItem('cart')) || [];
+var productData = [
+    {
+        "price": 1000,
+    },
+    {
+        "price": 2000,
+    },
+    {
+        "price": 3000,
+    },
+    {
+        "price": 4000,
+    }
+];
+document.addEventListener('DOMContentLoaded', function () {
+    start();
+});
 
 function start() {
-    getProduct(renderProduct);
+    renderProductData(productData);
     renderCart();
 }
 
-start();
 
-// Hàm lấy dữ liệu sản phẩm
-function getProduct(callback) {
-    callback(productsData.products);
-}
+var cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Hàm render danh sách sản phẩm
-function renderProduct(products) {
+// Render the product
+function renderProductData(productData) {
     var listProductBlock = document.querySelector('.list-product');
-    var html = products.map(function (product) {
-        return `
-          <tr>
-            <td>${product.id}</td>
-            <td>${product.name}</td>
-            <td>${product.price}</td>
-            <td class="cart-wrapp">
-              <form class="form-data">
-                  <input value="1" type="number" />
-                  <button type="button" class="button" onclick="addToCart(${product.id}, ${product.price})">Thêm vào giỏ</button>
-              </form>
-            </td>
-          </tr>
-          `;
-    });
 
-    listProductBlock.innerHTML = html.join('');
+    productData.forEach(function (product, index) {
+        var row = document.createElement('tr');
+        row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>Sản phẩm ${index + 1}</td>
+        <td>${product.price}</td>
+        <td>
+          <input type="number" class="quantity-input" value="1" />
+          <button type="submit" data-index="${index}" data-price="${product.price}">Thêm vào giỏ</button>
+        </td>
+      `;
+
+        var addToCartButton = row.querySelector('button[data-index]');
+        var quantityInput = row.querySelector('input.quantity-input');
+
+        addToCartButton.addEventListener('click', function () {
+            var index = parseInt(addToCartButton.getAttribute('data-index'));
+            var price = parseInt(addToCartButton.getAttribute('data-price'));
+            var quantity = parseInt(quantityInput.value, 10);
+            addToCart(index, price, quantity);
+        });
+
+        listProductBlock.appendChild(row);
+    });
 }
 
-// Hàm thêm sản phẩm vào giỏ hàng
-function addToCart(productId, price) {
-    var quantityInput = document.querySelector('.form-data input[type="number"]');
-    var quantity = parseInt(quantityInput.value, 10);
+function addToCart(index, price, quantity) {
+    var existingItem = cart.find(function (item) {
+        return item.productId === index;
+    });
 
     if (quantity < 0) {
         alert('Số lượng phải là số dương.');
         return;
     }
 
-    var existingItem = cart.find(function (item) {
-        return item.productId === productId;
-    });
-
     if (existingItem) {
         existingItem.quantity += quantity;
     } else {
         cart.push({
-            productId: productId,
+            productId: index,
             price: price,
             quantity: quantity
         });
@@ -91,20 +78,19 @@ function addToCart(productId, price) {
     renderCart();
 }
 
-// Hàm render giỏ hàng
 function renderCart() {
     var cartTable = document.querySelector('.list-cart');
-    var html = cart.map(function (item, index) {
+    var html = cart.map(function (data, index) {
         var stt = index + 1;
-        var quantity = item.quantity;
-        var price = item.price;
+        var quantity = data.quantity;
+        var price = data.price;
         var total = quantity * price;
 
         return `
           <tr>
               <td>${stt}</td>
-              <td>Sản phẩm ${item.productId}</td>
-              <td><input type="number" value="${quantity}" data-product-id="${item.productId}" data-item-index="${index}" class="quantity-input"></td>
+              <td>Sản phẩm ${stt}</td>
+              <td><input type="number" value="${quantity}" data-product-id="${data.productId}" data-item-index="${index}" class="quantity-input"></td>
               <td>${price}</td>
               <td>${total}</td>
               <td><button class="delete-button" data-item-index="${index}" onclick="removeFromCart(${index})">Xóa</button></td>
@@ -115,7 +101,7 @@ function renderCart() {
     cartTable.innerHTML = html.join('');
 
     var cartIsEmpty = cart.length === 0;
-
+    console.log(cartIsEmpty);
     if (!cartIsEmpty) {
         var updateCartButton = document.querySelector('#update-cart-button');
         if (!updateCartButton) {
@@ -133,10 +119,11 @@ function renderCart() {
             clearCartButton = document.createElement('button');
             clearCartButton.textContent = 'Xóa toàn bộ giỏ hàng';
             clearCartButton.classList.add('button');
-            updateCartButton.classList.add('button-cart');
+            clearCartButton.classList.add('button-cart');
             clearCartButton.id = 'clear-cart-button';
             clearCartButton.addEventListener('click', clearCart);
             cartTable.parentElement.appendChild(clearCartButton);
+
         }
     } else {
         var existingUpdateButton = document.querySelector('#update-cart-button');
@@ -151,10 +138,10 @@ function renderCart() {
     }
 }
 
-// Hàm xóa sản phẩm khỏi giỏ hàng
-function removeFromCart(itemIndex) {
-    if (itemIndex >= 0 && itemIndex < cart.length) {
-        cart.splice(itemIndex, 1);
+
+function removeFromCart(index) {
+    if (index >= 0 && index < cart.length) {
+        cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCart();
     }
@@ -195,8 +182,6 @@ function updateCart() {
 
 
 
-
-
 // Hàm xóa toàn bộ giỏ hàng
 function clearCart() {
     if (confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng không?')) {
@@ -205,3 +190,4 @@ function clearCart() {
         renderCart();
     }
 }
+

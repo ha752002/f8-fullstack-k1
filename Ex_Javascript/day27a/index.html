@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+  </head>
+  <body>
+    <main>
+      <h3>Danh sách sản phẩm</h3>
+      <table border="1" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th width="5%">STT</th>
+            <th>Tên sản phẩm</th>
+            <th width="10%">Giá</th>
+            <th width="12%">Thêm vào giỏ</th>
+          </tr>
+        </thead>
+        <!--End thead-->
+        <tbody class="list-product"></tbody>
+        <!--End tbody-->
+      </table>
+
+      <hr />
+      <!-- table show cart-->
+      <table
+        class="cart-table"
+        border="1"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+      >
+        <thead>
+          <tr>
+            <th width="5%">STT</th>
+            <th>Tên sản phẩm</th>
+            <th width="10%">Số lượng</th>
+            <th width="10%">Giá</th>
+            <th width="10%">Tổng</th>
+            <th width="12%">Xóa</th>
+          </tr>
+        </thead>
+        <tbody class="list-cart"></tbody>
+        <div class="cart-btn-wrapp"></div>
+      </table>
+    </main>
+
+    <!-- link js -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
