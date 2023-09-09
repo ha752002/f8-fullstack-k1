@@ -40,7 +40,7 @@ function renderProductData(productData) {
         row.innerHTML = `
         <td>${index + 1}</td>
         <td>${product.name}</td>
-        <td>${product.price}</td>
+        <td>${product.price.toLocaleString()}</td>
         <td>
           <input type="number" class="quantity-input" value="1" />
           <button type="submit" data-index="${index}" data-price="${product.price}">Thêm vào giỏ</button>
@@ -107,8 +107,8 @@ function renderCart() {
               <td>${stt}</td>
               <td>${name}</td>
               <td><input type="number" value="${quantity}" data-product-id="${data.productId}" data-item-index="${index}" class="quantity-input"></td>
-              <td>${price}</td>
-              <td>${total}</td>
+              <td>${price.toLocaleString()}</td>
+              <td>${total.toLocaleString()}</td>
               <td><button class="delete-button" data-item-index="${index}" onclick="removeFromCart(${index})">Xóa</button></td>
               </tr>
           `;
