@@ -1,15 +1,22 @@
 var productData = [
     {
         "price": 1000,
+        "name": "Sản phẩm 1"
     },
     {
         "price": 2000,
+        "name": "Sản phẩm 2"
+
     },
     {
         "price": 3000,
+        "name": "Sản phẩm 3"
+
     },
     {
         "price": 4000,
+        "name": "Sản phẩm 4"
+
     }
 ];
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,32 +39,37 @@ function renderProductData(productData) {
         var row = document.createElement('tr');
         row.innerHTML = `
         <td>${index + 1}</td>
-        <td>Sản phẩm ${index + 1}</td>
+        <td>${product.name}</td>
         <td>${product.price}</td>
         <td>
           <input type="number" class="quantity-input" value="1" />
           <button type="submit" data-index="${index}" data-price="${product.price}">Thêm vào giỏ</button>
         </td>
-      `;
-
+    `;
         var addToCartButton = row.querySelector('button[data-index]');
         var quantityInput = row.querySelector('input.quantity-input');
-
+        console.log(quantityInput);
         addToCartButton.addEventListener('click', function () {
             var index = parseInt(addToCartButton.getAttribute('data-index'));
             var price = parseInt(addToCartButton.getAttribute('data-price'));
             var quantity = parseInt(quantityInput.value, 10);
-            addToCart(index, price, quantity);
+            var name = product.name;
+            // console.log(quantity);
+
+            addToCart(index, price, quantity, name);
         });
 
         listProductBlock.appendChild(row);
     });
 }
 
-function addToCart(index, price, quantity) {
+function addToCart(index, price, quantity, name) {
+    // console.log(name);
     var existingItem = cart.find(function (item) {
         return item.productId === index;
     });
+
+    console.log('Sản phẩm hiện có:', existingItem);
 
     if (quantity < 0) {
         alert('Số lượng phải là số dương.');
@@ -70,13 +82,15 @@ function addToCart(index, price, quantity) {
         cart.push({
             productId: index,
             price: price,
-            quantity: quantity
+            quantity: quantity,
+            name: name
         });
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
     renderCart();
 }
+
 
 function renderCart() {
     var cartTable = document.querySelector('.list-cart');
@@ -85,23 +99,25 @@ function renderCart() {
         var quantity = data.quantity;
         var price = data.price;
         var total = quantity * price;
+        var name = data.name;
 
+        // console.log(name);
         return `
           <tr>
               <td>${stt}</td>
-              <td>Sản phẩm ${stt}</td>
+              <td>${name}</td>
               <td><input type="number" value="${quantity}" data-product-id="${data.productId}" data-item-index="${index}" class="quantity-input"></td>
               <td>${price}</td>
               <td>${total}</td>
               <td><button class="delete-button" data-item-index="${index}" onclick="removeFromCart(${index})">Xóa</button></td>
-          </tr>
+              </tr>
           `;
     });
 
     cartTable.innerHTML = html.join('');
 
     var cartIsEmpty = cart.length === 0;
-    console.log(cartIsEmpty);
+    // console.log(cartIsEmpty);
     if (!cartIsEmpty) {
         var updateCartButton = document.querySelector('#update-cart-button');
         if (!updateCartButton) {
@@ -124,6 +140,11 @@ function renderCart() {
             clearCartButton.addEventListener('click', clearCart);
             cartTable.parentElement.appendChild(clearCartButton);
 
+        }
+
+        var totalPrice = document.querySelector('.totalPrice');
+        if (!totalPrice) {
+            totalPrice = document.createElement('tr');
         }
     } else {
         var existingUpdateButton = document.querySelector('#update-cart-button');
