@@ -188,7 +188,7 @@ function updateCart() {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Đã cập nhật thành công.');
+    alert('Bạn có chắc chắn muốn cập nhật giỏ hàng không?');
     renderCart();
 }
 
