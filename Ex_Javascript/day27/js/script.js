@@ -1,4 +1,3 @@
-// Đối tượng lưu trữ dữ liệu sản phẩm
 var productsData = {
     "products": [
         {
