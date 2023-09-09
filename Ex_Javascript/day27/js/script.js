@@ -29,7 +29,6 @@ var productsData = {
 };
 
 var cart = JSON.parse(localStorage.getItem('cart')) || [];
-var updateCartButton;
 
 function start() {
     getProduct(renderProduct);
@@ -46,16 +45,16 @@ function getProduct(callback) {
 // Hàm render danh sách sản phẩm
 function renderProduct(products) {
     var listProductBlock = document.querySelector('.list-product');
-    var html = products.map(function (product, index) {
+    var html = products.map(function (product) {
         return `
           <tr>
             <td>${product.id}</td>
             <td>${product.name}</td>
             <td>${product.price}</td>
             <td class="cart-wrapp">
-              <form class="form-data" onsubmit="handleCreateData(event, ${product.id}, ${product.price})">
+              <form class="form-data">
                   <input value="1" type="number" />
-                  <button type="submit" class="button">Thêm vào giỏ</button>
+                  <button type="button" class="button" onclick="addToCart(${product.id}, ${product.price})">Thêm vào giỏ</button>
               </form>
             </td>
           </tr>
@@ -65,48 +64,41 @@ function renderProduct(products) {
     listProductBlock.innerHTML = html.join('');
 }
 
-// Hàm xử lý thêm sản phẩm vào giỏ hàng
-function handleCreateData(event, productId, price) {
-    event.preventDefault();
-    var quantity = event.target.querySelector('input[type="number"]').value;
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(productId, price) {
+    var quantityInput = document.querySelector('.form-data input[type="number"]');
+    var quantity = parseInt(quantityInput.value, 10);
 
     if (quantity < 0) {
         alert('Số lượng phải là số dương.');
         return;
     }
 
-    addToCart(productId, price, quantity);
-    renderCart();
-}
-
-// Hàm thêm sản phẩm vào giỏ hàng
-function addToCart(productId, price, quantity) {
-    var existingItemIndex = cart.findIndex(function (item) {
+    var existingItem = cart.find(function (item) {
         return item.productId === productId;
     });
 
-    if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity += parseInt(quantity, 10);
+    if (existingItem) {
+        existingItem.quantity += quantity;
     } else {
-        var newItem = {
+        cart.push({
             productId: productId,
             price: price,
-            quantity: parseInt(quantity, 10)
-        };
-
-        cart.push(newItem);
+            quantity: quantity
+        });
     }
+
     localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
 }
 
 // Hàm render giỏ hàng
 function renderCart() {
     var cartTable = document.querySelector('.list-cart');
-
     var html = cart.map(function (item, index) {
         var stt = index + 1;
-        var quantity = parseInt(item.quantity, 10);
-        var price = parseFloat(item.price);
+        var quantity = item.quantity;
+        var price = item.price;
 
         var total = quantity * price;
 
@@ -117,7 +109,7 @@ function renderCart() {
               <td><input type="number" value="${quantity}" data-product-id="${item.productId}" data-item-index="${index}" class="quantity-input"></td>
               <td>${price}</td>
               <td>${total}</td>
-              <td><button class="delete-button" data-item-index="${index}">Xóa</button></td>
+              <td><button class="delete-button" data-item-index="${index}" onclick="removeFromCart(${index})">Xóa</button></td>
           </tr>
           `;
     });
@@ -127,33 +119,34 @@ function renderCart() {
     var cartIsEmpty = cart.length === 0;
 
     if (!cartIsEmpty) {
-        updateCartButton = document.createElement('button');
-        updateCartButton.textContent = 'Cập nhật giỏ hàng';
-        updateCartButton.classList.add('button');
-        updateCartButton.id = 'update-cart-button';
+        var updateCartButton = document.querySelector('#update-cart-button');
+        if (!updateCartButton) {
+            updateCartButton = document.createElement('button');
+            updateCartButton.textContent = 'Cập nhật giỏ hàng';
+            updateCartButton.classList.add('button');
+            updateCartButton.id = 'update-cart-button';
+            updateCartButton.addEventListener('click', updateCart);
+            cartTable.parentElement.appendChild(updateCartButton);
+        }
 
+        var clearCartButton = document.querySelector('#clear-cart-button');
+        if (!clearCartButton) {
+            clearCartButton = document.createElement('button');
+            clearCartButton.textContent = 'Xóa toàn bộ giỏ hàng';
+            clearCartButton.classList.add('button');
+            clearCartButton.id = 'clear-cart-button';
+            clearCartButton.addEventListener('click', clearCart);
+            cartTable.parentElement.appendChild(clearCartButton);
+        }
+    } else {
         var existingUpdateButton = document.querySelector('#update-cart-button');
         if (existingUpdateButton) {
             existingUpdateButton.remove();
         }
 
-        cartTable.parentElement.appendChild(updateCartButton);
-
-        updateCartButton.addEventListener('click', function () {
-            updateCart();
-        });
-
-        var deleteButtons = cartTable.querySelectorAll('.delete-button');
-        deleteButtons.forEach(function (deleteButton) {
-            deleteButton.addEventListener('click', function () {
-                var itemIndex = parseInt(deleteButton.getAttribute('data-item-index'), 10);
-                removeFromCart(itemIndex);
-            });
-        });
-    } else {
-        var existingUpdateButton = document.querySelector('#update-cart-button');
-        if (existingUpdateButton) {
-            existingUpdateButton.remove();
+        var existingClearButton = document.querySelector('#clear-cart-button');
+        if (existingClearButton) {
+            existingClearButton.remove();
         }
     }
 }
@@ -196,6 +189,19 @@ function updateCart() {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-
+    alert('Đã cập nhật thành công.');
     renderCart();
+}
+
+
+
+
+
+// Hàm xóa toàn bộ giỏ hàng
+function clearCart() {
+    if (confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng không?')) {
+        cart = [];
+        localStorage.removeItem('cart');
+        renderCart();
+    }
 }
