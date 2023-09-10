@@ -94,6 +94,8 @@ function addToCart(index, price, quantity, name) {
 
 function renderCart() {
     var cartTable = document.querySelector('.list-cart');
+    var totalPriceCart = document.querySelector('.total-price-cart');
+
     var html = cart.map(function (data, index) {
         var stt = index + 1;
         var quantity = data.quantity;
@@ -106,8 +108,8 @@ function renderCart() {
           <tr>
               <td>${stt}</td>
               <td>${name}</td>
-              <td><input type="number" value="${quantity}" data-product-id="${data.productId}" data-item-index="${index}" class="quantity-input"></td>
               <td>${price.toLocaleString()}</td>
+              <td><input type="number" value="${quantity}" data-product-id="${data.productId}" data-item-index="${index}" class="quantity-input"></td>
               <td>${total.toLocaleString()}</td>
               <td><button class="delete-button" data-item-index="${index}" onclick="removeFromCart(${index})">Xóa</button></td>
               </tr>
@@ -142,10 +144,25 @@ function renderCart() {
 
         }
 
-        var totalPrice = document.querySelector('.totalPrice');
-        if (!totalPrice) {
-            totalPrice = document.createElement('tr');
-        }
+        var totalQuantity = cart.reduce(function (total, item) {
+            return total + item.quantity;
+        }, 0);
+
+        var totalPrice = cart.reduce(function (total, item) {
+            return total + item.quantity * item.price;
+        }, 0);
+
+        var totalRow = document.createElement('tr');
+        totalRow.innerHTML = `
+          <td colspan="2" class="total-title">Tổng</td>
+          <td></td>
+          <td>${totalQuantity}</td>
+          <td>${totalPrice.toLocaleString()}</td>
+          <td></td>
+        `;
+
+        totalPriceCart.innerHTML = '';
+        totalPriceCart.appendChild(totalRow);
     } else {
         var existingUpdateButton = document.querySelector('#update-cart-button');
         if (existingUpdateButton) {
@@ -156,6 +173,8 @@ function renderCart() {
         if (existingClearButton) {
             existingClearButton.remove();
         }
+
+        totalPriceCart.innerHTML = '';
     }
 }
 
