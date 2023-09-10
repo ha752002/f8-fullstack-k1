@@ -78,6 +78,28 @@ table th {
   color: #fff;
 } */
 
+.total-title {
+  background: #1271be;
+  color: #fff;
+}
+
+.btn-wrapp {
+  display: block;
+  width: 100%;
+}
+
+.cart-table tbody {
+  /* display: block; */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cart-table tfoot {
+  /* display: block; */
+  max-height: 50px;
+  overflow-y: auto;
+}
+
 .list-product button:hover,
 button#update-cart-button:hover,
 button#clear-cart-button:hover {
@@ -98,4 +120,12 @@ button.delete-button:hover {
 
 hr {
   margin: 29px 0;
+}
+
+div#empty-cart-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color: black;
 }

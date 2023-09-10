@@ -95,6 +95,17 @@ function addToCart(index, price, quantity, name) {
 function renderCart() {
     var cartTable = document.querySelector('.list-cart');
     var totalPriceCart = document.querySelector('.total-price-cart');
+    var emptyCartMessage = document.getElementById('empty-cart-message');
+
+    var cartIsEmpty = cart.length === 0;
+
+    if (cartIsEmpty) {
+        cartTable.style.display = 'none';
+        emptyCartMessage.style.display = 'block';
+    } else {
+        cartTable.style.display = '';
+        emptyCartMessage.style.display = 'none';
+    }
 
     var html = cart.map(function (data, index) {
         var stt = index + 1;
