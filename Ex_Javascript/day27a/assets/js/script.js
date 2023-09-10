@@ -88,6 +88,7 @@ function addToCart(index, price, quantity, name) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Bạn đã thêm vào giỏ hàng thành công');
     renderCart();
 }
 
