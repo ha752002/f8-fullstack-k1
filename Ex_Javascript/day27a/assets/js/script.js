@@ -167,8 +167,7 @@ function renderCart() {
 
         var totalRow = document.createElement('tr');
         totalRow.innerHTML = `
-          <td colspan="2" class="total-title">Tổng</td>
-          <td></td>
+          <td colspan="3" class="total-title">Tổng</td>
           <td>${totalQuantity}</td>
           <td>${totalPrice.toLocaleString()}</td>
           <td></td>

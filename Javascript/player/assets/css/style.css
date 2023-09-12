@@ -5,23 +5,15 @@
   outline: 0;
 }
 
-body {
-  max-width: 40%;
-  margin: 90px auto;
-  padding: 60px 20px;
-  border: 1px solid black;
-}
-
 .play-btn {
   text-align: center;
   margin-top: 30px;
   font-size: 1.5rem;
   cursor: pointer;
-  margin-bottom: 30px;
 }
 
 .player {
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   gap: 10px;
@@ -56,8 +48,4 @@ body {
   border-radius: 50%;
   translate: 50%;
   cursor: pointer;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
 }
