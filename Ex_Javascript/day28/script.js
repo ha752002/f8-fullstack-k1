@@ -1673,6 +1673,8 @@ var lyricData = `{
   }`
 
 var lyricData = JSON.parse(lyricData).data.sentences;
+// console.log(lyricData);
+
 
 var kara = document.querySelector(".karaoke");
 var karaBtn = document.querySelector(".open-karaoke button");
@@ -1687,9 +1689,6 @@ var currentTime = 0;
 
 var curr_track = new Audio();
 
-curr_track.addEventListener('canplay', function () {
-  startMusic();
-});
 
 function startMusic() {
   curr_track.play();
@@ -1697,6 +1696,10 @@ function startMusic() {
   displayLyric();
   kara.classList.add("show");
 }
+
+curr_track.addEventListener('canplay', function () {
+  startMusic();
+});
 
 function displayLyric() {
   if (!lyricDisplayed) {
