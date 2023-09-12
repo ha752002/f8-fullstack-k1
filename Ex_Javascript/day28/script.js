@@ -17,7 +17,7 @@ var updateTimer;
 var music_list = [
   {
     img: 'images/fallingdown.jpg',
-    name: 'Anh sai rồi',
+    name: 'Anh sai rồi HEHEHE!!!',
     artist: 'Sơn Tùng M-TP',
     music: 'music/test.mp3'
   }
@@ -145,6 +145,15 @@ var lyricData = `{
     "msg": "Success",
     "data": {
       "sentences": [
+        {
+          "words": [
+            {
+              "startTime": 0,
+              "endTime": 16000,
+              "data": "Anh sai rồi HEHEHE!!!"
+            }
+          ]
+        },
         {
           "words": [
             {
@@ -1695,10 +1704,12 @@ function startMusic() {
   isPlaying = true;
   displayLyric();
   kara.classList.add("show");
+
 }
 
 // curr_track.addEventListener('canplay', function () {
-//   startMusic();
+//   kara.classList.add("show");
+
 // });
 
 function displayLyric() {
@@ -1732,6 +1743,7 @@ curr_track.addEventListener('timeupdate', function () {
   if (!isNaN(curr_track.duration)) {
     currentTime = curr_track.currentTime;
 
+
     while (lyricIndex < lyricData.length && currentTime >= lyricData[lyricIndex].words[0].startTime / 1000) {
       displayLyric();
     }
@@ -1740,7 +1752,6 @@ curr_track.addEventListener('timeupdate', function () {
 
 seek_slider.addEventListener("click", function (event) {
   var clickX = event.clientX - seek_slider.getBoundingClientRect().left;
-
   var clickPercent = (clickX / seek_slider.offsetWidth);
   var newTime = clickPercent * curr_track.duration;
   curr_track.currentTime = newTime;
