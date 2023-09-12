@@ -1743,9 +1743,14 @@ curr_track.addEventListener('timeupdate', function () {
   if (!isNaN(curr_track.duration)) {
     currentTime = curr_track.currentTime;
 
+    if (lyricIndex > 0 && currentTime < lyricData[lyricIndex].words[0].startTime / 1000) {
+      // displayLyric();
+      lyricIndex--;
+    }
 
     while (lyricIndex < lyricData.length && currentTime >= lyricData[lyricIndex].words[0].startTime / 1000) {
       displayLyric();
+      lyricIndex++;
     }
   }
 });
@@ -1756,6 +1761,7 @@ seek_slider.addEventListener("click", function (event) {
   var newTime = clickPercent * curr_track.duration;
   curr_track.currentTime = newTime;
   currentTime = newTime;
+  console.log(currentTime);
   displayLyric();
 });
 curr_track.src = './music/test.mp3';
