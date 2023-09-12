@@ -1697,9 +1697,9 @@ function startMusic() {
   kara.classList.add("show");
 }
 
-curr_track.addEventListener('canplay', function () {
-  startMusic();
-});
+// curr_track.addEventListener('canplay', function () {
+//   startMusic();
+// });
 
 function displayLyric() {
   if (!lyricDisplayed) {
@@ -1732,7 +1732,6 @@ curr_track.addEventListener('timeupdate', function () {
   if (!isNaN(curr_track.duration)) {
     currentTime = curr_track.currentTime;
 
-
     while (lyricIndex < lyricData.length && currentTime >= lyricData[lyricIndex].words[0].startTime / 1000) {
       displayLyric();
     }
@@ -1741,6 +1740,7 @@ curr_track.addEventListener('timeupdate', function () {
 
 seek_slider.addEventListener("click", function (event) {
   var clickX = event.clientX - seek_slider.getBoundingClientRect().left;
+
   var clickPercent = (clickX / seek_slider.offsetWidth);
   var newTime = clickPercent * curr_track.duration;
   curr_track.currentTime = newTime;
