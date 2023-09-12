@@ -1731,6 +1731,8 @@ karaClose.addEventListener("click", function () {
 curr_track.addEventListener('timeupdate', function () {
   if (!isNaN(curr_track.duration)) {
     currentTime = curr_track.currentTime;
+
+
     while (lyricIndex < lyricData.length && currentTime >= lyricData[lyricIndex].words[0].startTime / 1000) {
       displayLyric();
     }
