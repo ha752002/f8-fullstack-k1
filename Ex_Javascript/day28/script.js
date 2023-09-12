@@ -17,7 +17,7 @@ var updateTimer;
 var music_list = [
   {
     img: 'images/fallingdown.jpg',
-    name: 'Anh sai rồi HEHEHE!!!',
+    name: 'Anh sai rồi!!',
     artist: 'Sơn Tùng M-TP',
     music: 'music/test.mp3'
   }
