@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     list.addEventListener('dragover', handleDragOver);
-    list.addEventListener('drop', handleDrop);
 
     function handleDragStart(e) {
         draggedItem = this;
@@ -45,10 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function handleDragOver(e) {
-        e.preventDefault();
-    }
-
-    function handleDrop(e) {
         e.preventDefault();
         if (draggedItem) {
             const targetItem = e.target.closest('.list-item');
@@ -70,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
 
     function updateOrderNumbers() {
         listItems.forEach((item, index) => {
