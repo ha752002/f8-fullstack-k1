@@ -36,11 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleDragStart(e) {
         draggedItem = this;
         e.dataTransfer.setData("text/plain", e.target.id);
+        e.target.classList.add("dragging");
+
     }
 
-    function handleDragEnd() {
+    function handleDragEnd(e) {
         draggedItem = null;
         updateOrderNumbers();
+        e.target.classList.remove("dragging");
+
     }
 
     function handleDragOver(e) {
