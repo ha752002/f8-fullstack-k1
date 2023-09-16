@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const list = document.querySelector('.list');
-    let listItems = document.querySelectorAll('.list-item');
-    var modules = document.querySelectorAll(".module");
+    let listItems = document.querySelectorAll('.list-item:not(.module)');
+    let modules = document.querySelectorAll(".list-item.module");
 
     let draggedItem = null;
 
@@ -16,6 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
         orderSpan.className = 'order';
         orderSpan.textContent = `${index + 1}: `;
         item.insertBefore(orderSpan, span);
+    });
+
+    modules.forEach((module, index) => {
+        module.setAttribute("draggable", "true");
+
+        module.addEventListener('dragstart', handleDragStart);
+        module.addEventListener('dragend', handleDragEnd);
+
+        const span = module.querySelector('span');
+        const orderSpan = document.createElement('span');
+        orderSpan.className = 'order';
+        orderSpan.textContent = `${index + 1}: `;
+        module.insertBefore(orderSpan, span);
     });
 
     list.addEventListener('dragover', handleDragOver);
@@ -42,18 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if (targetItem !== null && targetItem !== draggedItem) {
                 const targetIndex = [...listItems].indexOf(targetItem);
                 const draggedIndex = [...listItems].indexOf(draggedItem);
-                const items = [...listItems];
 
-                items[targetIndex] = draggedItem;
-                items[draggedIndex] = targetItem;
+                // Xác định vị trí thả (trước hoặc sau mục đích)
+                const targetRect = targetItem.getBoundingClientRect();
+                const dropPosition = e.clientY < targetRect.top + targetRect.height / 2 ? 'before' : 'after';
 
-                list.innerHTML = '';
+                // Sắp xếp items một cách đúng đắn dựa trên vị trí thả
+                if (dropPosition === 'before') {
+                    list.insertBefore(draggedItem, targetItem);
+                } else {
+                    list.insertBefore(draggedItem, targetItem.nextElementSibling);
+                }
 
-                items.forEach(item => {
-                    list.appendChild(item);
-                });
-
-                listItems = document.querySelectorAll('.list-item');
+                listItems = document.querySelectorAll('.list-item:not(.module)');
                 updateOrderNumbers();
             }
         }
@@ -61,8 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateOrderNumbers() {
         listItems.forEach((item, index) => {
-            const orderSpan = item.querySelector('.order');
-            orderSpan.textContent = `${index + 1}: `;
+            if (!item.classList.contains('module')) {
+                const orderSpan = item.querySelector('.order');
+                orderSpan.textContent = `${index + 1}: `;
+            }
+        });
+
+        modules = document.querySelectorAll(".list-item.module");
+        modules.forEach((module, index) => {
+            const orderSpan = module.querySelector('.order');
+            orderSpan.textContent = ` ${index + 1}: `;
         });
     }
 });

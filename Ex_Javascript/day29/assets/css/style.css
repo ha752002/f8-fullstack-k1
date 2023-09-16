@@ -35,3 +35,12 @@
 .dragging {
   background-color: pink;
 }
+
+.list-item {
+  cursor: grab;
+  user-select: none;
+}
+
+.list-item:active {
+  cursor: grabbing;
+}
