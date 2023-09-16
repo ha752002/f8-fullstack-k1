@@ -56,11 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const targetIndex = [...listItems].indexOf(targetItem);
                 const draggedIndex = [...listItems].indexOf(draggedItem);
 
-                // Xác định vị trí thả (trước hoặc sau mục đích)
                 const targetRect = targetItem.getBoundingClientRect();
                 const dropPosition = e.clientY < targetRect.top + targetRect.height / 2 ? 'before' : 'after';
 
-                // Sắp xếp items một cách đúng đắn dựa trên vị trí thả
                 if (dropPosition === 'before') {
                     list.insertBefore(draggedItem, targetItem);
                 } else {
