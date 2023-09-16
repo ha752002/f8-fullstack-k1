@@ -1,46 +1,67 @@
+body {
+  background: #d0edffde; /* Light gray background */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 50px 0px;
+}
+
 .list {
-  background: #4286f4;
-  width: 900px;
+  background: #ffffff; /* White background */
+  max-width: 58%;
   margin: 0 auto;
   padding: 1rem;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .list-hidden {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
+  display: none;
 }
 
 .ghost {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .list-item {
-  background: #8bb3f4;
-  padding: 1.5rem 1rem;
-  border: 1px solid white;
-  margin-bottom: 8px;
-}
-
-.placeholder {
-  display: none;
-  background: #303742;
-  pointer-events: none;
-}
-
-.module {
-  background: rgb(255, 111, 0);
-}
-
-.dragging {
-  background-color: pink;
-}
-
-.list-item {
+  font-weight: bold;
+  background: #f0f0f0;
+  padding: 1.4rem;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  align-items: center;
   cursor: grab;
+  font-size: 1.3rem;
   user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.list-item span {
+  font-weight: bold;
+  color: #333; /* Dark text color */
 }
 
 .list-item:active {
   cursor: grabbing;
+}
+
+.placeholder {
+  background: #e0e0e0;
+  pointer-events: none;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.module {
+  background: #425376;
+  color: white;
+  font-weight: bold;
+}
+
+.dragging {
+  background-color: #b1bace;
+}
+
+.module > span {
+  color: #fff;
 }
