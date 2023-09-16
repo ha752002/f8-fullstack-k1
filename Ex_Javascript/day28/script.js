@@ -205,7 +205,6 @@ curr_track.addEventListener('timeupdate', function () {
     currentTime = curr_track.currentTime;
 
     if (lyricIndex > 0 && currentTime < lyricData[lyricIndex].words[0].startTime / 1000) {
-      // displayLyric();
       lyricIndex--;
     }
 
@@ -236,3 +235,6 @@ curr_track.addEventListener('ended', function () {
     curr_track.play();
   }
 });
+
+
+
