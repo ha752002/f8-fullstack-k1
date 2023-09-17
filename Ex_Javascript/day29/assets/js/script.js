@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     list.addEventListener('dragover', handleDragOver);
-
     function handleDragStart(e) {
         draggedItem = this;
-        e.dataTransfer.setData("text/plain", e.target.id);
+        // e.dataTransfer.setData("text/plain", e.target.id);
         e.target.classList.add("dragging");
 
     }
@@ -52,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (draggedItem) {
             const targetItem = e.target.closest('.list-item');
             if (targetItem !== null && targetItem !== draggedItem) {
-                const targetIndex = [...listItems].indexOf(targetItem);
-                const draggedIndex = [...listItems].indexOf(draggedItem);
+                // const targetIndex = [...listItems].indexOf(targetItem);
+                // const draggedIndex = [...listItems].indexOf(draggedItem);
 
                 const targetRect = targetItem.getBoundingClientRect();
                 const dropPosition = e.clientY < targetRect.top + targetRect.height / 2 ? 'before' : 'after';
