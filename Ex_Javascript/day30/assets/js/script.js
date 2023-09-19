@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var charCount = document.querySelector('.quantity span:nth-child(1)');
     var wordCount = document.querySelector('.quantity span:nth-child(2)');
     var controlBtnContainer = document.querySelector('.control-btn-container');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+    var filenameInput = document.querySelector('#filename-input');
+    var colorBtn = document.querySelector('#color-btn');
     // console.log(controlBtnContainer);
 
     btnPrimary.addEventListener('click', function () {
@@ -25,27 +28,49 @@ document.addEventListener("DOMContentLoaded", function () {
         wordCount.textContent = "Số từ: " + filteredWords.length;
     });
 
+
     const buttons = controlBtnContainer.querySelectorAll("button");
-    console.log(buttons);
+    // console.log(buttons);
 
-    // function execCommand(aCommandName, aShowDefaultUI, aValueArgument) {
-    //     console.log(111);
-    //     document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
-    // }
+    function execCommand(aCommandName, aShowDefaultUI, aValueArgument) {
+        // console.log(111);
+        document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
+    }
 
-    // var execCommand = (aCommandName, aShowDefaultUI, aValueArgument) => {
-    //     document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
+    colorBtn.addEventListener('change', function () {
+        execCommand('foreColor', false, this.value);
+    })
+    buttons.forEach(function (button) {
+        button.addEventListener("click", () => {
+            execCommand(button.id, false, null);
+        });
+    })
 
-    // }
 
-    // buttons.forEach(function (button) {
-    //     button.addEventListener("click", () => {
-    //         console.log('sss');
+    const button = dropdownMenu.querySelectorAll("button");
+    button.forEach(function (button) {
+        button.addEventListener('click', function () {
 
-    //         execCommand(button.id, false, null)
-    //     });
-    // })
+            if (this.id === 'new-btn') {
+                console.log(111);
+                filenameInput.value = 'untitled';
+                content.innerText = '';
+            }
 
+            if (this.id === 'txt-btn') {
+                const blob = new Blob([content.innerText]);
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `${filenameInput.value}.txt`;
+                link.click();
+            }
+
+            if (this.id === 'pdf-btn') {
+                html2pdf(content).save(filenameInput.value);
+            }
+        })
+    })
 
     // console.log(pasteTarget);
     // for (const button of buttons) {
@@ -77,11 +102,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-var bold = document.querySelector("#bold");
-console.log(bold);
-
-bold.addEventListener("click", () => {
-    console.log(123);
-    document.execCommand("bold")
-})
 
