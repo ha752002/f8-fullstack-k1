@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="container">
+        <h4 id="title">Doc Editor</h4>
+        <div class="controls">
+          <div class="main-controls">
+            <div class="dropdown">
+              <button class="btn btn-primary">File</button>
+              <div class="dropdown-menu">
+                <button id="new-btn" class="dropdown-item">New</button
+                ><button id="txt-btn" class="dropdown-item">Save as TXT</button
+                ><button id="pdf-btn" class="dropdown-item">Save as PDF</button>
+              </div>
+            </div>
+            <input id="filename-input" type="text" value="untitled" />
+          </div>
+          <div class="control-btn-container" data-for="#content">
+            <!-- bold -->
+            <button class="btn" id="bold" data-el="b">b</button
+            ><button id="underline" class="btn" data-el="u">
+              <u>u</u></button
+            ><button id="italic" class="btn btn-dark" data-el="i">
+              <i>i</i></button
+            ><input id="color-btn" type="color" class="control-btn" />
+          </div>
+        </div>
+        <div id="content" spellcheck="false"></div>
+        <div class="quantity">
+          <span>Số ký tự: 0</span><span>Số từ: 0</span>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

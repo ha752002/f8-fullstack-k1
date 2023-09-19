@@ -1,0 +1,94 @@
+#title {
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-controls {
+  display: flex;
+}
+
+.control-btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  width: 50px;
+  height: 100%;
+}
+
+#filename-input {
+  margin-left: 10px;
+}
+
+#content {
+  padding: 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  outline: none;
+  min-height: 300px;
+  margin: 30px 0;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background-color: blue;
+  padding: 10px 26px;
+  border: none;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.dropdown-menu {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background: white;
+  display: none;
+  border: 1px solid black;
+}
+
+.dropdown-item {
+  padding: 13px 32px;
+  font-size: 1rem;
+  border: none;
+}
+
+.show {
+  display: flex;
+}
+
+.control-btn-container .btn {
+  color: white;
+  font-size: 1.1rem;
+  background: black;
+  padding: 4px 20px;
+}
+
+.control-btn-container .btn:hover {
+  background: black;
+  cursor: pointer;
+}
+
+.quantity {
+  float: right;
+  display: flex;
+  gap: 10px;
+  font-size: 1.4rem;
+}
