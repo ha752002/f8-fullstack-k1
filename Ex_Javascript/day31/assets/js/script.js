@@ -24,6 +24,5 @@ document.addEventListener("DOMContentLoaded", function () {
         requestAnimationFrame(updateTimer);
     }
 
-    // Bắt đầu đếm thời gian
     requestAnimationFrame(updateTimer);
 });
