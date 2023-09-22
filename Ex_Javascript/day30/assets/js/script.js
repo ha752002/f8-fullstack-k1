@@ -18,9 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     content.addEventListener('input', function () {
         var text = content.textContent.trim();
-
         charCount.textContent = "Số ký tự: " + text.length;
-
         var words = text.split(/\s+/);
         var filteredWords = words.filter(function (word) {
             return word.length > 0;

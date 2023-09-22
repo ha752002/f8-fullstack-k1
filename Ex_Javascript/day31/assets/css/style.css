@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.timer {
+  margin: 0 auto;
+  background: rgb(3, 189, 240);
+  text-align: center;
+  padding: 50px;
+  height: calc(100vh);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+
+.timer h2 {
+  text-transform: uppercase;
+}
+
+.timer .counter {
+  font-size: 2rem;
+  background: rgb(255, 145, 0);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.timer .btn {
+  background: transparent;
+  border: #fff;
+  display: block;
+  padding: 10px 25px;
+  border-radius: 99px;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.timer .btn:disabled {
+  background: rgb(182, 182, 182);
+  color: gray;
+  cursor: not-allowed;
+}
