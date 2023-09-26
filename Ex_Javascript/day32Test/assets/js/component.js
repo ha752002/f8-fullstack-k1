@@ -10,6 +10,7 @@ class F8 {
             }
 
             render() {
+                this.data = options.data();
                 const shadow = this.shadowRoot;
                 const templateEl = document.createElement('template');
                 templateEl.innerHTML = this.options.template;
@@ -19,7 +20,7 @@ class F8 {
                 const results = html.match(/{{.+?}}/g);
                 if (results) {
                     if (tagName === "counter-app") {
-                        this.updateCountDisplay(this.options.data());
+                        this.updateCountDisplay();
                     }
                 }
             }
@@ -33,21 +34,20 @@ class F8 {
                         if (buttonAttribute) {
                             let buttonEvent = buttonAttribute[0].split(":")[1];
                             let buttonActivity = buttonAttribute[1];
-                            var data = this.options.data();
                             button.addEventListener(buttonEvent, () => {
-                                eval('data.' + buttonActivity);
-                                this.updateCountDisplay(data);
+                                eval('this.data.' + buttonActivity);
+                                this.updateCountDisplay();
                             });
                         }
                     });
                 }
             }
-            updateCountDisplay(data) {
+            updateCountDisplay() {
                 const shadow = this.shadowRoot;
                 var h1 = shadow.querySelector("h1");
                 var h2 = shadow.querySelector("h2");
-                h1.textContent = data.title;
-                h2.textContent = `Đã đếm ${data.count} lần`;
+                h1.textContent = this.data.title;
+                h2.textContent = `Đã đếm ${this.data.count} lần`;
             }
 
             getAttributeByRegex(htmlTag, regex) {
