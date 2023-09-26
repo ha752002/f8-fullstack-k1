@@ -26,6 +26,11 @@ class F8 {
                     } else if (vOnClick === "count--") {
                         button.onclick = () => this.updateCountDisplay(-1);
                     }
+
+                    const vOndblclick = button.getAttribute('v-on:dblclick');
+                    if (vOndblclick === "title='Hello'") {
+                        button.onclick = () => this.updateTitle('Hello');
+                    }
                 });
                 if (results) {
                     // results.forEach((result) => {
@@ -39,6 +44,11 @@ class F8 {
                     }
                     // });
                 }
+            }
+
+            updateTitle(text) {
+                var h1 = this.shadowRoot.querySelector("h1");
+                h1.textContent = text;
             }
 
             updateCountDisplay(i) {
