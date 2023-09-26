@@ -4,6 +4,7 @@ class F8 {
             constructor() {
                 super();
                 this.options = options;
+                this.count = 0;
                 this.attachShadow({ mode: 'open' });
                 this.render();
             }
@@ -17,7 +18,15 @@ class F8 {
 
                 const html = this.options.template;
                 const results = html.match(/{{.+?}}/g);
-
+                const buttons = shadow.querySelectorAll('button');
+                buttons.forEach((button) => {
+                    const vOnClick = button.getAttribute('v-on:click');
+                    if (vOnClick === "count++") {
+                        button.onclick = () => this.updateCountDisplay(1);
+                    } else if (vOnClick === "count--") {
+                        button.onclick = () => this.updateCountDisplay(-1);
+                    }
+                });
                 if (results) {
                     results.forEach((result) => {
                         const variableResult = result.match(/{{(.+?)}}/);
@@ -26,28 +35,20 @@ class F8 {
                             var h1 = shadow.querySelector("h1");
                             var h2 = shadow.querySelector("h2");
                             h1.textContent = this.options.data().title;
-                            h2.textContent = `Đã đếm ${this.options.data().count} lần`;
-
-                            const buttons = shadow.querySelectorAll('button');
-                            buttons.forEach((button) => {
-                                const vOnClick = button.getAttribute('v-on:click');
-                            });
-
+                            h2.textContent = `Đã đếm ${this.count} lần`;
                         }
                     });
                 }
             }
 
-            updateCountDisplay() {
+            updateCountDisplay(i) {
                 var h2 = this.shadowRoot.querySelector("h2");
-                h2.textContent = `Đã đếm ${this.options.data().count} lần`;
+                this.count += i;
+                console.log(this.count);
+                h2.textContent = `Đã đếm ${this.count} lần`;
             }
 
-            // Add any other methods or event handling as needed.
 
-            // connectedCallback() {
-            //     this.render();
-            // }
         });
     }
 }
