@@ -4,9 +4,9 @@ class F8 {
             constructor() {
                 super();
                 this.options = options;
-                this.count = 0;
                 this.attachShadow({ mode: 'open' });
                 this.render();
+                this.initButtonEvent();
             }
 
             render() {
@@ -15,51 +15,57 @@ class F8 {
                 templateEl.innerHTML = this.options.template;
                 const templateNode = templateEl.content.cloneNode(true);
                 shadow.appendChild(templateNode);
-
                 const html = this.options.template;
                 const results = html.match(/{{.+?}}/g);
-                const buttons = shadow.querySelectorAll('button');
-                buttons.forEach((button) => {
-                    const vOnClick = button.getAttribute('v-on:click');
-                    if (vOnClick === "count++") {
-                        button.onclick = () => this.updateCountDisplay(1);
-                    } else if (vOnClick === "count--") {
-                        button.onclick = () => this.updateCountDisplay(-1);
-                    }
-
-                    const vOndblclick = button.getAttribute('v-on:dblclick');
-                    if (vOndblclick === "title='Hello'") {
-                        button.onclick = () => this.updateTitle('Hello');
-                    }
-                });
                 if (results) {
-                    // results.forEach((result) => {
-                    // const variableResult = result.match(/{{(.+?)}}/);
-                    // const variable = variableResult[1].trim();
                     if (tagName === "counter-app") {
-                        var h1 = shadow.querySelector("h1");
-                        var h2 = shadow.querySelector("h2");
-                        h1.textContent = this.options.data().title;
-                        h2.textContent = `Đã đếm ${this.count} lần`;
+                        this.updateCountDisplay(this.options.data());
                     }
-                    // });
+                }
+            }
+            initButtonEvent() {
+                const shadow = this.shadowRoot;
+                const buttons = shadow.querySelectorAll('button');
+                if (buttons) {
+                    var vOnRegex = /v-on:\w+/g;
+                    buttons.forEach((button) => {
+                        var buttonAttribute = this.getAttributeByRegex(button, vOnRegex);
+                        if (buttonAttribute) {
+                            let buttonEvent = buttonAttribute[0].split(":")[1];
+                            let buttonActivity = buttonAttribute[1];
+                            var data = this.options.data();
+                            button.addEventListener(buttonEvent, () => {
+                                eval('data.' + buttonActivity);
+                                this.updateCountDisplay(data);
+                            });
+                        }
+                    });
+                }
+            }
+            updateCountDisplay(data) {
+                const shadow = this.shadowRoot;
+                var h1 = shadow.querySelector("h1");
+                var h2 = shadow.querySelector("h2");
+                h1.textContent = data.title;
+                h2.textContent = `Đã đếm ${data.count} lần`;
+            }
+
+            getAttributeByRegex(htmlTag, regex) {
+                const attributes = htmlTag.attributes;
+                for (let i = attributes.length - 1; i >= 0; i--) {
+                    const attr = attributes[i];
+                    if (attr.name.match(regex)) {
+                        return [attr.name, attr.value];
+                    }
+                    return undefined;
                 }
             }
 
-            updateTitle(text) {
-                var h1 = this.shadowRoot.querySelector("h1");
-                h1.textContent = text;
-            }
+            // Add any other methods or event handling as needed.
 
-            updateCountDisplay(i) {
-                var h2 = this.shadowRoot.querySelector("h2");
-                this.count += i;
-                console.log(this.count);
-                h2.textContent = `Đã đếm ${this.count} lần`;
-            }
-
-
+            // connectedCallback() {
+            //     this.render();
+            // }
         });
     }
 }
-
