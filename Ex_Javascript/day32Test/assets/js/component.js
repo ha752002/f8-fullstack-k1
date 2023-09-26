@@ -28,16 +28,16 @@ class F8 {
                     }
                 });
                 if (results) {
-                    results.forEach((result) => {
-                        const variableResult = result.match(/{{(.+?)}}/);
-                        const variable = variableResult[1].trim();
-                        if (tagName === "counter-app") {
-                            var h1 = shadow.querySelector("h1");
-                            var h2 = shadow.querySelector("h2");
-                            h1.textContent = this.options.data().title;
-                            h2.textContent = `Đã đếm ${this.count} lần`;
-                        }
-                    });
+                    // results.forEach((result) => {
+                    // const variableResult = result.match(/{{(.+?)}}/);
+                    // const variable = variableResult[1].trim();
+                    if (tagName === "counter-app") {
+                        var h1 = shadow.querySelector("h1");
+                        var h2 = shadow.querySelector("h2");
+                        h1.textContent = this.options.data().title;
+                        h2.textContent = `Đã đếm ${this.count} lần`;
+                    }
+                    // });
                 }
             }
 
