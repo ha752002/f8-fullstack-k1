@@ -1,4 +1,9 @@
+import searchBoxHTML from './textComponent.js';
+
 document.addEventListener("DOMContentLoaded", function () {
+    const root = document.getElementById("root");
+    root.innerHTML = searchBoxHTML;
+
     const searchBox = document.querySelector(".search-box");
     const btn = document.querySelector(".btn");
     const action = document.querySelector(".action");
@@ -17,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             recognition.start();
             btn.style.background = "green";
+            action.innerHTML = "Hãy nói nội dung bạn muốn";
+
         }
     });
 
@@ -24,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         recognizing = false;
         recognition.stop();
         btn.style.background = "red";
+        action.innerHTML = "Đã nói xong. Hy vọng kết quả như ý bạn ";
+
     };
 
     recognition.onerror = () => {
@@ -32,6 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const result = document.createElement("div");
+    var css = {
+        fontSize: '1.4rem',
+        padding: '10px',
+        border: '1px solid black',
+        margin: '10px 0',
+    }
+
+    Object.assign(result.style, css);
+
 
     recognition.onresult = (e) => {
         const text = e.results[0][0].transcript.toLowerCase();
