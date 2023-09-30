@@ -1,25 +1,11 @@
-import searchBoxHTML from './textComponent.js';
-
 document.addEventListener("DOMContentLoaded", function () {
-    const root = document.getElementById("root");
-    root.innerHTML = searchBoxHTML;
-
-    const SpeechRecognition =
-        window.speechRecognition || window.webkitSpeechRecognition;
-
-    if (!SpeechRecognition) {
-        console.error("Speech recognition not supported in this browser.");
-        return;
-    }
-
     const searchBox = document.querySelector(".search-box");
     const btn = document.querySelector(".btn");
     const action = document.querySelector(".action");
 
+    const SpeechRecognition =
+        window.speechRecognition || window.webkitSpeechRecognition;
 
-    // if (recognition && recognition.isListening) {
-    //     recognition.stop();
-    // }
     const recognition = new SpeechRecognition();
     let recognizing = false;
 
@@ -53,39 +39,38 @@ document.addEventListener("DOMContentLoaded", function () {
         searchBox.append(result);
 
         setTimeout(() => {
-            if (handleVoice(text) === "không thực hiện được") {
-                result.innerText = `Không thực hiện được`;
-            } else {
+            const handled = handleVoice(text);
+            if (handled) {
                 result.innerText = `Đã thực hiện thành công`;
+            } else {
+                result.innerText = `Không thực hiện được`;
             }
         }, 1000);
     };
 
     const handleVoice = (text) => {
-        // console.log(text);
-        let status = true;
         switch (text) {
             case "google":
                 window.open("https://google.com");
-                break;
+                return true;
 
             case "youtube":
                 window.open("https://youtube.com");
-                break;
+                return true;
 
             case "facebook":
                 window.open("https://facebook.com");
-                break;
+                return true;
 
             case "google drive":
                 window.open("https://drive.google.com");
-                break;
+                return true;
 
             case "google maps":
             case "bản đồ":
             case "maps":
                 window.open("https://maps.google.com");
-                break;
+                return true;
 
             default:
                 if (
@@ -101,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const url = `https://www.google.com/maps/search/${transcriptNew}`;
                     window.open(url.trim());
+                    return true;
                 } else if (
                     text.includes("bài hát") ||
                     text.includes("mở bài hát") ||
@@ -114,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const url = `https://zingmp3.vn/tim-kiem/tat-ca?q=${transcriptNew}`;
                     window.open(url.trim());
+                    return true;
                 } else if (
                     text.includes("video") ||
                     text.includes("mở video") ||
@@ -127,11 +114,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const url = `https://www.youtube.com/results?search_query=${transcriptNew}`;
                     window.open(url.trim());
+                    return true;
                 } else {
-                    status = false;
+                    return false;
                 }
-                break;
         }
-
     };
 });
