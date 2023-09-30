@@ -101,36 +101,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const url = `https://www.google.com/maps/search/${transcriptNew}`;
                     window.open(url.trim());
-                } else
-                    if (
-                        text.includes("bài hát") ||
-                        text.includes("mở bài hát") ||
-                        text.includes("nghe bài hát")
-                    ) {
-                        const transcriptNew = text
-                            .replace("bài hát", "")
-                            .replace("mở", "")
-                            .replace("nghe", "")
-                            .trim();
+                } else if (
+                    text.includes("bài hát") ||
+                    text.includes("mở bài hát") ||
+                    text.includes("nghe bài hát")
+                ) {
+                    const transcriptNew = text
+                        .replace("bài hát", "")
+                        .replace("mở", "")
+                        .replace("nghe", "")
+                        .trim();
 
-                        const url = `https://zingmp3.vn/search?q=${transcriptNew}`;
-                        window.open(url.trim());
-                    } else if (
-                        text.includes("video") ||
-                        text.includes("mở video") ||
-                        text.includes("xem video")
-                    ) {
-                        const transcriptNew = text
-                            .replace("video", "")
-                            .replace("mở", "")
-                            .replace("xem", "")
-                            .trim();
+                    const url = `https://zingmp3.vn/tim-kiem/tat-ca?q=${transcriptNew}`;
+                    window.open(url.trim());
+                } else if (
+                    text.includes("video") ||
+                    text.includes("mở video") ||
+                    text.includes("xem video")
+                ) {
+                    const transcriptNew = text
+                        .replace("video", "")
+                        .replace("mở", "")
+                        .replace("xem", "")
+                        .trim();
 
-                        const url = `https://www.youtube.com/results?search_query=${transcriptNew}`;
-                        window.open(url.trim());
-                    } else {
-                        status = false;
-                    }
+                    const url = `https://www.youtube.com/results?search_query=${transcriptNew}`;
+                    window.open(url.trim());
+                } else {
+                    status = false;
+                }
                 break;
         }
 
