@@ -47,7 +47,7 @@ class F8 {
                 var h1 = shadow.querySelector("h1");
                 var h2 = shadow.querySelector("h2");
                 h1.textContent = this.data.title;
-                h2.textContent = `Đã đếm ${this.data.count} lần`;
+                h2.textContent = `${this.data.count}`;
             }
 
             getAttributeByRegex(htmlTag, regex) {

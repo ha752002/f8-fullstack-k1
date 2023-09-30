@@ -45,6 +45,7 @@ promise
         console.log(course);
 
     })
+
     .catch(function (error) {
         console.log(error);// bắt lỗi bẫy lỗi
 
