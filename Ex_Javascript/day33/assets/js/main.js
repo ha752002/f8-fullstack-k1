@@ -1,3 +1,4 @@
+
 import searchBoxHTML from './textComponent.js';
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,47 +13,84 @@ document.addEventListener("DOMContentLoaded", function () {
         window.speechRecognition || window.webkitSpeechRecognition;
 
     const recognition = new SpeechRecognition();
-    let recognizing = false;
 
     recognition.lang = "vi-VN";
     recognition.continuous = false;
 
-    btn.addEventListener("click", function (e) {
-        if (!recognizing) {
-            e.preventDefault();
-            recognition.start();
-            btn.style.background = "green";
-            action.innerHTML = "Hãy nói nội dung bạn muốn";
+    let speechTimeout;
 
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (recognition && !recognition.recognizing) {
+            startRecognition();
         }
     });
 
-    recognition.onspeechend = () => {
-        recognizing = false;
-        recognition.stop();
-        btn.style.background = "red";
-        action.innerHTML = "Đã nói xong. Hy vọng kết quả như ý bạn ";
-
+    recognition.onend = () => {
+        if (recognition && recognition.recognizing) {
+            recognition.recognizing = false;
+            stopRecognition();
+        }
     };
 
     recognition.onerror = () => {
-        recognizing = false;
+        if (recognition && recognition.recognizing) {
+            recognition.recognizing = false;
+            handleRecognitionError();
+        }
+    };
+
+    recognition.onnomatch = function () {
+        if (recognition && recognition.recognizing) {
+            handleRecognitionNoMatch();
+        }
+    };
+
+    recognition.onresult = (e) => {
+        if (recognition && recognition.recognizing) {
+            const text = e.results[0][0].transcript.toLowerCase();
+            handleRecognitionResult(text);
+        }
+    };
+
+    const startRecognition = () => {
+        recognition.start();
+        btn.style.background = "green";
+        action.innerHTML = "Hãy nói nội dung bạn muốn";
+        recognition.recognizing = true;
+        speechTimeout = setTimeout(() => {
+            if (recognition.recognizing) {
+                recognition.stop();
+                handleRecognitionNoMatch();
+            }
+        }, 5000);
+    };
+
+    const stopRecognition = () => {
+        btn.style.background = "red";
+        action.innerHTML = "Đã nói xong. Hy vọng kết quả như ý bạn";
+        clearTimeout(speechTimeout);
+    };
+
+    const handleRecognitionError = () => {
+        recognition.recognizing = false;
         action.innerHTML = "Xin hãy nói lại !";
     };
 
-    const result = document.createElement("div");
-    var css = {
-        fontSize: '1.4rem',
-        padding: '10px',
-        border: '1px solid black',
-        margin: '10px 0',
-    }
+    const handleRecognitionNoMatch = () => {
+        recognition.recognizing = false;
+        action.innerHTML = "Vui lòng nói yêu cầu của bạn!";
+    };
 
-    Object.assign(result.style, css);
-
-
-    recognition.onresult = (e) => {
-        const text = e.results[0][0].transcript.toLowerCase();
+    const handleRecognitionResult = (text) => {
+        const result = document.createElement("div");
+        const css = {
+            fontSize: '1.4rem',
+            padding: '10px',
+            border: '1px solid black',
+            margin: '10px 0',
+        };
+        Object.assign(result.style, css);
         result.innerText = `Đang thực hiện: ${text}`;
         searchBox.append(result);
 
