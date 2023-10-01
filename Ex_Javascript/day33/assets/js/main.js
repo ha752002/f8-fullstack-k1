@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchBox = document.querySelector(".search-box");
     const btn = document.querySelector(".btn");
     const action = document.querySelector(".action");
+    let result = null;
 
     const SpeechRecognition =
         window.speechRecognition || window.webkitSpeechRecognition;
@@ -22,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function (e) {
         e.preventDefault();
         if (recognition && !recognition.recognizing) {
+            // Xóa kết quả trước đó (nếu có)
+            if (result) {
+                result.remove();
+            }
             startRecognition();
         }
     });
@@ -83,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const handleRecognitionResult = (text) => {
-        const result = document.createElement("div");
+        result = document.createElement("div");
         const css = {
             fontSize: '1.4rem',
             padding: '10px',
