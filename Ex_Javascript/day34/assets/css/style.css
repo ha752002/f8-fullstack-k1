@@ -157,3 +157,44 @@ button.btn.btn-cancel {
   display: flex;
   gap: 5px;
 }
+
+.btn__completed:hover {
+  background-color: #6b7280;
+}
+
+.btn__completed {
+  margin: 17px 0;
+  width: 41%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  background-color: rgb(156, 163, 175);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn__completed svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+  rotate: -90deg;
+}
+
+.todo-app-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-todo__completed {
+  display: none;
+}
+
+.active {
+  display: block;
+}
