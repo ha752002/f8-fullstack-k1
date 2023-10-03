@@ -60,8 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     alert('Đã cập nhật thành công!');
                     const updatedTodoItem = todoAppWrapper.querySelector(`[data-id="${editingTodoId}"]`);
                     if (updatedTodoItem) {
-                        // Cập nhật nội dung trong <p>
-                        updatedTodoItem.querySelector('p').innerHTML = response.title;
+                        updatedTodoItem.querySelector('p').textContent = response.title;
                     }
                 } else {
                     alert('Có lỗi xảy ra khi cập nhật công việc.');
@@ -128,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         todoItem.setAttribute('data-id', id);
 
         const p = document.createElement("p");
-        p.innerHTML = title;
+        p.textContent = title;
 
         const rowFeature = document.createElement("div");
         rowFeature.classList.add('row-feature');
@@ -139,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         buttonRemove.addEventListener('click', async function (e) {
             try {
                 await remove(id);
-                todoList.removeChild(todoItem); // Sửa lại thành todoList
+                todoList.removeChild(todoItem);
             } catch (error) {
                 console.error("Lỗi khi xóa công việc:", error);
             }
@@ -184,33 +183,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         completedCountSpan.textContent = `Completed Todos ${completedCount}`;
     }
 
-
-    function addTodoToCompletedList(title, id) {
-        const todoItem = createTodoItem(title, id);
-        const completedList = $('.list-todo__completed');
-        completedList.appendChild(todoItem);
-        updateCompletedCount(); // Cập nhật số lượng phần tử đã hoàn thành
-    }
-
     // Hàm xử lý khi ấn nút btn-check trong list-todo__completed
     async function handleCheckCompletedButtonClick(id) {
         try {
-            // Lấy todo-item có data-id tương ứng trong list-todo__completed
             const todoItem = $('.list-todo__completed').querySelector(`[data-id="${id}"]`);
             if (!todoItem) {
                 console.error(`Không tìm thấy todo-item với data-id ${id} trong list-todo__completed`);
                 return;
             }
 
-            // Lấy tham chiếu đến nút btn-check trong todo-item
             const buttonCheck = todoItem.querySelector('.btn-check');
 
-            // Di chuyển todo-item từ list-todo__completed trở lại list-todo
             const todoList = $('.list-todo');
             buttonCheck.style.backgroundColor = ''; // Đặt lại màu sắc
             todoList.insertBefore(todoItem, btnCompleted);
 
-            // Cập nhật số lượng phần tử đã hoàn thành
             updateCompletedCount();
         } catch (error) {
             console.error("Lỗi khi xử lý btn-check trong list-todo__completed:", error);
@@ -220,30 +207,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Hàm xử lý khi ấn nút btn-check trong list-todo
     async function handleCheckButtonClick(id) {
         try {
-            // Kiểm tra xem todo-item có data-id tương ứng đã ở trong list-todo__completed hay không
             const isCompleted = $('.list-todo__completed').contains($(`[data-id="${id}"]`));
 
             if (isCompleted) {
-                // Nếu đã ở trong list-todo__completed, thì gọi hàm xử lý khi ấn nút btn-check trong list-todo__completed
                 handleCheckCompletedButtonClick(id);
             } else {
-                // Nếu chưa ở trong list-todo__completed, thì gọi hàm xử lý khi ấn nút btn-check trong list-todo
-                // Lấy todo-item có data-id tương ứng
                 const todoItem = todoAppWrapper.querySelector(`[data-id="${id}"]`);
                 if (!todoItem) {
                     console.error(`Không tìm thấy todo-item với data-id ${id}`);
                     return;
                 }
-
-                // Lấy tham chiếu đến nút btn-check trong todo-item
                 const buttonCheck = todoItem.querySelector('.btn-check');
 
-                // Di chuyển todo-item vào list-todo__completed
                 const completedList = $('.list-todo__completed');
                 buttonCheck.style.backgroundColor = 'green';
                 completedList.appendChild(todoItem);
 
-                // Cập nhật số lượng phần tử đã hoàn thành
                 updateCompletedCount();
             }
         } catch (error) {
@@ -266,11 +245,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     function renderTodoItem(title, id) {
         try {
             const todoItem = createTodoItem(title, id);
-            todoList.insertBefore(todoItem, btnCompleted); // Sửa lại thành todoList
+            todoList.insertBefore(todoItem, btnCompleted);
         } catch (error) {
             console.error("Lỗi khi render mục công việc:", error);
         }
     }
-
-
 });
