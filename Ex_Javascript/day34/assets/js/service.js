@@ -50,7 +50,6 @@ export const updatePost = async (id, data) => {
         });
 
         if (!response.ok) {
-            // Xử lý lỗi nếu response không thành công (ví dụ: response.status không phải 200)
             throw new Error('Có lỗi xảy ra khi cập nhật công việc.');
         }
 

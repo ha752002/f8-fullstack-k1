@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     start();
 
+
     async function handleSaveButtonClick(e) {
         e.preventDefault();
 
@@ -87,8 +88,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    inputSearch.addEventListener('input', handleSearch);
 
+    inputSearch.addEventListener('input', handleSearch);
     function handleSearch() {
         const searchText = inputSearch.value.toLowerCase();
         const todoItems = todoAppWrapper.querySelectorAll('.todo-item');
