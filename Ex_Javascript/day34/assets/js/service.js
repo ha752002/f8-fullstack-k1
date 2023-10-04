@@ -2,6 +2,7 @@ const apiUrl = `https://r43p4k-8080.csb.app/courses/`;
 
 export const get = async () => {
     const response = await fetch(apiUrl);
+    console.log(response);
     const users = await response.json();
     return users;
 }

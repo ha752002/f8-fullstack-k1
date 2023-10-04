@@ -7,6 +7,7 @@ import {
 
 document.addEventListener("DOMContentLoaded", async function () {
     const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
 
     const formAdd = $('.form-add');
     const btnAdd = $('.btn-add');
@@ -18,12 +19,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const btnSave = $('.btn-save');
     const inputText = $('input[name="input-text"]');
     const inputSearch = $('#input-search');
+    const allSkeleton = $$('.skeleton');
+    // console.log(allSkeleton);
 
     let editingTodoId = null;
 
     async function start() {
         try {
+
             const todos = await get();
+
 
             todos.forEach((todo) => {
                 renderTodoItem(todo.title, todo.id);
@@ -139,7 +144,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         buttonRemove.addEventListener('click', async function (e) {
             try {
                 await remove(id);
+                // Kiểm tra nếu todoItem nằm trong list-todo__completed thì xóa nó
+                const completedList = $('.list-todo__completed');
+                const todoItem = todoAppWrapper.querySelector(`[data-id="${id}"]`);
+                if (todoItem.parentElement === completedList) {
+                    completedList.removeChild(todoItem);
+                }
+                updateCompletedCount();
+
                 todoList.removeChild(todoItem);
+
             } catch (error) {
                 console.error("Lỗi khi xóa công việc:", error);
             }
