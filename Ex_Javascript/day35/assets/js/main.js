@@ -5,19 +5,31 @@ const loading = document.getElementById("loading");
 const postEl = document.querySelector(".grid__row");
 const section = document.querySelector("section");
 
-let loadingData = true;
+let loadingData = false;
 let page = 1;
-let limit = 5;
+let limit = 6;
 
 
 const getPortfolio = async (query = {}) => {
-    loading.style.display = "block";
+    if (!loadingData) {
+        loadingData = true;
+        loading.style.display = "block";
 
-    const { response, data } = await client.get(`/Portfolio` + `?_limit=${limit}&_start=${(page - 1) * limit}`);
-    if (data !== '') {
-        page++;
+        client.get(`/Portfolio` + `?_limit=${limit}&_start=${(page - 1) * limit}`).then(({ response, data }) => {
+            // let data = response.data;
+            if (response.status === 200) {
+                if (data !== '') {
+                    page++;
+                }
+                // console.log(response);
+                render(data);
+            }
+            loadingData = false;
+
+        });
+
     }
-    render(data);
+
 }
 getPortfolio();
 

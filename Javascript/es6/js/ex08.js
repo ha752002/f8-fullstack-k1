@@ -1,21 +1,21 @@
 // Xử lý bất đồng bộ
-// const step1 = () => {
-//     console.log("step 1");
-// };
+const step1 = () => {
+    console.log("step 1");
+};
 
-// const step2 = () => {
-//     setTimeout(() => {
-//         console.log("step 2");
-//     }, 1000);
-// };
+const step2 = () => {
+    setTimeout(() => {
+        console.log("step 2");
+    }, 1000);
+};
 
-// const step3 = () => {
-//     console.log("step 3");
-// };
+const step3 = () => {
+    console.log("step 3");
+};
 
-// step1();
-// step2();
-// step3();
+step1();
+step2();
+step3();
 
 /*
 Có 3 cách sử lý bất đồng bộ

@@ -46,7 +46,6 @@ export const render = (portfolio) => {
 
     }
 
-    loadingData = false;
     loading.style.display = "none";
 
 }
