@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  min-height: 120%;
+}
+
 main .loading {
   font-size: 4rem;
   width: 70%;

@@ -9,7 +9,17 @@ let loadingData = false;
 let page = 1;
 let limit = 6;
 
+var viewportHeight = window.innerHeight;
+document.body.style.minHeight = (viewportHeight + 0.1) + 'px';
 
+// for (let index = 100; index < 200; index++) {
+//     await client.post(`/Portfolio`, {
+//         id: index,
+//         image: "https://i.pinimg.com/564x/87/4f/55/874f55c0064535be4c35f322eb8bb510.jpg",
+//         title: "Doddy App" + index,
+//         desc: "Mobile app ui kit design" + index + "."
+//     });
+// }
 const getPortfolio = async (query = {}) => {
     if (!loadingData) {
         loadingData = true;
