@@ -34,3 +34,25 @@
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
+
+.paginate {
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+}
+
+.paginate span {
+  background-color: green;
+}
+
+.paginate span a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.paginate span.active {
+  background: red;
+}
