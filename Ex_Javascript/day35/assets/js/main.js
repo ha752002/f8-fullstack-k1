@@ -18,7 +18,7 @@ const getPortfolio = async (query = {}) => {
         client.get(`/Portfolio` + `?_limit=${limit}&_start=${(page - 1) * limit}`).then(({ response, data }) => {
             // let data = response.data;
             if (response.status === 200) {
-                if (data !== '') {
+                if (data.length !== 0) {
                     page++;
                 }
                 // console.log(response);
