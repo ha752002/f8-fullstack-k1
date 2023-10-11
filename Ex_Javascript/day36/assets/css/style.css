@@ -104,6 +104,7 @@ html {
 .quiz__box header .title {
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 18px;
 }
 
 .quiz__box header .timer {
@@ -208,7 +209,7 @@ html {
 }
 
 footer .total_que span {
-  font-size: 12px;
+  font-size: 19px;
   display: flex;
   user-select: none;
 }
@@ -347,11 +348,10 @@ footer .total_que span p:first-child {
   display: flex;
   color: #fff;
   border: 1px solid #ccc;
-  border-radius: 12px;
 }
 
 .streak-is-show {
-  background-color: yellow;
+  background-color: rgb(24 134 218);
 }
 
 .steak__items + .steak__items::before {
@@ -370,11 +370,6 @@ footer .total_que span p:first-child {
   position: relative;
   width: 35px;
   height: 25px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
 }
 
 .start__countdown {
