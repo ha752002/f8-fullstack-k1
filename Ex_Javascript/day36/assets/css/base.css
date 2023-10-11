@@ -1,0 +1,106 @@
+:root {
+  --white-color: #ffffff;
+  --black-color: #171719;
+  --text-color: #777;
+  --primary-color: #ffc500;
+}
+
+body {
+  background: url(../image/bg.png) #fafafa;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.42857143;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 1139px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.grid__column-3 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 25%;
+}
+
+.grid__column-9 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 75%;
+}
+
+.grid__column-8 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 66.6666%;
+}
+
+.grid__column-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 33.3333%;
+}
+
+.grid__column-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 50%;
+}
+
+.grid__column-12 {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.site-btn {
+  background: #ffc500;
+  border: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  line-height: 4.5rem;
+  font-family: "Roboto", sans-serif;
+  transition: all ease 0.5s;
+  padding: 1px 29px;
+  display: inline-block;
+}
+
+.portfolio__container-btn {
+  text-align: center;
+}
+
+.contact-inf ul li {
+  list-style: none;
+  font-size: 14px;
+  color: #787878;
+  line-height: 34px;
+}
+
+.contact-inf ul li span {
+  color: #000;
+}
