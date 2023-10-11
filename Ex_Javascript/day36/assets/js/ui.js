@@ -63,8 +63,19 @@ export function render(quizData, currentQuestionIndex, streak) {
         totalQueSpan.innerHTML = `<p>${currentQuestionIndex + 1}</p> Of <p>${quizData.length}</p> Questions`;
         totalQueDiv.appendChild(totalQueSpan);
 
+        const streakBonus = document.createElement('div');
+        streakBonus.classList.add('streak-bonus');
+
+        const span = document.createElement('span');
+        span.classList.add('streak-bonus-inner');
+        span.textContent = "100";
+
+        streakBonus.appendChild(span);
+
+
         const streakDiv = document.createElement('div');
         streakDiv.classList.add('streak');
+
         for (let index = 0; index < 3; index++) {
             // console.log(index);
             let steakItem = document.createElement('div');
@@ -76,10 +87,11 @@ export function render(quizData, currentQuestionIndex, streak) {
         }
 
 
-        const span1 = document.createElement('span');
 
 
         footer.appendChild(totalQueDiv);
+        footer.appendChild(streakBonus);
+
         footer.appendChild(streakDiv);
 
         quizBox.appendChild(header);

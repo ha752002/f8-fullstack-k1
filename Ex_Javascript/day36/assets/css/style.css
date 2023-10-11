@@ -205,7 +205,11 @@ html {
   padding: 0 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+footer .total_que {
+  margin-right: auto;
 }
 
 footer .total_que span {
@@ -397,4 +401,14 @@ footer .total_que span p:first-child {
   to {
     transform: scale(1.5);
   }
+}
+
+.streak span {
+  margin-right: 20px;
+}
+
+.streak-bonus {
+  font-size: 17px;
+  font-weight: bold;
+  margin-right: 10px;
 }
