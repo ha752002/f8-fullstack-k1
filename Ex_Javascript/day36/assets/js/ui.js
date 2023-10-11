@@ -1,4 +1,4 @@
-export const render = (quizData, currentQuestionIndex, streak) => {
+export async function render(quizData, currentQuestionIndex, streak) {
     const quizBox = document.querySelector('.quiz__box');
 
     // Kiểm tra xem currentQuestionIndex có hợp lệ hay không
@@ -19,7 +19,7 @@ export const render = (quizData, currentQuestionIndex, streak) => {
 
         const timerProgressDiv = document.createElement('div');
         timerProgressDiv.classList.add('quizizzGame__top--timer-progress');
-        timerProgressDiv.style.width = '100%'; // Đặt chiều rộng ban đầu là 100%
+        timerProgressDiv.style.width = '100%';
 
         timerDiv.appendChild(timerProgressDiv);
 
@@ -78,7 +78,6 @@ export const render = (quizData, currentQuestionIndex, streak) => {
 
         const span1 = document.createElement('span');
 
-        // Gắn các phần tử vào cây DOM
 
         footer.appendChild(totalQueDiv);
         footer.appendChild(streakDiv);

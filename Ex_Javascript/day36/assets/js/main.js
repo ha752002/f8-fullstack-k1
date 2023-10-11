@@ -90,14 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    async function displayCurrentQuestion() {
-        await render(quizData, currentQuestionIndex, streak);
-        const options = quizBox.querySelectorAll('.option');
-        options.forEach(option => {
-            option.getAttribute('data-isAnswer');
-            option.addEventListener('click', handleOptionClick);
+    function displayCurrentQuestion() {
+        render(quizData, currentQuestionIndex, streak).then(() => {
+            const options = quizBox.querySelectorAll('.option');
+            options.forEach(option => {
+                option.getAttribute('data-isAnswer');
+
+                option.addEventListener('click', handleOptionClick);
+            });
+            startTimer();
         });
-        startTimer();
+
     }
 
     function startTimer() {
