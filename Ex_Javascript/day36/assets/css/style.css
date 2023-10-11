@@ -369,7 +369,11 @@ footer .total_que span p:first-child {
   position: relative;
   width: 35px;
   height: 25px;
-  border-radius: 12px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .start__countdown {
