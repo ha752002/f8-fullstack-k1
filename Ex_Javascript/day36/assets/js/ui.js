@@ -66,11 +66,11 @@ export function render(quizData, currentQuestionIndex, streak) {
         const streakBonus = document.createElement('div');
         streakBonus.classList.add('streak-bonus');
 
-        const span = document.createElement('span');
-        span.classList.add('streak-bonus-inner');
-        span.textContent = "100";
+        const streakBonusInner = document.createElement('span');
+        streakBonusInner.classList.add('streak-bonus-inner');
+        streakBonusInner.textContent = 0;
 
-        streakBonus.appendChild(span);
+        streakBonus.appendChild(streakBonusInner)
 
 
         const streakDiv = document.createElement('div');

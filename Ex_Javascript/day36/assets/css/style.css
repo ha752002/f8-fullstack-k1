@@ -412,3 +412,7 @@ footer .total_que span p:first-child {
   font-weight: bold;
   margin-right: 10px;
 }
+
+.streak-bonus span {
+  display: none;
+}

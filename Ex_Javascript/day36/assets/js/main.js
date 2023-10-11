@@ -1,4 +1,3 @@
-// main.js
 import { render } from './ui.js';
 import { client } from './client.js';
 
@@ -7,6 +6,9 @@ let currentQuestionIndex = 0;
 let correctAnswers = 0;
 let streak = 0;
 let timerInterval;
+let currentStreakBonus = 0;
+
+
 //score += scorePerCorrectAnswer * (leftTime / initTime) + scorePerStreak * streak
 let score = 0;
 //interval 10s left / total * spca
@@ -15,6 +17,8 @@ let scorePerCorrectAnswer = 1000;
 let scorePerStreak = 100;
 //10s
 const maxTime = 10000;
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const startBtn = document.querySelector('.quizGame__start--button');
     const quizBox = document.querySelector('.quiz__box');
@@ -25,9 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isCorrect) {
             correctAnswers++;
             streak++;
+            currentStreakBonus += 100;
+            const streakBonusInner = document.querySelector('.streak-bonus-inner');
+            if (streakBonusInner) {
+                streakBonusInner.textContent = currentStreakBonus > 0 ? `+ ${currentStreakBonus}` : '';
+                streakBonusInner.style.display = 'block';
+            }
+
         } else {
             streak = 0;
         }
+
 
         setTimeout(() => {
             if (currentQuestionIndex < quizData.length - 1) {
@@ -95,8 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
         render(quizData, currentQuestionIndex, streak);
         const options = quizBox.querySelectorAll('.option');
         options.forEach(option => {
-            option.getAttribute('data-isAnswer');
-
             option.addEventListener('click', handleOptionClick);
         });
         startTimer();
