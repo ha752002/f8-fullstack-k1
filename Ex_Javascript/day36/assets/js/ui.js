@@ -1,4 +1,4 @@
-export async function render(quizData, currentQuestionIndex, streak) {
+export function render(quizData, currentQuestionIndex, streak) {
     const quizBox = document.querySelector('.quiz__box');
 
     // Kiểm tra xem currentQuestionIndex có hợp lệ hay không

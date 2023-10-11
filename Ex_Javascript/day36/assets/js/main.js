@@ -13,6 +13,8 @@ let score = 0;
 let scorePerCorrectAnswer = 1000;
 //scs * current streak
 let scorePerStreak = 100;
+//10s
+const maxTime = 10000;
 document.addEventListener('DOMContentLoaded', function () {
     const startBtn = document.querySelector('.quizGame__start--button');
     const quizBox = document.querySelector('.quiz__box');
@@ -52,8 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const correctAnswersElement = resultBox.querySelector('.result__item:nth-child(3) p');
             const incorrectAnswersElement = resultBox.querySelector('.result__item:nth-child(4) p');
 
-            const scorePerCorrectAnswer = 1000;
-            const scorePerStreak = 100;
             const finalScore = (correctAnswers * scorePerCorrectAnswer * (100 / totalQuestions)) + (streak * scorePerStreak);
             scoreElement.innerText = finalScore;
 
@@ -64,9 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     startBtn.addEventListener('click', function () {
-        startBtn.style.display = 'none';
-        quizBox.style.display = 'block';
-        displayCurrentQuestion();
+        if (quizData.length > 0) {
+            startBtn.style.display = 'none';
+            quizBox.style.display = 'block';
+            displayCurrentQuestion();
+        }
     });
 
     function handleOptionClick(event) {
@@ -85,35 +87,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         handleAnswer(isCorrect);
-
         clearInterval(timerInterval);
 
     }
 
-    function displayCurrentQuestion() {
-        render(quizData, currentQuestionIndex, streak).then(() => {
-            const options = quizBox.querySelectorAll('.option');
-            options.forEach(option => {
-                option.getAttribute('data-isAnswer');
+    async function displayCurrentQuestion() {
+        render(quizData, currentQuestionIndex, streak);
+        const options = quizBox.querySelectorAll('.option');
+        options.forEach(option => {
+            option.getAttribute('data-isAnswer');
 
-                option.addEventListener('click', handleOptionClick);
-            });
-            startTimer();
+            option.addEventListener('click', handleOptionClick);
         });
-
+        startTimer();
     }
 
     function startTimer() {
         const timerProgressDiv = document.querySelector('.quizizzGame__top--timer-progress');
-        let progressWidth = 100;
+        let maxWidth = 100;
+        let progressWidth = maxWidth;
         const intervalDuration = 100;
 
         timerInterval = setInterval(() => {
             if (progressWidth > 0) {
-                progressWidth -= 1;
+                progressWidth -= maxWidth / (maxTime / 1000);
                 timerProgressDiv.style.width = `${progressWidth}%`;
             } else {
                 clearInterval(timerInterval);
+
                 if (currentQuestionIndex < quizData.length - 1) {
                     currentQuestionIndex++;
                     streak = 0;
@@ -122,13 +123,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     showFinalResult();
                 }
             }
-        }, intervalDuration);
+        }, maxTime / 10);
     }
 
 
     client.get(`/Quizs`).then(({ response, data }) => {
         if (response.status === 200) {
             quizData = data;
+        } else {
+            console.log("get data failed");
         }
     });
 });
