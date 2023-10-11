@@ -208,6 +208,7 @@ html {
 }
 
 footer .total_que span {
+  font-size: 12px;
   display: flex;
   user-select: none;
 }

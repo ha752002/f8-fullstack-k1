@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const quizBox = document.querySelector('.quiz__box');
     const resultBox = document.querySelector('.result_box');
 
+
     function handleAnswer(isCorrect) {
         if (isCorrect) {
             correctAnswers++;
@@ -39,6 +40,27 @@ document.addEventListener('DOMContentLoaded', function () {
     function showFinalResult() {
         quizBox.style.display = 'none';
         resultBox.style.display = 'block';
+        const resultItemStreak = resultBox.querySelector('.result__item-streak');
+        resultItemStreak.innerText = streak;
+
+
+        if (currentQuestionIndex === quizData.length - 1) {
+            const scoreElement = resultBox.querySelector('.result__item p');
+            const totalQuestions = quizData.length;
+            // const resultItemStreak = resultBox.querySelector('.result__item-streak');
+
+            const correctAnswersElement = resultBox.querySelector('.result__item:nth-child(3) p');
+            const incorrectAnswersElement = resultBox.querySelector('.result__item:nth-child(4) p');
+
+            const scorePerCorrectAnswer = 1000;
+            const scorePerStreak = 100;
+            const finalScore = (correctAnswers * scorePerCorrectAnswer * (100 / totalQuestions)) + (streak * scorePerStreak);
+            scoreElement.innerText = finalScore;
+
+            correctAnswersElement.innerText = correctAnswers;
+            incorrectAnswersElement.innerText = totalQuestions - correctAnswers;
+        }
+
     }
 
     startBtn.addEventListener('click', function () {

@@ -66,7 +66,7 @@ export const render = (quizData, currentQuestionIndex, streak) => {
         const streakDiv = document.createElement('div');
         streakDiv.classList.add('streak');
         for (let index = 0; index < 3; index++) {
-            console.log(index);
+            // console.log(index);
             let steakItem = document.createElement('div');
             steakItem.classList.add('steak__items');
             if (index < streak) {
