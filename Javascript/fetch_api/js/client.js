@@ -1,5 +1,3 @@
-//Định nghĩa các phương thức call API
-
 import { config } from "./config.js";
 const { SERVER_API } = config;
 
@@ -10,16 +8,22 @@ export const client = {
         this.serverApi = url;
     },
 
+    send: async function (url, method = "GET", body = null, token = null) {
+        url = `${this.serverApi}${url}`;
 
-    send: async function (url, method = 'GET', body = null) {
-        url = this.serverApi + url;
+        const headers = {
+            "Content-Type": "application/json",
+        };
+
+        if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+        }
+
         const options = {
             method,
-            headers: {
-                "Content-Type": "application/json",
-            }
-        }
-        // Nó kiểm tra xem có dữ liệu gửi đi (biến body) hay không, và nếu có,
+            headers,
+        };
+
         if (body !== null) {
             options.body = JSON.stringify(body);
         }
@@ -31,20 +35,23 @@ export const client = {
         return { response, data };
     },
 
-
-    get: function (url) {
-        return this.send(url);
+    get: function (url, token = null) {
+        return this.send(url, "GET", null, token);
     },
 
-    post: function (url, body = {}) {
-        return this.send(url, 'POST', body);
+    post: function (url, body = {}, token = null) {
+        return this.send(url, "POST", body, token);
     },
 
-    patch: function (url, body = {}) {
-        return this.send(url, 'PATCH', body);
+    put: function (url, body = {}, token = null) {
+        return this.send(url, "PUT", body, token);
     },
 
-    delete: function (url) {
-        return this.send(url, 'DELETE');
-    }
-}
+    patch: function (url, body = {}, token = null) {
+        return this.send(url, "PATCH", body, token);
+    },
+
+    delete: function (url, token = null) {
+        return this.send(url, "DELETE", null, token);
+    },
+};

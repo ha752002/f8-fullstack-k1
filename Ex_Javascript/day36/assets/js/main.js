@@ -60,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (currentQuestionIndex === quizData.length - 1) {
             const scoreElement = resultBox.querySelector('.result__item p');
-            const totalQuestions = quizData.length;
-            // const resultItemStreak = resultBox.querySelector('.result__item-streak');
+            const totalQuestions = quizData.length; ``
 
             const correctAnswersElement = resultBox.querySelector('.result__item:nth-child(3) p');
             const incorrectAnswersElement = resultBox.querySelector('.result__item:nth-child(4) p');

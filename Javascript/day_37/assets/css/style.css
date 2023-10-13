@@ -1,0 +1,112 @@
+/* Container */
+.container {
+  max-width: 60%;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f0f8ff; /* Màu xanh dương nhạt */
+  border: 1px solid #87ceeb; /* Màu xanh dương nhạt */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+.form-post {
+  background: #add8e6; /* Màu xanh da trời nhạt hơn */
+  padding: 20px;
+  border: none; /* Loại bỏ viền */
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.form-control label {
+  font-weight: bold;
+}
+
+.form-control input[type="text"],
+.form-control textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #87ceeb; /* Màu xanh dương nhạt */
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-control button {
+  width: 100%;
+  padding: 10px;
+  background: #1e90ff; /* Màu xanh dương đậm */
+  color: #fff; /* Màu trắng */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-control button:hover {
+  background: #187bcd; /* Màu xanh dương đậm tối hơn khi hover */
+}
+
+/* Blog Post Sections */
+section {
+  background: #f0f8ff; /* Màu xanh dương nhạt */
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #87ceeb; /* Màu xanh dương nhạt */
+  border-radius: 5px;
+  color: #1e90ff; /* Màu xanh dương nhạt */
+}
+
+/* Text within Blog Post Sections */
+section p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.border {
+  width: 100%;
+  margin: 23px 0px;
+}
+
+.form label {
+  margin-bottom: 10px;
+}
+
+body {
+  background: #ffd0d8ad;
+}
+
+.profile {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile li {
+  font-weight: bold;
+}
+
+.profile li:nth-child(2) {
+  margin-left: auto;
+}
+
+.profile li:nth-child(1) span {
+  color: #1e90ff;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout a:hover {
+  background-color: #1e90ff;
+  color: #fff;
+}
