@@ -1,7 +1,13 @@
 
 import { config } from "./config.js";
-import { getAllBlogs, postBlog } from "./blogProvider.js";
-import { rootRenderUnauthorizedPage } from "./ui.js"
+import { getBlogsData, postBlog } from "./blogProvider.js";
+import {
+  checkLogin,
+  handleLogin,
+  handleRegister,
+} from "./authProvider.js";
+
+import { formatDate } from "./util.js";
 import { client } from "./client.js";
 
 const { SERVER_AUTH_API } = config;
@@ -17,26 +23,24 @@ const getProfile = () => {
 };
 
 const render = () => {
-  if (localStorage.getItem("access_token")) {
-    checkExpired();
-    renderHome();
+  checkLogin().then((check) => {
+    if (check) {
+      renderHome();
+    } else {
+      renderRegisterPage();
+      renderLoginPage();
+    }
+  });
+  // console.log(check);
 
-  } else {
-    renderRegisterPage();
-    renderLoginPage();
-  }
 };
 
-const getBlogsData = async () => {
-  const blogsData = await client.get("/blogs");
-  return blogsData.data.data;
-}
 
 const renderBlogsData = async () => {
   const blogsData = await getBlogsData();
 
   var htmls = blogsData.map((blog) => {
-    let date = new Date(blog.createdAt).getDate();
+    let date = formatDate(blog.createdAt);
     return `<section>
       <p>Date: ${date}</p>
       <p>Name: ${blog.userId.name}</p>
@@ -115,25 +119,7 @@ const renderForm = () => {
 
 }
 
-
 render();
-
-const handleLogin = async (data) => {
-  const { data: dataResponse, response: response } = await client.post("/auth/login", data);
-
-  if (response.status === 200) {
-    const { accessToken, refreshToken, name, email } = dataResponse.data;
-    localStorage.setItem("access_token", accessToken);
-    localStorage.setItem("refresh_token", refreshToken);
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-
-    render();
-
-  } else {
-    alert(dataResponse.message);
-  }
-}
 
 function renderHome() {
 
@@ -152,10 +138,13 @@ function renderHome() {
   root.innerHTML = welcomeHTML;
   const logout = root.querySelector(".profile .logout");
   // console.log(root);
+
   logout?.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
     render();
   })
 
@@ -163,12 +152,10 @@ function renderHome() {
     renderForm();
   }
 
+  // console.log(checkLogin());
 
 
 };
-
-
-
 
 function renderLoginPage() {
 
@@ -204,7 +191,7 @@ function renderLoginPage() {
   root.innerHTML = loginHTML;
 
   const loginForm = document.querySelector(".login");
-  loginForm?.addEventListener("submit", (e) => {
+  loginForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const emailEl = e.target.querySelector(".email");
     const passEl = e.target.querySelector(".password");
@@ -212,7 +199,11 @@ function renderLoginPage() {
     const password = passEl.value;
     //   console.log(email, pass);
 
-    handleLogin({ email, password });
+    if (await handleLogin({ email, password })) {
+      render();
+    } else {
+      alert("Login failed");
+    }
     // emailEl.value = "";
     // passEl.value = "";
   });
@@ -229,7 +220,6 @@ function renderLoginPage() {
 
 
 }
-
 
 function renderRegisterPage() {
   // console.log(1111);
@@ -292,66 +282,10 @@ function renderRegisterPage() {
 
 }
 
+// function renderUnauthorizedPage() {
 
-function checkLogin() {
-  if (localStorage.getItem("access_token")) {
-    return true;
-  }
-
-  return false;
-}
-
-
-function checkExpired() {
-  const token = localStorage.getItem("access_token");
-  const jsonDecode = parseJwt(token);
-  const currentDate = new Date();
-  // console.log(jsonDecode);
-  // console.log(jsonDecode.exp);
-  // console.log(currentDate.getTime());
-
-  if (jsonDecode.exp <= currentDate.getTime()) {
-    return true;
-  }
-
-  return false;
-}
-
-function parseJwt(token) {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
-
-  return JSON.parse(jsonPayload);
-}
+// }
 
 
 
 
-function handleRegister({ fullName, email, password }) {
-  const registerData = {
-    email: email,
-    password: password,
-    name: fullName
-  };
-
-  client.post('/auth/register', registerData)
-    .then(({ response, data }) => {
-      if (response.status === 201) {
-        alert(data.message);
-        console.log(1111);
-      } else {
-        alert(data.message);
-      }
-    })
-    .catch(error => {
-      console.error('Lỗi trong quá trình đăng ký:', error);
-    });
-}
-
-
-function renderUnauthorizedPage() {
-
-} 
