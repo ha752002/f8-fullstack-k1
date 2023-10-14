@@ -9,3 +9,13 @@ export function formatDate(date) {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
 }
+
+
+export function escapeOutput(toOutput) {
+    return toOutput.replace(/&/g, '&amp;')
+        .replace(/\</g, '&lt;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#x27;')
+        .replace(/\//g, '&#x2F;');
+}

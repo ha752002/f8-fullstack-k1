@@ -7,7 +7,7 @@ import {
   handleRegister,
 } from "./authProvider.js";
 
-import { formatDate } from "./util.js";
+import { formatDate, escapeOutput } from "./util.js";
 import { client } from "./client.js";
 
 const { SERVER_AUTH_API } = config;
@@ -109,9 +109,10 @@ const renderForm = () => {
     const input = document.querySelector("input[name=title]");
     const textarea = document.querySelector("textarea[name=content]");
 
-    const title = input.value;
-    const content = textarea.value;
+    const title = escapeOutput(input.value);
+    const content = escapeOutput(textarea.value);
     e.preventDefault();
+
     postBlog({ title, content }).then(() => {
       render();
     });
@@ -262,12 +263,15 @@ function renderRegisterPage() {
   const registerForm = document.querySelector(".register");
   registerForm?.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const fullNameEl = e.target.querySelector(".full-name");
     const emailEl = e.target.querySelector(".email");
     const passEl = e.target.querySelector(".password");
     const fullName = fullNameEl.value;
     const email = emailEl.value;
     const password = passEl.value;
+
+
 
     handleRegister({ fullName, email, password });
   });
