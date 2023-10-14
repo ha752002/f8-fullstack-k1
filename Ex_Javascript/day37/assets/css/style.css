@@ -130,14 +130,22 @@ body {
 .btn-Login,
 .btn-Login-page,
 .btn-Register-form {
-  margin-top: 20px;
   background: #1e90ff;
   color: white;
 }
 
 .btn-Login:hover,
 .btn-Login-page:hover,
-.btn-Register-form {
+.btn-Register-form:hover {
   background: #1e60a2;
   color: white;
+}
+
+.login {
+  width: 60%;
+  margin: 0 auto;
+}
+.btn-Register-form {
+  margin: 15px auto;
+  width: 60%;
 }

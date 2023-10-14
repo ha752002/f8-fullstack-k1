@@ -20,7 +20,7 @@ export const client = {
             headers["Authorization"] = `Bearer ${token}`;
         }
 
-        console.log(headers);
+        // console.log(headers);
 
         const options = {
             method,
