@@ -1,6 +1,12 @@
 // chuứa những cái lq đến  Authentication
 import { client } from './client.js';
 
+export const getProfile = () => {
+    const name = localStorage.getItem("name");
+    return { name };
+};
+
+
 export async function checkLogin() {
     var accessToken = localStorage.getItem("access_token");
 
@@ -41,7 +47,6 @@ export function handleRegister({ fullName, email, password }) {
         .then(({ response, data }) => {
             if (response.status === 201) {
                 alert(data.message);
-                console.log(1111);
             } else {
                 alert(data.message);
             }
@@ -55,7 +60,6 @@ export function handleRegister({ fullName, email, password }) {
 // nó true là hết hạn
 function checkExpired(token) {
     // const token = localStorage.getItem("access_token");
-    // console.log(token);
     try {
         if (token) {
             const jsonDecode = parseJwt(token);
