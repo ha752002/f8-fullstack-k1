@@ -115,3 +115,29 @@ body {
   background-color: #1e90ff;
   color: #fff;
 }
+
+.btn-create-account {
+  margin-top: 20px;
+  background: #1e90ff;
+  color: white;
+}
+
+.btn-create-account:hover {
+  background: #1e60a2;
+  color: white;
+}
+
+.btn-Login,
+.btn-Login-page,
+.btn-Register-form {
+  margin-top: 20px;
+  background: #1e90ff;
+  color: white;
+}
+
+.btn-Login:hover,
+.btn-Login-page:hover,
+.btn-Register-form {
+  background: #1e60a2;
+  color: white;
+}

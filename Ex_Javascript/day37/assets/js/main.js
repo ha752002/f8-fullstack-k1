@@ -1,6 +1,7 @@
 
 import { config } from "./config.js";
 import { getAllBlogs, postBlog } from "./blogProvider.js";
+import { rootRenderUnauthorizedPage } from "./ui.js"
 import { client } from "./client.js";
 
 const { SERVER_AUTH_API } = config;
@@ -21,6 +22,7 @@ const render = () => {
     renderHome();
 
   } else {
+    renderRegisterPage();
     renderLoginPage();
   }
 };
@@ -113,6 +115,7 @@ const renderForm = () => {
 
 }
 
+
 render();
 
 const handleLogin = async (data) => {
@@ -193,11 +196,13 @@ function renderLoginPage() {
       <button class="btn btn-primary">Đăng nhập</button>
     </div>
   </form>
+  <div class="d-grid">
+  <button class="btn btn-Register-form">Đăng Kí</button>
+</div>
   </div>`;
 
   root.innerHTML = loginHTML;
 
-  // bắt sự kiện submit
   const loginForm = document.querySelector(".login");
   loginForm?.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -211,6 +216,79 @@ function renderLoginPage() {
     // emailEl.value = "";
     // passEl.value = "";
   });
+
+  const btnRegister = document.querySelector(".btn-Register-form");
+  btnRegister?.addEventListener("click", (e) => {
+    const container = document.querySelector('.container');
+    container.style.display = "none";
+    renderRegisterPage();
+
+  })
+
+  renderBlogsData();
+
+
+}
+
+
+function renderRegisterPage() {
+  // console.log(1111);
+  const registerHTML = `<div class="container py-3">
+    <h2 class="text-center">Đăng ký</h2>
+    <hr />
+    <form action="" class="register">
+      <div class="mb-3">
+        <label for="">Họ và tên</label>
+        <input
+          type="text"
+          class="form-control full-name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="">Email</label>
+        <input
+          type="email"
+          class="form-control email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="">Password</label>
+        <input
+          type="password"
+          class="form-control password"
+        />
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-create-account">Submit</button>
+      </div>
+    </form>
+    <div class="d-grid">
+      <button class="btn btn-Login-page">Đăng nhập</button>
+    </div>
+  </div>`;
+
+  root.innerHTML = registerHTML;
+
+  const registerForm = document.querySelector(".register");
+  registerForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fullNameEl = e.target.querySelector(".full-name");
+    const emailEl = e.target.querySelector(".email");
+    const passEl = e.target.querySelector(".password");
+    const fullName = fullNameEl.value;
+    const email = emailEl.value;
+    const password = passEl.value;
+
+    handleRegister({ fullName, email, password });
+  });
+
+  const btnLoginPage = document.querySelector(".btn-Login-page");
+  btnLoginPage?.addEventListener("click", (e) => {
+    const container = document.querySelector('.container');
+    container.style.display = "none";
+    renderLoginPage();
+
+  })
 
 }
 
@@ -228,8 +306,9 @@ function checkExpired() {
   const token = localStorage.getItem("access_token");
   const jsonDecode = parseJwt(token);
   const currentDate = new Date();
-  console.log(jsonDecode.exp);
-  console.log(currentDate.getTime());
+  // console.log(jsonDecode);
+  // console.log(jsonDecode.exp);
+  // console.log(currentDate.getTime());
 
   if (jsonDecode.exp <= currentDate.getTime()) {
     return true;
@@ -248,3 +327,31 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+
+
+
+function handleRegister({ fullName, email, password }) {
+  const registerData = {
+    email: email,
+    password: password,
+    name: fullName
+  };
+
+  client.post('/auth/register', registerData)
+    .then(({ response, data }) => {
+      if (response.status === 201) {
+        alert(data.message);
+        console.log(1111);
+      } else {
+        alert(data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Lỗi trong quá trình đăng ký:', error);
+    });
+}
+
+
+function renderUnauthorizedPage() {
+
+} 
