@@ -86,6 +86,10 @@ const renderForm = () => {
     inputElement.classList.add('form-control', 'mb-3',);
 
 
+    const titleTextareaElement = document.createElement('p');
+    titleTextareaElement.className = 'title-textarea';
+    titleTextareaElement.textContent = 'Enter your title';
+
     const textareaElement = document.createElement('textarea');
     textareaElement.name = 'content'
     textareaElement.className = 'border';
@@ -104,6 +108,8 @@ const renderForm = () => {
     divElement.appendChild(labelElement);
     divElement.appendChild(inputElement);
     formElement.appendChild(divElement);
+    formElement.appendChild(titleTextareaElement);
+
     formElement.appendChild(textareaElement);
     formElement.appendChild(buttonElement);
     formElement.appendChild(imgElement);
