@@ -253,7 +253,7 @@ function renderLoginPage() {
 function renderRegisterPage() {
   // console.log(1111);
   const registerHTML = `<div class="container py-3">
-      <h2 class="text-center">Đăng ký</h2>
+      <h2 class="text-center text-center-register">Đăng ký</h2>
       <hr />
       <form action="" class="register">
         <div class="mb-3">

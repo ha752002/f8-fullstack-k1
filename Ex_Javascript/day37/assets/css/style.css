@@ -201,3 +201,9 @@ body {
 .text-center:hover {
   background: #255380;
 }
+
+.container .text-center-register {
+  background: none;
+  color: #333;
+  width: 100%;
+}
