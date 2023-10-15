@@ -2,10 +2,10 @@ import { config } from "./config.js";
 import { client } from "./client.js";
 import { getBlogsData, postBlog } from "./blogProvider.js";
 import {
-    checkLogin,
-    handleLogin,
-    handleRegister,
-    getProfile
+  checkLogin,
+  handleLogin,
+  handleRegister,
+  getProfile
 } from "./authProvider.js";
 
 
@@ -16,169 +16,168 @@ const { SERVER_AUTH_API } = config;
 client.setUrl(SERVER_AUTH_API);
 
 export const rootRenderUnauthorizedPage = () => {
-    const root = document.querySelector('#root');
+  const root = document.querySelector('#root');
 
-    const divLogin = document.createElement('div');
-    divLogin.classList.add('login-wrapper');
-    divLogin.innerText = 'Login';
+  const divLogin = document.createElement('div');
+  divLogin.classList.add('login-wrapper');
+  divLogin.innerText = 'Login';
 
-    const divBlog = document.createElement('div');
-    divBlog.classList.add('blog-wrapper');
+  const divBlog = document.createElement('div');
+  divBlog.classList.add('blog-wrapper');
 
-    root.append(divLogin);
-    root.append(divBlog);
+  root.append(divLogin);
+  root.append(divBlog);
 }
 
 const root = document.querySelector("#root");
 
 export const render = () => {
-    checkLogin().then((check) => {
-        if (check) {
-            renderHome();
-        } else {
-            renderRegisterPage();
-            renderLoginPage();
-        }
-    });
-    // console.log(check);
+  checkLogin().then((check) => {
+    if (check) {
+      renderHome();
+    } else {
+      renderRegisterPage();
+      renderLoginPage();
+    }
+  });
+  // console.log(check);
 
 };
 
-
 const renderBlogsData = async () => {
-    const blogsData = await getBlogsData();
+  const blogsData = await getBlogsData();
 
-    var htmls = blogsData.map((blog) => {
-        let date = formatDate(blog.createdAt);
-        // console.log(blog);
-        return `<section>
+  var htmls = blogsData.map((blog) => {
+    let date = formatDate(blog.createdAt);
+    // console.log(blog);
+    return `<section>
         <p>Date: ${date}</p>
         <p>Name: ${blog.userId.name}</p>
         <p>Title: ${blog.title}</p>
         <p>Content: ${blog.content}</p>
   
       </section>`
-    })
+  })
 
-    const html = htmls.join(' ');
-    const container = document.querySelector('.container');
-    container.insertAdjacentHTML("beforeend", html);
+  const html = htmls.join(' ');
+  const container = document.querySelector('.container');
+  container.insertAdjacentHTML("beforeend", html);
 
-    // var html = htmls.innerHTML;
-    // document.get
+  // var html = htmls.innerHTML;
+  // document.get
 }
 
 const renderForm = () => {
 
-    const formElement = document.createElement('form');
-    formElement.classList.add('form-post', 'container', 'py-3', 'border-0');
+  const formElement = document.createElement('form');
+  formElement.classList.add('form-post', 'container', 'py-3', 'border-0');
 
-    const divElement = document.createElement('div');
-    divElement.className = 'form';
+  const divElement = document.createElement('div');
+  divElement.className = 'form';
 
-    const labelElement = document.createElement('label');
-    labelElement.textContent = 'Enter Your title';
+  const labelElement = document.createElement('label');
+  labelElement.textContent = 'Enter Your title';
 
-    const inputElement = document.createElement('input');
-    inputElement.name = 'title';
-    inputElement.type = 'text';
-    inputElement.style.display = 'block';
-    inputElement.classList.add('form-control', 'mb-3',);
-
-
-    const titleTextareaElement = document.createElement('p');
-    titleTextareaElement.className = 'title-textarea';
-    titleTextareaElement.textContent = 'Enter your title';
-
-    const textareaElement = document.createElement('textarea');
-    textareaElement.name = 'content'
-    textareaElement.className = 'border';
-    textareaElement.style.padding = '20px';
-    textareaElement.style.display = 'block';
-
-    const buttonElement = document.createElement('button');
-    buttonElement.classList.add('btn', 'btn-primary', 'd-block');
-    buttonElement.type = 'submit';
-    buttonElement.style.display = 'block';
-    buttonElement.textContent = 'Write new!';
-
-    const imgElement = document.createElement('img');
-    imgElement.src = 'https://i.pinimg.com/originals/47/97/b0/4797b05c719a01b177114e93c177d960.gif';
-
-    divElement.appendChild(labelElement);
-    divElement.appendChild(inputElement);
-    formElement.appendChild(divElement);
-    formElement.appendChild(titleTextareaElement);
-
-    formElement.appendChild(textareaElement);
-    formElement.appendChild(buttonElement);
-    formElement.appendChild(imgElement);
-
-    const profile = document.querySelector('.profile ');
-    // console.log(profile);
-    profile.insertAdjacentElement("afterend", formElement);
+  const inputElement = document.createElement('input');
+  inputElement.name = 'title';
+  inputElement.type = 'text';
+  inputElement.style.display = 'block';
+  inputElement.classList.add('form-control', 'mb-3',);
 
 
+  const titleTextareaElement = document.createElement('p');
+  titleTextareaElement.className = 'title-textarea';
+  titleTextareaElement.textContent = 'Enter your title';
+
+  const textareaElement = document.createElement('textarea');
+  textareaElement.name = 'content'
+  textareaElement.className = 'border';
+  textareaElement.style.padding = '20px';
+  textareaElement.style.display = 'block';
+
+  const buttonElement = document.createElement('button');
+  buttonElement.classList.add('btn', 'btn-primary', 'd-block');
+  buttonElement.type = 'submit';
+  buttonElement.style.display = 'block';
+  buttonElement.textContent = 'Write new!';
+
+  const imgElement = document.createElement('img');
+  imgElement.src = 'https://i.pinimg.com/originals/47/97/b0/4797b05c719a01b177114e93c177d960.gif';
+
+  divElement.appendChild(labelElement);
+  divElement.appendChild(inputElement);
+  formElement.appendChild(divElement);
+  formElement.appendChild(titleTextareaElement);
+
+  formElement.appendChild(textareaElement);
+  formElement.appendChild(buttonElement);
+  formElement.appendChild(imgElement);
+
+  const profile = document.querySelector('.profile ');
+  // console.log(profile);
+  profile.insertAdjacentElement("afterend", formElement);
 
 
-    formElement.addEventListener('submit', (e) => {
-        const input = document.querySelector("input[name=title]");
-        const textarea = document.querySelector("textarea[name=content]");
 
-        const title = escapeOutput(input.value);
-        const content = escapeOutput(textarea.value);
-        e.preventDefault();
 
-        postBlog({ title, content }).then(() => {
-            render();
-        });
+  formElement.addEventListener('submit', (e) => {
+    const input = document.querySelector("input[name=title]");
+    const textarea = document.querySelector("textarea[name=content]");
+
+    const title = escapeOutput(input.value);
+    const content = escapeOutput(textarea.value);
+    e.preventDefault();
+
+    postBlog({ title, content }).then(() => {
+      render();
     });
+  });
 
 }
 
-
 function renderHome() {
 
-    renderBlogsData();
+  renderBlogsData();
 
-    const userInfo = getProfile();
+  const userInfo = getProfile();
 
 
-    const welcomeHTML = `<div class="container py-3">
+  const welcomeHTML = `<div class="container py-3">
       <ul class = "profile list-unstyled d-flex gap-2">
           <li> <span>Chào bạn:</span> ${userInfo.name} </li>
           <li><a href="#" class="logout">Đăng xuất</a></li>
       </ul>
       </div>`;
 
-    root.innerHTML = welcomeHTML;
-    const logout = root.querySelector(".profile .logout");
-    // console.log(root);
+  root.innerHTML = welcomeHTML;
+  const logout = root.querySelector(".profile .logout");
+  // console.log(root);
 
-    logout?.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.removeItem("access_token");
-        localStorage.removeItem("refresh_token");
-        localStorage.removeItem("email");
-        localStorage.removeItem("name");
-        render();
-    })
+  logout?.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    render();
+  })
 
-    if (checkLogin()) {
-        renderForm();
-    }
+  if (checkLogin()) {
+    renderForm();
+  }
 
-    // console.log(checkLogin());
+  // console.log(checkLogin());
 
 
 };
 
 function renderLoginPage() {
 
-    const loginHTML = `<div class="container py-3">
-    <h2 class="text-center">Đăng nhập</h2>
+  const loginHTML = `<div class="container py-3">
+    <h2 class="text-center btn-click__login">Đăng nhập</h2>
     <hr />
-    <form action="" class="login">
+    <div class="login-group" style="display:none">
+      <form action="" class="login">
       <div class="mb-3">
         <label for="">Email</label>
         <input
@@ -201,45 +200,59 @@ function renderLoginPage() {
     </form>
     <div class="d-grid">
     <button class="btn btn-Register-form">Đăng Kí</button>
-  </div>
+</div>
+    </div>
+   
     </div>`;
 
-    root.innerHTML = loginHTML;
+  root.innerHTML = loginHTML;
 
-    const loginForm = document.querySelector(".login");
-    loginForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const emailEl = e.target.querySelector(".email");
-        const passEl = e.target.querySelector(".password");
-        const email = emailEl.value;
-        const password = passEl.value;
-        //   console.log(email, pass);
+  const loginForm = document.querySelector(".login");
+  loginForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailEl = e.target.querySelector(".email");
+    const passEl = e.target.querySelector(".password");
+    const email = emailEl.value;
+    const password = passEl.value;
+    //   console.log(email, pass);
 
-        if (await handleLogin({ email, password })) {
-            render();
-        } else {
-            alert("Login failed");
-        }
-        // emailEl.value = "";
-        // passEl.value = "";
-    });
+    if (await handleLogin({ email, password })) {
+      render();
+    } else {
+      alert("Login failed");
+    }
+    // emailEl.value = "";
+    // passEl.value = "";
+  });
 
-    const btnRegister = document.querySelector(".btn-Register-form");
-    btnRegister?.addEventListener("click", (e) => {
-        const container = document.querySelector('.container');
-        container.style.display = "none";
-        renderRegisterPage();
+  const btnRegister = document.querySelector(".btn-Register-form");
+  btnRegister?.addEventListener("click", (e) => {
+    const container = document.querySelector('.container');
+    container.style.display = "none";
+    renderRegisterPage();
 
-    })
+  });
 
-    renderBlogsData();
+  const btnClickLogin = document.querySelector(".btn-click__login");
+  const loginGroup = document.querySelector('.login-group');
+
+  btnClickLogin?.addEventListener("click", (e) => {
+
+    if (loginGroup.style.display === "none") {
+      loginGroup.style.display = "block";
+    } else {
+      loginGroup.style.display = "none";
+    }
+  });
+
+  renderBlogsData();
 
 
 }
 
 function renderRegisterPage() {
-    // console.log(1111);
-    const registerHTML = `<div class="container py-3">
+  // console.log(1111);
+  const registerHTML = `<div class="container py-3">
       <h2 class="text-center">Đăng ký</h2>
       <hr />
       <form action="" class="register">
@@ -273,30 +286,30 @@ function renderRegisterPage() {
       </div>
     </div>`;
 
-    root.innerHTML = registerHTML;
+  root.innerHTML = registerHTML;
 
-    const registerForm = document.querySelector(".register");
-    registerForm?.addEventListener("submit", (e) => {
-        e.preventDefault();
+  const registerForm = document.querySelector(".register");
+  registerForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const fullNameEl = e.target.querySelector(".full-name");
-        const emailEl = e.target.querySelector(".email");
-        const passEl = e.target.querySelector(".password");
-        const fullName = fullNameEl.value;
-        const email = emailEl.value;
-        const password = passEl.value;
+    const fullNameEl = e.target.querySelector(".full-name");
+    const emailEl = e.target.querySelector(".email");
+    const passEl = e.target.querySelector(".password");
+    const fullName = fullNameEl.value;
+    const email = emailEl.value;
+    const password = passEl.value;
 
 
 
-        handleRegister({ fullName, email, password });
-    });
+    handleRegister({ fullName, email, password });
+  });
 
-    const btnLoginPage = document.querySelector(".btn-Login-page");
-    btnLoginPage?.addEventListener("click", (e) => {
-        const container = document.querySelector('.container');
-        container.style.display = "none";
-        renderLoginPage();
+  const btnLoginPage = document.querySelector(".btn-Login-page");
+  btnLoginPage?.addEventListener("click", (e) => {
+    const container = document.querySelector('.container');
+    container.style.display = "none";
+    renderLoginPage();
 
-    })
+  })
 
 }
