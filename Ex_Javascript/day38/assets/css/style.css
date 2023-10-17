@@ -1,0 +1,217 @@
+.container {
+  max-width: 78%;
+  position: relative;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f0f8ff;
+  border: 1px solid #87ceeb;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Your section styles */
+section {
+  background: #f0f8ff;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #87ceeb;
+  border-radius: 5px;
+  color: #1e90ff;
+}
+
+section p {
+  background-color: #deebfb;
+  color: #333;
+  font-family: Arial, sans-serif; /* Kiểu font chữ */
+  font-size: 16px; /* Kích thước chữ */
+  padding: 10px; /* Khoảng cách bên trong thẻ p */
+  margin: 10px 0; /* Khoảng cách giữa các đoạn văn */
+  border: 1px solid #ccc; /* Viền */
+}
+
+.container img {
+  top: 0;
+  right: -28%;
+  width: 21%;
+  position: absolute;
+}
+
+.form-post {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.form-control label {
+  font-weight: bold;
+}
+
+.form-control input[type="text"],
+.form-control textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #87ceeb;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-control button {
+  width: 100%;
+  padding: 10px;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-control button:hover {
+  background: #187bcd;
+}
+
+section {
+  background: #f0f8ff;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #87ceeb;
+  border-radius: 5px;
+  color: #1e90ff;
+}
+
+section p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.border {
+  width: 100%;
+  margin: 23px 0px;
+}
+
+.form label {
+  margin-bottom: 10px;
+}
+
+/* body {
+  background: #183253;
+} */
+
+.profile {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile li {
+  font-weight: bold;
+}
+
+.profile li:nth-child(2) {
+  margin-left: auto;
+}
+
+.profile li:nth-child(1) span {
+  color: #1e90ff;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout a:hover {
+  background-color: #1e90ff;
+  color: #fff;
+}
+
+.btn-create-account {
+  margin-top: 20px;
+  background: #1e90ff;
+  color: white;
+}
+
+.btn-create-account:hover {
+  background: #1e60a2;
+  color: white;
+}
+
+.btn-Login,
+.btn-Login-page,
+.btn-Register-form {
+  background: #1e90ff;
+  color: white;
+}
+
+.btn-Login:hover,
+.btn-Login-page:hover,
+.btn-Register-form:hover {
+  background: #1e60a2;
+  color: white;
+}
+
+.login {
+  width: 60%;
+  margin: 0 auto;
+}
+.btn-Register-form {
+  margin: 15px auto;
+  width: 60%;
+}
+
+.register {
+  margin-bottom: 10px;
+}
+
+.title-textarea {
+  margin: 0;
+}
+
+.form-post button {
+  background: #1966b6bf;
+}
+
+.form-post .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  padding: 10px;
+  background: #1e90ff;
+  width: 30%;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 21px;
+  text-align: center;
+}
+
+.text-center:hover {
+  background: #255380;
+}
+
+.container .text-center-register {
+  background: none;
+  color: #333;
+  width: 100%;
+}
+
+.input-date {
+  margin-top: 10px;
+}
+
+.form-post .btn-primary {
+  margin: 20px 0;
+}

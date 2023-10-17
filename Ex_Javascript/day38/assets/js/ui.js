@@ -41,7 +41,8 @@ export const render = () => {
     }
   });
   // console.log(check);
-
+  // renderLoginPage();
+  // renderHome();
 };
 
 const renderBlogsData = async () => {
@@ -49,13 +50,12 @@ const renderBlogsData = async () => {
 
   var htmls = blogsData.map((blog) => {
     let date = formatDate(blog.createdAt);
-    // console.log(blog);
+    console.log(blog);
     return `<section>
         <p>Date: ${date}</p>
         <p>Name: ${blog.userId.name}</p>
         <p>Title: ${blog.title}</p>
         <p>Content: ${blog.content}</p>
-  
       </section>`
   })
 
@@ -101,6 +101,14 @@ const renderForm = () => {
   buttonElement.style.display = 'block';
   buttonElement.textContent = 'Write new!';
 
+  const inputDateElement = document.createElement("input");
+  inputDateElement.setAttribute("data-provide", "datepicker");
+  inputDateElement.className = 'input-date';
+  inputDateElement.type = 'date';
+  inputDateElement.name = 'date'
+
+
+
   const imgElement = document.createElement('img');
   imgElement.src = 'https://i.pinimg.com/originals/47/97/b0/4797b05c719a01b177114e93c177d960.gif';
 
@@ -111,6 +119,7 @@ const renderForm = () => {
 
   formElement.appendChild(textareaElement);
   formElement.appendChild(buttonElement);
+  formElement.appendChild(inputDateElement);
   formElement.appendChild(imgElement);
 
   const profile = document.querySelector('.profile ');
@@ -121,14 +130,19 @@ const renderForm = () => {
 
 
   formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     const input = document.querySelector("input[name=title]");
     const textarea = document.querySelector("textarea[name=content]");
+    const inputDate = document.querySelector("input[name=date]");
 
     const title = escapeOutput(input.value);
     const content = escapeOutput(textarea.value);
-    e.preventDefault();
+    const timeUp = escapeOutput(inputDate.value);
 
-    postBlog({ title, content }).then(() => {
+    console.log(timeUp);
+
+    postBlog({ title, content, timeUp }).then(() => {
       render();
     });
   });
@@ -137,7 +151,8 @@ const renderForm = () => {
 
 async function renderHome() {
 
-  const userInfo = await getProfile();
+  // const userInfo = await getProfile();
+  const userInfo = { name: "ha", };
 
 
   const welcomeHTML = `<div class="container py-3">
@@ -161,9 +176,10 @@ async function renderHome() {
     render();
   })
 
-  if (checkLogin()) {
+  if (await checkLogin()) {
     renderForm();
   }
+
 
   // console.log(checkLogin());
 

@@ -8,9 +8,8 @@ export const client = {
         this.serverApi = url;
     },
 
-    send: async function (url, method = "GET", body = null) {
+    send: async function (url, method = "GET", body = null, token = null) {
         url = `${this.serverApi}${url}`;
-        const token = localStorage.getItem('access_token')
 
         const headers = {
             "Content-Type": "application/json",
@@ -19,8 +18,6 @@ export const client = {
         if (token) {
             headers["Authorization"] = `Bearer ${token}`;
         }
-
-        console.log(headers);
 
         const options = {
             method,
@@ -31,36 +28,30 @@ export const client = {
             options.body = JSON.stringify(body);
         }
 
-        // console.log(response);
-        try {
-            const response = await fetch(url, options);
-            const data = await response.json();
+        const response = await fetch(url, options);
 
-            return { response, data };
-        } catch (e) {
-            console.log(e);
-        }
+        const data = await response.json();
 
-
+        return { response, data };
     },
 
-    get: function (url) {
-        return this.send(url, "GET", null);
+    get: function (url, token = null) {
+        return this.send(url, "GET", null, token);
     },
 
-    post: function (url, body = {}) {
-        return this.send(url, "POST", body);
+    post: function (url, body = {}, token = null) {
+        return this.send(url, "POST", body, token);
     },
 
-    put: function (url, body = {}) {
-        return this.send(url, "PUT", body);
+    put: function (url, body = {}, token = null) {
+        return this.send(url, "PUT", body, token);
     },
 
-    patch: function (url, body = {}) {
-        return this.send(url, "PATCH", body);
+    patch: function (url, body = {}, token = null) {
+        return this.send(url, "PATCH", body, token);
     },
 
-    delete: function (url) {
-        return this.send(url, "DELETE");
+    delete: function (url, token = null) {
+        return this.send(url, "DELETE", null, token);
     },
 };

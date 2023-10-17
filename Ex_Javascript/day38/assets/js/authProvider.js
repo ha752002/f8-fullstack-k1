@@ -3,26 +3,24 @@ import { client } from './client.js';
 
 export const getProfile = async () => {
     const { data: dataResponse, response: response } = await client.get("/users/profile");
-    // console.log(dataResponse);
 
-    return dataResponse.data;
+    return response;
 };
 
 
-export async function checkLogin() {
-    var accessToken = localStorage.getItem("access_token");
-
-    if (checkExpired(accessToken)) {
-        // khi hết hạn rồi 
-        // gọi hàm để freshToken 
+export const checkLogin = async () => {
+    const isLogin = await getProfile();
+    if (isLogin.status === 200) {
+        return true;
+    } else {
         return await doRefreshToken();
     }
-    return true;
 }
+
 
 export const handleLogin = async (data) => {
     const { data: dataResponse, response: response } = await client.post("/auth/login", data);
-
+    console.log(dataResponse);
     if (response.status === 200) {
         const { accessToken, refreshToken, name, email } = dataResponse.data;
         localStorage.setItem("access_token", accessToken);
@@ -32,7 +30,7 @@ export const handleLogin = async (data) => {
         return true;
 
     } else {
-        return false;
+        return dataResponse
     }
 }
 
@@ -57,57 +55,26 @@ export function handleRegister({ fullName, email, password }) {
         });
 }
 
-// checkExpired check xem còn hạn hay k 
-// nó true là hết hạn
-// sau check token có hết hạn hay k , thì k check kiểu này nx
-// kiểu bên dưới là ở client 
-// phải gửi request để check bên server
-function checkExpired(token) {
-    // const token = localStorage.getItem("access_token");
-    try {
-        if (token) {
-            const jsonDecode = parseJwt(token);
-            console.log(jsonDecode);
-            const currentDate = new Date();
-            const expiredDate = new Date(jsonDecode.exp * 1000);
 
-            if (expiredDate <= currentDate.getTime()) {
-                return true;
-            }
-
-            return false;
-        }
-
-        return true;
-    } catch (error) {
-        console.log(error);
-        return true;
-
-    }
-}
 
 
 async function doRefreshToken() {
     var refreshToken = localStorage.getItem("refresh_token");
     // console.log(parseJwt(refreshToken));
     try {
-        if (!checkExpired(refreshToken)) {
+        if (refreshToken) {
             const { response, data } = await client.post('/auth/refresh-token', { refreshToken })
             if (response.status === 200) {
-                // console.log(data);
                 localStorage.setItem("access_token", data.data.token.accessToken);
-
                 return true;
             }
-            return false;
+
         }
         return false;
 
     } catch (error) {
         return false;
     }
-
-
 }
 
 
@@ -126,8 +93,8 @@ function makeFunc() {
     function displayName() {
         console.log(name);
     }
-    console.log(displayName);
-    return displayName();
+    return displayName(    // console.log(displayName);
+    );
 }
 
 makeFunc();
