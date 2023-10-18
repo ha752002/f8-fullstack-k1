@@ -7,9 +7,15 @@ export const getProfile = async () => {
     return response;
 };
 
+export const getInfo = async () => {
+    const { data: dataResponse, response: response } = await client.get("/users/profile");
+    // console.log(response);
+    return dataResponse;
+};
 
 export const checkLogin = async () => {
     const isLogin = await getProfile();
+    console.log(isLogin);
     if (isLogin.status === 200) {
         return true;
     } else {

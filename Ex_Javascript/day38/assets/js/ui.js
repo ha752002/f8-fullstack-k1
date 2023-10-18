@@ -5,7 +5,8 @@ import {
   checkLogin,
   handleLogin,
   handleRegister,
-  getProfile
+  getProfile,
+  getInfo
 } from "./authProvider.js";
 
 
@@ -164,13 +165,13 @@ const renderForm = () => {
 
 async function renderHome() {
 
-  const userInfo = await getProfile();
+  const userInfo = await getInfo();
   // const userInfo = { name: "ha", };
   console.log(userInfo);
 
   const welcomeHTML = `<div class="container py-3">
       <ul class = "profile list-unstyled d-flex gap-2">
-          <li> <span>Chào bạn:</span> ${userInfo.name} </li>
+          <li> <span>Chào bạn:</span> ${userInfo.data.name} </li>
           <li><a href="#" class="logout">Đăng xuất</a></li>
       </ul>
       </div>`;
