@@ -3,7 +3,7 @@ import { client } from './client.js';
 
 export const getProfile = async () => {
     const { data: dataResponse, response: response } = await client.get("/users/profile");
-
+    // console.log(response);
     return response;
 };
 

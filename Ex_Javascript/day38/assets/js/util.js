@@ -19,3 +19,19 @@ export function escapeOutput(toOutput) {
         .replace(/\'/g, '&#x27;')
         .replace(/\//g, '&#x2F;');
 }
+
+
+export function calculateSelectedDate(selectedDate) {
+    const currentDate = new Date();
+    const chosenDate = new Date(selectedDate);
+    const timeDifference = chosenDate - currentDate;
+
+    const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    return { days: daysRemaining, hours: hoursRemaining };
+}
+
+
+
+

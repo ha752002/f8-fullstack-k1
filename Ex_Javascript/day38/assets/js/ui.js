@@ -9,7 +9,7 @@ import {
 } from "./authProvider.js";
 
 
-import { formatDate, escapeOutput } from "./util.js";
+import { formatDate, escapeOutput, calculateSelectedDate } from "./util.js";
 
 const { SERVER_AUTH_API } = config;
 
@@ -40,6 +40,7 @@ export const render = () => {
       renderLoginPage();
     }
   });
+
   // console.log(check);
   // renderLoginPage();
   // renderHome();
@@ -48,9 +49,16 @@ export const render = () => {
 const renderBlogsData = async () => {
   const blogsData = await getBlogsData();
 
+  // if()
+
+  // console.log(blogsData);
   var htmls = blogsData.map((blog) => {
+
     let date = formatDate(blog.createdAt);
-    // console.log(blog);
+    let SelectedDate = formatDate(blog.timeUp);
+
+
+    // console.log(SelectedDate);
     return `<section>
         <p>Date: ${date}</p>
         <p>Name: ${blog.userId.name}</p>
@@ -101,6 +109,10 @@ const renderForm = () => {
   buttonElement.style.display = 'block';
   buttonElement.textContent = 'Write new!';
 
+  const pElementDate = document.createElement('p');
+  pElementDate.classList.add('show-text-date');
+
+
   const inputDateElement = document.createElement("input");
   inputDateElement.setAttribute("data-provide", "datepicker");
   inputDateElement.className = 'input-date';
@@ -119,6 +131,7 @@ const renderForm = () => {
 
   formElement.appendChild(textareaElement);
   formElement.appendChild(buttonElement);
+  formElement.appendChild(pElementDate);
   formElement.appendChild(inputDateElement);
   formElement.appendChild(imgElement);
 
@@ -151,9 +164,9 @@ const renderForm = () => {
 
 async function renderHome() {
 
-  // const userInfo = await getProfile();
-  const userInfo = { name: "ha", };
-
+  const userInfo = await getProfile();
+  // const userInfo = { name: "ha", };
+  console.log(userInfo);
 
   const welcomeHTML = `<div class="container py-3">
       <ul class = "profile list-unstyled d-flex gap-2">
@@ -165,6 +178,8 @@ async function renderHome() {
   root.innerHTML = welcomeHTML;
   const logout = root.querySelector(".profile .logout");
   await renderBlogsData();
+
+  // if(calculateSelectedDate())
   // console.log(root);
 
   logout?.addEventListener("click", (e) => {
