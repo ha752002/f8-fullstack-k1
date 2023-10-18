@@ -72,6 +72,7 @@ async function doRefreshToken() {
             const { response, data } = await client.post('/auth/refresh-token', { refreshToken })
             if (response.status === 200) {
                 localStorage.setItem("access_token", data.data.token.accessToken);
+                localStorage.setItem("refresh_token", data.data.token.refreshToken);
                 return true;
             }
 
