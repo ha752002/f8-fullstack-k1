@@ -50,7 +50,7 @@ const renderBlogsData = async () => {
 
   var htmls = blogsData.map((blog) => {
     let date = formatDate(blog.createdAt);
-    console.log(blog);
+    // console.log(blog);
     return `<section>
         <p>Date: ${date}</p>
         <p>Name: ${blog.userId.name}</p>
@@ -317,6 +317,9 @@ function renderRegisterPage() {
 
 
     handleRegister({ fullName, email, password });
+    fullNameEl.value = "";
+    emailEl.value = "";
+    passEl.value = "";
   });
 
   const btnLoginPage = document.querySelector(".btn-Login-page");
