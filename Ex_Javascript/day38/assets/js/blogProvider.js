@@ -8,5 +8,7 @@ export const getBlogsData = async () => {
 
 export const postBlog = async (value) => {
     const { data: dataResponse, response: response } = await client.post("/blogs/", value);
+
+    return { dataResponse, response }
     // console.log(dataResponse);
 }

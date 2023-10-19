@@ -52,13 +52,12 @@ const renderBlogsData = async () => {
 
   // if()
 
-  // console.log(blogsData);
+  console.log(blogsData);
   var htmls = blogsData.map((blog) => {
 
     let date = formatDate(blog.createdAt);
-    let SelectedDate = formatDate(blog.timeUp);
-
-
+    // let SelectedDate = calculateSelectedDate(blog.timeUp);
+    // if(SelectedDate.day== 0 &&)
     // console.log(SelectedDate);
     return `<section>
         <p>Date: ${date}</p>
@@ -122,8 +121,8 @@ const renderForm = () => {
 
 
 
-  const imgElement = document.createElement('img');
-  imgElement.src = 'https://i.pinimg.com/originals/47/97/b0/4797b05c719a01b177114e93c177d960.gif';
+  // const imgElement = document.createElement('img');
+  // imgElement.src = 'https://i.pinimg.com/originals/47/97/b0/4797b05c719a01b177114e93c177d960.gif';
 
   divElement.appendChild(labelElement);
   divElement.appendChild(inputElement);
@@ -131,10 +130,11 @@ const renderForm = () => {
   formElement.appendChild(titleTextareaElement);
 
   formElement.appendChild(textareaElement);
-  formElement.appendChild(buttonElement);
   formElement.appendChild(pElementDate);
   formElement.appendChild(inputDateElement);
-  formElement.appendChild(imgElement);
+  formElement.appendChild(buttonElement);
+
+  // formElement.appendChild(imgElement);
 
   const profile = document.querySelector('.profile ');
   // console.log(profile);
@@ -154,11 +154,23 @@ const renderForm = () => {
     const content = escapeOutput(textarea.value);
     const timeUp = escapeOutput(inputDate.value);
 
-    console.log(timeUp);
+    // console.log(timeUp);
 
-    postBlog({ title, content, timeUp }).then(() => {
-      render();
-    });
+    // postBlog({ title, content, timeUp }).then(() => {
+    //   render();
+    // });
+
+    if (!timeUp) {
+      postBlog({ title, content }).then(() => {
+        render();
+      });
+    } else {
+      let SelectedDate = calculateSelectedDate(timeUp);
+      console.log(SelectedDate);
+      pElementDate.innerText = SelectedDate;
+    }
+
+
   });
 
 }
@@ -181,7 +193,7 @@ async function renderHome() {
   await renderBlogsData();
 
   // if(calculateSelectedDate())
-  // console.log(root);
+  // console.log(root); 
 
   logout?.addEventListener("click", (e) => {
     e.preventDefault();

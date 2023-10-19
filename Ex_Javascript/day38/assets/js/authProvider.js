@@ -15,7 +15,7 @@ export const getInfo = async () => {
 
 export const checkLogin = async () => {
     const isLogin = await getProfile();
-    console.log(isLogin);
+    // console.log(isLogin);
     if (isLogin.status === 200) {
         return true;
     } else {
