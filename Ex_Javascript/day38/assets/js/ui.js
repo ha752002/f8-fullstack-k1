@@ -16,6 +16,8 @@ const { SERVER_AUTH_API } = config;
 
 client.setUrl(SERVER_AUTH_API);
 
+const loading = document.querySelector(".loading");
+
 export const rootRenderUnauthorizedPage = () => {
   const root = document.querySelector('#root');
 
@@ -33,10 +35,15 @@ export const rootRenderUnauthorizedPage = () => {
 const root = document.querySelector("#root");
 
 export const render = () => {
+  loading.classList.remove("d-none")
+
   checkLogin().then((check) => {
     if (check) {
-      renderHome();
+      renderHome().then(() => {
+        loading.classList.add("d-none")
+      });
     } else {
+      loading.classList.add("d-none")
       renderRegisterPage();
       renderLoginPage();
     }
@@ -161,6 +168,7 @@ const renderForm = () => {
     // });
 
     if (!timeUp) {
+      loading.classList.remove("d-none")
       postBlog({ title, content }).then(() => {
         render();
       });
@@ -258,14 +266,17 @@ function renderLoginPage() {
     const email = emailEl.value;
     const password = passEl.value;
     //   console.log(email, pass);
+    loading.classList.remove("d-none")
 
     if (await handleLogin({ email, password })) {
       render();
+
     } else {
       alert("Login failed");
     }
     // emailEl.value = "";
     // passEl.value = "";
+    // loading.classList.add("d-none")
   });
 
   const btnRegister = document.querySelector(".btn-Register-form");
