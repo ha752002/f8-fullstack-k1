@@ -19,7 +19,8 @@ section {
   color: #1e90ff;
 }
 
-section p {
+.blog__group .date,
+.blog__group .author-info {
   background-color: #deebfb;
   color: #333;
   font-family: Arial, sans-serif; /* Kiểu font chữ */
@@ -266,4 +267,37 @@ section p {
 
 .loading.d-none {
   display: none;
+}
+
+/* .blog__group {
+  display: flex;
+  width: 100%;
+} */
+
+/* .author-info__content {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 100;
+  text-decoration: none;
+  line-height: 1.8rem;
+} */
+
+.author-info__content {
+  width: 80%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  /* margin: 12px 4px 12px 8px; */
+}
+.author-info__link a {
+  padding: 5px 13px;
+  border-radius: 11px;
+  border: 1px solid #1e90ff;
+  color: #1e90ff;
+}
+
+.author-info__link {
+  margin-top: 26px;
 }

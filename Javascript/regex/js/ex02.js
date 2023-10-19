@@ -3,9 +3,10 @@
 //     - Viết bằng ngôn ngữ Perl
 
 // Tác dụng:
-// - So khớp -> test()
+// - So khớp -> test() 
 // - Cắt chuỗi -> match()
 //- Thay thế -> replace()
+
 
 // Cú pháp: /regex/modifier
 //- regex => Các ký hiệu của biểu thức chính quy
@@ -19,7 +20,8 @@
 // - char -> Tìm chuỗi char trong chuỗi gốc
 //  - ^ -> Khớp đầu chuỗi
 //  - $ -> Khớp cuối chuỗi
-//  - [A - Z], [a - z], [0 - 9], [charList](các ký tự chỉ định, khớp theo điều kiện hoặc) -> Khớp ký tự đại diện
+//  - [A - Z], [a - z], [0 - 9], [charList](các ký tự chỉ định,
+// khớp theo điều kiện hoặc) -> Khớp ký tự đại diện
 
 // - Khớp độ dài: Mặc định các biểu thức chỉ có độ dài là 1
 // + { min, max } -> Độ dài từ min đến max.

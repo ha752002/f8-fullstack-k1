@@ -48,8 +48,10 @@ export function handleRegister({ fullName, email, password }) {
         name: fullName
     };
 
+    console.log(registerData);
     client.post('/auth/register', registerData)
         .then(({ response, data }) => {
+            console.log(response)
             if (response.status === 201) {
                 alert(data.message);
             } else {
@@ -60,9 +62,6 @@ export function handleRegister({ fullName, email, password }) {
             console.error('Lỗi trong quá trình đăng ký:', error);
         });
 }
-
-
-
 
 async function doRefreshToken() {
     var refreshToken = localStorage.getItem("refresh_token");
@@ -84,7 +83,6 @@ async function doRefreshToken() {
     }
 }
 
-
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -104,4 +102,4 @@ function makeFunc() {
     );
 }
 
-makeFunc();
+// makeFunc();

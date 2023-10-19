@@ -1,6 +1,7 @@
 import { config } from "./config.js";
 import { client } from "./client.js";
 import { getBlogsData, postBlog } from "./blogProvider.js";
+import { formatDate, escapeOutput, calculateSelectedDate } from "./util.js";
 import {
   checkLogin,
   handleLogin,
@@ -10,12 +11,9 @@ import {
 } from "./authProvider.js";
 
 
-import { formatDate, escapeOutput, calculateSelectedDate } from "./util.js";
 
 const { SERVER_AUTH_API } = config;
-
 client.setUrl(SERVER_AUTH_API);
-
 const loading = document.querySelector(".loading");
 
 export const rootRenderUnauthorizedPage = () => {
@@ -36,7 +34,6 @@ const root = document.querySelector("#root");
 
 export const render = () => {
   loading.classList.remove("d-none")
-
   checkLogin().then((check) => {
     if (check) {
       renderHome().then(() => {
@@ -56,27 +53,48 @@ export const render = () => {
 
 const renderBlogsData = async () => {
   const blogsData = await getBlogsData();
-
-  // if()
-
-  console.log(blogsData);
-  var htmls = blogsData.map((blog) => {
-
+  // console.log(blogsData);
+  var HTML = blogsData.map((blog) => {
     let date = formatDate(blog.createdAt);
-    // let SelectedDate = calculateSelectedDate(blog.timeUp);
-    // if(SelectedDate.day== 0 &&)
-    // console.log(SelectedDate);
-    return `<section>
-        <p>Date: ${date}</p>
-        <p>Name: ${blog.userId.name}</p>
-        <p>Title: ${blog.title}</p>
-        <p>Content: ${blog.content}</p>
-      </section>`
+    return `
+      <section class="blog-section">
+      <div class="blog__group">
+        <div class="date">
+          <p>Date:<span> ${date}</span></p>
+        </div>
+        <div class="author-info">
+          <p class="author-info__Name">Name: <span>${blog.userId.name}</span></p>
+          <p class="author-info__title">Title:<span>${blog.title}</span></p>
+          <p class="author-info__content">Content: <span>${blog.content}</span></p>
+          <p class="author-info__link"><a class="" href="" target="">view more test...</a></p>
+        </div>
+
+      </div>
+    </section>`
   })
 
-  const html = htmls.join(' ');
+  const html = HTML.join(' ');
   const container = document.querySelector('.container');
   container.insertAdjacentHTML("beforeend", html);
+
+  const showViewMore = document.querySelectorAll('.author-info__link');
+  showViewMore.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const container = document.querySelector('.container');
+      if (container.style.display === "none") {
+        container.style.display = "block";
+      } else {
+        container.style.display = "none";
+      }
+
+
+      // const blogDataDetail = ({ blogDate, blogName, blogTitle, blogContent });
+      // console.log(blogDataDetail);
+
+      renderBlogDetailPage();
+    })
+  });
 
   // var html = htmls.innerHTML;
   // document.get
@@ -184,10 +202,9 @@ const renderForm = () => {
 }
 
 async function renderHome() {
-
   const userInfo = await getInfo();
   // const userInfo = { name: "ha", };
-  console.log(userInfo);
+  // console.log(userInfo);
 
   const welcomeHTML = `<div class="container py-3">
       <ul class = "profile list-unstyled d-flex gap-2">
@@ -199,9 +216,6 @@ async function renderHome() {
   root.innerHTML = welcomeHTML;
   const logout = root.querySelector(".profile .logout");
   await renderBlogsData();
-
-  // if(calculateSelectedDate())
-  // console.log(root); 
 
   logout?.addEventListener("click", (e) => {
     e.preventDefault();
@@ -215,16 +229,11 @@ async function renderHome() {
   if (await checkLogin()) {
     renderForm();
   }
-
-
-  // console.log(checkLogin());
-
-
 };
 
 function renderLoginPage() {
-
-  const loginHTML = `<div class="container py-3">
+  const loginHTML = `
+  <div class="container py-3">
     <h2 class="text-center btn-click__login">Đăng nhập</h2>
     <hr />
     <div class="login-group" style="display:none">
@@ -251,7 +260,7 @@ function renderLoginPage() {
     </form>
     <div class="d-grid">
     <button class="btn btn-Register-form">Đăng Kí</button>
-</div>
+  </div>
     </div>
    
     </div>`;
@@ -291,7 +300,6 @@ function renderLoginPage() {
   const loginGroup = document.querySelector('.login-group');
 
   btnClickLogin?.addEventListener("click", (e) => {
-
     if (loginGroup.style.display === "none") {
       loginGroup.style.display = "block";
     } else {
@@ -368,5 +376,53 @@ function renderRegisterPage() {
     renderLoginPage();
 
   })
+
+}
+
+function renderBlogDetailPage(blogDataDetail) {
+  const section = document.createElement('section');
+  section.classList.add('blog-section');
+
+  const blogGroup = document.createElement('div');
+  blogGroup.classList.add('blog__group');
+
+  const dateDiv = document.createElement('div');
+  dateDiv.classList.add('date');
+  const dateParagraph = document.createElement('p');
+  // dateParagraph.textContent = `Date: ${blogDataDetail.blogDate}`;
+  dateDiv.appendChild(dateParagraph);
+
+  const authorInfoDiv = document.createElement('div');
+  authorInfoDiv.classList.add('author-info');
+  const nameParagraph = document.createElement('p');
+  // nameParagraph.textContent = `Name: ${blogDataDetail.blogName}`;
+  const titleParagraph = document.createElement('p');
+  // titleParagraph.textContent = `Title: ${blogDataDetail.blogTitle}`;
+
+  const contentParagraph = document.createElement('p');
+  contentParagraph.classList.add('author-info__content');
+  const contentSpan = document.createElement('span');
+  // contentSpan.textContent = blog.content;
+  // contentParagraph.textContent = `Content: ${blogDataDetail.blogContent}`;
+  contentParagraph.appendChild(contentSpan);
+
+  const linkInfo = document.createElement('p');
+  linkInfo.classList.add('author-info__link');
+  const linkAnchor = document.createElement('a');
+  linkAnchor.href = '';
+  linkAnchor.target = '';
+  linkAnchor.textContent = '#Ha';
+  linkInfo.appendChild(linkAnchor);
+
+  section.appendChild(blogGroup);
+  blogGroup.appendChild(dateDiv);
+  blogGroup.appendChild(authorInfoDiv);
+  authorInfoDiv.appendChild(nameParagraph);
+  authorInfoDiv.appendChild(titleParagraph);
+  authorInfoDiv.appendChild(contentParagraph);
+  authorInfoDiv.appendChild(linkInfo);
+
+  // const rootElement = document.getElementById('root'); 
+  root.appendChild(section);
 
 }
