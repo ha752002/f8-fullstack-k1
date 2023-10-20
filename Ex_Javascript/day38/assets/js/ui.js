@@ -107,7 +107,7 @@ const renderBlogsData = async () => {
     const linkAnchor = document.createElement('a');
     linkAnchor.href = '';
     linkAnchor.target = '';
-    linkAnchor.textContent = 'view more test...';
+    linkAnchor.textContent = 'view more...';
     linkParagraph.appendChild(linkAnchor);
 
     authorInfo.appendChild(nameParagraph);
