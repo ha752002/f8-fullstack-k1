@@ -6,6 +6,12 @@ export const getBlogsData = async () => {
     return blogsData.data.data;
 }
 
+export const getBlogsDataById = async (dataId) => {
+    const blogsData = await client.get(`/blogs/${dataId}`);
+    // console.log(blogsData);
+    return blogsData;
+}
+
 export const postBlog = async (value) => {
     const { data: dataResponse, response: response } = await client.post("/blogs/", value);
 

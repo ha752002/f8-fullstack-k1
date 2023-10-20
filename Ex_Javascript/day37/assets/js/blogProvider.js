@@ -6,5 +6,5 @@ export const getBlogsData = async () => {
 }
 
 export const postBlog = async (value) => {
-    const { data: dataResponse, response: response } = await client.post("/blogs/", value);
+    const { data: dataResponse, response: response } = await client.post("/blogs", value);
 }

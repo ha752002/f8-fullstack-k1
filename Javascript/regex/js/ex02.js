@@ -90,8 +90,6 @@
 //     return domain[1];
 
 // })
-
-
 // console.log(domainList);
 
 
@@ -103,11 +101,6 @@
 // console.log(result);
 
 //Greedy
-// 
-
-
-
-
 
 // thay thế
 let content = `số điện thoại của tôi là: 0385669003. thêm số là : +84783992288`;

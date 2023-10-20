@@ -1,6 +1,6 @@
 import { config } from "./config.js";
 import { client } from "./client.js";
-import { getBlogsData, postBlog } from "./blogProvider.js";
+import { getBlogsData, getBlogsDataById, postBlog } from "./blogProvider.js";
 import { formatDate, escapeOutput, calculateSelectedDate } from "./util.js";
 import {
   checkLogin,
@@ -51,35 +51,107 @@ export const render = () => {
   // renderHome();
 };
 
+// const renderBlogsData = async () => {
+//   const blogsData = await getBlogsData();
+
+//   var HTML = blogsData.map((blog) => {
+//     let date = formatDate(blog.createdAt);
+//     return `
+//       <section class="blog-section">
+//       <div class="blog__group">
+//         <div class="date">
+//           <p>Date:<span> ${date}</span></p>
+//         </div>
+//         <div class="author-info">
+//           <p class="author-info__name">Name: <span>${blog.userId.name}</span></p>
+//           <p class="author-info__title">Title:<span>${blog.title}</span></p>
+//           <p class="author-info__content">Content: <span>${blog.content}</span></p>
+//           <p class="author-info__link" ><a class="" href=""; target="">view more test...</a></p>
+//         </div>
+
+//       </div>
+//     </section>`
+//   })
+
+//   const html = HTML.join(' ');
+//   const container = document.querySelector('.container');
+//   container.insertAdjacentHTML("beforeend", html);
+
+//   const showViewMore = document.querySelectorAll('.author-info__link');
+//   showViewMore.forEach((link) => {
+//     link.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       const container = document.querySelector('.container');
+//       if (container.style.display === "none") {
+//         container.style.display = "block";
+//       } else {
+//         container.style.display = "none";
+//       }
+
+//       // console.log(id);
+//       // renderBlogDetailPage(id);
+
+//     })
+//   });
+
+//   // var html = htmls.innerHTML;
+//   // document.get
+// }
+
 const renderBlogsData = async () => {
   const blogsData = await getBlogsData();
-  // console.log(blogsData);
-  var HTML = blogsData.map((blog) => {
-    let date = formatDate(blog.createdAt);
-    return `
-      <section class="blog-section">
-      <div class="blog__group">
-        <div class="date">
-          <p>Date:<span> ${date}</span></p>
-        </div>
-        <div class="author-info">
-          <p class="author-info__Name">Name: <span>${blog.userId.name}</span></p>
-          <p class="author-info__title">Title:<span>${blog.title}</span></p>
-          <p class="author-info__content">Content: <span>${blog.content}</span></p>
-          <p class="author-info__link"><a class="" href="" target="">view more test...</a></p>
-        </div>
-
-      </div>
-    </section>`
-  })
-
-  const html = HTML.join(' ');
   const container = document.querySelector('.container');
-  container.insertAdjacentHTML("beforeend", html);
 
-  const showViewMore = document.querySelectorAll('.author-info__link');
-  showViewMore.forEach((link) => {
-    link.addEventListener('click', (e) => {
+  blogsData.forEach(blog => {
+    let date = formatDate(blog.createdAt);
+
+    const section = document.createElement('section');
+    section.classList.add('blog-section');
+
+    const blogGroup = document.createElement('div');
+    blogGroup.classList.add('blog__group');
+
+    const dateDiv = document.createElement('div');
+    dateDiv.classList.add('date');
+    const dateParagraph = document.createElement('p');
+    dateParagraph.textContent = `Date: ${date}`;
+    dateDiv.appendChild(dateParagraph);
+
+    const authorInfo = document.createElement('div');
+    authorInfo.classList.add('author-info');
+
+    const nameParagraph = document.createElement('p');
+    nameParagraph.classList.add('author-info__name');
+    nameParagraph.innerHTML = `Name: <span>${blog.userId.name}</span>`;
+
+    const titleParagraph = document.createElement('p');
+    titleParagraph.classList.add('author-info__title');
+    titleParagraph.innerHTML = `Title: <span>${blog.title}</span>`;
+
+    const contentParagraph = document.createElement('p');
+    contentParagraph.classList.add('author-info__content');
+    contentParagraph.innerHTML = `Content: <span>${blog.content}</span>`;
+
+    const linkParagraph = document.createElement('p');
+    linkParagraph.classList.add('author-info__link');
+    const linkAnchor = document.createElement('a');
+    linkAnchor.href = '';
+    linkAnchor.target = '';
+    linkAnchor.textContent = 'view more test...';
+    linkParagraph.appendChild(linkAnchor);
+
+    authorInfo.appendChild(nameParagraph);
+    authorInfo.appendChild(titleParagraph);
+    authorInfo.appendChild(contentParagraph);
+    authorInfo.appendChild(linkParagraph);
+
+    blogGroup.appendChild(dateDiv);
+    blogGroup.appendChild(authorInfo);
+    section.appendChild(blogGroup);
+
+    container.appendChild(section);
+
+    linkAnchor.addEventListener('click', (e) => {
       e.preventDefault();
       const container = document.querySelector('.container');
       if (container.style.display === "none") {
@@ -87,18 +159,13 @@ const renderBlogsData = async () => {
       } else {
         container.style.display = "none";
       }
-
-
-      // const blogDataDetail = ({ blogDate, blogName, blogTitle, blogContent });
-      // console.log(blogDataDetail);
-
-      renderBlogDetailPage();
-    })
+      // console.log(blog._id);
+      renderBlogDetailPage(blog._id);
+    });
   });
-
-  // var html = htmls.innerHTML;
-  // document.get
 }
+
+
 
 const renderForm = () => {
 
@@ -379,9 +446,26 @@ function renderRegisterPage() {
 
 }
 
-function renderBlogDetailPage(blogDataDetail) {
+async function renderBlogDetailPage(id) {
+  console.log(id);
+  const DataDetail = await getBlogsDataById(id);
+  const blogDataDetail = DataDetail.data.data;
+  console.log(blogDataDetail);
+  let date = formatDate(blogDataDetail.createdAt);
+  // console.log(dateBlogDataDetail);
+
+  const detailDiv = document.createElement("div");
+  detailDiv.classList.add('blog-detail');
+
+  // dateDiv.appendChild(dateParagraph);
+
+
+
   const section = document.createElement('section');
   section.classList.add('blog-section');
+
+  const blogDetailHeader = document.createElement("p");
+  blogDetailHeader.classList.add('blog-detail__header');
 
   const blogGroup = document.createElement('div');
   blogGroup.classList.add('blog__group');
@@ -389,21 +473,21 @@ function renderBlogDetailPage(blogDataDetail) {
   const dateDiv = document.createElement('div');
   dateDiv.classList.add('date');
   const dateParagraph = document.createElement('p');
-  // dateParagraph.textContent = `Date: ${blogDataDetail.blogDate}`;
+  dateParagraph.textContent = `Date: ${date}`;
   dateDiv.appendChild(dateParagraph);
 
   const authorInfoDiv = document.createElement('div');
   authorInfoDiv.classList.add('author-info');
   const nameParagraph = document.createElement('p');
-  // nameParagraph.textContent = `Name: ${blogDataDetail.blogName}`;
+  nameParagraph.textContent = `Name: ${blogDataDetail.userId.name}`;
   const titleParagraph = document.createElement('p');
-  // titleParagraph.textContent = `Title: ${blogDataDetail.blogTitle}`;
+  titleParagraph.textContent = `Title: ${blogDataDetail.title}`;
 
   const contentParagraph = document.createElement('p');
   contentParagraph.classList.add('author-info__content');
   const contentSpan = document.createElement('span');
   // contentSpan.textContent = blog.content;
-  // contentParagraph.textContent = `Content: ${blogDataDetail.blogContent}`;
+  contentParagraph.textContent = `Content: ${blogDataDetail.content}`;
   contentParagraph.appendChild(contentSpan);
 
   const linkInfo = document.createElement('p');
@@ -414,6 +498,8 @@ function renderBlogDetailPage(blogDataDetail) {
   linkAnchor.textContent = '#Ha';
   linkInfo.appendChild(linkAnchor);
 
+  detailDiv.appendChild(section);
+  section.appendChild(blogDetailHeader);
   section.appendChild(blogGroup);
   blogGroup.appendChild(dateDiv);
   blogGroup.appendChild(authorInfoDiv);
@@ -423,6 +509,6 @@ function renderBlogDetailPage(blogDataDetail) {
   authorInfoDiv.appendChild(linkInfo);
 
   // const rootElement = document.getElementById('root'); 
-  root.appendChild(section);
+  root.appendChild(detailDiv);
 
 }

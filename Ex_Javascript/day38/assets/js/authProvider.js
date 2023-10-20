@@ -14,7 +14,7 @@ export const getInfo = async () => {
 };
 
 export const checkLogin = async () => {
-    const isLogin = await getProfile();
+    const isLogin = await client.get("/auth");
     // console.log(isLogin);
     if (isLogin.status === 200) {
         return true;
