@@ -326,3 +326,7 @@ section p {
     font-size: 1.7rem;
     padding: 10px 0;
 }
+
+.form label {
+    margin-right: auto;
+}
