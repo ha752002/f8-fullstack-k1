@@ -466,9 +466,12 @@ async function renderBlogDetailPage(id) {
 
   const contentParagraph = document.createElement('p');
   contentParagraph.classList.add('author-info__content');
+
   const contentSpan = document.createElement('span');
-  // contentSpan.textContent = blog.content;
-  contentParagraph.textContent = `Content: ${blogDataDetail.content}`;
+  contentSpan.innerHTML = extractAndReplaceLinks(blogDataDetail.content);
+  contentSpan.innerHTML = extractAndReplaceYouTubes(contentSpan.innerHTML);
+  contentSpan.innerHTML = extractAndReplaceEmails(contentSpan.innerHTML);
+  contentSpan.innerHTML = extractAndReplacePhones(contentSpan.innerHTML);
   contentParagraph.appendChild(contentSpan);
 
   const linkInfo = document.createElement('p');
