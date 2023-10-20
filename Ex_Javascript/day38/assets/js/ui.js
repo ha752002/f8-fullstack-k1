@@ -4,6 +4,7 @@ import { getBlogsData, getBlogsDataById, postBlog } from "./blogProvider.js";
 import {
   formatDate,
   escapeOutput,
+  removeExtraSpaces,
   calculateSelectedDate,
   extractAndReplaceLinks,
   extractAndReplaceYouTubes,
@@ -95,6 +96,7 @@ const renderBlogsData = async () => {
     // contentParagraph.innerHTML = `Content: <span>${blog.content}</span>`;
     const contentSpan = document.createElement('span');
     contentSpan.innerHTML = extractAndReplaceLinks(blog.content);
+    contentSpan.innerHTML = removeExtraSpaces(contentSpan.innerHTML);
     contentSpan.innerHTML = extractAndReplaceYouTubes(contentSpan.innerHTML);
     contentSpan.innerHTML = extractAndReplaceEmails(contentSpan.innerHTML);
     contentSpan.innerHTML = extractAndReplacePhones(contentSpan.innerHTML);
@@ -468,6 +470,7 @@ async function renderBlogDetailPage(id) {
   contentParagraph.classList.add('author-info__content');
 
   const contentSpan = document.createElement('span');
+  contentSpan.innerHTML = removeExtraSpaces(contentSpan.innerHTML);
   contentSpan.innerHTML = extractAndReplaceLinks(blogDataDetail.content);
   contentSpan.innerHTML = extractAndReplaceYouTubes(contentSpan.innerHTML);
   contentSpan.innerHTML = extractAndReplaceEmails(contentSpan.innerHTML);

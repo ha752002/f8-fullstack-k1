@@ -62,6 +62,11 @@ export function calculateSelectedDate(selectedDate) {
     return timeDifferenceString;
 }
 
+export function removeExtraSpaces(input) {
+    const result = input.replace(/\s+/g, ' ');
+    return result;
+}
+
 export function extractAndReplaceLinks(text) {
     const linkRegex = /https?:\/\/[^\s]+/g;
     const links = text.match(linkRegex);
