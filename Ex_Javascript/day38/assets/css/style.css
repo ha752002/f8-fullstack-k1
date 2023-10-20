@@ -312,3 +312,17 @@ section p {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.blog-detail__header {
+    cursor: pointer;
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+
+.blog-detail__header a {
+    color: #1e90ff;
+    font-weight: bold;
+    font-size: 1.7rem;
+    padding: 10px 0;
+}

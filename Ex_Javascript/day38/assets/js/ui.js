@@ -51,52 +51,6 @@ export const render = () => {
   // renderHome();
 };
 
-// const renderBlogsData = async () => {
-//   const blogsData = await getBlogsData();
-
-//   var HTML = blogsData.map((blog) => {
-//     let date = formatDate(blog.createdAt);
-//     return `
-//       <section class="blog-section">
-//       <div class="blog__group">
-//         <div class="date">
-//           <p>Date:<span> ${date}</span></p>
-//         </div>
-//         <div class="author-info">
-//           <p class="author-info__name">Name: <span>${blog.userId.name}</span></p>
-//           <p class="author-info__title">Title:<span>${blog.title}</span></p>
-//           <p class="author-info__content">Content: <span>${blog.content}</span></p>
-//           <p class="author-info__link" ><a class="" href=""; target="">view more test...</a></p>
-//         </div>
-
-//       </div>
-//     </section>`
-//   })
-
-//   const html = HTML.join(' ');
-//   const container = document.querySelector('.container');
-//   container.insertAdjacentHTML("beforeend", html);
-
-//   const showViewMore = document.querySelectorAll('.author-info__link');
-//   showViewMore.forEach((link) => {
-//     link.addEventListener('click', (e) => {
-//       e.preventDefault();
-//       const container = document.querySelector('.container');
-//       if (container.style.display === "none") {
-//         container.style.display = "block";
-//       } else {
-//         container.style.display = "none";
-//       }
-
-//       // console.log(id);
-//       // renderBlogDetailPage(id);
-
-//     })
-//   });
-
-//   // var html = htmls.innerHTML;
-//   // document.get
-// }
 
 const renderBlogsData = async () => {
   const blogsData = await getBlogsData();
@@ -160,7 +114,10 @@ const renderBlogsData = async () => {
         container.style.display = "none";
       }
       // console.log(blog._id);
-      renderBlogDetailPage(blog._id);
+      loading.classList.remove("d-none");
+      renderBlogDetailPage(blog._id).then(() => {
+        loading.classList.add("d-none");
+      });
     });
   });
 }
@@ -447,25 +404,29 @@ function renderRegisterPage() {
 }
 
 async function renderBlogDetailPage(id) {
-  console.log(id);
+  // console.log(id);
+
   const DataDetail = await getBlogsDataById(id);
+  // loading.classList.add("d-none");
+
   const blogDataDetail = DataDetail.data.data;
-  console.log(blogDataDetail);
+  // console.log(blogDataDetail);
+
   let date = formatDate(blogDataDetail.createdAt);
   // console.log(dateBlogDataDetail);
 
   const detailDiv = document.createElement("div");
   detailDiv.classList.add('blog-detail');
 
-  // dateDiv.appendChild(dateParagraph);
-
-
-
   const section = document.createElement('section');
   section.classList.add('blog-section');
 
-  const blogDetailHeader = document.createElement("p");
+  const blogDetailHeader = document.createElement("div");
   blogDetailHeader.classList.add('blog-detail__header');
+
+  const linkHome = document.createElement('a');
+  linkHome.textContent = 'Go Home';
+  blogDetailHeader.appendChild(linkHome);
 
   const blogGroup = document.createElement('div');
   blogGroup.classList.add('blog__group');
@@ -511,4 +472,9 @@ async function renderBlogDetailPage(id) {
   // const rootElement = document.getElementById('root'); 
   root.appendChild(detailDiv);
 
+
+  blogDetailHeader.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(1);
+  })
 }
