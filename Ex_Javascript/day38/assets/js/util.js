@@ -62,66 +62,55 @@ export function calculateSelectedDate(selectedDate) {
     return timeDifferenceString;
 }
 
+export function extractAndReplaceLinks(text) {
+    const linkRegex = /https?:\/\/[^\s]+/g;
+    const links = text.match(linkRegex);
 
-// day.addEventListener("click", (event) => {
-//     event.stopPropagation();
-//     const selectedDay = parseInt(event.target.textContent);
-//     const selectedMonth = currentMonth.value;
-//     const selectedYear = currentYear.value;
+    if (links) {
+        links.forEach((link) => {
+            const linkTag = `<a href="${link}" target="_blank">${link}</a>`;
+            text = text.replace(link, linkTag);
+        });
+    }
+    return text;
+}
 
-//     const selectedDate = new Date(
-//         selectedYear,
-//         selectedMonth,
-//         selectedDay
-//     );
+export function extractAndReplaceYouTubes(text) {
+    const youtubeRegex = /https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([A-Za-z0-9_]+)/g;
+    const youtubeLinks = text.match(youtubeRegex);
 
-//     const currentDate = new Date();
-//     var timeDifference = selectedDate - currentDate;
+    if (youtubeLinks) {
+        youtubeLinks.forEach((youtubeLink) => {
+            const videoId = youtubeLink.match(/v=([A-Za-z0-9_]+)/)[1];
+            const iframeTag = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            text = text.replace(youtubeLink, iframeTag);
+        });
+    }
+    return text;
+}
 
-//     // You can use the selectedDay, selectedMonth, and selectedYear as needed
-//     console.log(`Selected Date: ${selectedDay}`);
-//     console.log(`Selected Month: ${month_names[selectedMonth]}`);
-//     console.log(`Selected Year: ${selectedYear}`);
+export function extractAndReplaceEmails(text) {
+    const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b/g;
+    const emails = text.match(emailRegex);
 
-//     // To get the current time, you can use the existing timer (as it updates every second)
-//     const currentTime = todayShowTime.textContent;
-//     console.log(`Current Time: ${currentTime}`);
+    if (emails) {
+        emails.forEach((email) => {
+            const emailTag = `<a href="mailto:${email}" target="_blank">${email}</a>`;
+            text = text.replace(email, emailTag);
+        });
+    }
+    return text;
+}
 
-//     // Calculate days and time
-//     const daysDifference = Math.floor(
-//         timeDifference / (1000 * 60 * 60 * 24)
-//     );
-//     const timeDifferenceMillis = timeDifference % (1000 * 60 * 60 * 24);
-//     const hoursDifference = Math.floor(
-//         timeDifferenceMillis / (1000 * 60 * 60)
-//     );
-//     const minutesDifference = Math.floor(
-//         (timeDifferenceMillis % (1000 * 60 * 60)) / (1000 * 60)
-//     );
+export function extractAndReplacePhones(text) {
+    const phoneRegex = /tel:[0-9+\-\s]+/g;
+    const phoneNumbers = text.match(phoneRegex);
 
-//     // Calculate the time difference string
-//     let timeDifferenceString = "";
-//     if (daysDifference > 0) {
-//         timeDifferenceString += `${daysDifference} ngày${daysDifference > 1 ? "" : ""
-//             } `;
-//     }
-//     if (hoursDifference > 0) {
-//         timeDifferenceString += `${hoursDifference} giờ${hoursDifference > 1 ? "" : ""
-//             } `;
-//     }
-//     if (minutesDifference > 0) {
-//         timeDifferenceString += `${minutesDifference} phút${minutesDifference > 1 ? "" : ""
-//             }`;
-//     }
-
-//     if (timeDifferenceString === "") {
-//         timeDifferenceString = "Vui lòng chọn lại thời gian đăng";
-//     } else {
-//         timeDifferenceString = `Bài viết của bạn sẽ được đăng sau ${timeDifferenceString} lúc ${selectedYear} ${month_names[selectedMonth]} ${selectedDay}, ${currentTime}`;
-//     }
-
-//     // Update the calendarSetEl with the time difference string
-//     calendarSetEl.innerText = timeDifferenceString;
-
-// });
-
+    if (phoneNumbers) {
+        phoneNumbers.forEach((phoneNumber) => {
+            const telTag = `<a href="${phoneNumber}" target="_blank">${phoneNumber}</a>`;
+            text = text.replace(phoneNumber, telTag);
+        });
+    }
+    return text;
+}

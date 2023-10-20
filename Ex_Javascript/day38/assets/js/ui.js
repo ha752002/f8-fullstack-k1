@@ -1,7 +1,15 @@
 import { config } from "./config.js";
 import { client } from "./client.js";
 import { getBlogsData, getBlogsDataById, postBlog } from "./blogProvider.js";
-import { formatDate, escapeOutput, calculateSelectedDate } from "./util.js";
+import {
+  formatDate,
+  escapeOutput,
+  calculateSelectedDate,
+  extractAndReplaceLinks,
+  extractAndReplaceYouTubes,
+  extractAndReplaceEmails,
+  extractAndReplacePhones
+} from "./util.js";
 import {
   checkLogin,
   handleLogin,
@@ -84,7 +92,13 @@ const renderBlogsData = async () => {
 
     const contentParagraph = document.createElement('p');
     contentParagraph.classList.add('author-info__content');
-    contentParagraph.innerHTML = `Content: <span>${blog.content}</span>`;
+    // contentParagraph.innerHTML = `Content: <span>${blog.content}</span>`;
+    const contentSpan = document.createElement('span');
+    contentSpan.innerHTML = extractAndReplaceLinks(blog.content);
+    contentSpan.innerHTML = extractAndReplaceYouTubes(contentSpan.innerHTML);
+    contentSpan.innerHTML = extractAndReplaceEmails(contentSpan.innerHTML);
+    contentSpan.innerHTML = extractAndReplacePhones(contentSpan.innerHTML);
+    contentParagraph.appendChild(contentSpan);
 
     const linkParagraph = document.createElement('p');
     linkParagraph.classList.add('author-info__link');
@@ -315,7 +329,13 @@ function renderLoginPage() {
   const btnRegister = document.querySelector(".btn-Register-form");
   btnRegister?.addEventListener("click", (e) => {
     const container = document.querySelector('.container');
-    container.style.display = "none";
+
+    if (container.style.display === "none") {
+      container.style.display = "block";
+    } else {
+      blogDetail.style.display = "none";
+    }
+
     renderRegisterPage();
 
   });
@@ -484,7 +504,7 @@ async function renderBlogDetailPage(id) {
     }
 
     loading.classList.remove("d-none");
-    renderHome().then(() => {
+    render().then(() => {
       loading.classList.add("d-none");
     });
   })
