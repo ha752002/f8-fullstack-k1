@@ -333,7 +333,7 @@ function renderLoginPage() {
     if (container.style.display === "none") {
       container.style.display = "block";
     } else {
-      blogDetail.style.display = "none";
+      container.style.display = "none";
     }
 
     renderRegisterPage();
