@@ -475,6 +475,17 @@ async function renderBlogDetailPage(id) {
 
   blogDetailHeader.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(1);
+
+    const blogDetail = document.querySelector('.blog-detail');
+    if (blogDetail.style.display === "none") {
+      blogDetail.style.display = "block";
+    } else {
+      blogDetail.style.display = "none";
+    }
+
+    loading.classList.remove("d-none");
+    renderHome().then(() => {
+      loading.classList.add("d-none");
+    });
   })
 }
