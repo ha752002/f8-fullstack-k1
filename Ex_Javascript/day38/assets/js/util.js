@@ -68,7 +68,7 @@ export function removeExtraSpaces(input) {
 }
 
 export function extractAndReplaceLinks(text) {
-    const linkRegex = /https?:\/\/[^\s]+/g;
+    const linkRegex = /\bhttps?:\/\/[^\s]+\b/g;
     const links = text.match(linkRegex);
 
     if (links) {
@@ -79,6 +79,7 @@ export function extractAndReplaceLinks(text) {
     }
     return text;
 }
+
 
 export function extractAndReplaceYouTubes(text) {
     const youtubeRegex = /https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([A-Za-z0-9_]+)/g;
