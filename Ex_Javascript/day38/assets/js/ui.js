@@ -16,7 +16,8 @@ import {
   handleLogin,
   handleRegister,
   getProfile,
-  getInfo
+  getInfo,
+  logOut
 } from "./authProvider.js";
 
 
@@ -269,6 +270,7 @@ async function renderHome() {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("email");
     localStorage.removeItem("name");
+    // logOut();
     render();
   })
 
@@ -405,6 +407,8 @@ function renderRegisterPage() {
   const registerForm = document.querySelector(".register");
   registerForm?.addEventListener("submit", (e) => {
     e.preventDefault();
+    loading.classList.remove("d-none");
+
     const fullNameEl = e.target.querySelector(".full-name");
     const emailEl = e.target.querySelector(".email");
     const passEl = e.target.querySelector(".password");
@@ -412,11 +416,17 @@ function renderRegisterPage() {
     const email = emailEl.value;
     const password = passEl.value;
 
-
-    // loading.classList.remove("d-none");
-
-    handleRegister({ fullName, email, password });
-    // loading.classList.add("d-none");
+    loading.classList.remove("d-none");
+    handleRegister({ fullName, email, password })
+      .then(() => {
+        loading.classList.add("d-none");
+      })
+      .catch(() => {
+        loading.classList.add("d-none");
+      })
+      .finally(() => {
+        loading.classList.add("d-none");
+      })
 
     fullNameEl.value = "";
     emailEl.value = "";

@@ -2,7 +2,7 @@ import { client } from "./client.js"
 
 export const getBlogsData = async () => {
     const blogsData = await client.get("/blogs");
-    console.log(blogsData);
+    // console.log(blogsData);
     return blogsData.data.data;
 }
 

@@ -26,7 +26,6 @@ export const checkLogin = async () => {
 
 export const logOut = async () => {
     const isLogOut = await client.post("/auth/logout");
-
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("email");
@@ -61,10 +60,11 @@ export async function handleRegister({ fullName, email, password }) {
         name: fullName
     };
 
-    console.log(registerData);
-    client.post('/auth/register', registerData)
+    // console.log(registerData);
+    await client.post('/auth/register', registerData)
         .then(({ response, data }) => {
-            console.log(response)
+            // console.log(response)
+            // loading.classList.add("d-none");
             if (response.status === 201) {
                 notifyResponse(data.message)
                 // alert(data.message);
