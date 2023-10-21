@@ -10,7 +10,7 @@ export function formatDate(date) {
     return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + "  " + strTime;
 }
 
-
+// fix lỗi xss
 export function escapeOutput(toOutput) {
     return toOutput.replace(/&/g, '&amp;')
         .replace(/\</g, '&lt;')
@@ -88,7 +88,8 @@ export function extractAndReplaceYouTubes(text) {
     if (youtubeLinks) {
         youtubeLinks.forEach((youtubeLink) => {
             const videoId = youtubeLink.match(/v=([A-Za-z0-9_]+)/)[1];
-            const iframeTag = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            const iframeTag = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}"
+             frameborder="0" allowfullscreen></iframe>`;
             text = text.replace(youtubeLink, iframeTag);
         });
     }
@@ -121,7 +122,6 @@ export function extractAndReplacePhones(text) {
     return text;
 }
 
-
 export function notifyResponse(response) {
     const toastDiv = document.createElement('div');
     toastDiv.classList.add('notify-response');
@@ -145,3 +145,4 @@ export function notifyResponse(response) {
         toastDiv.remove();
     }, 1500);
 }
+

@@ -228,9 +228,14 @@ const renderForm = () => {
 
     if (!timeUp) {
       loading.classList.remove("d-none")
-      postBlog({ title, content }).then(() => {
-        render();
-      });
+      if (checkLogin()) {
+        postBlog({ title, content }).then(() => {
+          render();
+        });
+      } else {
+        notifyResponse('hết hạn đăng nhập');
+      }
+
     } else {
       let SelectedDate = calculateSelectedDate(timeUp);
       console.log(SelectedDate);
@@ -400,7 +405,6 @@ function renderRegisterPage() {
   const registerForm = document.querySelector(".register");
   registerForm?.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const fullNameEl = e.target.querySelector(".full-name");
     const emailEl = e.target.querySelector(".email");
     const passEl = e.target.querySelector(".password");
@@ -409,17 +413,22 @@ function renderRegisterPage() {
     const password = passEl.value;
 
 
+    // loading.classList.remove("d-none");
 
     handleRegister({ fullName, email, password });
+    // loading.classList.add("d-none");
+
     fullNameEl.value = "";
     emailEl.value = "";
     passEl.value = "";
+
   });
 
   const btnLoginPage = document.querySelector(".btn-Login-page");
   btnLoginPage?.addEventListener("click", (e) => {
     const container = document.querySelector('.container');
     container.style.display = "none";
+
     renderLoginPage();
 
   })

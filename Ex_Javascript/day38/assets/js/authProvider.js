@@ -4,7 +4,7 @@ import { notifyResponse } from './util.js';
 
 export const getProfile = async () => {
     const { data: dataResponse, response: response } = await client.get("/users/profile");
-    // console.log(response);
+    console.log(response);
     return response;
 };
 
@@ -16,7 +16,7 @@ export const getInfo = async () => {
 
 export const checkLogin = async () => {
     const isLogin = await client.get("/auth");
-    // console.log(isLogin);
+    console.log(isLogin);
     if (isLogin.status === 200) {
         return true;
     } else {
@@ -24,26 +24,37 @@ export const checkLogin = async () => {
     }
 }
 
+export const logOut = async () => {
+    const isLogOut = await client.post("/auth/logout");
+
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+
+}
+
+
 
 export const handleLogin = async (data) => {
     const { data: dataResponse, response: response } = await client.post("/auth/login", data);
-    // console.log(dataResponse);
+    console.log(dataResponse.data);
+
     if (response.status === 200) {
-        // console.log(response.data);
-        notifyResponse('Đăng nhập thành công');
+        // console.log(dataResponse);
+        notifyResponse(dataResponse.message);
         const { accessToken, refreshToken, name, email } = dataResponse.data;
         localStorage.setItem("access_token", accessToken);
         localStorage.setItem("refresh_token", refreshToken);
         return true;
-
     } else {
-        notifyResponse('Đăng nhập thất bại , Vui lòng kiểm tra lại email, password');
+        notifyResponse(dataResponse.message);
         return dataResponse
     }
 }
 
 
-export function handleRegister({ fullName, email, password }) {
+export async function handleRegister({ fullName, email, password }) {
     const registerData = {
         email: email,
         password: password,
@@ -82,6 +93,7 @@ async function doRefreshToken() {
             }
 
         }
+        logOut();
         return false;
 
     } catch (error) {
