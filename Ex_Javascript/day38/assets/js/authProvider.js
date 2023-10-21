@@ -1,5 +1,6 @@
 // chuứa những cái lq đến  Authentication
 import { client } from './client.js';
+import { notifyResponse } from './util.js';
 
 export const getProfile = async () => {
     const { data: dataResponse, response: response } = await client.get("/users/profile");
@@ -26,16 +27,17 @@ export const checkLogin = async () => {
 
 export const handleLogin = async (data) => {
     const { data: dataResponse, response: response } = await client.post("/auth/login", data);
-    console.log(dataResponse);
+    // console.log(dataResponse);
     if (response.status === 200) {
+        // console.log(response.data);
+        notifyResponse('Đăng nhập thành công');
         const { accessToken, refreshToken, name, email } = dataResponse.data;
         localStorage.setItem("access_token", accessToken);
         localStorage.setItem("refresh_token", refreshToken);
-
-
         return true;
 
     } else {
+        notifyResponse('Đăng nhập thất bại , Vui lòng kiểm tra lại email, password');
         return dataResponse
     }
 }
@@ -53,13 +55,17 @@ export function handleRegister({ fullName, email, password }) {
         .then(({ response, data }) => {
             console.log(response)
             if (response.status === 201) {
-                alert(data.message);
+                notifyResponse(data.message)
+                // alert(data.message);
             } else {
-                alert(data.message);
+                notifyResponse(data.message)
+
+                // alert(data.message);
             }
         })
         .catch(error => {
-            console.error('Lỗi trong quá trình đăng ký:', error);
+            notifyResponse(error)
+            // console.error('Lỗi trong quá trình đăng ký:', error);
         });
 }
 

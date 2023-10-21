@@ -120,3 +120,28 @@ export function extractAndReplacePhones(text) {
     }
     return text;
 }
+
+
+export function notifyResponse(response) {
+    const toastDiv = document.createElement('div');
+    toastDiv.classList.add('notify-response');
+
+    toastDiv.textContent = response;
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.classList.add('notify-close');
+    closeButton.textContent = '✖';
+
+    closeButton.addEventListener('click', () => {
+        toastDiv.remove();
+    });
+
+    toastDiv.appendChild(closeButton);
+
+    document.body.appendChild(toastDiv);
+    setTimeout(() => {
+        toastDiv.remove();
+    }, 1500);
+}

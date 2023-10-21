@@ -1,7 +1,7 @@
 .container {
     max-width: 78%;
     position: relative;
-    margin: 30px auto;
+    margin: 50px auto;
     padding: 20px;
     background: #f0f8ff;
     border: 1px solid #87ceeb;
@@ -329,4 +329,29 @@ section p {
 
 .form label {
     margin-right: auto;
+}
+
+.notify-response {
+    position: absolute;
+    background: linear-gradient(62deg, rgb(0, 102, 204) 0%, rgb(0, 153, 153) 100%);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    transform: translate(0px, 0px);
+    top: -59px;
+    left: 50%;
+    transform: translateX(-60%);
+    padding: 10px;
+}
+
+button.notify-close {
+    margin-left: 2px;
+    font-size: 13px;
+    border: none;
+    background: transparent;
+}
+
+body {
+    position: relative;
+    top: 20px;
+    /* right: 0; */
 }
