@@ -93,7 +93,8 @@ const renderBlogsData = async () => {
 
     const contentParagraph = document.createElement('p');
     contentParagraph.classList.add('author-info__content');
-    // contentParagraph.innerHTML = `Content: <span>${blog.content}</span>`;
+    contentParagraph.innerHTML = `Content: `;
+
     const contentSpan = document.createElement('span');
     contentSpan.innerHTML = extractAndReplaceLinks(blog.content);
     contentSpan.innerHTML = removeExtraSpaces(contentSpan.innerHTML);
@@ -468,6 +469,7 @@ async function renderBlogDetailPage(id) {
 
   const contentParagraph = document.createElement('p');
   contentParagraph.classList.add('author-info__content');
+  contentParagraph.textContent = `Content:`;
 
   const contentSpan = document.createElement('span');
   contentSpan.innerHTML = removeExtraSpaces(contentSpan.innerHTML);
