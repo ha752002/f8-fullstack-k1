@@ -266,11 +266,11 @@ async function renderHome() {
 
   logout?.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    // logOut();
+    // localStorage.removeItem("access_token");
+    // localStorage.removeItem("refresh_token");
+    // localStorage.removeItem("email");
+    // localStorage.removeItem("name");
+    logOut();
     render();
   })
 
