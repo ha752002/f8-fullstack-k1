@@ -30,6 +30,12 @@ section {
     border: 1px solid #ccc; /* Viền */
 }
 
+.author-info p:nth-child(1) {
+    color: #2075ca !important;
+    font-size: 1.3rem;
+    text-decoration: underline;
+}
+
 .container img {
     top: 0;
     right: -28%;

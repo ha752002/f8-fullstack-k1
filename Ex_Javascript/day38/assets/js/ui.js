@@ -482,7 +482,7 @@ async function renderBlogDetailPage(id) {
   const authorInfoDiv = document.createElement('div');
   authorInfoDiv.classList.add('author-info');
   const nameParagraph = document.createElement('p');
-  nameParagraph.textContent = `Name: ${blogDataDetail.userId.name}`;
+  nameParagraph.innerHTML = `Name: <a>${blogDataDetail.userId.name}</a>`;
   const titleParagraph = document.createElement('p');
   titleParagraph.textContent = `Title: ${blogDataDetail.title}`;
 
