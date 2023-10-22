@@ -294,8 +294,8 @@ section p {
 .author-info__link a {
     padding: 5px 13px;
     border-radius: 11px;
-    border: 1px solid #1e90ff;
-    color: #1e90ff;
+    border: 1px solid #2075ca;
+    color: #2075ca;
 }
 
 .author-info__link {
@@ -354,4 +354,13 @@ body {
     position: relative;
     top: 20px;
     /* right: 0; */
+}
+
+.author-info__name {
+    font-size: 1.5rem;
+}
+
+.author-info__name a {
+    color: #2075ca !important;
+    text-decoration: underline !important;
 }

@@ -86,7 +86,7 @@ const renderBlogsData = async () => {
 
     const nameParagraph = document.createElement('p');
     nameParagraph.classList.add('author-info__name');
-    nameParagraph.innerHTML = `Name: <span>${blog.userId.name}</span>`;
+    nameParagraph.innerHTML = ` <a>${blog.userId.name}</a>`;
 
     const titleParagraph = document.createElement('p');
     titleParagraph.classList.add('author-info__title');
