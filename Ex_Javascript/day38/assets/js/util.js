@@ -62,8 +62,8 @@ export function calculateSelectedDate(selectedDate) {
     return timeDifferenceString;
 }
 
-export function removeExtraSpaces(input) {
-    const result = input.replace(/\s+/g, ' ');
+export function removeExtraSpaces(text) {
+    const result = text.replace(/\s+/g, ' ');
     return result;
 }
 
@@ -82,15 +82,28 @@ export function extractAndReplaceLinks(text) {
 
 
 export function extractAndReplaceYouTubes(text) {
-    const youtubeRegex = /https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([A-Za-z0-9_]+)/g;
-    const youtubeLinks = text.match(youtubeRegex);
+    const youtubeRegex = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?‌=]*)?/g;
+    let youtubeLinks = text.match(youtubeRegex);
 
     if (youtubeLinks) {
         youtubeLinks.forEach((youtubeLink) => {
-            const videoId = youtubeLink.match(/v=([A-Za-z0-9_]+)/)[1];
-            const iframeTag = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}"
-             frameborder="0" allowfullscreen></iframe>`;
-            text = text.replace(youtubeLink, iframeTag);
+            fetch(youtubeLink)
+                .then((response) => response.text())
+                .then((html) => {
+                    if (html.includes("Video unavailable")) {
+                        text = text.replace(youtubeLink, "Video unavailable");
+                    } else {
+                        const videoIdMatch = youtubeLink.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?‌=]*)?/);
+                        if (videoIdMatch) {
+                            const videoId = videoIdMatch[1];
+                            const iframeTag = `<iframe width="600" height="315" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                            text = text.replace(youtubeLink, iframeTag);
+                        }
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         });
     }
     return text;

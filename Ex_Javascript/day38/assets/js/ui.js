@@ -97,8 +97,8 @@ const renderBlogsData = async () => {
     contentParagraph.innerHTML = `Content: `;
 
     const contentSpan = document.createElement('span');
-    contentSpan.innerHTML = extractAndReplaceLinks(blog.content);
     contentSpan.innerHTML = removeExtraSpaces(contentSpan.innerHTML);
+    contentSpan.innerHTML = extractAndReplaceLinks(blog.content);
     contentSpan.innerHTML = extractAndReplaceYouTubes(contentSpan.innerHTML);
     contentSpan.innerHTML = extractAndReplaceEmails(contentSpan.innerHTML);
     contentSpan.innerHTML = extractAndReplacePhones(contentSpan.innerHTML);
