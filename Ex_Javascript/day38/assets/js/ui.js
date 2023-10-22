@@ -210,7 +210,7 @@ const renderForm = () => {
 
 
 
-  formElement.addEventListener('submit', (e) => {
+  formElement.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const input = document.querySelector("input[name=title]");
@@ -229,7 +229,7 @@ const renderForm = () => {
 
     if (!timeUp) {
       loading.classList.remove("d-none")
-      if (checkLogin()) {
+      if (await checkLogin()) {
         postBlog({ title, content }).then(() => {
           render();
         });
