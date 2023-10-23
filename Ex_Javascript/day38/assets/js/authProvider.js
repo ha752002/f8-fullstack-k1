@@ -26,6 +26,7 @@ export const checkLogin = async () => {
 
 export const logOut = async () => {
     const isLogOut = await client.post("/auth/logout");
+
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("email");
@@ -94,6 +95,7 @@ async function doRefreshToken() {
 
         }
         logOut();
+
         return false;
 
     } catch (error) {

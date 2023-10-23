@@ -9,7 +9,8 @@ import {
   extractAndReplaceLinks,
   extractAndReplaceYouTubes,
   extractAndReplaceEmails,
-  extractAndReplacePhones
+  extractAndReplacePhones,
+  notifyResponse
 } from "./util.js";
 import {
   checkLogin,
@@ -234,6 +235,7 @@ const renderForm = () => {
           render();
         });
       } else {
+        render();
         notifyResponse('hết hạn đăng nhập');
       }
 
