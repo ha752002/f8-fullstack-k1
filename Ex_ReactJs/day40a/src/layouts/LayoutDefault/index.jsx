@@ -1,5 +1,6 @@
 import { Footer } from '../Footer';
 import { Header } from '../Header';
+import './LayoutDefault.scss';
 
 // eslint-disable-next-line react/prop-types
 const LayoutDefault = ({ children }) => {
@@ -7,7 +8,7 @@ const LayoutDefault = ({ children }) => {
         <>
             <Header></Header>
             <hr />
-            <main>
+            <main className="main">
                 <div>
                     <ul>
                         <li>

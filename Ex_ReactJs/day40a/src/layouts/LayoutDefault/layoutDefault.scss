@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #3498db;
+    transition: background-color 0.3s;
+    div:nth-child(1) {
+        width: 30%;
+        margin-left: 30px;
+    }
+
+    ul {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline;
+            margin-right: 20px;
+
+            a {
+                text-decoration: none;
+                color: #fff; /* Màu văn bản trắng */
+                font-weight: bold; /* Độ đậy chữ đậy */
+
+                &:hover {
+                    color: #ff5722; /* Màu văn bản thay đổi khi hover */
+                }
+            }
+        }
+    }
+}
