@@ -1,0 +1,17 @@
+{
+  "name": "day40",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html --port=3000 --open --host=127.0.0.1",
+    "build": "parcel build src/index.html --dist-dir=build"
+
+  },
+  "keywords": [],
+  "author": "Hong Ha",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.1"
+  }
+}

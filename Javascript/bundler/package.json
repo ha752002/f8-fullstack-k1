@@ -1,0 +1,30 @@
+{
+  "name": "bundler",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html --port=3000 --open --host=127.0.0.1",
+    "build": "parcel build src/index.html --dist-dir=build"
+  },
+  "keywords": [],
+  "author": "Hong Ha",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "os-browserify": "^0.3.0",
+    "parcel": "^2.10.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "sass": "^1.69.4"
+  }
+}

@@ -9,6 +9,7 @@
   "author": "Hong Ha",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.0.2",
     "date.js": "^0.3.3"
   }
 }
