@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from './utils/router.jsx';
 import LayoutDefault from './layouts/LayoutDefault';
+
 function App() {
     return (
         <Router>
