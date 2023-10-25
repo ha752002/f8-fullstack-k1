@@ -1,6 +1,7 @@
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import './LayoutDefault.scss';
+import { NavLink } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 const LayoutDefault = ({ children }) => {
@@ -12,13 +13,13 @@ const LayoutDefault = ({ children }) => {
                 <div>
                     <ul>
                         <li>
-                            <a href="/Home">Trang chủ</a>
+                            <NavLink to="/Home">Home</NavLink>
                         </li>
                         <li>
-                            <a href="/About">About</a>
+                            <NavLink to="/About">About</NavLink>
                         </li>
                         <li>
-                            <a href="/Product">Sản phẩm</a>
+                            <NavLink to="/Product">Product</NavLink>
                         </li>
                     </ul>
                 </div>
