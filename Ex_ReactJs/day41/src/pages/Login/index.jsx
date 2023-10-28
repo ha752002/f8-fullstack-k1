@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { handleLogin } from './Login';
 import { useNavigate } from 'react-router-dom';
 // import Style from '../../assets/loading/loading.module.scss/';
@@ -11,7 +11,7 @@ import loading from '../../components/Loading/loading';
 function Login() {
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
-    const [visible, setIsVisible] = useState(false);
+    const [visible, setIsVisible] = useState(true);
 
     // let [color, setColor] = useState('#00e5ff');
 
@@ -35,9 +35,12 @@ function Login() {
         setEmail(event.target.value);
     };
 
-    // useEffect(() => {
-    //     setIsLoading(false);
-    // });
+    useEffect(() => {
+        setTimeout(() => {
+            setIsVisible(false);
+        }, 2000);
+    }, [visible]);
+
     return (
         <>
             {loading(visible)}
