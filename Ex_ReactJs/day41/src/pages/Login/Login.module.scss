@@ -1,0 +1,18 @@
+.form_login {
+    width: 393px;
+    border: 1px solid #fff;
+    padding: 40px 43px;
+}
+
+.form_login_wrapper {
+    display: flex;
+    gap: 10px;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.btn_submit {
+    width: 33%;
+    margin: 0 auto;
+    background-color: rgb(8, 230, 255);
+}

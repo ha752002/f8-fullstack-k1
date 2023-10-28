@@ -1,0 +1,276 @@
+#root {
+    width: 38%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 24px;
+}
+
+.title span {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    background-color: #60a5fa;
+    background-image: linear-gradient(90deg, #60a5fa 0%, #059669 100%);
+}
+
+.title {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.todo__app_wrapper {
+    height: 100vh;
+    width: 615px;
+    text-align: center;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 20px 0 20px 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #eeeeee;
+}
+
+.form-search .search {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+.form-search i {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2d2dff;
+    padding: 10px;
+    color: white;
+    border-radius: 18%;
+}
+
+.form-search {
+    display: flex;
+    gap: 10px;
+}
+
+.btn .btn-add {
+    color: #fff;
+    padding: 8px 29px;
+    text-align: center;
+    background-color: #059669;
+    border-radius: 12px;
+    border: none;
+}
+
+.btn {
+    color: #fff;
+    padding: 16px 29px;
+    text-align: center;
+    background-color: #059669;
+    border-radius: 12px;
+    border: none;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.form-add.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-add {
+    /* visibility: hidden; */
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.over-lay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.form-add-todos {
+    padding: 27px 0 10px 0;
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    gap: 18px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.form-wrapper:first-child {
+    padding: 0 20px;
+}
+
+.form-wrapper:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 31px;
+}
+
+button.btn.btn-cancel {
+    background-color: white;
+    color: #000;
+    border: 1px solid #000;
+}
+/* input::placeholder {
+    padding: 0 10px;
+  } */
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 10px;
+    gap: 39px;
+    border: 1px solid;
+    margin-top: 10px;
+}
+
+.btn.btn-save:hover {
+    background: #1e322c;
+}
+
+.btn-icon {
+    padding: 10px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.btn-icon.btn-remove {
+    background-color: #be123c;
+}
+
+.btn-icon.btn-edit {
+    background-color: #1d4ed8;
+}
+.btn-icon.btn-check {
+    background-color: #9da3b0;
+}
+
+.row-feature {
+    display: flex;
+    gap: 5px;
+}
+
+.btn__completed:hover {
+    background-color: #6b7280;
+}
+
+.btn__completed {
+    margin: 17px 0;
+    width: 41%;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 16px;
+    line-height: 24px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    background-color: rgb(156, 163, 175);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn__completed svg {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+    rotate: -90deg;
+}
+
+.todo-app-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-todo__completed {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.skeleton {
+    position: relative;
+}
+
+.skeleton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+.form_add_todos {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #38a169;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.btn_save {
+    background-color: #38a169;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    outline: none;
+    box-shadow: 0 0 0 3px #63b3ed;
+    flex-shrink: 0;
+}
+
+.btn_save:hover {
+    background-color: #319795;
+}
+
+.input_add_todos {
+    appearance: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    margin-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    line-height: 1.25;
+    outline: none;
+    color: #fff;
+}
+
+.list_todo_group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+
+    gap: 4;
+}
