@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Login from './pages/Login/index.jsx';
 import Home from './pages/Home/index.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // const query = 'ha.nth.838@aptechlearning.edu.vn';
 
 export default class App extends Component {
