@@ -4,13 +4,16 @@ import TodoItem from '../../components/todoItem';
 
 import Styles from './Home.module.scss';
 import clsx from 'clsx';
+import loading from '../../components/Loading/loading';
 
 const Home = () => {
     let [todoContent, setTodoContent] = useState('');
     let [ListTodo, setListTodo] = useState([]);
+    let [visible, setIsVisible] = useState(false);
 
     const handleCreateTodo = async (e) => {
         e.preventDefault();
+        setIsVisible(true);
         const todoContentValue = {
             todo: todoContent,
         };
@@ -18,11 +21,11 @@ const Home = () => {
         console.log(todoContentValue);
 
         await addTodo(todoContentValue).then((dataResponse) => {
+            setIsVisible(false);
             if (dataResponse) {
                 setTodoContent('');
                 // console.log(dataResponse);
                 setListTodo([dataResponse.data, ...ListTodo]);
-
                 // setListTodo(dataResponse.data);
             } else {
                 console.log('false');
@@ -53,6 +56,7 @@ const Home = () => {
 
     return (
         <>
+            {loading(visible)}
             <div className={clsx(Styles.todo__app_wrapper)}>
                 <h1 className={clsx(Styles.title)}>Welcome to Ha's Todo App exercise!</h1>
 

@@ -14,7 +14,7 @@ export const updateTodoList = async (id, body) => {
 export const deleteTodoList = async (id) => {
     const dataResponse = await deleteTodo(id);
     if (dataResponse.code === 200) {
-        return dataResponse.data;
+        return true;
     } else {
         return false;
     }
