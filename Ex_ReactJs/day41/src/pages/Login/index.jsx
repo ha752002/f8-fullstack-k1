@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { handleLogin } from './Login';
 import { useNavigate } from 'react-router-dom';
+import { getAllTodoLists } from '../Home/Home.js';
 // import Style from '../../assets/loading/loading.module.scss/';
 // import { ThreeDots } from 'react-loader-spinner';
 
@@ -17,6 +18,11 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        await getAllTodoLists().then((check) => {
+            if (!check) {
+                navigate('/');
+            }
+        });
         const emailValue = email;
 
         // console.log(emailValue);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { addTodo, getAllTodoLists } from './Home';
 import TodoItem from '../../components/todoItem';
+import { useNavigate } from 'react-router-dom';
 
 import Styles from './Home.module.scss';
 import clsx from 'clsx';
@@ -10,6 +11,7 @@ const Home = () => {
     let [todoContent, setTodoContent] = useState('');
     let [ListTodo, setListTodo] = useState([]);
     let [visible, setIsVisible] = useState(false);
+    const navigate = useNavigate();
 
     const handleCreateTodo = async (e) => {
         e.preventDefault();
@@ -38,11 +40,16 @@ const Home = () => {
     };
 
     const handleRenderTodo = async () => {
-        const data = await getAllTodoLists();
-        // console.log(data);
-        console.log(data);
+        const data = await getAllTodoLists().then((check) => {
+            if (check) {
+                console.log(2222);
+                setListTodo(data.listTodo);
+            } else {
+                console.log(3333);
 
-        setListTodo(data.listTodo);
+                navigate('/');
+            }
+        });
     };
 
     useEffect(() => {
