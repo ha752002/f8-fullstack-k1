@@ -16,24 +16,29 @@ const Home = () => {
     const handleCreateTodo = async (e) => {
         e.preventDefault();
         setIsVisible(true);
-        const todoContentValue = {
-            todo: todoContent,
-        };
 
-        // console.log(todoContentValue);
+        // Loại bỏ khoảng trắng từ đầu và cuối chuỗi
+        const trimmedTodoContent = todoContent.trim();
 
-        const dataResponse = await addTodo(todoContentValue);
-        setIsVisible(false);
-        if (dataResponse) {
-            setTodoContent('');
-            // console.log(dataResponse);
-            setListTodo([dataResponse.data, ...ListTodo]);
-            alert('bạn đã tạo todo thành công');
-            // setListTodo(dataResponse.data);
+        if (trimmedTodoContent === '') {
+            setIsVisible(false);
+            alert('Bạn chưa nhập gì.');
         } else {
-            navigate('/');
-            alert('vui long nhap lai Email');
-            console.log('false');
+            const todoContentValue = {
+                todo: trimmedTodoContent,
+            };
+
+            const dataResponse = await addTodo(todoContentValue);
+            setIsVisible(false);
+
+            if (dataResponse) {
+                setTodoContent('');
+                setListTodo([dataResponse.data, ...ListTodo]);
+                alert('Bạn đã tạo todo thành công');
+            } else {
+                navigate('/');
+                alert('Vui lòng nhập lại Email');
+            }
         }
     };
 
@@ -44,11 +49,10 @@ const Home = () => {
     const handleRenderTodo = async () => {
         const data = await getAllTodoLists();
         if (data) {
-            console.log(2222);
+            // console.log(2222);
             setListTodo(data.listTodo);
         } else {
-            console.log(3333);
-
+            // console.log(3333);
             navigate('/');
         }
     };
