@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { addTodo, getAllTodoLists } from './Home';
 import TodoItem from '../../components/todoItem';
 import { useNavigate } from 'react-router-dom';
+import { escapeOutput } from '../../until/until';
 
 import Styles from './Home.module.scss';
 import clsx from 'clsx';
@@ -17,15 +18,16 @@ const Home = () => {
         e.preventDefault();
         setIsVisible(true);
 
-        // Loại bỏ khoảng trắng từ đầu và cuối chuỗi
         const trimmedTodoContent = todoContent.trim();
 
         if (trimmedTodoContent === '') {
             setIsVisible(false);
             alert('Bạn chưa nhập gì.');
         } else {
+            const escapeOutputResuilt = escapeOutput(trimmedTodoContent);
+
             const todoContentValue = {
-                todo: trimmedTodoContent,
+                todo: escapeOutputResuilt,
             };
 
             const dataResponse = await addTodo(todoContentValue);
