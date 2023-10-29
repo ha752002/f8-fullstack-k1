@@ -20,19 +20,20 @@ const Home = () => {
             todo: todoContent,
         };
 
-        console.log(todoContentValue);
+        // console.log(todoContentValue);
 
-        await addTodo(todoContentValue).then((dataResponse) => {
-            setIsVisible(false);
-            if (dataResponse) {
-                setTodoContent('');
-                // console.log(dataResponse);
-                setListTodo([dataResponse.data, ...ListTodo]);
-                // setListTodo(dataResponse.data);
-            } else {
-                console.log('false');
-            }
-        });
+        const dataResponse = await addTodo(todoContentValue);
+        setIsVisible(false);
+        if (dataResponse) {
+            setTodoContent('');
+            // console.log(dataResponse);
+            setListTodo([dataResponse.data, ...ListTodo]);
+            // setListTodo(dataResponse.data);
+        } else {
+            navigate('/');
+            alert('vui long nhap lai Email');
+            console.log('false');
+        }
     };
 
     const handleContentChange = (e) => {
@@ -40,16 +41,15 @@ const Home = () => {
     };
 
     const handleRenderTodo = async () => {
-        const data = await getAllTodoLists().then((check) => {
-            if (check) {
-                console.log(2222);
-                setListTodo(data.listTodo);
-            } else {
-                console.log(3333);
+        const data = await getAllTodoLists();
+        if (data) {
+            console.log(2222);
+            setListTodo(data.listTodo);
+        } else {
+            console.log(3333);
 
-                navigate('/');
-            }
-        });
+            navigate('/');
+        }
     };
 
     useEffect(() => {

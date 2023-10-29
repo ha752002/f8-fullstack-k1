@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Styles from './TodoItem.module.scss';
 import { updateTodoList, deleteTodoList } from './Todo.js';
 import loading from '../../components/Loading/loading';
+import { useNavigate } from 'react-router-dom';
 
 const TodoItem = ({ todo, onEdit, onDelete }) => {
     // console.log(todo._id);
@@ -10,6 +11,7 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
     const [todoValue, setTodoValue] = useState(todo.todo);
     let [visible, setIsVisible] = useState(false);
     let [currentTodoValue, setCurrentTodoValue] = useState(todo.todo);
+    const navigate = useNavigate();
 
     const handleEdit = () => {
         setIsEditing(true);
@@ -38,6 +40,8 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
             } else {
                 setTodoValue(currentTodoValue);
                 setIsEditing(false);
+                navigate('/');
+                alert('Vui long nhap lai Email');
             }
         } catch (error) {
             console.error('Lỗi trong quá trình gọi API:', error);
@@ -53,7 +57,8 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
             if (ResultDeleteTodoList) {
                 onDelete(todo._id);
             } else {
-                alert('chua xoa dc');
+                alert('Vui long nhap lai Email');
+                navigate('/');
             }
         } catch (error) {
             console.error('Lỗi trong quá trình gọi API:', error);
