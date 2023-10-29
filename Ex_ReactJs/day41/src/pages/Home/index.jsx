@@ -28,6 +28,7 @@ const Home = () => {
             setTodoContent('');
             // console.log(dataResponse);
             setListTodo([dataResponse.data, ...ListTodo]);
+            alert('bạn đã tạo todo thành công');
             // setListTodo(dataResponse.data);
         } else {
             navigate('/');

@@ -56,6 +56,7 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
 
             if (ResultDeleteTodoList) {
                 onDelete(todo._id);
+                alert('Bạn đã xóa thành công');
             } else {
                 alert('Vui long nhap lai Email');
                 navigate('/');
