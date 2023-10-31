@@ -54,6 +54,7 @@ const Home = ({ toggleLoading }) => {
 
         // console.log(homeState.isSearching);
         if (homeState.isSearching) {
+            toggleLoading(true);
             handleSearch(e.target.value);
         }
     };
@@ -83,6 +84,7 @@ const Home = ({ toggleLoading }) => {
             listTodo: homeState.listTodo.filter((todo) => todo._id !== id),
         });
     };
+
     const handleSearchButton = (e) => {
         setHomeState((prevState) => {
             // console.log(prevState);
@@ -92,6 +94,7 @@ const Home = ({ toggleLoading }) => {
             };
         });
         alert('Trạng thái Search được bật');
+        toggleLoading(true);
         handleSearch(homeState.todoContent);
     };
 
