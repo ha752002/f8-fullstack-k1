@@ -7,6 +7,7 @@ export const handleLogin = async (email) => {
 
         if (dataResponse.code === 200) {
             const apikey = dataResponse.data.apiKey;
+
             alert(dataResponse.message);
             localStorage.setItem("apikey", apikey);
             return true;

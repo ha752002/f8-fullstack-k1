@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { client } from './services/API.js';
 import Login from './pages/Login/index.jsx';
 import Home from './pages/Home/index.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// const query = 'ha.nth.838@aptechlearning.edu.vn';
-// import clsx from 'clsx';
-// import Styles from './App.scss';
+import loading from './components/Loading/loading.jsx';
 
-export default class App extends Component {
-    render() {
-        return (
+export default function App() {
+    const [visible, setIsVisible] = useState(true);
+
+    return (
+        <>
+            {loading(visible)}
             <Router>
                 <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Home toggleLoading={setIsVisible} />} />
+                    <Route path="/home" element={<Home toggleLoading={setIsVisible} />} />
+                    <Route path="/login" element={<Login toggleLoading={setIsVisible} />} />
                 </Routes>
             </Router>
-        );
-    }
+        </>
+    );
 }

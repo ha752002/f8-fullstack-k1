@@ -5,41 +5,59 @@ import { updateTodoList, deleteTodoList } from './Todo.js';
 import loading from '../../components/Loading/loading';
 import { useNavigate } from 'react-router-dom';
 
-const TodoItem = ({ todo, onEdit, onDelete }) => {
+const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
     // console.log(todo._id);
-    const [isEditing, setIsEditing] = useState(false);
-    const [todoValue, setTodoValue] = useState(todo.todo);
-    let [visible, setIsVisible] = useState(false);
-    let [currentTodoValue, setCurrentTodoValue] = useState(todo.todo);
+    // const [isEditing, setIsEditing] = useState(false);
+    // const [todoValue, setTodoValue] = useState(todo.todo);
+
+    const [todoItemState, setTodoItemState] = useState({
+        isEditing: false,
+        todoValue: todo.todo,
+    });
+
     const navigate = useNavigate();
 
     const handleEdit = () => {
-        setIsEditing(true);
+        setTodoItemState({
+            ...todoItemState,
+            isEditing: true,
+        });
     };
 
     const handleCancelEdit = () => {
-        setIsEditing(false);
-        setTodoValue(todo.todo);
-        setCurrentTodoValue(todo.todo);
+        setTodoItemState({
+            ...todoItemState,
+            isEditing: false,
+            todoValue: todo.todo,
+        });
     };
 
     const handleInputChange = (e) => {
-        setTodoValue(e.target.value);
+        setTodoItemState({
+            ...todoItemState,
+            todoValue: e.target.value,
+        });
     };
 
     const handleUpdate = async () => {
         try {
-            let todoContent = { todo: 'todoValue' };
-            setIsVisible(true);
+            let todoContent = { todo: todoItemState.todoValue };
+            toggleLoading(true);
             const validationResult = await updateTodoList(todo._id, todoContent);
             // console.log(validationResult);
-            setIsVisible(false);
+            toggleLoading(false);
             if (validationResult) {
-                setCurrentTodoValue(todoValue);
-                setIsEditing(false);
+                setTodoItemState({
+                    ...todoItemState,
+                    isEditing: false,
+                    todoValue: validationResult.todo,
+                });
             } else {
-                setTodoValue(currentTodoValue);
-                setIsEditing(false);
+                setTodoItemState({
+                    ...todoItemState,
+                    isEditing: false,
+                    todoValue: todo.todo,
+                });
                 navigate('/');
                 alert('Vui long nhap lai Email');
             }
@@ -50,9 +68,9 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
 
     const handleDelete = async () => {
         try {
-            setIsVisible(true);
+            toggleLoading(true);
             const ResultDeleteTodoList = await deleteTodoList(todo._id);
-            setIsVisible(false);
+            toggleLoading(false);
 
             if (ResultDeleteTodoList) {
                 onDelete(todo._id);
@@ -63,22 +81,24 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
             }
         } catch (error) {
             console.error('Lỗi trong quá trình gọi API:', error);
-            setIsEditing(false);
+            setTodoItemState({
+                ...todoItemState,
+                isEditing: false,
+            });
         }
     };
 
     return (
         <>
-            {loading(visible)}
             <li className={clsx(Styles.list_todo_item)}>
                 <input
-                    value={todoValue}
-                    readOnly={!isEditing}
+                    value={todoItemState.todoValue}
+                    readOnly={!todoItemState.isEditing}
                     onChange={handleInputChange}
                     className={clsx(Styles.input_todo_item)}
                 />
                 <div className={clsx(Styles.btn_group)}>
-                    <div className="btn_group-left" style={{ display: isEditing ? 'none' : 'block' }}>
+                    <div className="btn_group-left" style={{ display: todoItemState.isEditing ? 'none' : 'block' }}>
                         <button onClick={handleEdit} className={clsx(Styles.save_button, Styles.btn_button)}>
                             edit
                         </button>
@@ -86,7 +106,7 @@ const TodoItem = ({ todo, onEdit, onDelete }) => {
                             delete
                         </button>
                     </div>
-                    <div className="btn_group-right" style={{ display: isEditing ? 'block' : 'none' }}>
+                    <div className="btn_group-right" style={{ display: todoItemState.isEditing ? 'block' : 'none' }}>
                         <button onClick={handleCancelEdit} className={clsx(Styles.cancel_button, Styles.btn_button)}>
                             cancel
                         </button>

@@ -1,4 +1,4 @@
-
+import { getAllTodo } from "./TodoServices";
 import { client } from "./API";
 
 export const fetchApiKey = async (query) => {
@@ -10,6 +10,17 @@ export const fetchApiKey = async (query) => {
         console.log(error);
     }
 };
+
+
+
+export const checkLogin = async () => {
+    const getAllTodoResult = await getAllTodo();
+    if (!getAllTodoResult.data) {
+        return false;
+    }
+    return true;
+
+}
 
 
 

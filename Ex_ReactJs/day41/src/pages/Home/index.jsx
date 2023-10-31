@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { addTodo, getAllTodoLists } from './Home';
+import { addTodo, getAllTodoLists, searchTodoLists } from './Home';
 import TodoItem from '../../components/todoItem';
 import { useNavigate } from 'react-router-dom';
-import { escapeOutput } from '../../until/until';
 
 import Styles from './Home.module.scss';
 import clsx from 'clsx';
-import loading from '../../components/Loading/loading';
 
-const Home = () => {
-    let [todoContent, setTodoContent] = useState('');
-    let [ListTodo, setListTodo] = useState([]);
-    let [visible, setIsVisible] = useState(false);
+const Home = ({ toggleLoading }) => {
+    const [homeState, setHomeState] = useState({
+        todoContent: '',
+        listTodo: [],
+        isSearching: false,
+    });
     const navigate = useNavigate();
 
     const handleCreateTodo = async (e) => {
         e.preventDefault();
-        setIsVisible(true);
+        toggleLoading(true);
 
-        const trimmedTodoContent = todoContent.trim();
-
+        const trimmedTodoContent = homeState.todoContent.trim();
         if (trimmedTodoContent === '') {
-            setIsVisible(false);
+            toggleLoading(false);
             alert('Bạn chưa nhập gì.');
         } else {
-            const escapeOutputResuilt = escapeOutput(trimmedTodoContent);
-
             const todoContentValue = {
-                todo: escapeOutputResuilt,
+                todo: trimmedTodoContent,
             };
 
             const dataResponse = await addTodo(todoContentValue);
-            setIsVisible(false);
+            toggleLoading(false);
 
             if (dataResponse) {
-                setTodoContent('');
-                setListTodo([dataResponse.data, ...ListTodo]);
+                setHomeState({
+                    ...homeState,
+                    todoContent: '',
+                    listTodo: [dataResponse.data, ...homeState.listTodo],
+                });
+
                 alert('Bạn đã tạo todo thành công');
             } else {
                 navigate('/');
@@ -45,32 +46,74 @@ const Home = () => {
     };
 
     const handleContentChange = (e) => {
-        setTodoContent(e.target.value);
+        setHomeState({
+            ...homeState,
+            todoContent: e.target.value,
+        });
+
+        // console.log(homeState.isSearching);
+        if (homeState.isSearching) {
+            handleSearch(e.target.value);
+        }
     };
 
     const handleRenderTodo = async () => {
         const data = await getAllTodoLists();
         if (data) {
             // console.log(2222);
-            setListTodo(data.listTodo);
+            toggleLoading(false);
+            setHomeState({
+                ...homeState,
+                listTodo: data.listTodo,
+            });
         } else {
             // console.log(3333);
-            navigate('/');
+            navigate('/login');
         }
     };
 
     useEffect(() => {
         handleRenderTodo();
-    }, []);
+    }, [homeState.isSearching]);
 
     const handleDeleteTodo = (id) => {
-        // Xóa todo có ID khớp với id được truyền từ con
-        setListTodo((list) => list.filter((todo) => todo._id !== id));
+        setHomeState({
+            ...homeState,
+            listTodo: homeState.listTodo.filter((todo) => todo._id !== id),
+        });
+    };
+    const handleSearchButton = (e) => {
+        setHomeState((prevState) => {
+            // console.log(prevState);
+            return {
+                ...prevState,
+                isSearching: true,
+            };
+        });
+        handleSearch(homeState.todoContent);
+    };
+    const handleSearch = (searchString) => {
+        console.log(searchString);
+
+        const trimmedTodoContent = searchString.trim();
+
+        searchTodoLists(trimmedTodoContent).then((dataResponse) => {
+            // console.log(homeState);
+            toggleLoading(false);
+            if (dataResponse) {
+                setHomeState((prevState) => {
+                    console.log(prevState);
+                    return {
+                        ...prevState,
+                        listTodo: dataResponse.listTodo,
+                    };
+                });
+            }
+        });
     };
 
     return (
         <>
-            {loading(visible)}
             <div className={clsx(Styles.todo__app_wrapper)}>
                 <h1 className={clsx(Styles.title)}>Welcome to Ha's Todo App exercise!</h1>
 
@@ -81,7 +124,7 @@ const Home = () => {
                             <input
                                 required=""
                                 type="text"
-                                value={todoContent}
+                                value={homeState.todoContent}
                                 onChange={handleContentChange}
                                 name="input-text"
                                 id="input-text"
@@ -89,18 +132,27 @@ const Home = () => {
                                 className={clsx(Styles.input_add_todos)}
                             />
                         </div>
-                        <div className="form-wrapper">
+                        <div className={clsx(Styles.form_btn)}>
                             <button className={clsx(Styles.btn, Styles.btn_save)}>Save</button>
-                            {/* <button type="button" className="btn btn-cancel">
-                                Cancel
-                            </button> */}
+                            <button
+                                type="button"
+                                onClick={handleSearchButton}
+                                className={clsx(Styles.btn, Styles.btn_search)}
+                            >
+                                Search
+                            </button>
                         </div>
                     </form>
                 </div>
                 <div className={clsx(Styles.list_todo)}>
                     <ul className={clsx(Styles.list_todo_group)}>
-                        {ListTodo.map((todo) => (
-                            <TodoItem key={todo._id} todo={todo} onDelete={handleDeleteTodo} />
+                        {homeState.listTodo.map((todo) => (
+                            <TodoItem
+                                toggleLoading={toggleLoading}
+                                key={todo._id}
+                                todo={todo}
+                                onDelete={handleDeleteTodo}
+                            />
                         ))}
                     </ul>
                 </div>

@@ -40,3 +40,12 @@ export const deleteTodo = async (id) => {
         console.log(error);
     }
 }
+
+export const searchTodo = async (query) => {
+    try {
+        const { data: dataResponse, response: response } = await client.get(`/todos?q=${query}`);
+        return dataResponse;
+    } catch (error) {
+        console.log(error);
+    }
+}

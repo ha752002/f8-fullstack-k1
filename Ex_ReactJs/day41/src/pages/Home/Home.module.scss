@@ -243,12 +243,27 @@ button.btn.btn-cancel {
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     outline: none;
-    box-shadow: 0 0 0 3px #63b3ed;
+    box-shadow: 0 0 0 2px #63b3ed;
     flex-shrink: 0;
 }
 
 .btn_save:hover {
     background-color: #319795;
+}
+
+.btn_search:hover {
+    background-color: rgb(131, 54, 6);
+}
+.btn_search {
+    margin-left: 17px;
+    background-color: rgb(233, 101, 19);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    outline: none;
+    box-shadow: 0 0 0 2px #63b3ed;
+    flex-shrink: 0;
 }
 
 .input_add_todos {
@@ -273,4 +288,9 @@ button.btn.btn-cancel {
     padding-left: 0;
 
     gap: 4;
+}
+
+.form_btn {
+    display: flex;
+    gap: 5;
 }

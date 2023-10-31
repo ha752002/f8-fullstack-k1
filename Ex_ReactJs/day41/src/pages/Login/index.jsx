@@ -1,58 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { handleLogin } from './Login';
 import { useNavigate } from 'react-router-dom';
-import { getAllTodoLists } from '../Home/Home.js';
+import { checkLogin } from '../../services/AuthService';
 // import Style from '../../assets/loading/loading.module.scss/';
 // import { ThreeDots } from 'react-loader-spinner';
 
 import Styles from './Login.module.scss/';
 import clsx from 'clsx';
-import loading from '../../components/Loading/loading';
 
-function Login() {
-    const [email, setEmail] = useState('');
+function Login({ toggleLoading }) {
+    const [formState, setFormState] = useState({
+        email: '',
+    });
     const navigate = useNavigate();
-    const [visible, setIsVisible] = useState(true);
 
     // let [color, setColor] = useState('#00e5ff');
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        await getAllTodoLists().then((check) => {
-            if (!check) {
-                navigate('/');
-            }
-        });
-        const emailValue = email;
+        const emailValue = formState.email;
 
         // console.log(emailValue);
-        setIsVisible(true);
-        await handleLogin(emailValue).then((check) => {
+        toggleLoading(true);
+        handleLogin(emailValue).then((check) => {
             if (check) {
                 // console.log(11);
                 navigate('/home');
             } else {
-                setIsVisible(false);
+                toggleLoading(false);
             }
         });
     };
 
     const handleEmailChange = (event) => {
-        setEmail(event.target.value);
+        setFormState({
+            ...formState,
+            email: event.target.value,
+        });
     };
 
     useEffect(() => {
+        checkLogin().then((check) => {
+            if (check) {
+                navigate('/home');
+            }
+        });
+
         setTimeout(() => {
-            setIsVisible(false);
+            toggleLoading(false);
         }, 2000);
-    }, [visible]);
+        console.log(111);
+    }, []);
 
     return (
         <>
-            {loading(visible)}
             <div className={clsx(Styles.form_login)}>
                 <form onSubmit={handleSubmit} className={clsx(Styles.form_login_wrapper)}>
-                    <input type="text" placeholder="Vui lòng nhập Email" value={email} onChange={handleEmailChange} />
+                    <input
+                        type="text"
+                        placeholder="Vui lòng nhập Email"
+                        value={formState.email}
+                        onChange={handleEmailChange}
+                    />
                     <button type="submit" className={clsx(Styles.btn_submit)}>
                         Submit
                     </button>
