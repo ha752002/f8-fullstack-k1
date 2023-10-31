@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { addTodo, getAllTodoLists, searchTodoLists } from './Home';
 import TodoItem from '../../components/todoItem';
 import { useNavigate } from 'react-router-dom';
+import _debounce from 'lodash/debounce';
 
 import Styles from './Home.module.scss';
 import clsx from 'clsx';
@@ -74,7 +75,7 @@ const Home = ({ toggleLoading }) => {
 
     useEffect(() => {
         handleRenderTodo();
-    }, [homeState.isSearching]);
+    }, []);
 
     const handleDeleteTodo = (id) => {
         setHomeState({
@@ -90,27 +91,32 @@ const Home = ({ toggleLoading }) => {
                 isSearching: true,
             };
         });
+        alert('Trạng thái Search được bật');
         handleSearch(homeState.todoContent);
     };
-    const handleSearch = (searchString) => {
-        console.log(searchString);
 
-        const trimmedTodoContent = searchString.trim();
+    const handleSearch = useCallback(
+        _debounce((searchString) => {
+            console.log(searchString);
 
-        searchTodoLists(trimmedTodoContent).then((dataResponse) => {
-            // console.log(homeState);
-            toggleLoading(false);
-            if (dataResponse) {
-                setHomeState((prevState) => {
-                    console.log(prevState);
-                    return {
-                        ...prevState,
-                        listTodo: dataResponse.listTodo,
-                    };
-                });
-            }
-        });
-    };
+            const trimmedTodoContent = searchString.trim();
+
+            searchTodoLists(trimmedTodoContent).then((dataResponse) => {
+                // console.log(homeState);
+                toggleLoading(false);
+                if (dataResponse) {
+                    setHomeState((prevState) => {
+                        console.log(prevState);
+                        return {
+                            ...prevState,
+                            listTodo: dataResponse.listTodo,
+                        };
+                    });
+                }
+            });
+        }, 1000),
+        [],
+    );
 
     return (
         <>
