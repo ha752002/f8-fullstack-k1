@@ -31,14 +31,15 @@ const Home = ({ toggleLoading }) => {
             const dataResponse = await addTodo(todoContentValue);
             toggleLoading(false);
 
-            if (dataResponse) {
+            if (dataResponse && !homeState.isSearching) {
                 setHomeState({
                     ...homeState,
                     todoContent: '',
                     listTodo: [dataResponse.data, ...homeState.listTodo],
                 });
-
                 alert('Bạn đã tạo todo thành công');
+            } else if (dataResponse && homeState.isSearching) {
+                await handleRenderTodo();
             } else {
                 navigate('/');
                 alert('Vui lòng nhập lại Email');
@@ -67,6 +68,7 @@ const Home = ({ toggleLoading }) => {
             setHomeState({
                 ...homeState,
                 listTodo: data.listTodo,
+                isSearching: false,
             });
         } else {
             // console.log(3333);
