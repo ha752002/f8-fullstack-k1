@@ -1,5 +1,5 @@
 import { fetchApiKey } from '../../services/AuthService.js';
-
+import { toast } from 'react-toastify';
 
 export const handleLogin = async (email) => {
     try {
@@ -8,15 +8,17 @@ export const handleLogin = async (email) => {
         if (dataResponse.code === 200) {
             const apikey = dataResponse.data.apiKey;
 
-            alert(dataResponse.message);
+            // alert(dataResponse.message);
+            toast.success('Đăng nhập thành công');
             localStorage.setItem("apikey", apikey);
             return true;
         } else {
-            alert(dataResponse.message);
+            toast.success(dataResponse.message);
             return false;
         }
     } catch (error) {
-        console.error("Xảy ra lỗi trong quá trình xử lý đăng nhập:", error);
+        toast.error("Xảy ra lỗi trong quá trình xử lý đăng nhập:", error)
+        // console.error("Xảy ra lỗi trong quá trình xử lý đăng nhập:", error);
         return false;
     }
 }

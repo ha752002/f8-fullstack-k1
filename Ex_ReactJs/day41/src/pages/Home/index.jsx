@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import _debounce from 'lodash/debounce';
 
 import Styles from './Home.module.scss';
+import { toast } from 'react-toastify';
+
 import clsx from 'clsx';
 
 const Home = ({ toggleLoading }) => {
@@ -22,7 +24,7 @@ const Home = ({ toggleLoading }) => {
         const trimmedTodoContent = homeState.todoContent.trim();
         if (trimmedTodoContent === '') {
             toggleLoading(false);
-            alert('Bạn chưa nhập gì.');
+            toast.warn('Bạn chưa nhập gì.');
         } else {
             const todoContentValue = {
                 todo: trimmedTodoContent,
@@ -37,12 +39,13 @@ const Home = ({ toggleLoading }) => {
                     todoContent: '',
                     listTodo: [dataResponse.data, ...homeState.listTodo],
                 });
-                alert('Bạn đã tạo todo thành công');
+                toast.success('Thêm 1 todo thành công !');
             } else if (dataResponse && homeState.isSearching) {
+                toast.success('Thêm 1 todo thành công !');
                 await handleRenderTodo();
             } else {
                 navigate('/');
-                alert('Vui lòng nhập lại Email');
+                toast.warn('Vui lòng nhập lại Email');
             }
         }
     };
@@ -95,7 +98,7 @@ const Home = ({ toggleLoading }) => {
                 isSearching: true,
             };
         });
-        alert('Trạng thái Search được bật');
+        toast.success('Trạng thái Search được bật');
         toggleLoading(true);
         handleSearch(homeState.todoContent);
     };
@@ -105,7 +108,6 @@ const Home = ({ toggleLoading }) => {
             console.log(searchString);
 
             const trimmedTodoContent = searchString.trim();
-
             searchTodoLists(trimmedTodoContent).then((dataResponse) => {
                 // console.log(homeState);
                 toggleLoading(false);

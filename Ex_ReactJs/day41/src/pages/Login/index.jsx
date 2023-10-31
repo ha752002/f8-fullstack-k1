@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { handleLogin } from './Login';
 import { useNavigate } from 'react-router-dom';
 import { checkLogin } from '../../services/AuthService';
-// import Style from '../../assets/loading/loading.module.scss/';
-// import { ThreeDots } from 'react-loader-spinner';
 
 import Styles from './Login.module.scss/';
 import clsx from 'clsx';
@@ -13,8 +11,6 @@ function Login({ toggleLoading }) {
         email: '',
     });
     const navigate = useNavigate();
-
-    // let [color, setColor] = useState('#00e5ff');
 
     const handleSubmit = (event) => {
         event.preventDefault();
