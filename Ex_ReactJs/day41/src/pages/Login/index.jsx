@@ -5,6 +5,7 @@ import { checkLogin } from '../../services/AuthService';
 
 import Styles from './Login.module.scss/';
 import clsx from 'clsx';
+import { toast } from 'react-toastify';
 
 function Login({ toggleLoading }) {
     const [formState, setFormState] = useState({
@@ -22,6 +23,8 @@ function Login({ toggleLoading }) {
             if (check) {
                 // console.log(11);
                 navigate('/home');
+                console.log(1111);
+                // toast.success('Chao mung ban đã quay trở lại!!');
             } else {
                 toggleLoading(false);
             }
@@ -38,7 +41,10 @@ function Login({ toggleLoading }) {
     useEffect(() => {
         checkLogin().then((check) => {
             if (check) {
+                console.log(3333);
+
                 navigate('/home');
+                // toast.success('Chao mung ban đã quay trở lại!!');
             }
         });
 

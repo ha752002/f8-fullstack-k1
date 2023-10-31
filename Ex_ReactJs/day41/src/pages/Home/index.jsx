@@ -66,7 +66,6 @@ const Home = ({ toggleLoading }) => {
     const handleRenderTodo = async () => {
         const data = await getAllTodoLists();
         if (data) {
-            // console.log(2222);
             toggleLoading(false);
             setHomeState({
                 ...homeState,
@@ -74,12 +73,13 @@ const Home = ({ toggleLoading }) => {
                 isSearching: false,
             });
         } else {
-            // console.log(3333);
+            console.log(55);
             navigate('/login');
         }
     };
 
     useEffect(() => {
+        toast.success('Chào mừng bạn đã quay trở lại !! ');
         handleRenderTodo();
     }, []);
 
