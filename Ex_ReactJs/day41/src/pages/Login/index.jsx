@@ -63,6 +63,7 @@ function Login({ toggleLoading }) {
                         placeholder="Vui lòng nhập Email"
                         value={formState.email}
                         onChange={handleEmailChange}
+                        className={clsx(Styles.form_login_input)}
                     />
                     <button type="submit" className={clsx(Styles.btn_submit)}>
                         Submit

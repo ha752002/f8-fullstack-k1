@@ -20,7 +20,7 @@ export const deleteTodoList = async (id) => {
         toast.success("Xóa todo thành công");
         return true;
     } else {
-        toast.error(dataResponse.message);
+        // toast.error(dataResponse.message);
         return false;
 
     }
