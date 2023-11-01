@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { handleLogin } from './Login';
+import { handleLogin } from './main';
 import { useNavigate } from 'react-router-dom';
 import { checkLogin } from '../../services/AuthService';
 

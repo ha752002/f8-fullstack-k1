@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import Styles from './TodoItem.module.scss';
-import { updateTodoList, deleteTodoList } from './Todo.js';
-import loading from '../../components/Loading/loading';
+import { updateTodoList, deleteTodoList } from './main.js';
+// import loading from '../../components/Loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 

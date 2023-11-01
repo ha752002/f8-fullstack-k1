@@ -6,8 +6,10 @@ export const addTodo = async (value) => {
     if (dataResponse.code === 201) {
         return dataResponse;
     } else {
+        // throw new Error("Invalid");
         return false;
     }
+
 }
 
 
