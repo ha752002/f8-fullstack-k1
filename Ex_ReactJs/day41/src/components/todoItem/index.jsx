@@ -5,6 +5,7 @@ import { updateTodoList, deleteTodoList } from './main.js';
 // import loading from '../../components/Loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { checkLogin } from '../../services/AuthService';
 
 const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
     // console.log(todo._id);
@@ -42,6 +43,9 @@ const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
 
     const handleUpdate = async () => {
         try {
+            if (!(await checkLogin())) {
+                navigate('/login');
+            }
             let todoContent = { todo: todoItemState.todoValue };
             toggleLoading(true);
             const validationResult = await updateTodoList(todo._id, todoContent);
@@ -69,6 +73,9 @@ const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
 
     const handleDelete = async () => {
         try {
+            if (!(await checkLogin())) {
+                navigate('/login');
+            }
             toggleLoading(true);
             const ResultDeleteTodoList = await deleteTodoList(todo._id);
             toggleLoading(false);
