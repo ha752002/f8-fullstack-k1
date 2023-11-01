@@ -4,6 +4,7 @@ import Styles from './TodoItem.module.scss';
 import { updateTodoList, deleteTodoList } from './Todo.js';
 import loading from '../../components/Loading/loading';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
     // console.log(todo._id);
@@ -59,10 +60,10 @@ const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
                     todoValue: todo.todo,
                 });
                 navigate('/');
-                alert('Vui long nhap lai Email');
+                toast.warning('Vui long nhap lai Email');
             }
         } catch (error) {
-            console.error('Lỗi trong quá trình gọi API:', error);
+            toast.error('Lỗi trong quá trình gọi API:', error);
         }
     };
 
@@ -74,13 +75,15 @@ const TodoItem = ({ todo, onEdit, onDelete, toggleLoading }) => {
 
             if (ResultDeleteTodoList) {
                 onDelete(todo._id);
-                alert('Bạn đã xóa thành công');
             } else {
-                alert('Vui long nhap lai Email');
+                toast.warning('Vui long nhap lai Email');
+                // alert('Vui long nhap lai Email');
                 navigate('/');
             }
         } catch (error) {
-            console.error('Lỗi trong quá trình gọi API:', error);
+            // console.error('Lỗi trong quá trình gọi API:', error);
+            toast.error('Lỗi trong quá trình gọi API:', error);
+
             setTodoItemState({
                 ...todoItemState,
                 isEditing: false,
