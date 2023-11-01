@@ -17,10 +17,10 @@ const Home = ({ toggleLoading }) => {
     });
     const navigate = useNavigate();
 
-    const handleCreateTodo = async (e) => {
-        e.preventDefault();
+    const handleCreateTodo = async () => {
+        // e.preventDefault();
         toggleLoading(true);
-
+        console.log(homeState);
         const trimmedTodoContent = homeState.todoContent.trim();
         if (trimmedTodoContent === '') {
             toggleLoading(false);
@@ -29,7 +29,6 @@ const Home = ({ toggleLoading }) => {
             const todoContentValue = {
                 todo: trimmedTodoContent,
             };
-
             const dataResponse = await addTodo(todoContentValue);
             toggleLoading(false);
 
@@ -42,6 +41,7 @@ const Home = ({ toggleLoading }) => {
                 toast.success('Thêm 1 todo thành công !');
             } else if (dataResponse && homeState.isSearching) {
                 toast.success('Thêm 1 todo thành công !');
+                toast.warn('Chế độ Search đã tắt');
                 await handleRenderTodo();
             } else {
                 navigate('/');
@@ -49,7 +49,6 @@ const Home = ({ toggleLoading }) => {
             }
         }
     };
-
     const handleContentChange = (e) => {
         setHomeState({
             ...homeState,
@@ -69,6 +68,7 @@ const Home = ({ toggleLoading }) => {
             toggleLoading(false);
             setHomeState({
                 ...homeState,
+                todoContent: '',
                 listTodo: data.listTodo,
                 isSearching: false,
             });
@@ -98,6 +98,7 @@ const Home = ({ toggleLoading }) => {
                 isSearching: true,
             };
         });
+
         toast.success('Trạng thái Search được bật');
         toggleLoading(true);
         handleSearch(homeState.todoContent);
@@ -132,7 +133,7 @@ const Home = ({ toggleLoading }) => {
 
                 <div className="form-add">
                     <div className="over-lay" />
-                    <form onSubmit={handleCreateTodo} className={clsx(Styles.form_add_todos)}>
+                    <div className={clsx(Styles.form_add_todos)}>
                         <div className="form-wrapper">
                             <input
                                 required=""
@@ -146,7 +147,9 @@ const Home = ({ toggleLoading }) => {
                             />
                         </div>
                         <div className={clsx(Styles.form_btn)}>
-                            <button className={clsx(Styles.btn, Styles.btn_save)}>Save</button>
+                            <button onClick={handleCreateTodo} className={clsx(Styles.btn, Styles.btn_save)}>
+                                Save
+                            </button>
                             <button
                                 type="button"
                                 onClick={handleSearchButton}
@@ -155,7 +158,7 @@ const Home = ({ toggleLoading }) => {
                                 Search
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div className={clsx(Styles.list_todo)}>
                     <ul className={clsx(Styles.list_todo_group)}>
