@@ -1,4 +1,4 @@
-import { login, getUserProfile } from "../services/AuthService";
+import { login, getUserProfile } from "../services/authService";
 import { toast } from 'react-toastify';
 
 export const handleLogin = async (requestParam) => {
