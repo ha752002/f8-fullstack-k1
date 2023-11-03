@@ -34,7 +34,7 @@ export default function CartList() {
                                 <tbody className="bg-white divide-y">
                                     {context.cartState.cartList.map((cart) => {
                                         return (
-                                            <tr className="text-gray-700" key={cart.id}>
+                                            <tr className="text-gray-700" key={cart._id}>
                                                 <td className="px-2 py-2">
                                                     <div className="flex items-center text-sm">
                                                         <p className="font-semibold">{cart.name}</p>

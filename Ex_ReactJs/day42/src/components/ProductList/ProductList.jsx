@@ -16,7 +16,7 @@ export default function ProductList() {
                     <div className="row row-cols-1 row-cols-md-4 g-4">
                         {context.cartState.productList &&
                             context.cartState.productList.map((product) => {
-                                return <ProductItem key={product.id} product={product} />;
+                                return <ProductItem key={product._id} product={product} />;
                             })}
                     </div>
                 </div>

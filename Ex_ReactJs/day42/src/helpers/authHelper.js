@@ -7,10 +7,10 @@ export const handleLogin = async (requestParam) => {
         // console.log(responseResult);
         localStorage.setItem('API_Key', responseResult.data.apiKey);
         // console.log(localStorage.getItem('API_Key'));
-        toast.success(responseResult.message);
+        // toast.success(``);
         return true;
     } catch (error) {
-        toast.error(error.message);
+        // toast.error(error.message);
 
     }
 }
@@ -25,8 +25,7 @@ export const checkLogin = async () => {
         }
 
     } catch (error) {
-        toast.error(error.message);
-
+        // toast.error(error.message);
     }
 }
 

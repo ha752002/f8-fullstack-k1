@@ -28,19 +28,12 @@ export default function Cart() {
 
             case 'cartList/add':
                 let newCartList = [...prev.cartList];
-                let isUpdate = false;
-                newCartList = newCartList.map((item) => {
-                    let copyItem = { ...item };
-                    if (item.id === action.payload.id) {
-                        copyItem.amount = copyItem.amount ? copyItem.amount + 1 : 2;
-                        isUpdate = true;
-                    }
-
-                    return copyItem;
-                });
-
-                if (!isUpdate) {
-                    newCartList.push(action.payload);
+                const cart = newCartList.filter((item) => item._id === action.payload._id)[0];
+                // console.log(cart);
+                if (cart) {
+                    cart.amount = cart.amount ? cart.amount + 1 : 2;
+                } else {
+                    newCartList.push({ ...action.payload });
                 }
                 handleUpdateCart(newCartList);
                 return {
