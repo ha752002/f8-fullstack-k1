@@ -113,7 +113,13 @@ export default function Cart() {
             checkLogin().then(async (check) => {
                 appContext.handleToggleLoading(false);
                 if (check) {
-                    const response = await handleCheckout(cartState.cartList);
+                    const checkoutList = cartState.cartList.map((e) => {
+                        return {
+                            productId: e._id,
+                            quantity: e.amount ?? 1,
+                        };
+                    });
+                    const response = await handleCheckout(checkoutList);
                     // console.log(cartState);
 
                     if (response) {
