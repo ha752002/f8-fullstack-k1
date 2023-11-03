@@ -29,13 +29,14 @@ export default function Cart() {
             case 'cartList/add':
                 let newCartList = [...prev.cartList];
                 let isUpdate = false;
-                newCartList.map((item) => {
+                newCartList = newCartList.map((item) => {
+                    let copyItem = { ...item };
                     if (item.id === action.payload.id) {
-                        item.amount = item.amount ? item.amount + 1 : 2;
+                        copyItem.amount = copyItem.amount ? copyItem.amount + 1 : 2;
                         isUpdate = true;
                     }
 
-                    return item;
+                    return copyItem;
                 });
 
                 if (!isUpdate) {
