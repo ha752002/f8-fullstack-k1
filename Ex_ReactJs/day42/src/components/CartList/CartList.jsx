@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../pages/Cart';
-import Styles from './CartList.module.scss';
+import Styles from './cartList.module.scss';
 import clsx from 'clsx';
 
 export default function CartList() {
