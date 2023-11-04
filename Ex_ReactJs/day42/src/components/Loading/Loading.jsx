@@ -19,9 +19,7 @@ export default function loading({ visible }) {
                 zIndex: 9999,
                 alignItems: 'center',
                 justifyContent: 'center',
-                display: 'flex',
             }}
-            // wrapperClassName={clsx(Styles.loading)}
             visible={visible}
             wrapperClassName={clsx(Styles.overlay)}
         />
