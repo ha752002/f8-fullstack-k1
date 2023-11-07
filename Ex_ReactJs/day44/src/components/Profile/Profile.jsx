@@ -20,7 +20,9 @@ const Profile = () => {
                     <img src={user.picture} className="rounded-circle" alt={user.name} style={{ width: '96px' }} />
                 </div>
                 <h6 className="card-title text-center">Xin Chào {user.name}</h6>
-                <p className="card-text">Email :{user.email}</p>
+                <p className="card-text" style={{ fontSize: '1.1rem', marginBottom: '10px' }}>
+                    <span style={{ fontWeight: ' 600' }}> Email</span> :{user.email}
+                </p>
             </div>
         )
     );

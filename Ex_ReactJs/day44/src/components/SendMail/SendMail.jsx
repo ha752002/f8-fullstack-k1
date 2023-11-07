@@ -13,7 +13,7 @@ export const ContactUs = () => {
 
     return (
         <>
-            <form ref={form} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '21px' }}>
                 <input
                     type="text"
                     className="form-control"
@@ -23,8 +23,8 @@ export const ContactUs = () => {
                     defaultValue={user.name}
                     hidden
                 />
-                <div className="form-group">
-                    <label htmlFor="email">
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '9px' }}>
+                    <label htmlFor="email" style={{ fontWeight: ' 600' }}>
                         Email của bạn<span className="text-danger">*</span>
                     </label>
                     <input
@@ -37,7 +37,7 @@ export const ContactUs = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="message">
+                    <label htmlFor="message" style={{ fontWeight: ' 600' }}>
                         Tin nhắn<span className="text-danger">*</span>
                     </label>
                     <textarea

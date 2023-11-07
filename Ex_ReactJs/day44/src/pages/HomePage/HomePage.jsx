@@ -7,8 +7,8 @@ import { ContactUs } from '../../components/SendMail/SendMail';
 export default function HomePage() {
     return (
         <>
-            <div className="container-sm ">
-                <div className="card">
+            <div className="container-sm " style={{ margin: ' 122px auto' }}>
+                <div className="card" style={{ width: '67%', margin: '0 auto' }}>
                     <div className="card-body max-width-60">
                         {/* <div className="d-flex justify-content-center">
                             <img
