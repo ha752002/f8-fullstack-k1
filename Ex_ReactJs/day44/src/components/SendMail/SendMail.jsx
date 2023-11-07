@@ -1,19 +1,62 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { sendEmail as doSendEmail } from '../../utils/emailUtil';
-
+import { useSelector } from '../../store/useContext';
 export const ContactUs = () => {
-    const form = useRef();
-    const { user } = useAuth0();
+    // const form = useRef();
+    const { state, dispatch } = useSelector();
+
+    const { user, isLoading } = useAuth0();
+    const defaultContact = {
+        email: user.email,
+        message: 'Tôi cần trợ giúp bài tập về nhà!',
+    };
+    const reducer = (prev, action = {}) => {
+        switch (action.type) {
+            case 'email/change': {
+                return {
+                    ...prev,
+                    email: action.payload,
+                };
+            }
+
+            case 'message/change': {
+                return {
+                    ...prev,
+                    message: action.payload,
+                };
+            }
+
+            case 'form/reset': {
+                return defaultContact;
+            }
+        }
+    };
+    const [contactState, contactDispatch] = useReducer(reducer, {
+        ...defaultContact,
+    });
+
+    // console.log(contactState.email);
 
     const sendEmail = (e) => {
+        dispatch({
+            type: 'loading/toggle',
+            payload: true,
+        });
         e.preventDefault();
-        doSendEmail(form.current);
+        doSendEmail(contactState).then(() => {
+            dispatch({
+                type: 'loading/toggle',
+                payload: false,
+            });
+        });
+        contactDispatch({
+            type: 'form/reset',
+        });
     };
-
     return (
         <>
-            <form ref={form} onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '21px' }}>
+            <form onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '21px' }}>
                 <input
                     type="text"
                     className="form-control"
@@ -32,8 +75,14 @@ export const ContactUs = () => {
                         className="form-control"
                         id="email"
                         name="user_email"
+                        value={contactState.email}
                         required
-                        defaultValue={user.email}
+                        onChange={(e) => {
+                            contactDispatch({
+                                type: 'email/change',
+                                payload: e.target.value,
+                            });
+                        }}
                     />
                 </div>
                 <div className="form-group">
@@ -41,8 +90,14 @@ export const ContactUs = () => {
                         Tin nhắn<span className="text-danger">*</span>
                     </label>
                     <textarea
-                        defaultValue="Tôi cần trợ giúp bài tập về nhà!"
                         name="message"
+                        onChange={(e) => {
+                            contactDispatch({
+                                type: 'message/change',
+                                payload: e.target.value,
+                            });
+                        }}
+                        value={contactState.message}
                         className="form-control"
                         id="message"
                         rows="4"

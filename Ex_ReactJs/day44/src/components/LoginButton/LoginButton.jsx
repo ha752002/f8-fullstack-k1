@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { toast } from 'react-toastify';
 
 const LoginButton = () => {
     const { loginWithPopup, isAuthenticated } = useAuth0();

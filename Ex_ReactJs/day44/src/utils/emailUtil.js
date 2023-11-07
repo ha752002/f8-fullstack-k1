@@ -5,10 +5,10 @@ const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
 const emailPublicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
 import { toast } from 'react-toastify';
 
-export const sendEmail = (form) => {
+export const sendEmail = async (form) => {
 
 
-    emailjs.sendForm(emailServiceId, emailTemplateId, form, emailPublicKey).then(
+    await emailjs.send(emailServiceId, emailTemplateId, form, emailPublicKey).then(
         (result) => {
             toast.success('Gửi Email thành công!');
         },
