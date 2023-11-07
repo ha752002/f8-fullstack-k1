@@ -48,6 +48,7 @@ export default function App() {
                     pauseOnHover
                     theme="light"
                 />
+
                 <div className="container  mt-3 mb-5">
                     <div className="row ">
                         <Cart />

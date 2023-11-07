@@ -2,7 +2,6 @@
  *Câu lệnh rẽ nhánh if( 4 loại)
 
  1. câu lệnh if thiếu 
-
  // Nếu thoả mãn điều kiện thì thực hiẹn nội dung
  if(dieukien) {
     noi dung
@@ -20,17 +19,17 @@
  */
 
 var total = 15000000,
-tax,
-income;
+    tax,
+    income;
 
-if(total < 5000000) {
+if (total < 5000000) {
     tax = 1;
 } else if (total > 15000000) {
     tax = 5;
-}else {
+} else {
     tax = 3;
 }
 
-income = total - (total * tax)/100;
+income = total - (total * tax) / 100;
 
 console.log(income);
