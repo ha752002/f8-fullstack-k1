@@ -4,7 +4,7 @@ import { useSelector } from '../../store/useContext';
 
 function Welcome() {
     const { state, dispatch } = useSelector();
-    console.log(state, dispatch);
+    // console.log(state, dispatch);
 
     return (
         <>
