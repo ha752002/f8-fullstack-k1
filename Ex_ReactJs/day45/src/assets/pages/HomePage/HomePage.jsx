@@ -87,12 +87,12 @@ export default function HomePage() {
                 });
             } else {
                 toast.warning(result);
+                dispatch({
+                    type: 'remainTurn/decrement',
+                });
             }
 
             playRef.current.roundHistory.push(answer);
-            dispatch({
-                type: 'remainTurn/decrement',
-            });
         } else if (state.remainTurn <= 0) {
             newRound();
         } else {
