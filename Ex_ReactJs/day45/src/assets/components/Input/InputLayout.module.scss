@@ -1,0 +1,37 @@
+.btn {
+    width: 110px;
+    padding: 7px 5px;
+    background: #319795;
+    color: white;
+    border: none;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    margin: 10px auto;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.custom_input {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    transition: border-color 0.3s;
+}
+.custom_input::placeholder {
+    color: #999;
+}
+
+.custom_input:focus {
+    border-color: #00f;
+}
+.custom_input::placeholder {
+    color: #999;
+}
