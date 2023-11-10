@@ -14,7 +14,7 @@ export default function Form(props) {
                 <div className={clsx(Styles.form_group)} style={{ margin: '10px 0px' }}>
                     <div role="group" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <label htmlFor="number">Hãy thử nhập một số</label>
-                        {props.isOutOfTurn ? (
+                        {!props.isOutOfTurn ? (
                             <input
                                 onChange={(e) => {
                                     props.onChange(e.target.value);
