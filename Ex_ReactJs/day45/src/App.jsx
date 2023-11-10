@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import HomePage from './assets/pages/HomePage/HomePage';
-import Toast from './assets/components/Toast/Toast';
+import HomePage from './pages/HomePage/HomePage';
+import Toast from './components/Toast/Toast';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 function App() {
