@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import Styles from './InputLayout.module.scss';
+import { formValidate } from '../../validation/formValidation';
 
 export default function Form(props) {
+    const inputRef = useRef();
+    useEffect(() => {
+        function handleKeyDown(e) {
+            if (formValidate(e.key)) inputRef.current.focus();
+        }
+
+        document.addEventListener('keydown', handleKeyDown);
+
+        // Don't forget to clean up
+        return function cleanup() {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
     return (
         <>
             <form
@@ -29,6 +43,7 @@ export default function Form(props) {
                                 name="number"
                                 placeholder="Thử một số"
                                 id="number"
+                                ref={inputRef}
                             />
                         ) : (
                             <></>

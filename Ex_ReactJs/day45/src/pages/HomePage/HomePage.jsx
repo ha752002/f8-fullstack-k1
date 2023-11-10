@@ -114,21 +114,23 @@ export default function HomePage() {
 
     return (
         <>
-            <Button onClick={toggleColorMode} colorScheme="teal" size="sm">
-                {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
-            </Button>
-            <div style={{ fontSize: '1.5rem', margin: '10px 0px' }}>
-                số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
-            </div>
+            <div>
+                <Button onClick={toggleColorMode} colorScheme="teal" size="sm">
+                    {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+                </Button>
+                <div style={{ fontSize: '1.5rem', margin: '10px 0px' }}>
+                    số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
+                </div>
 
-            {state.history.length > 0 ? <TableResult value={state.history} /> : <></>}
-            <Form
-                value={state.input}
-                onChange={handleOnchange}
-                onSubmit={handleOnSubmit}
-                isOutOfTurn={state.remainTurn <= 0}
-                onkeyDownInput={handleOnkeyDownInput}
-            />
+                {state.history.length > 0 ? <TableResult value={state.history} /> : <></>}
+                <Form
+                    value={state.input}
+                    onChange={handleOnchange}
+                    onSubmit={handleOnSubmit}
+                    isOutOfTurn={state.remainTurn <= 0}
+                    onkeyDownInput={handleOnkeyDownInput}
+                />
+            </div>
         </>
     );
 }
