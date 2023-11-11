@@ -45,8 +45,6 @@ export default function HomePage() {
                 type: 'numberInput/change',
                 payload: value,
             });
-        } else {
-            customToast('Bạn phải nhập số từ 1 -> 99');
         }
     };
 
@@ -116,6 +114,7 @@ export default function HomePage() {
         }
     }, [state.remainTurn]);
 
+    const handleResetTable = () => {};
     return (
         <>
             <div>
@@ -129,7 +128,11 @@ export default function HomePage() {
                     Số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
                 </div>
 
-                {state.history.length > 0 ? <TableResult value={state.history} /> : <></>}
+                {state.history.length > 0 ? (
+                    <TableResult value={state.history} handleResetTable={handleResetTable} />
+                ) : (
+                    <></>
+                )}
                 <Form
                     value={state.input}
                     onChange={handleOnchange}

@@ -1,16 +1,18 @@
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
+
 import clsx from 'clsx';
 import Styles from './TableLayout.module.scss';
 import { ruleConfig } from '../../config/ruleConfig';
-const TableResult = ({ value }) => {
-    console.log(value);
-    const correctAnswerNumber = value.filter((item) => {
+const TableResult = (props) => {
+    console.log(props.value);
+    const correctAnswerNumber = props.value.filter((item) => {
         return item.some((childItem) => {
             return childItem.isCorrect === true;
         });
     }).length;
-    const correctPercent = ((correctAnswerNumber * 100) / value.length).toFixed(2);
+    const correctPercent = ((correctAnswerNumber * 100) / props.value.length).toFixed(2);
     const calPercent = (item) => {
         const correctIndex = item.findIndex((val) => {
             return val.isCorrect === true;
@@ -23,6 +25,9 @@ const TableResult = ({ value }) => {
     };
     return (
         <>
+            <Button onClick={props.handleResetTable} colorScheme="teal" size="sm">
+                <DeleteIcon />
+            </Button>
             <div
                 style={{
                     // display: 'none',
@@ -40,7 +45,7 @@ const TableResult = ({ value }) => {
                         border: '1px solid black',
                     }}
                 >
-                    {value.map((item, index) => (
+                    {props.value.map((item, index) => (
                         <div
                             key={index}
                             className="chakra-table__container "
@@ -93,7 +98,7 @@ const TableResult = ({ value }) => {
                             </Table>
                             <div className="table-captions" style={{ transform: 'translateX(30%)' }}>
                                 <p className="css-9o0p9n">
-                                    Lần chơi thứ: {value.length - index} / {value.length}
+                                    Lần chơi thứ: {props.value.length - index} / {props.value.length}
                                 </p>
                                 <p className="css-9o0p9n">Tỉ lệ:{calPercent(item)}%</p>
                                 <p className="css-9o0p9n">
