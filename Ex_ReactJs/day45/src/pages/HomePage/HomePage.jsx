@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useReducer, useRef, useCallback } from 'react';
 import Form from '../../components/Input/Input';
 import { ruleConfig } from '../../config/ruleConfig';
 import { handleCheck } from '../../helpers/checkHelper';
@@ -9,6 +9,7 @@ import TableResult from '../../components/Table/Table';
 import { setItem, getItem, removeItem } from '../../utils/localStorageUtil';
 import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import _debounce from 'lodash/debounce';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
 
 export default function HomePage() {
@@ -17,12 +18,10 @@ export default function HomePage() {
         correctResult: create(),
         maxTurn: ruleConfig.MAX_TURN,
         roundHistory: [],
-        initialState: { input: '', table: '', remainTurn: ruleConfig.MAX_TURN, history: [] },
     });
     console.log(playRef.current.correctResult);
 
-    // remainTurn : so luot con lai
-    const initState = () => {
+    useLayoutEffect(() => {
         let dataGetItemHistory = [];
         try {
             const item = getItem('history');
@@ -31,14 +30,24 @@ export default function HomePage() {
             }
             const initialState = { ...playRef.current.initialState };
             initialState.history = dataGetItemHistory;
-            return initialState;
+
+            dispatch({
+                type: 'historyData/set',
+                payload: dataGetItemHistory,
+            });
         } catch (error) {
             return { ...playRef.current.initialState };
         }
-    };
+    }, []);
 
-    const [state, dispatch] = useReducer(reduce, initState());
+    const [state, dispatch] = useReducer(reduce, {
+        input: '',
+        table: '',
+        remainTurn: ruleConfig.MAX_TURN,
+        history: [],
+    });
     // console.log(state);
+
     const handleOnchange = (value) => {
         const check = formValidate(value);
         if (check) {
@@ -68,38 +77,40 @@ export default function HomePage() {
         }
     };
 
-    const handleOnSubmit = () => {
-        const check = formValidate(state.input);
-        // console.log(state.input);
-        if (check && state.remainTurn > 0 && state.input) {
-            const result = handleCheck(playRef.current.correctResult, +state.input);
-            const answer = {
-                number: state.input,
-            };
-            if (result === true) {
-                customToast(' 🙂 Bạn đoán đúng ! Chúc mừng');
-                answer.isCorrect = true;
-                dispatch({
-                    type: 'round/set',
-                    payload: {
-                        remainTurn: 0,
-                    },
-                });
+    const handleOnSubmit = useCallback(
+        _debounce(() => {
+            const check = formValidate(state.input);
+            // console.log(state.input);
+            if (check && state.remainTurn > 0 && state.input) {
+                const result = handleCheck(playRef.current.correctResult, +state.input);
+                const answer = {
+                    number: state.input,
+                };
+                if (result === true) {
+                    customToast(' 🙂 Bạn đoán đúng ! Chúc mừng');
+                    answer.isCorrect = true;
+                    dispatch({
+                        type: 'round/set',
+                        payload: {
+                            remainTurn: 0,
+                        },
+                    });
+                } else {
+                    customToast(result);
+                    dispatch({
+                        type: 'remainTurn/decrement',
+                    });
+                }
+
+                playRef.current.roundHistory.push(answer);
+            } else if (state.remainTurn <= 0) {
+                newRound();
             } else {
-                customToast(result);
-
-                dispatch({
-                    type: 'remainTurn/decrement',
-                });
+                customToast(' 👊 Vui lòng nhập đúng số');
             }
-
-            playRef.current.roundHistory.push(answer);
-        } else if (state.remainTurn <= 0) {
-            newRound();
-        } else {
-            customToast(' 👊 Vui lòng nhập đúng số');
-        }
-    };
+        }, 200),
+        [state.remainTurn, state.input],
+    );
 
     useEffect(() => {
         customToast(' 🤪 Chào mừng bạn đã đến với trò chơi!');
