@@ -119,7 +119,7 @@ export default function HomePage() {
                     {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                 </Button>
                 <div style={{ fontSize: '1.5rem', margin: '10px 0px' }}>
-                    số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
+                    Số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
                 </div>
 
                 {state.history.length > 0 ? <TableResult value={state.history} /> : <></>}
