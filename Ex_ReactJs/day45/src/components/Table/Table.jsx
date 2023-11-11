@@ -58,7 +58,7 @@ const TableResult = ({ value }) => {
                                         <Tr key={childIndex}>
                                             <Td
                                                 className={clsx(Styles.td_left)}
-                                                style={{ width: '30%', textAlign: 'center' }}
+                                                style={{ width: '30%', textAlign: 'center', padding: '7px' }}
                                             >
                                                 <p className="chakra-text css-1f1x3b8">{childIndex + 1}</p>
                                                 <hr
@@ -69,7 +69,7 @@ const TableResult = ({ value }) => {
                                             </Td>
                                             <Td
                                                 className={clsx(Styles.td_right)}
-                                                style={{ width: '70%', textAlign: 'center' }}
+                                                style={{ width: '70%', textAlign: 'center', padding: '7px' }}
                                             >
                                                 <p
                                                     className="chakra-text css-1f1x3b8"

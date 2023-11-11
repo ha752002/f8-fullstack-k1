@@ -4,13 +4,13 @@ import { ruleConfig } from '../../config/ruleConfig';
 import { handleCheck } from '../../helpers/checkHelper';
 import { reduce } from './reducer';
 import { formValidate } from '../../validation/formValidation';
-import { toast } from 'react-toastify';
 import { create } from '../../utils/randomNumber';
 import TableResult from '../../components/Table/Table';
 import { setItem, getItem } from '../../utils/localStorageUtil';
-
+import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
+
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
     const playRef = useRef({
@@ -46,7 +46,7 @@ export default function HomePage() {
                 payload: value,
             });
         } else {
-            toast.info('Bạn phải nhập số từ 1 -> 99');
+            customToast('Bạn phải nhập số từ 1 -> 99');
         }
     };
 
@@ -77,7 +77,7 @@ export default function HomePage() {
                 number: state.input,
             };
             if (result === true) {
-                toast.success('Bạn đoán đúng ! Bạn là nhất:)))');
+                customToast('Bạn đoán đúng ! Bạn là nhất:)))');
                 answer.isCorrect = true;
                 dispatch({
                     type: 'round/set',
@@ -86,7 +86,8 @@ export default function HomePage() {
                     },
                 });
             } else {
-                toast.warning(result);
+                customToast(result);
+
                 dispatch({
                     type: 'remainTurn/decrement',
                 });
@@ -96,9 +97,12 @@ export default function HomePage() {
         } else if (state.remainTurn <= 0) {
             newRound();
         } else {
-            toast.warning('Vui lòng nhập đúng số');
+            customToast('Vui lòng nhập đúng số!');
         }
     };
+    useEffect(() => {
+        customToast('Chào mừng bạn đã đến với trò chơi!');
+    }, []);
 
     useEffect(() => {
         if (state.remainTurn <= 0) {
@@ -118,6 +122,9 @@ export default function HomePage() {
                 <Button onClick={toggleColorMode} colorScheme="teal" size="sm">
                     {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                 </Button>
+                <div style={{ fontSize: '2rem', margin: '10px 0px' }}>
+                    Bạn cần tìm kiếm số từ 1 -&gt; {ruleConfig.MAX_NUMBER}
+                </div>
                 <div style={{ fontSize: '1.5rem', margin: '10px 0px' }}>
                     Số lượt còn lai {state.remainTurn}/{playRef.current.maxTurn}
                 </div>

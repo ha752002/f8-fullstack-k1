@@ -7,7 +7,8 @@ export default function Toast() {
         <>
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={700}
+                limit={4}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
