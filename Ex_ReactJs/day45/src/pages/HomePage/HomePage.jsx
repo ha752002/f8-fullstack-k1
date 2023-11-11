@@ -6,11 +6,10 @@ import { reduce } from './reducer';
 import { formValidate } from '../../validation/formValidation';
 import { create } from '../../utils/randomNumber';
 import TableResult from '../../components/Table/Table';
-import { setItem, getItem } from '../../utils/localStorageUtil';
+import { setItem, getItem, removeItem } from '../../utils/localStorageUtil';
 import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
-import { toast } from 'react-toastify';
 
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -21,6 +20,7 @@ export default function HomePage() {
         initialState: { input: '', table: '', remainTurn: ruleConfig.MAX_TURN, history: [] },
     });
     console.log(playRef.current.correctResult);
+
     // remainTurn : so luot con lai
     const initState = () => {
         let dataGetItemHistory = [];
@@ -67,6 +67,7 @@ export default function HomePage() {
             handleOnchange(+state.input + 1);
         }
     };
+
     const handleOnSubmit = () => {
         const check = formValidate(state.input);
         // console.log(state.input);
@@ -116,7 +117,15 @@ export default function HomePage() {
         }
     }, [state.remainTurn]);
 
-    const handleResetTable = () => {};
+    const handleResetTable = () => {
+        console.log(state.history);
+        dispatch({
+            type: 'historyData/set',
+            payload: playRef.current.initialState.history,
+        });
+        removeItem('history');
+    };
+
     return (
         <>
             <div>
