@@ -132,7 +132,7 @@ export default function HomePage() {
         console.log(state.history);
         dispatch({
             type: 'historyData/set',
-            payload: playRef.current.initialState.history,
+            payload: [],
         });
         removeItem('history');
     };
