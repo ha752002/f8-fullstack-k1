@@ -11,6 +11,7 @@ import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import _debounce from 'lodash/debounce';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -137,9 +138,16 @@ export default function HomePage() {
         removeItem('history');
     };
 
+    const calculatorRate = () => {
+        const count = playRef.current.maxTurn;
+        const rate = (100 * state.remainTurn) / count;
+        return rate;
+    };
+
     return (
         <>
             <div>
+                <ProgressBar rate={calculatorRate()} />
                 <Button onClick={toggleColorMode} colorScheme="teal" size="sm">
                     {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                 </Button>

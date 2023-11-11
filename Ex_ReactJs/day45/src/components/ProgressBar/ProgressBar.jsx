@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function () {
-    const rate = 100;
+export default function ProgressBar(props) {
     return (
         <>
-            <div class="h-3"></div>
+            <div
+                className="h-3"
+                style={{ width: `${props.rate}%`, background: 'rgb(48 211 208)', height: '10px', marginBottom: '20px' }}
+            ></div>
         </>
     );
 }
