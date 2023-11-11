@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 export const customToast = (text) => {
-    toast(`🦄 ${text}`, {
+    toast(` ${text}`, {
         position: 'top-right',
         autoClose: 700,
         hideProgressBar: false,
@@ -9,5 +9,6 @@ export const customToast = (text) => {
         pauseOnHover: true,
         draggable: true,
         theme: 'light',
-    });
-}
+
+    })
+};

@@ -10,6 +10,7 @@ import { setItem, getItem } from '../../utils/localStorageUtil';
 import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
+import { toast } from 'react-toastify';
 
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -75,7 +76,7 @@ export default function HomePage() {
                 number: state.input,
             };
             if (result === true) {
-                customToast('Bạn đoán đúng ! Bạn là nhất:)))');
+                customToast(' 🙂 Bạn đoán đúng ! Chúc mừng');
                 answer.isCorrect = true;
                 dispatch({
                     type: 'round/set',
@@ -95,11 +96,12 @@ export default function HomePage() {
         } else if (state.remainTurn <= 0) {
             newRound();
         } else {
-            customToast('Vui lòng nhập đúng số!');
+            customToast(' 👊 Vui lòng nhập đúng số');
         }
     };
+
     useEffect(() => {
-        customToast('Chào mừng bạn đã đến với trò chơi!');
+        customToast(' 🤪 Chào mừng bạn đã đến với trò chơi!');
     }, []);
 
     useEffect(() => {
