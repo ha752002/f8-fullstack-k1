@@ -12,7 +12,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import _debounce from 'lodash/debounce';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
-
+import { toast } from 'react-toastify';
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
     const playRef = useRef({
@@ -109,8 +109,8 @@ export default function HomePage() {
             } else {
                 customToast(' 👊 Vui lòng nhập đúng số');
             }
-        }, 200),
-        [state.remainTurn, state.input],
+        }, 400),
+        [playRef.current.roundHistory, state.input],
     );
 
     useEffect(() => {
@@ -119,7 +119,17 @@ export default function HomePage() {
 
     useEffect(() => {
         if (state.remainTurn <= 0) {
-            const historyUpdate = [playRef.current.roundHistory, ...state.history];
+            const roundHistory = playRef.current.roundHistory;
+            if (!(roundHistory[roundHistory.length - 1].isCorrect === true)) {
+                toast.warning(
+                    'đáng lẽ ra bạn phải ' +
+                        (roundHistory[roundHistory.length - 1] < playRef.current.correctResult
+                            ? 'tăng lên'
+                            : 'giảm đi') +
+                        ' 1 chút',
+                );
+            }
+            const historyUpdate = [roundHistory, ...state.history];
             setItem('history', historyUpdate);
             dispatch({
                 type: 'historyData/set',
