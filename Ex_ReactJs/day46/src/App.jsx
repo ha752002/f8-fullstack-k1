@@ -1,0 +1,29 @@
+import React from 'react';
+import Products from "./components/Products/Products.jsx";
+import Home from "./pages/Home/Home.jsx";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import MainLayout from "./layout/MainLayout/MainLayout.jsx";
+import CartPage from "./pages/CartPage/CartPage.jsx";
+import Loading from "./components/Loading/Loading.jsx";
+
+
+function App(props) {
+    return (
+        <>
+            <Loading />
+            <Router>
+                <Routes >
+                   <Route path="" exact={true} element={<MainLayout />}>
+                       <Route path="*" exact={true} element={<NotFoundPage />}/>
+                       <Route path="/home" exact={true} element={<Home />} />
+                       <Route path="" exact={true} element={<Home />} />
+                       <Route path="/cart" exact={true} element={<CartPage/>} />
+                   </Route>
+                </Routes>
+            </Router>
+        </>
+    );
+}
+
+export default App;

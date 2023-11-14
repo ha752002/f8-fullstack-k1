@@ -1,0 +1,11 @@
+.overlay {
+  background-color: rgba(103, 103, 103, 0.7); /* Một màu nền mờ */
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
