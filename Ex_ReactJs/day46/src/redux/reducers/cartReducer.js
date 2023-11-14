@@ -8,7 +8,7 @@ import {deleteProductCart} from "../actions/cartAction.js";
 
 const getCartHistory = () => {
     try {
-        return getLocalStorage('cartProducts')
+        return getLocalStorage('cartProducts')??[]
     } catch (e) {
         return []
     }
