@@ -15,9 +15,12 @@ const ProductItem = ({ product }) => {
                         src={product.image}
                         alt="Product Image"
                         className="card-img-top"
-                        style={{ height: '7rem' }}
+                        style={{ height: '7rem',marginBottom :'10px' }}
                     />
-                    <h2 className="card-title h6 text-center mt-auto" style={{ marginTop: '8px' }}>
+                    <h2 className="card-title h6 text-center mt-auto" style={{ marginTop: '8px' ,
+                        overflow: 'hidden',
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap"}}>
                         {product.name}
                     </h2>
                     {/*<NavLink to={/} />*/}

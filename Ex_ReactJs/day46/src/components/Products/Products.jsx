@@ -15,7 +15,7 @@ function Products(props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchProducts({limit: 10, page: 1}));
+        dispatch(fetchProducts({limit: 20, page: 1}));
     }, [dispatch]);
 
     useEffect(() => {
