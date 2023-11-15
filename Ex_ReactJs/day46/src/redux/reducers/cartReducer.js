@@ -1,10 +1,8 @@
 import {
     ADD_PRODUCT, CLEAR_CART, DECREMENT_AMOUNT_PRODUCT, DELETE_PRODUCT_ITEM_CART, INCREMENT_AMOUNT_PRODUCT
 } from "../constants/cart.js";
-import products from "../../components/Products/Products.jsx";
-import {act} from "react-dom/test-utils";
 import {getLocalStorage} from "../../utils/localStorage.js";
-import {deleteProductCart} from "../actions/cartAction.js";
+import {customToast} from "../../utils/toastUtil.js";
 
 const getCartHistory = () => {
     try {
@@ -33,10 +31,11 @@ const cartReducer = (state = initialState, action) => {
             } else {
                 existProduct.amount++
             }
-
+            customToast('Bạn đã thêm sp thành công');
             return {
                 ...state, products: products
             }
+
         }
 
         case INCREMENT_AMOUNT_PRODUCT : {

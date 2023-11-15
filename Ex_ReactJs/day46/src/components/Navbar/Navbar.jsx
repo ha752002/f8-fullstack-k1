@@ -9,6 +9,7 @@ function Navbar() {
             <div className="container">
                 <a className="navbar-brand">
                     <img src={icon} id="icon-in-div" width="40" alt="icon"/>
+                    <span style={{color : "white"}}> Hongg Ha Shop</span>
                 </a>
 
                <CartButton />

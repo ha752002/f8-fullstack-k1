@@ -6,11 +6,13 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import MainLayout from "./layout/MainLayout/MainLayout.jsx";
 import CartPage from "./pages/CartPage/CartPage.jsx";
 import Loading from "./components/Loading/Loading.jsx";
+import Toast from "./components/Toast/Toast.jsx";
 
 
 function App(props) {
     return (
         <>
+           <Toast />
             <Loading />
             <Router>
                 <Routes >

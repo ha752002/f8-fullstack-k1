@@ -9,6 +9,8 @@ export const customToast = (text) => {
         pauseOnHover: true,
         draggable: true,
         theme: 'light',
-
+        style: {
+            marginTop: '70px'
+        },
     })
 };

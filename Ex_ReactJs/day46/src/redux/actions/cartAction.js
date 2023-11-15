@@ -5,7 +5,7 @@ import {
     DELETE_PRODUCT_ITEM_CART,
     INCREMENT_AMOUNT_PRODUCT
 } from "../constants/cart.js";
-import {useFormAction} from "react-router-dom";
+
 export const addToCart = (product) => {
     return (dispatch) => {
         try {
@@ -13,7 +13,6 @@ export const addToCart = (product) => {
                 type: ADD_PRODUCT,
                 payload: {...product}
             });
-
         } catch (error) {
             console.error(error);
         }
