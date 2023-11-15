@@ -24,7 +24,7 @@ const cartReducer = (state = initialState, action) => {
             const existProduct = products.filter((p) => {
                 return p._id === product._id
             })[0]
-
+            console.log(existProduct)
             if (!existProduct) {
                 product.amount = 1
                 products.push(product);

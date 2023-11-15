@@ -27,7 +27,7 @@ function CartPage(props) {
                     </div> : <div style={{width : "80%", margin : "80px auto", textAlign : "center"}}>
                         <h2 style={{textAlign: "center"}}> KHÔNG CÓ SẢN PHẨM NÀO TRONG GIỎ</h2>
                         <NavLink to="/">
-                            <button className="btn btn-primary" onClick={(e) => e.stopPropagation()}>Go Home
+                            <button className="btn btn-primary">Go Home
                             </button>
                         </NavLink>
                     </div>

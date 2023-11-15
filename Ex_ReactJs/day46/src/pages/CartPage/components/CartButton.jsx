@@ -13,6 +13,7 @@ function CartButton(props) {
     useEffect(()=>{
         setLocalStorage('cartProducts',cartProducts )
     },[cartProducts])
+
     return (<>
          <NavLink to={"/cart"} >
              <div className="d-flex align-items-center"  >

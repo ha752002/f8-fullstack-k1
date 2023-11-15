@@ -5,6 +5,7 @@ import CartButton from "../../pages/CartPage/components/CartButton.jsx";
 import {NavLink} from "react-router-dom";
 
 function Navbar() {
+    console.log('renderNavbar')
     return (
         <nav id="navbar-container" className="navbar navbar-light  justify-content-between"
              style={{backgroundColor: "#252b48"}}>
