@@ -31,7 +31,6 @@ const cartReducer = (state = initialState, action) => {
             } else {
                 existProduct.amount++
             }
-            customToast('Bạn đã thêm sp thành công');
             return {
                 ...state, products: products
             }

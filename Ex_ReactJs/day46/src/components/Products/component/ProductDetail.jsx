@@ -55,7 +55,13 @@ function ProductDetail(props) {
                 </div>
             );
         } else {
-            return <div>No products available.</div>;
+            return <div style={{width : "80%", margin : "80px auto", textAlign : "center"}}>
+                <h1>Sản phẩm này không tồn tại</h1>
+                <NavLink to="/">
+                    <button className="btn btn-primary" >Go Home
+                    </button>
+                </NavLink>
+            </div>;
         }
     };
 
