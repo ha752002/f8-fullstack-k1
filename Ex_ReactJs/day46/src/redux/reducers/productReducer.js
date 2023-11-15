@@ -9,7 +9,8 @@ const initialState = {
     requesting: false,
     success: false,
     message: null,
-    data: null
+    data: null,
+    totalPage: 0
 }
 
 // bắt từng action type
@@ -21,12 +22,23 @@ function productReducers(state = initialState, action) {
                 requesting: true
             };
         case FETCH_PRODUCT_SUCCESS:
-            return {
-                ...state,
-                requesting: false,
-                success: true,
-                data: action.payload
-            };
+            if(state.totalPage !== action.payload.totalPage) {
+                return {
+                    ...state,
+                    requesting: false,
+                    success: true,
+                    totalPage: action.payload.totalPage,
+                    data: action.payload.data
+                };
+            }else {
+                return {
+                    ...state,
+                    requesting: false,
+                    success: true,
+                    data: action.payload.data
+                };
+            }
+
         case FETCH_PRODUCT_ERROR:
             return {
                 ...state,

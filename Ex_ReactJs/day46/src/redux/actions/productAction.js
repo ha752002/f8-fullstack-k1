@@ -14,7 +14,10 @@ export const fetchProducts = (requestParam) => {
 
             dispatch({
                 type: FETCH_PRODUCT_SUCCESS,
-                payload: response.data.listProduct
+                payload: {
+                    data : response.data.listProduct,
+                    totalPage : response.data.totalPage
+                }
             });
         } catch (error) {
             console.error(error);

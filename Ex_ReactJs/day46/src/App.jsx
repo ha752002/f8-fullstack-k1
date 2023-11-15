@@ -19,6 +19,7 @@ function App(props) {
                 <Routes >
                    <Route path="" exact={true} element={<MainLayout />}>
                        <Route path="*" exact={true} element={<NotFoundPage />}/>
+                       <Route path="/home/:page" exact={true} element={<Home />} />
                        <Route path="/home" exact={true} element={<Home />} />
                        <Route path="" exact={true} element={<Home />} />
                        <Route path="/cart" exact={true} element={<CartPage/>} />
