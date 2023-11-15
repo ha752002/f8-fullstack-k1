@@ -1,9 +1,9 @@
-// import constants
+
 import {
-    FETCH_PRODUCT_REQUEST,
-    FETCH_PRODUCT_SUCCESS,
-    FETCH_PRODUCT_ERROR,
-} from '../constants/product.js';
+    FETCH_PRODUCT_DETAIL_ERROR,
+    FETCH_PRODUCT_DETAIL_REQUEST,
+    FETCH_PRODUCT_DETAIL_SUCCESS
+} from "../constants/productDetail.js";
 
 const initialState = {
     requesting: false,
@@ -13,21 +13,21 @@ const initialState = {
 }
 
 // bắt từng action type
-function productReducers(state = initialState, action) {
+function productDetailReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_PRODUCT_REQUEST:
+        case FETCH_PRODUCT_DETAIL_REQUEST:
             return {
                 ...state,
                 requesting: true
             };
-        case FETCH_PRODUCT_SUCCESS:
+        case FETCH_PRODUCT_DETAIL_SUCCESS:
             return {
                 ...state,
                 requesting: false,
                 success: true,
                 data: action.payload
             };
-        case FETCH_PRODUCT_ERROR:
+        case FETCH_PRODUCT_DETAIL_ERROR:
             return {
                 ...state,
                 requesting: false,
@@ -39,4 +39,4 @@ function productReducers(state = initialState, action) {
     }
 }
 
-export default productReducers;
+export default productDetailReducer;

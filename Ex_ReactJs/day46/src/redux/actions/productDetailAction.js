@@ -12,7 +12,7 @@ export const fetchProductDetail = (requestParam) => {
             dispatch({type: FETCH_PRODUCT_DETAIL_REQUEST});
 
             const response = await getProductDetail(requestParam)
-
+            console.log(response.data)
             dispatch({
                 type: FETCH_PRODUCT_DETAIL_SUCCESS,
                 payload: response.data

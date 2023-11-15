@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import {addToCart} from "../../../redux/actions/cartAction.js";
 import {NavLink} from "react-router-dom";
+import {removeAccents} from "../../../utils/stringUtil.js";
 
 const ProductItem = ({ product }) => {
     const dispatch = useDispatch();
@@ -11,19 +12,22 @@ const ProductItem = ({ product }) => {
         <div key={product.id} className="col-md-3 mb-4">
             <div className="card d-flex flex-column h-100">
                 <div className="card-header">
-                    <img
-                        src={product.image}
-                        alt="Product Image"
-                        className="card-img-top"
-                        style={{ height: '7rem',marginBottom :'10px' }}
-                    />
-                    <h2 className="card-title h6 text-center mt-auto" style={{ marginTop: '8px' ,
-                        overflow: 'hidden',
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap"}}>
-                        {product.name}
-                    </h2>
-                    {/*<NavLink to={/} />*/}
+
+                 <NavLink to={`/detail/${removeAccents(product.name).replaceAll(" ","-")}/${product._id}`}>
+                     <img
+                         src={product.image}
+                         alt="Product Image"
+                         className="card-img-top"
+                         style={{ height: '7rem',marginBottom :'10px' }}
+                     />
+                     <h2 className="card-title h6 text-center mt-auto" style={{ marginTop: '8px' ,
+                         overflow: 'hidden',
+                         textOverflow: "ellipsis",
+                         whiteSpace: "nowrap"}}>
+                         {product.name}
+                     </h2>
+                 </NavLink>
+
                 </div>
                 <div
                     className="card-body d-flex flex-row mb-auto"
