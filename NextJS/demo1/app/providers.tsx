@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/system";
 // import { useRouter } from 'next/navigation'
@@ -13,7 +12,6 @@ export interface ProvidersProps {
 
 export function Providers({ children, themeProps }: ProvidersProps) {
   // const router = useRouter();
-
 	return (
 		<NextUIProvider >
 			<NextThemesProvider {...themeProps}>{children}</NextThemesProvider>

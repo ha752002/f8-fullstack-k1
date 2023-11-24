@@ -5,7 +5,10 @@
     },
     "page": {
         "home": {
-            "userInfo": "Thông tin cá nhân"
+            "userInfo": "Thông tin cá nhân",
+            "fullName": "Họ và tên : Nguyễn Thị Hồng Hà",
+            "imageInfo" : "https://i.pinimg.com/564x/cd/8f/5a/cd8f5ad8da5eaf8e00e77b08cb995306.jpg",
+            "studyAt" : "Học tại : F8 Học Lập Trình không Khó"
         }
     }
 }
