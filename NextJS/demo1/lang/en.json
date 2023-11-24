@@ -1,0 +1,11 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About"
+    },
+    "page": {
+        "home": {
+            "userInfo": "User Info"
+        }
+    }
+}

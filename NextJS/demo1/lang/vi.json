@@ -1,0 +1,11 @@
+{
+    "navigation": {
+        "home": "Trang chủ",
+        "about": "Giới thiệu"
+    },
+    "page": {
+        "home": {
+            "userInfo": "Thông tin cá nhân"
+        }
+    }
+}
