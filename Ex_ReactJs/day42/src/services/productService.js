@@ -7,3 +7,9 @@ export const getProducts = async (requestParam) => {
     return response;
 };
 
+
+export const getProductDetail = async (requestParam) => {
+    const response = await apiClient.get(`/products/`, requestParam);
+    console.log(response);
+    return response;
+};

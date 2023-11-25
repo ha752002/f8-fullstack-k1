@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36d7922c-bcbe-4945-8fca-80ba3c8e56be" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../next-js-02/src/app/todos/TodoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../next-js-02/src/app/todos/[id]/PostDetail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../next-js-02/src/app/todos/[id]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../next-js-02/src/app/todos/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ex_ReactJs/day42/src/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ex_ReactJs/day42/src/services/productService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ex_ReactJs/day45/src/pages/HomePage/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ex_ReactJs/day45/src/pages/HomePage/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/test.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2YXFe4jyp1J2wqVNwiL8pj6p4h0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36d7922c-bcbe-4945-8fca-80ba3c8e56be" name="Changes" comment="" />
+      <created>1700664109992</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700664109992</updated>
+      <workItem from="1700664111159" duration="207000" />
+      <workItem from="1700664346332" duration="1648000" />
+      <workItem from="1700708054888" duration="626000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

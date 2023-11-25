@@ -1,0 +1,11 @@
+.list_language {
+  display: flex;
+}
+
+.item_language {
+  display: inline-flex;
+  align-items: center;
+  border-right: 1px solid #666;
+  min-height: 60px;
+  padding: 5px;
+}

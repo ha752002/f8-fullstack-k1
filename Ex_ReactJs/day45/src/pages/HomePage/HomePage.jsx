@@ -7,12 +7,13 @@ import { formValidate } from '../../validation/formValidation';
 import { create } from '../../utils/randomNumber';
 import TableResult from '../../components/Table/Table';
 import { setItem, getItem, removeItem } from '../../utils/localStorageUtil';
-import { customToast } from '../../utils/toastUtils';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import _debounce from 'lodash/debounce';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import { toast } from 'react-toastify';
+// import {toast} from 'react-toastify';
+import { customToast } from '../../utils/toastUtils.js';
+
 export default function HomePage() {
     const { colorMode, toggleColorMode } = useColorMode();
     const playRef = useRef({
@@ -78,40 +79,37 @@ export default function HomePage() {
         }
     };
 
-    const handleOnSubmit = useCallback(
-        _debounce(() => {
-            const check = formValidate(state.input);
-            // console.log(state.input);
-            if (check && state.remainTurn > 0 && state.input) {
-                const result = handleCheck(playRef.current.correctResult, +state.input);
-                const answer = {
-                    number: state.input,
-                };
-                if (result === true) {
-                    customToast(' 🙂 Bạn đoán đúng ! Chúc mừng');
-                    answer.isCorrect = true;
-                    dispatch({
-                        type: 'round/set',
-                        payload: {
-                            remainTurn: 0,
-                        },
-                    });
-                } else {
-                    customToast(result);
-                    dispatch({
-                        type: 'remainTurn/decrement',
-                    });
-                }
-
-                playRef.current.roundHistory.push(answer);
-            } else if (state.remainTurn <= 0) {
-                newRound();
+    const handleOnSubmit = () => {
+        const check = formValidate(state.input);
+        // console.log(state.input);
+        if (check && state.remainTurn > 0 && state.input) {
+            const result = handleCheck(playRef.current.correctResult, +state.input);
+            const answer = {
+                number: state.input,
+            };
+            if (result === true) {
+                customToast(' 🙂 Bạn đoán đúng ! Chúc mừng');
+                answer.isCorrect = true;
+                dispatch({
+                    type: 'round/set',
+                    payload: {
+                        remainTurn: 0,
+                    },
+                });
             } else {
-                customToast(' 👊 Vui lòng nhập đúng số');
+                customToast(result);
+                dispatch({
+                    type: 'remainTurn/decrement',
+                });
             }
-        }, 400),
-        [playRef.current.roundHistory, state.input],
-    );
+
+            playRef.current.roundHistory.push(answer);
+        } else if (state.remainTurn <= 0) {
+            newRound();
+        } else {
+            customToast(' 👊 Vui lòng nhập đúng số');
+        }
+    };
 
     useEffect(() => {
         customToast(' 🤪 Chào mừng bạn đã đến với trò chơi!');
@@ -161,6 +159,7 @@ export default function HomePage() {
                 <Button onClick={toggleColorMode} colorScheme="teal" size="sm">
                     {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                 </Button>
+
                 <div style={{ fontSize: '2rem', margin: '10px 0px' }}>
                     Bạn cần tìm kiếm số từ 1 -&gt; {ruleConfig.MAX_NUMBER}
                 </div>
