@@ -21,9 +21,10 @@ export default function LocaleSwitcher() {
         const segments = pathName.split('/')
         segments[1] = locale
         const newUrl = segments.join('/')
+        localStorage.setItem("language" ,locale);
         return router.push(newUrl)
     }
-    console.log(`locale`,i18n.locales)
+    // console.log(`locale`,i18n.locales)
 
     return (
         <Dropdown>

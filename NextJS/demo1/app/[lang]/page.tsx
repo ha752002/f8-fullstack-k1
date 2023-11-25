@@ -1,9 +1,11 @@
 import React from 'react';
 import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
+import {List} from "postcss/lib/list";
 
 const Home = async ({params: {lang}}: { params: { lang: Locale } }) => {
     const {page} = await getDictionary(lang)
+
     return (
         <>
           <div style={{display: "flex"}}>
