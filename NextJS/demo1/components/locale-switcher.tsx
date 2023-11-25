@@ -23,7 +23,7 @@ export default function LocaleSwitcher() {
         const newUrl = segments.join('/')
         return router.push(newUrl)
     }
-    console.log(i18n.locales)
+    console.log(`locale`,i18n.locales)
 
     return (
         <Dropdown>

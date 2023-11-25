@@ -1,0 +1,14 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "about": "紹介"
+  },
+  "page": {
+    "home": {
+      "userInfo": "ユーザー情報",
+      "fullName": " グエン・ティ・ホン・ハ\t",
+      "imageInfo" : "https://i.pinimg.com/564x/cd/8f/5a/cd8f5ad8da5eaf8e00e77b08cb995306.jpg",
+      "studyAt" : "学校: F8 プログラミング学習"
+    }
+  }
+}
