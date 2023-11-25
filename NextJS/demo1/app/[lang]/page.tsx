@@ -15,7 +15,6 @@ const Home = async ({params: {lang}}: { params: { lang: Locale } }) => {
                   <p style={{margin: "20px 0px 0px 20px" }}> {page.home.fullName}</p>
                   <p  style={{margin: "20px 0px 0px 20px" }}>{page.home.studyAt}</p>
               </div>
-
           </div>
         </>
     );
