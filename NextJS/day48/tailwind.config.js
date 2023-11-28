@@ -1,7 +1,7 @@
-import type { Config } from 'tailwindcss'
 import {nextui} from "@nextui-org/react";
+import {next} from "sucrase/dist/types/parser/tokenizer";
 
-const config: Config = {
+const config = {
   content: [
     './node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js',
     "./node_modules/@nextui-org/theme/dist/components/button.js",
@@ -20,6 +20,11 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()]
+  // plugins: [nextui()],
+  plugins: [
+      nextui({
+        addCommonColors: true
+      })
+  ]
 }
 export default config
