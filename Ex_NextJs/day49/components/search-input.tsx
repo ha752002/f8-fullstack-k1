@@ -8,11 +8,11 @@ import {useRouter} from "next/navigation";
 const SearchInput = () => {
     const search = useRef<HTMLInputElement>(null);
     const router = useRouter();
-
     return (
         <form onSubmit={(e)=>{
             e.preventDefault();
-            router.push('/home')
+            console.log(search.current?.value)
+            router.push('/?q=' + search.current?.value)
         }}>
             <Input
                 aria-label="Search"
@@ -22,7 +22,7 @@ const SearchInput = () => {
                 }}
                 endContent={
                     <Kbd className="hidden lg:inline-block" keys={["command"]}>
-                        K
+                        HB
                     </Kbd>
                 }
                 ref={search}

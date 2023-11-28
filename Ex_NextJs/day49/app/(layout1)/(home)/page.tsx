@@ -3,18 +3,19 @@ import {apiClient} from "@/services/api";
 import useSWR from "swr";
 import Image from "next/image";
 import {Link} from "@nextui-org/link";
+import {useSearchParams} from "next/navigation";
 
 const fetcher = (url: string) => apiClient.get(url).then(res => res.data)
 const Home = () => {
-
-    const {data, error} = useSWR('/pages', (url) =>  apiClient.get(url).then(res => res.data))
+    const searchParam = useSearchParams();
+    const {data, error} = useSWR('/pages?q='+ searchParam.get('q'), (url) =>  apiClient.get(url).then(res => res.data))
     // console.log(`data`,data);
     // console.log(`error`,error);
     return (
         <>
             <div>
                 {
-                    data && data[0].destinationBox.map((destination: {
+                data && data.length > 0 && data[0].destinationBox.map((destination: {
                         h3: string;
                         p: string;
                         src: string;
