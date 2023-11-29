@@ -3,34 +3,36 @@ import {apiClient} from "@/services/api";
 import useSWR from "swr";
 import Image from "next/image";
 import {Link} from "@nextui-org/link";
-import {useSearchParams} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+import {TravelResponse} from "@/types";
+import {Button} from "@nextui-org/button";
+import NextLink from "next/link";
 
 const fetcher = (url: string) => apiClient.get(url).then(res => res.data)
 const Home = () => {
+    const router = useRouter();
     const searchParam = useSearchParams();
-    const {data, error} = useSWR('/pages?q='+ searchParam.get('q'), (url) =>  apiClient.get(url).then(res => res.data))
-    // console.log(`data`,data);
-    // console.log(`error`,error);
+    const {data, error} = useSWR('/api/travel?q=' + (searchParam?.get('q') ?? ""), (url) => apiClient.get(url).then(res => res.data))
+    console.log(data)
     return (
         <>
             <div>
                 {
-                data && data.length > 0 && data[0].destinationBox.map((destination: {
-                        h3: string;
-                        p: string;
-                        src: string;
-                        id: number;
-                    }) => (
-                        <div className="box" key={destination.id}>
-                            <Link href={`/product-detail/${destination.id}`}>
-                                <Image loader={(src) => `${process.env.NEXT_PUBLIC_API_IMG}${destination.src}`}
-                                          src={`${process.env.NEXT_PUBLIC_API_IMG}${destination.src}`}
-                                          alt={"Picture of the destinationBox"} width={200} height={200}/>
-                                <div className="content">
-                                    <h3><i className="fas fa-map-marker-alt"></i> {destination.h3}</h3>
-                                    <p>{destination.p}</p>
-                                </div>
-                            </Link>
+                    data && data.travels.length > 0 && data.travels.map((travel: TravelResponse) => (
+                        <div className="box" key={travel.id}>
+
+                            <Image loader={(src) => travel.thumbnail}
+                                   src={travel.thumbnail}
+                                   alt={"Picture of the destinationBox"} width={200} height={200}/>
+                            <div className="content">
+                                <h3><i className="fas fa-map-marker-alt"></i> {travel.title}</h3>
+                                <p>{travel.description}</p>
+                            </div>
+                            {/*<NextLink href={`/product-detail/[id]`} as={`/product-detail/${travel.id}`} >*/}
+                            <Button onClick={(e) => {
+                                router.push(`/product-detail/${travel.id}`);
+                            }} color={"success"}>Product detail</Button>
+                            {/*</NextLink>*/}
                         </div>
                     ))
                 }

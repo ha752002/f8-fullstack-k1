@@ -12,7 +12,6 @@ const axiosClient = axios.create(
             'Content-Type': 'application/json'
         };
         return {
-            baseURL: process.env.NEXT_PUBLIC_API_URL,
             headers
         }
     })()
