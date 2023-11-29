@@ -18,6 +18,7 @@ const Checkout = () => {
     return (
         data && <form ref={form} onSubmit={(e) => {
             e.preventDefault()
+            console.log(form.current)
             if (form.current) {
                 sendEmail(form.current)
             }
@@ -25,10 +26,13 @@ const Checkout = () => {
             <label>Name</label>
             <input type="text" name="user_name"/>
             <label>Email</label>
-            <input type="email" name="user_email"/>
-            <label>Message</label>
-            <textarea name="message"/>
-            <input type="submit" value="Send"/>
+            <input type="email" name="email"/>
+            <label>Destination</label>
+            <input type="text" name="destination" defaultValue={data.title}/>
+            <label>Price</label>
+            <input readOnly={true} name="price" defaultValue={data.price}/>
+            <input type="text" name="image" hidden={true} defaultValue={data.thumbnail}/>
+            <Button type="submit" color={"success"}>Send</Button>
         </form>
     );
 };
