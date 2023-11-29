@@ -6,14 +6,19 @@ import {Link} from "@nextui-org/link";
 import {useRouter, useSearchParams} from "next/navigation";
 import {TravelResponse} from "@/types";
 import {Button} from "@nextui-org/button";
-import NextLink from "next/link";
 
 const fetcher = (url: string) => apiClient.get(url).then(res => res.data)
 const Home = () => {
     const router = useRouter();
     const searchParam = useSearchParams();
-    const {data, error} = useSWR('/api/travel?q=' + (searchParam?.get('q') ?? ""), (url) => apiClient.get(url).then(res => res.data))
+    const {data, error, isLoading } = useSWR('/api/travel?q=' + (searchParam?.get('q') ?? ""), (url) => apiClient.get(url).then(res => res.data))
     console.log(data)
+    if (isLoading){
+        return <>...Loading</>
+    }
+    if (error){
+        return <>Error</>
+    }
     return (
         <>
             <div>

@@ -12,9 +12,15 @@ import {sendEmail} from "@/utils/email";
 const Checkout = () => {
     const params = useParams();
     const router = useRouter();
-    const {data, error} = useSWR('/api/travel/' + params?.id, (url) => apiClient.get(url).then(res => res.data))
+    const {data, error, isLoading} = useSWR('/api/travel/' + params?.id, (url) => apiClient.get(url).then(res => res.data))
     const form = useRef<HTMLFormElement>(null);
 
+    if (isLoading){
+        return <>...loading</>
+    }
+    if (error){
+        return <>Error</>
+    }
     return (
         data && <form ref={form} onSubmit={(e) => {
             e.preventDefault()

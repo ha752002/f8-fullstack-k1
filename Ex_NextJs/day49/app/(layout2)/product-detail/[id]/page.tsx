@@ -10,8 +10,14 @@ import {Button} from "@nextui-org/button";
 const ProductDetail = () => {
     const params = useParams();
     const router = useRouter();
-    const {data, error} = useSWR('/api/travel/' + params?.id, (url) =>  apiClient.get(url).then(res => res.data))
+    const {data, error, isLoading } = useSWR('/api/travel/' + params?.id, (url) =>  apiClient.get(url).then(res => res.data))
 
+    if (isLoading){
+        return <>...loading</>
+    }
+    if (error){
+        return <>Error</>
+    }
     return (
         data && <div className="box">
                 <Image loader={(src) => data.thumbnail}
