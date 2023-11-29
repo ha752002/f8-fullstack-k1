@@ -1,14 +1,15 @@
 "use client"
 
-import {useParams} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import useSWR from "swr";
 import {apiClient} from "@/services/api";
 import {Link} from "@nextui-org/link";
 import Image from "next/image";
+import {Button} from "@nextui-org/button";
 
 const ProductDetail = () => {
     const params = useParams();
-    console.log(params)
+    const router = useRouter();
     const {data, error} = useSWR('/api/travel/' + params?.id, (url) =>  apiClient.get(url).then(res => res.data))
 
     return (
@@ -20,6 +21,9 @@ const ProductDetail = () => {
                     <h3><i className="fas fa-map-marker-alt"></i> {data.title}</h3>
                     <p>{data.description}</p>
                 </div>
+            <Button onClick={(e) => {
+                router.push(`/checkout/${data.id}`);
+            }} color={"success"}>Checkout</Button>
         </div>
     );
 };

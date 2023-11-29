@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import {travels} from "@/pages/data/travel-data";
+import {travels} from "@/data/travel-data";
 import {ErrorResponse, TravelResponse, TravelsResponse} from "@/types";
 import {deAccent} from "@/utils/string-utils";
 
