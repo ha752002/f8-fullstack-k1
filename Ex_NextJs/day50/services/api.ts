@@ -13,7 +13,7 @@ const axiosClient = axios.create(
         };
         return {
             headers,
-            // baseURL:process.env.NEXT_PUBLIC_BASE_API_URL
+            baseURL: "https://f8-fullstack-k1-r1j9.vercel.app"
         }
     })()
 );
