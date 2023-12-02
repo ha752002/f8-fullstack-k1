@@ -1,4 +1,4 @@
-import _mongoose, { connect } from "mongoose";
+import _mongoose , { connect } from "mongoose";
 
 declare global {
     var mongoose: {
@@ -7,7 +7,7 @@ declare global {
     };
 }
 
-const MONGODB_URI = process.env.NEXT_PUBLIC_MONGO_DB_CONNECTION_STRING;
+const MONGODB_URI = process.env.NEXT_PUBLIC_MONGO_DB_CONNECTION_STRING as string;
 
 if (!MONGODB_URI || MONGODB_URI.length === 0) {
     throw new Error("Please add your MongoDB URI to .env.local");
