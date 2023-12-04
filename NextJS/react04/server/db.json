@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "333w",
+      "id": 4
+    },
+    {
+      "title": "22",
+      "id": 5
+    },
+    {
+      "title": "ok",
+      "id": 6
+    },
+    {
+      "title": "ok222",
+      "id": 7
+    },
+    {
+      "title": "ok222",
+      "id": 8
+    },
+    {
+      "title": "ok222",
+      "id": 9
+    },
+    {
+      "title": "ok222",
+      "id": 10
+    }
+  ]
+}

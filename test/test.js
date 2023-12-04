@@ -1,6 +1,6 @@
-function a(params) {
-    if(params != 5){
-        a(params + 1)
-    }
+var a = "a"
+if (!!!!!!!!!!!a) {
+    console.log(1);
+} else {
+    console.log(2);
 }
-a(1)

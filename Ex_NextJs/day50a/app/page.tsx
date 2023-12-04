@@ -12,10 +12,19 @@ export default function Home() {
     } = useSWR<Array<CatResponse>, string>("https://api.thecatapi.com/v1/images/search?limit=10",  async (url: string) => {
         const data = await fetch(url);
         return await data.json();
+    }, {
+        fallbackData: [
+            {
+                id: "48f",
+                url: "https://cdn2.thecatapi.com/images/48f.gif",
+                width: 317,
+                height: 198
+            },
+        ]
     });
-    if (isLoading) {
-        return <p>...Loadingggg</p>
-    }
+    // if (isLoading) {
+    //     return <p>...Loadingggg</p>
+    // }
     if (error) {
         return <p>{error}</p>
     }

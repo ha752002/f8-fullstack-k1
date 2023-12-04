@@ -6,6 +6,8 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import Image from "next/image";
+
 
 export const metadata: Metadata = {
 	title: {
@@ -46,6 +48,7 @@ export default function RootLayout({
 							{children}
 						</main>
 						<footer className="w-full flex items-center justify-center py-3">
+							<Image src="/test.jpg" alt={"hihi"} width={100} height={200}/>
 						</footer>
 					</div>
 				</Providers>

@@ -12,7 +12,7 @@ const Home = () => {
     const router = useRouter();
     const searchParam = useSearchParams();
     const {data, error, isLoading } = useSWR('/api/travel?q=' + (searchParam?.get('q') ?? ""), (url) => apiClient.get(url).then(res => res.data))
-    console.log(data)
+    // console.log(data)
     if (isLoading){
         return <>...Loading</>
     }
